@@ -3,6 +3,8 @@ name: Publish PSTA website
 on:
   push:
     branches: ["main"]
+    paths-ignore:
+      - "editorial/**"
   workflow_dispatch:
 
 permissions:
@@ -24,86 +26,90 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
-      - name: Assemble full PSTA site
+      - name: Assemble the complete PSTA site
         shell: bash
         run: |
           set -euo pipefail
           rm -rf deploy
           mkdir deploy
-          : > /tmp/psta-site.tar.xz
-          for f in site-full-text/part-00 site-full-text/part-01 site-full-text/part-02 site-full-text/part-03 site-full-text/part-04 site-full-text/part-05 site-full-text/part-06; do
-            base64 -d "$f" >> /tmp/psta-site.tar.xz
-          done
-          xz -t /tmp/psta-site.tar.xz
-          tar -xJf /tmp/psta-site.tar.xz -C deploy
-          if [ -d overrides ]; then cp -a overrides/. deploy/; fi
-
-          mkdir -p deploy/assets/img
           python3 - <<'PY'
-          from pathlib import Path
-          import base64, re
-          s = Path('site-build/logo-00.txt').read_text(encoding='utf-8', errors='ignore')
-          s = re.sub(r'[^A-Za-z0-9+/=]', '', s)
-          data = base64.b64decode(s, validate=False)
-          Path('deploy/assets/img/psta-logo-web.jpg').write_bytes(data)
-          Path('deploy/assets/img/psta-logo.jpg').write_bytes(data)
-          print('PSTA logo restored:', len(data), 'bytes')
-          PY
-
-          python3 - <<'PY'
+          from __future__ import annotations
+          import base64
+          import io
+          import re
+          import tarfile
+          import zipfile
           from pathlib import Path
 
-          replacements = {
-              'privacy/index.html': [
-                  ('Draft for launch review', 'Privacy and personal information'),
-                  ('This is a proportionate draft for the test site and needs approval by the academy’s data protection lead before public launch.', ''),
-                  ('The test build does not use analytics, advertising cookies, user accounts or an embedded contact form.', 'This website does not currently use advertising cookies, user accounts or an embedded contact form.')],
-              'contact/index.html': [
-                  ('This static test site deliberately uses email links rather than a third-party contact form. That keeps hosting simple and avoids collecting personal data through the site itself. A managed form can be added before launch if it is genuinely useful.', 'We use direct email links rather than an embedded third-party form, keeping contact simple and avoiding unnecessary collection of personal data through the website.')],
-              'policies/index.html': [
-                  ('Included in this test build', 'Website policies and assurance'),
-                  ('a concise notice for this static test site.', 'how this website handles personal information.'),
-                  ('Approved documents required before launch', 'Further organisational documents'),
-                  ('Before public launch, add or link the academy’s approved versions of:', 'PSTA also maintains organisational policies and statements including:')],
-              'accessibility/index.html': [
-                  ('Test build', 'Access for everyone'),
-                  ('The accessibility approach and current testing status for the Public Service Transformation Academy website.', 'How we are working to make the Public Service Transformation Academy website usable by as many people as possible.'),
-                  ('This statement describes the test build. Complete assisted-technology and user testing before replacing the current public site.', ''),
-                  ('Known work before launch', 'Ongoing accessibility work'),
-                  ('Before replacing the current public site, complete:', 'We continue to improve accessibility through:')]
-          }
+          parts = sorted(Path('site-full-text').glob('part-*'))
+          if not parts:
+              raise SystemExit('No complete-site bundle parts were found')
+          text = ''.join(path.read_text(encoding='utf-8', errors='ignore').strip() for path in parts)
+          candidates = []
+          clean = re.sub(r'[^A-Za-z0-9+/=]', '', text)
+          clean += '=' * (-len(clean) % 4)
+          try:
+              candidates.append(('base64', base64.b64decode(clean, validate=False)))
+          except Exception:
+              pass
+          candidates.append(('raw', text.encode('utf-8')))
 
-          for rel, pairs in replacements.items():
-              p = Path('deploy') / rel
-              if p.exists():
-                  text = p.read_text(encoding='utf-8')
-                  for old, new in pairs:
-                      text = text.replace(old, new)
-                  p.write_text(text, encoding='utf-8')
-
-          for p in Path('deploy').rglob('*.html'):
-              text = p.read_text(encoding='utf-8')
-              text = text.replace('<img src="/PSTA/assets/img/partners/redquadrant-logo.jpg" alt="RedQuadrant">', '<strong>RedQuadrant</strong>')
-              text = text.replace('<img src="/PSTA/assets/img/partners/basis-logo.png" alt="Basis – Changing the Change">', '<strong>Basis</strong>')
-              p.write_text(text, encoding='utf-8')
+          extracted = False
+          errors = []
+          for label, data in candidates:
+              try:
+                  with tarfile.open(fileobj=io.BytesIO(data), mode='r:*') as archive:
+                      root = Path('deploy').resolve()
+                      for member in archive.getmembers():
+                          destination = (root / member.name).resolve()
+                          if root != destination and root not in destination.parents:
+                              raise RuntimeError(f'Unsafe archive member: {member.name}')
+                      archive.extractall(root)
+                  print(f'Extracted the full site as a tar archive from {label} data')
+                  extracted = True
+                  break
+              except Exception as exc:
+                  errors.append(f'{label}/tar: {exc}')
+              try:
+                  with zipfile.ZipFile(io.BytesIO(data)) as archive:
+                      root = Path('deploy').resolve()
+                      for name in archive.namelist():
+                          destination = (root / name).resolve()
+                          if root != destination and root not in destination.parents:
+                              raise RuntimeError(f'Unsafe archive member: {name}')
+                      archive.extractall(root)
+                  print(f'Extracted the full site as a zip archive from {label} data')
+                  extracted = True
+                  break
+              except Exception as exc:
+                  errors.append(f'{label}/zip: {exc}')
+          if not extracted:
+              raise SystemExit('Could not reconstruct the complete site bundle:\n' + '\n'.join(errors))
           PY
+
+          if [ -d overrides ]; then
+            cp -a overrides/. deploy/
+          fi
+
+          python3 scripts/apply_feedback_iteration.py deploy
+          python3 scripts/build_news.py deploy
+          python3 scripts/apply_feedback_iteration.py deploy
 
           test -f deploy/index.html
           test -f deploy/assets/css/site.css
-          test -s deploy/assets/img/psta-logo-web.jpg
           test -f deploy/programmes/index.html
-          test -f deploy/tools/index.html
-          test -f deploy/in-house/index.html
-          test -f deploy/community/index.html
           test -f deploy/partners/index.html
-          test -f deploy/insights/index.html
-          test -f deploy/about/index.html
-          test -f deploy/contact/index.html
-          test -f deploy/iteration-notes-7d4f9c2b81e6a5/index.html
-          grep -q "Develop the people who have to make change work" deploy/index.html
-          count=$(find deploy -name index.html | wc -l)
-          echo "Published page count: $count"
-          test "$count" -ge 30
+          test -f deploy/news/index.html
+          test -f deploy/news/feed.xml
+          test -s deploy/assets/img/psta-logo-path.txt
+          test "$(find deploy -name index.html | wc -l)" -ge 30
+          grep -Rqi "2,500+ Academy and Programme graduates across public services" deploy
+          grep -Rqi "£2,490" deploy
+          grep -Rqi "Registered Social Enterprise" deploy
+          ! grep -Rqi "Choose by pressure" deploy
+          ! grep -Rqi "Lead partner RedQuadrant" deploy
+          ! grep -Rqi "Wider partner history" deploy
+          ! grep -RqiE "APACE|Fractal Consulting" deploy
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
