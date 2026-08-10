@@ -94,7 +94,6 @@ jobs:
           python3 scripts/apply_public_copy_offline.py deploy
           python3 scripts/build_news.py deploy
 
-          # Normalise omitted padding in the small pinned Nesta asset.
           python3 - <<'PY'
           from pathlib import Path
           import re
@@ -105,8 +104,6 @@ jobs:
           print('Nesta base64 characters:', len(text))
           PY
 
-          # This pass verifies the full 423x207 PSTA wordmark already stored in the
-          # complete site bundle and copies it to the stable public identity path.
           python3 scripts/final_public_fix_offline.py deploy
 
           test -f deploy/index.html
@@ -115,7 +112,8 @@ jobs:
           test -f deploy/partners/index.html
           test -f deploy/news/index.html
           test -f deploy/news/feed.xml
-          test -s deploy/assets/img/psta-logo-official.jpg
+          test -s deploy/assets/img/psta-logo-official.svg
+          grep -qi "public service" deploy/assets/img/psta-logo-official.svg
           test "$(find deploy -name index.html | wc -l)" -ge 30
           grep -qi "2,500+" deploy/index.html
           grep -Rqi "2,490" deploy
