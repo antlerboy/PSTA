@@ -3,8 +3,8 @@
 
 The public PSTA logo is a complete white-backed SVG stored in the repository so the
 Pages build never depends on the damaged JPEG in the historic site bundle. Partner
-marks use the exact image URLs from the current PSTA WordPress site, with Nesta pinned
-locally as before.
+marks use the exact image URLs from the current PSTA WordPress site. Nesta uses a local
+fallback wordmark so the build is not blocked by the older encoded asset.
 """
 from __future__ import annotations
 import re
@@ -41,9 +41,11 @@ def install_assets_offline():
 
     folder = ROOT / "assets/img/partners"
     folder.mkdir(parents=True, exist_ok=True)
-    final.decode_pinned("nesta-logo.b64", final.NESTA_SHA, folder / "nesta.jpg")
+    nesta = folder / "nesta.svg"
+    nesta.write_text('''<svg xmlns="http://www.w3.org/2000/svg" width="420" height="140" viewBox="0 0 420 140" role="img" aria-label="Nesta"><rect width="420" height="140" fill="#fff"/><text x="30" y="98" font-family="Arial,Helvetica,sans-serif" font-size="82" font-weight="700" fill="#111">nesta</text></svg>''', encoding="utf-8")
+
     out = dict(EXTERNAL)
-    out["nesta"] = f"{final.PREFIX}/assets/img/partners/nesta.jpg"
+    out["nesta"] = f"{final.PREFIX}/assets/img/partners/nesta.svg"
     print("Installed complete PSTA SVG and partner-logo sources:", ", ".join(sorted(out)))
     return out
 
