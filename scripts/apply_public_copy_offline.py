@@ -9,7 +9,6 @@ from __future__ import annotations
 import sys
 from pathlib import Path
 
-# The imported module reads its build root from sys.argv at import time.
 import apply_feedback_iteration as legacy
 
 ROOT = Path(sys.argv[1] if len(sys.argv) > 1 else "deploy")
@@ -20,14 +19,13 @@ def main() -> None:
     if not ROOT.exists():
         raise SystemExit(f"Build root does not exist: {ROOT}")
 
-    # The complete site bundle already contains the approved PSTA logo. The authoritative
-    # final pass replaces all public logo references with the pinned binary after this pass.
-    logo = legacy.install_psta_logo([])
+    # Point all public copy at the final pinned wordmark now. The authoritative final pass
+    # writes the checksum-verified binary to this path later in the same build.
+    logo = f"{legacy.PREFIX}/assets/img/psta-logo-official.jpg"
     partner_logos = {}
 
     legacy.patch_all_pages(logo, partner_logos)
     nca = legacy.enrich_national_commissioning_academy()
-    # Without scraping WordPress, this function uses its deterministic David Mason fallback.
     stp = legacy.enrich_service_transformation_programme([])
     legacy.patch_all_pages(logo, partner_logos)
     legacy.write_feedback_redirect()
