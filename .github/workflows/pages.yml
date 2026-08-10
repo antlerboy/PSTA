@@ -30,10 +30,8 @@ jobs:
           set -euo pipefail
           rm -rf deploy
           mkdir deploy
-          : > /tmp/psta-site.tar.xz
-          for f in site-bundle-xz/part-00 site-bundle-xz/part-01 site-bundle-xz/part-02 site-bundle-xz/part-03 site-bundle-xz/part-04 site-bundle-xz/part-05; do
-            base64 -d "$f" >> /tmp/psta-site.tar.xz
-          done
+          cat site-bundle-xz/part-00 site-bundle-xz/part-01 site-bundle-xz/part-02 site-bundle-xz/part-03 site-bundle-xz/part-04 site-bundle-xz/p05-0 site-bundle-xz/p05-1 > /tmp/psta-site.b64
+          base64 -d /tmp/psta-site.b64 > /tmp/psta-site.tar.xz
           tar -xJf /tmp/psta-site.tar.xz -C deploy
           if [ -d overrides ]; then cp -a overrides/. deploy/; fi
           python3 - <<'PY'
