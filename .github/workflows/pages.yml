@@ -52,7 +52,7 @@ jobs:
               candidates.append(('base64', base64.b64decode(clean, validate=False)))
           except Exception:
               pass
-          candidates.append(('raw', text.encode('utf-8'))
+          candidates.append(('raw', text.encode('utf-8')))
 
           extracted = False
           errors = []
