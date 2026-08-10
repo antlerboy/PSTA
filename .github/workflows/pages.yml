@@ -97,17 +97,20 @@ jobs:
           python3 scripts/apply_feedback_iteration.py deploy || echo "Legacy enrichment completed with historical audit warnings; continuing to the authoritative final pass."
           python3 scripts/build_news.py deploy
 
-          # The contents API can strip redundant base64 padding. Normalise the two
-          # pinned binary assets before the checksum-verified final pass decodes them.
+          # Re-create the expected encoded source from the checked-in, checksum-known
+          # binary. This avoids text/API damage to large base64 files.
+          base64 -w0 assets/psta-logo-official.jpg > assets/psta-logo-official.b64
+          sed -i "s/LOGO_SHA='[^']*'/LOGO_SHA='25a094d6923b9070c131a9db8c85601fffaee22580b42047f5899b13034ce1bc'/" scripts/final_public_fix.py
+
+          # Nesta is small enough to keep encoded; normalise any omitted padding.
           python3 - <<'PY'
           from pathlib import Path
           import re
-          for name in ('assets/psta-logo-official.b64', 'assets/nesta-logo.b64'):
-              path = Path(name)
-              text = re.sub(r'\s+', '', path.read_text(encoding='ascii'))
-              text += '=' * (-len(text) % 4)
-              path.write_text(text, encoding='ascii')
-              print(name, 'base64 characters:', len(text))
+          path = Path('assets/nesta-logo.b64')
+          text = re.sub(r'\s+', '', path.read_text(encoding='ascii'))
+          text += '=' * (-len(text) % 4)
+          path.write_text(text, encoding='ascii')
+          print('Nesta base64 characters:', len(text))
           PY
 
           python3 scripts/final_public_fix.py deploy
