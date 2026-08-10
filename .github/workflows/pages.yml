@@ -91,14 +91,8 @@ jobs:
             cp -a overrides/. deploy/
           fi
 
-          # Apply the public-copy and programme iteration without scraping the old site.
           python3 scripts/apply_public_copy_offline.py deploy
           python3 scripts/build_news.py deploy
-
-          # Re-create the encoded PSTA logo source from the checked-in binary. This
-          # makes the final pass checksum-verifiable without storing a huge text blob.
-          base64 -w0 assets/psta-logo-official.jpg > assets/psta-logo-official.b64
-          sed -i "s/LOGO_SHA='[^']*'/LOGO_SHA='25a094d6923b9070c131a9db8c85601fffaee22580b42047f5899b13034ce1bc'/" scripts/final_public_fix.py
 
           # Normalise omitted padding in the small pinned Nesta asset.
           python3 - <<'PY'
@@ -111,9 +105,8 @@ jobs:
           print('Nesta base64 characters:', len(text))
           PY
 
-          # Final identity and partner pass. It is deterministic and does not download
-          # anything during the build; the six WordPress partner image URLs are embedded
-          # directly, while the PSTA and current Nesta marks are pinned in the repository.
+          # This pass verifies the full 423x207 PSTA wordmark already stored in the
+          # complete site bundle and copies it to the stable public identity path.
           python3 scripts/final_public_fix_offline.py deploy
 
           test -f deploy/index.html
