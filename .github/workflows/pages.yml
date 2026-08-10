@@ -30,14 +30,16 @@ jobs:
           set -euo pipefail
           rm -rf deploy
           mkdir deploy
-          cat site-bundle-xz/part-00 site-bundle-xz/part-01 site-bundle-xz/part-02 site-bundle-xz/part-03 site-bundle-xz/part-04 site-bundle-xz/p05-0 site-bundle-xz/p05-1a site-bundle-xz/p05-1b site-bundle-xz/p05-2a site-bundle-xz/p05-2b site-bundle-xz/p05-3a site-bundle-xz/p05-3b > /tmp/psta-site.b64
-          base64 -d /tmp/psta-site.b64 > /tmp/psta-site.tar.xz
+          : > /tmp/psta-site.tar.xz
+          for f in site-full-text/part-00 site-full-text/part-01 site-full-text/part-02 site-full-text/part-03 site-full-text/part-04 site-full-text/part-05 site-full-text/part-06; do
+            base64 -d "$f" >> /tmp/psta-site.tar.xz
+          done
           xz -t /tmp/psta-site.tar.xz
           tar -xJf /tmp/psta-site.tar.xz -C deploy
           if [ -d overrides ]; then cp -a overrides/. deploy/; fi
+
           mkdir -p deploy/assets/img
-          if [ -f site-build/logo-00.txt ]; then
-            python3 - <<'PY'
+          python3 - <<'PY'
           from pathlib import Path
           import base64, re
           s = Path('site-build/logo-00.txt').read_text(encoding='utf-8', errors='ignore')
@@ -47,9 +49,10 @@ jobs:
           Path('deploy/assets/img/psta-logo.jpg').write_bytes(data)
           print('PSTA logo restored:', len(data), 'bytes')
           PY
-          fi
+
           python3 - <<'PY'
           from pathlib import Path
+
           replacements = {
               'privacy/index.html': [
                   ('Draft for launch review', 'Privacy and personal information'),
@@ -69,20 +72,38 @@ jobs:
                   ('Known work before launch', 'Ongoing accessibility work'),
                   ('Before replacing the current public site, complete:', 'We continue to improve accessibility through:')]
           }
+
           for rel, pairs in replacements.items():
               p = Path('deploy') / rel
-              if not p.exists():
-                  continue
+              if p.exists():
+                  text = p.read_text(encoding='utf-8')
+                  for old, new in pairs:
+                      text = text.replace(old, new)
+                  p.write_text(text, encoding='utf-8')
+
+          for p in Path('deploy').rglob('*.html'):
               text = p.read_text(encoding='utf-8')
-              for old, new in pairs:
-                  text = text.replace(old, new)
+              text = text.replace('<img src="/PSTA/assets/img/partners/redquadrant-logo.jpg" alt="RedQuadrant">', '<strong>RedQuadrant</strong>')
+              text = text.replace('<img src="/PSTA/assets/img/partners/basis-logo.png" alt="Basis – Changing the Change">', '<strong>Basis</strong>')
               p.write_text(text, encoding='utf-8')
           PY
+
           test -f deploy/index.html
           test -f deploy/assets/css/site.css
           test -s deploy/assets/img/psta-logo-web.jpg
           test -f deploy/programmes/index.html
+          test -f deploy/tools/index.html
+          test -f deploy/in-house/index.html
+          test -f deploy/community/index.html
           test -f deploy/partners/index.html
+          test -f deploy/insights/index.html
+          test -f deploy/about/index.html
+          test -f deploy/contact/index.html
+          test -f deploy/iteration-notes-7d4f9c2b81e6a5/index.html
+          grep -q "Develop the people who have to make change work" deploy/index.html
+          count=$(find deploy -name index.html | wc -l)
+          echo "Published page count: $count"
+          test "$count" -ge 30
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
