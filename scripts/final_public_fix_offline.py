@@ -50,6 +50,22 @@ def install_assets_offline():
     return out
 
 
+_original_patch_pages = final.patch_pages
+
+def patch_pages_offline():
+    _original_patch_pages()
+    home = ROOT / "index.html"
+    if home.exists():
+        s = home.read_text(encoding="utf-8", errors="ignore")
+        s = re.sub(r"1,500\+", "2,500+", s, flags=re.I)
+        s = re.sub(r"(?:National\s+)?Commissioning Academy graduates across public services", "Academy and Programme graduates across public services", s, flags=re.I)
+        if "2,500+" not in s or "Academy and Programme graduates across public services" not in s:
+            marker = "</main>"
+            block = '<section class="section"><div class="shell"><div class="credibility-item"><strong>2,500+</strong><span>Academy and Programme graduates across public services</span></div></div></section>'
+            s = s.replace(marker, block + marker, 1) if marker in s else s + block
+        home.write_text(s, encoding="utf-8")
+
+
 def audit_offline(logos):
     fail = []
     logo = ROOT / "assets/img/psta-logo-official.svg"
@@ -91,6 +107,7 @@ def css_fix_offline():
 
 
 final.install_assets = install_assets_offline
+final.patch_pages = patch_pages_offline
 final.audit = audit_offline
 final.css_fix = css_fix_offline
 
