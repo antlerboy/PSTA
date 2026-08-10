@@ -32,23 +32,53 @@ jobs:
           mkdir deploy
           python3 - <<'PY'
           from pathlib import Path
-          import base64, re
+          import base64, lzma, string
           parts = [
               'site-bundle-xz/part-00','site-bundle-xz/part-01','site-bundle-xz/part-02',
               'site-bundle-xz/part-03','site-bundle-xz/part-04','site-bundle-xz/p05-0','site-bundle-xz/p05-1'
           ]
-          s = ''.join(Path(p).read_text(encoding='utf-8', errors='ignore') for p in parts)
-          bad = sorted(set(re.sub(r'[A-Za-z0-9+/=\r\n\t ]','',s)))
-          print('encoded chars:', len(s), 'unexpected chars:', repr(''.join(bad)))
-          clean = re.sub(r'[^A-Za-z0-9+/=]','',s)
-          clean += '=' * (-len(clean) % 4)
-          data = base64.b64decode(clean, validate=False)
+          s = ''.join(Path(p).read_text(encoding='utf-8', errors='ignore').strip() for p in parts)
+          alphabet = string.ascii_letters + string.digits + '+/'
+          if s.count('.') == 1:
+              i = s.index('.')
+              repaired = None
+              for c in alphabet:
+                  candidate = s[:i] + c + s[i+1:]
+                  try:
+                      raw = base64.b64decode(candidate, validate=True)
+                      lzma.decompress(raw)
+                      repaired = (c, raw)
+                      break
+                  except Exception:
+                      pass
+              if repaired is None:
+                  raise SystemExit('Could not repair the single corrupted base64 character')
+              c, data = repaired
+              print('Repaired encoded bundle character at', i, 'with', c)
+          else:
+              data = base64.b64decode(s, validate=True)
+              lzma.decompress(data)
           Path('/tmp/psta-site.tar.xz').write_bytes(data)
           print('decoded bytes:', len(data), 'magic:', data[:6].hex())
           PY
-          xz -t /tmp/psta-site.tar.xz
           tar -xJf /tmp/psta-site.tar.xz -C deploy
           if [ -d overrides ]; then cp -a overrides/. deploy/; fi
+          mkdir -p deploy/assets/img
+          if [ -f site-build/logo-00.txt ]; then
+            python3 - <<'PY'
+          from pathlib import Path
+          import base64, re
+          s = Path('site-build/logo-00.txt').read_text(encoding='utf-8', errors='ignore')
+          s = re.sub(r'[^A-Za-z0-9+/=]', '', s)
+          try:
+              data = base64.b64decode(s, validate=False)
+              Path('deploy/assets/img/psta-logo-web.jpg').write_bytes(data)
+              Path('deploy/assets/img/psta-logo.jpg').write_bytes(data)
+              print('PSTA logo restored:', len(data), 'bytes')
+          except Exception as e:
+              print('Logo restore skipped:', e)
+          PY
+          fi
           python3 - <<'PY'
           from pathlib import Path
           replacements = {
@@ -81,7 +111,7 @@ jobs:
           PY
           test -f deploy/index.html
           test -f deploy/assets/css/site.css
-          test -f deploy/assets/img/psta-logo-web.jpg
+          test -s deploy/assets/img/psta-logo-web.jpg
           test -f deploy/programmes/index.html
           test -f deploy/partners/index.html
 
