@@ -52,7 +52,7 @@ jobs:
               candidates.append(('base64', base64.b64decode(clean, validate=False)))
           except Exception:
               pass
-          candidates.append(('raw', text.encode('utf-8')))
+          candidates.append(('raw', text.encode('utf-8'))
 
           extracted = False
           errors = []
@@ -91,18 +91,16 @@ jobs:
             cp -a overrides/. deploy/
           fi
 
-          # This older pass still supplies the wider copy and programme enrichment.
-          # Its historical global audit is deliberately non-authoritative: the final
-          # pass below owns the actual public identity and partner checks.
-          python3 scripts/apply_feedback_iteration.py deploy || echo "Legacy enrichment completed with historical audit warnings; continuing to the authoritative final pass."
+          # Apply the public-copy and programme iteration without scraping the old site.
+          python3 scripts/apply_public_copy_offline.py deploy
           python3 scripts/build_news.py deploy
 
-          # Re-create the expected encoded source from the checked-in, checksum-known
-          # binary. This avoids text/API damage to large base64 files.
+          # Re-create the encoded PSTA logo source from the checked-in binary. This
+          # makes the final pass checksum-verifiable without storing a huge text blob.
           base64 -w0 assets/psta-logo-official.jpg > assets/psta-logo-official.b64
           sed -i "s/LOGO_SHA='[^']*'/LOGO_SHA='25a094d6923b9070c131a9db8c85601fffaee22580b42047f5899b13034ce1bc'/" scripts/final_public_fix.py
 
-          # Nesta is small enough to keep encoded; normalise any omitted padding.
+          # Normalise omitted padding in the small pinned Nesta asset.
           python3 - <<'PY'
           from pathlib import Path
           import re
@@ -113,7 +111,10 @@ jobs:
           print('Nesta base64 characters:', len(text))
           PY
 
-          python3 scripts/final_public_fix.py deploy
+          # Final identity and partner pass. It is deterministic and does not download
+          # anything during the build; the six WordPress partner image URLs are embedded
+          # directly, while the PSTA and current Nesta marks are pinned in the repository.
+          python3 scripts/final_public_fix_offline.py deploy
 
           test -f deploy/index.html
           test -f deploy/assets/css/site.css
