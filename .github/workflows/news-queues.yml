@@ -1,0 +1,44 @@
+name: Refresh PSTA editorial queues
+
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - "content/news/**"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: psta-editorial-queues
+  cancel-in-progress: true
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 2
+
+      - name: Build the social and newsletter queues
+        run: |
+          set -euo pipefail
+          rm -rf /tmp/psta-news-queue-build
+          mkdir -p /tmp/psta-news-queue-build
+          python3 scripts/build_news.py /tmp/psta-news-queue-build
+
+      - name: Commit a changed queue
+        run: |
+          set -euo pipefail
+          git config user.name "PSTA editorial queue"
+          git config user.email "actions@users.noreply.github.com"
+          git add editorial/social-queue.json editorial/newsletter-queue.csv
+          if git diff --cached --quiet; then
+            echo "Editorial queues are already current"
+          else
+            git commit -m "Refresh PSTA editorial queues"
+            git push origin main
+          fi

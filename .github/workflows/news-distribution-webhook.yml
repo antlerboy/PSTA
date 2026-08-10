@@ -1,0 +1,26 @@
+name: Distribute newly published PSTA news
+
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - "content/news/**"
+
+permissions:
+  contents: read
+
+jobs:
+  distribute:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Send to the optional distribution webhook
+        env:
+          NEWS_DISTRIBUTION_WEBHOOK_URL: ${{ secrets.NEWS_DISTRIBUTION_WEBHOOK_URL }}
+          BEFORE_SHA: ${{ github.event.before }}
+          AFTER_SHA: ${{ github.sha }}
+        run: python3 scripts/send_news_webhook.py

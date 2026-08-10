@@ -1,0 +1,73 @@
+name: Publish a PSTA news item
+description: Publish one approved item to the PSTA website, RSS feed, social queue, and newsletter queue.
+title: "[Publish news] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form only when the copy is ready to publish. Opening the issue publishes it automatically. Use the running website feedback issue for rough ideas or drafts.
+  - type: input
+    id: public_title
+    attributes:
+      label: Public title
+      description: A clear, public-facing headline.
+      placeholder: The next National Commissioning Academy launches in September 2026
+    validations:
+      required: true
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: One or two sentences for the news index, RSS, and newsletter queue.
+    validations:
+      required: true
+  - type: textarea
+    id: full_story
+    attributes:
+      label: Full story
+      description: Use plain Markdown. Write for the public, not as an internal note.
+    validations:
+      required: true
+  - type: input
+    id: primary_link
+    attributes:
+      label: Primary link
+      description: Optional programme, booking, tool, or source link.
+      placeholder: https://...
+  - type: input
+    id: author
+    attributes:
+      label: Author
+      placeholder: The PSTA
+  - type: input
+    id: publication_date
+    attributes:
+      label: Publication date
+      description: Leave blank to use today's date. Otherwise use YYYY-MM-DD.
+      placeholder: 2026-09-01
+  - type: textarea
+    id: suggested_social_post
+    attributes:
+      label: Suggested social post
+      description: Optional. If blank, the summary is used.
+  - type: checkboxes
+    id: social_channels
+    attributes:
+      label: Social channels
+      description: These selections are passed to the distribution webhook and Buffer workflow.
+      options:
+        - label: RedQuadrant LinkedIn
+        - label: The PSTA LinkedIn
+        - label: Quadrant Resourcing LinkedIn
+        - label: Benjamin's LinkedIn
+        - label: Benjamin's X / Twitter
+        - label: Other connected Buffer channels
+  - type: dropdown
+    id: newsletter
+    attributes:
+      label: Include in the newsletter queue
+      options:
+        - "Yes"
+        - "No"
+    validations:
+      required: true
