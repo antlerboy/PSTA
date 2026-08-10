@@ -1,0 +1,1 @@
+Deployment corrected 2026-08-10. GitHub Pages workflow and public entry point added.
