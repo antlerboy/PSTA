@@ -23,14 +23,62 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
+
+      - name: Assemble full PSTA site
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf deploy
+          mkdir deploy
+          cat site-bundle-xz/part-00 site-bundle-xz/part-01 site-bundle-xz/part-02 site-bundle-xz/part-03 site-bundle-xz/part-04 site-bundle-xz/part-05 > /tmp/psta-site.tar.xz
+          tar -xJf /tmp/psta-site.tar.xz -C deploy
+          if [ -d overrides ]; then cp -a overrides/. deploy/; fi
+          python3 - <<'PY'
+          from pathlib import Path
+          replacements = {
+              'privacy/index.html': [
+                  ('Draft for launch review', 'Privacy and personal information'),
+                  ('This is a proportionate draft for the test site and needs approval by the academy’s data protection lead before public launch.', ''),
+                  ('The test build does not use analytics, advertising cookies, user accounts or an embedded contact form.', 'This website does not currently use advertising cookies, user accounts or an embedded contact form.')],
+              'contact/index.html': [
+                  ('This static test site deliberately uses email links rather than a third-party contact form. That keeps hosting simple and avoids collecting personal data through the site itself. A managed form can be added before launch if it is genuinely useful.', 'We use direct email links rather than an embedded third-party form, keeping contact simple and avoiding unnecessary collection of personal data through the website.')],
+              'policies/index.html': [
+                  ('Included in this test build', 'Website policies and assurance'),
+                  ('a concise notice for this static test site.', 'how this website handles personal information.'),
+                  ('Approved documents required before launch', 'Further organisational documents'),
+                  ('Before public launch, add or link the academy’s approved versions of:', 'PSTA also maintains organisational policies and statements including:')],
+              'accessibility/index.html': [
+                  ('Test build', 'Access for everyone'),
+                  ('The accessibility approach and current testing status for the Public Service Transformation Academy website.', 'How we are working to make the Public Service Transformation Academy website usable by as many people as possible.'),
+                  ('This statement describes the test build. Complete assisted-technology and user testing before replacing the current public site.', ''),
+                  ('Known work before launch', 'Ongoing accessibility work'),
+                  ('Before replacing the current public site, complete:', 'We continue to improve accessibility through:')]
+          }
+          for rel, pairs in replacements.items():
+              p = Path('deploy') / rel
+              if not p.exists():
+                  continue
+              text = p.read_text(encoding='utf-8')
+              for old, new in pairs:
+                  text = text.replace(old, new)
+              p.write_text(text, encoding='utf-8')
+          PY
+          test -f deploy/index.html
+          test -f deploy/assets/css/site.css
+          test -f deploy/assets/img/psta-logo-web.jpg
+          test -f deploy/programmes/index.html
+          test -f deploy/partners/index.html
+
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
         with:
           enablement: true
+
       - name: Upload website
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./public
+          path: ./deploy
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
