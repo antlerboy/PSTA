@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """Run the final PSTA identity and partner pass without network downloads.
 
-The public PSTA logo is a complete white-backed SVG stored in the repository so the
-Pages build never depends on the damaged JPEG in the historic site bundle. Partner
-marks use the exact image URLs from the current PSTA WordPress site. Nesta uses a local
-fallback wordmark so the build is not blocked by the older encoded asset.
+The public PSTA header logo is a complete full-colour SVG stored in the repository,
+and the footer uses the approved transparent white PNG from the company brand assets.
+Partner marks use the exact image URLs from the current PSTA WordPress site. Nesta
+uses a local fallback wordmark so the build is not blocked by the older encoded asset.
 """
 from __future__ import annotations
 import re
@@ -37,6 +37,12 @@ def install_assets_offline():
     target.parent.mkdir(parents=True, exist_ok=True)
     shutil.copyfile(source, target)
     final.LOGO = f"{final.PREFIX}/assets/img/psta-logo-official.svg"
+
+    white_source = REPO / "assets/psta-logo-white.png"
+    if not white_source.exists():
+        raise SystemExit("The approved white PSTA footer logo is missing")
+    shutil.copyfile(white_source, ROOT / "assets/img/psta-logo-white.png")
+    final.FOOTER_LOGO = f"{final.PREFIX}/assets/img/psta-logo-white.png"
     (ROOT / "assets/img/psta-logo-path.txt").write_text(final.LOGO, encoding="utf-8")
 
     folder = ROOT / "assets/img/partners"
@@ -69,8 +75,11 @@ def patch_pages_offline():
 def audit_offline(logos):
     fail = []
     logo = ROOT / "assets/img/psta-logo-official.svg"
+    footer_logo = ROOT / "assets/img/psta-logo-white.png"
     if not logo.exists() or "public service" not in logo.read_text(encoding="utf-8").lower():
         fail.append("complete PSTA SVG logo missing")
+    if not footer_logo.exists():
+        fail.append("approved white PSTA footer logo missing")
 
     p = ROOT / "partners/index.html"
     t = p.read_text(encoding="utf-8") if p.exists() else ""
@@ -89,6 +98,9 @@ def audit_offline(logos):
         fail.append("2,500+ statistic missing")
     if "Lead partner RedQuadrant" in allhtml or "twitter-white.png" in allhtml:
         fail.append("old identity wording or asset remains")
+    footer_blocks = re.findall(r'<div\s+class=["\']footer-logo["\'][^>]*>.*?</div>', allhtml, flags=re.I | re.S)
+    if not footer_blocks or any(final.FOOTER_LOGO not in block for block in footer_blocks):
+        fail.append("footer does not use the white PSTA logo")
     if fail:
         raise SystemExit("Final public-site audit failed:\n- " + "\n- ".join(fail))
     print(f"Final audit passed; partner image sources {len(logos)}/7")

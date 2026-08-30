@@ -119,6 +119,7 @@ jobs:
           test -f deploy/news/index.html
           test -f deploy/news/feed.xml
           test -s deploy/assets/img/psta-logo-official.svg
+          test -s deploy/assets/img/psta-logo-white.png
           grep -qi "public service" deploy/assets/img/psta-logo-official.svg
           test "$(find deploy -name index.html | wc -l)" -ge 30
           grep -qi "2,500+" deploy/index.html
@@ -145,7 +146,8 @@ jobs:
           grep -q "Commissioning Compass question" deploy/assets/js/easter-eggs.js
           grep -q '.announcement{background:var(--psta-dark)!important}' deploy/assets/css/site.css
           grep -q '.cta-panel{background:var(--cyan-wash)!important' deploy/assets/css/site.css
-          grep -q 'assets/css/site.css?v=20260830-3' deploy/index.html
+          grep -q 'assets/css/site.css?v=20260830-4' deploy/index.html
+          grep -q 'assets/img/psta-logo-white.png' deploy/index.html
           ! grep -qiE "APACE|Fractal Consulting|Alliance for Useful Evidence|wider partner history" deploy/partners/index.html
           test ! -d deploy/partners/apace
           test ! -d deploy/partners/fractal-consulting
