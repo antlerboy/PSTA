@@ -105,11 +105,13 @@ jobs:
           PY
 
           python3 scripts/final_public_fix_offline.py deploy
+          python3 scripts/add_latest_panel.py deploy
           python3 scripts/add_easter_eggs.py deploy
 
           test -f deploy/index.html
           test -f deploy/404.html
           test -f deploy/assets/css/site.css
+          test -f deploy/assets/css/latest-panel.css
           test -f deploy/assets/css/easter-eggs.css
           test -f deploy/assets/js/easter-eggs.js
           test -f deploy/programmes/index.html
@@ -120,6 +122,9 @@ jobs:
           grep -qi "public service" deploy/assets/img/psta-logo-official.svg
           test "$(find deploy -name index.html | wc -l)" -ge 30
           grep -qi "2,500+" deploy/index.html
+          grep -q "Latest news and social media" deploy/index.html
+          grep -q "Three things worth a look" deploy/index.html
+          grep -q "Try the Commissioning Compass" deploy/index.html
           grep -Rqi "2,490" deploy
           grep -Rqi "Registered Social Enterprise" deploy
           grep -qi "Formal partners" deploy/partners/index.html
