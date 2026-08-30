@@ -105,9 +105,13 @@ jobs:
           PY
 
           python3 scripts/final_public_fix_offline.py deploy
+          python3 scripts/add_easter_eggs.py deploy
 
           test -f deploy/index.html
+          test -f deploy/404.html
           test -f deploy/assets/css/site.css
+          test -f deploy/assets/css/easter-eggs.css
+          test -f deploy/assets/js/easter-eggs.js
           test -f deploy/programmes/index.html
           test -f deploy/partners/index.html
           test -f deploy/news/index.html
@@ -124,6 +128,11 @@ jobs:
           grep -qi "The Social Innovation Partnership" deploy/partners/index.html
           grep -qi "LocalGov Digital" deploy/partners/index.html
           grep -qi "Browne Jacobson" deploy/partners/index.html
+          grep -q "You appear to be at the learning edge." deploy/404.html
+          grep -q "Return to what I thought I knew" deploy/404.html
+          grep -q "Show me something unexpected" deploy/404.html
+          grep -q "Going round in circles is diagnostic information." deploy/assets/js/easter-eggs.js
+          grep -q "Commissioning Compass question" deploy/assets/js/easter-eggs.js
           ! grep -qiE "APACE|Fractal Consulting|Alliance for Useful Evidence|wider partner history" deploy/partners/index.html
           test ! -d deploy/partners/apace
           test ! -d deploy/partners/fractal-consulting
