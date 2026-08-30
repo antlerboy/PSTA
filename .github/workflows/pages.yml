@@ -145,6 +145,7 @@ jobs:
           grep -q "Commissioning Compass question" deploy/assets/js/easter-eggs.js
           grep -q '.announcement{background:var(--psta-dark)!important}' deploy/assets/css/site.css
           grep -q '.cta-panel{background:var(--cyan-wash)!important' deploy/assets/css/site.css
+          grep -q 'assets/css/site.css?v=20260830-3' deploy/index.html
           ! grep -qiE "APACE|Fractal Consulting|Alliance for Useful Evidence|wider partner history" deploy/partners/index.html
           test ! -d deploy/partners/apace
           test ! -d deploy/partners/fractal-consulting

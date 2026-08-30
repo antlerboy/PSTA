@@ -8,6 +8,7 @@ from urllib.error import URLError, HTTPError
 ROOT=Path(sys.argv[1] if len(sys.argv)>1 else 'deploy')
 REPO=Path(__file__).resolve().parents[1]
 PREFIX='/PSTA'; FEEDBACK='https://github.com/antlerboy/PSTA/issues/2'
+ASSET_VERSION='20260830-3'
 LOGO=f'{PREFIX}/assets/img/psta-logo-official.jpg'
 LOGO_SHA='bd6bcb8ba0f83684095826bb77e2b49a7ad2b710e65053305bf4f1e6df1b0db7'
 NESTA_SHA='54baa8698dbe1cb1772532bedd174084d06e6485cb152a8831645529485486c8'
@@ -80,6 +81,7 @@ def partners_page(logos):
 def patch_pages():
     for p in ROOT.rglob('*.html'):
         s=p.read_text(encoding='utf-8',errors='ignore')
+        s=re.sub(r'(?<=href=["\'])/PSTA/assets/css/site\.css(?:\?v=[^"\']*)?',f'{PREFIX}/assets/css/site.css?v={ASSET_VERSION}',s,flags=re.I)
         s=re.sub(r'(?<=src=["\'])(?:/PSTA)?/assets/img/psta-logo[^"\']*',LOGO,s,flags=re.I)
         s=s.replace('https://www.publicservicetransformation.org/wp-content/uploads/2017/11/twitter-white.png',LOGO)
         s=re.sub(r'<a\b[^>]*class=["\'][^"\']*footer-partner-logo[^"\']*["\'][^>]*>.*?</a>','',s,flags=re.I|re.S)
