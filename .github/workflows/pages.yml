@@ -122,8 +122,13 @@ jobs:
           grep -qi "public service" deploy/assets/img/psta-logo-official.svg
           test "$(find deploy -name index.html | wc -l)" -ge 30
           grep -qi "2,500+" deploy/index.html
-          grep -q "Latest news and social media" deploy/index.html
-          grep -q "Three things worth a look" deploy/index.html
+          grep -q "News, social media, and useful things" deploy/index.html
+          grep -q "Latest from the PSTA" deploy/index.html
+          test "$(grep -c '<section class="section psta-latest-panel"' deploy/index.html)" -eq 1
+          ! grep -q "PSTA_NEWS_START" deploy/index.html
+          ! grep -q "PSTA_NCA_2026" deploy/index.html
+          ! grep -q "Discuss a place with David Mason" deploy/index.html
+          grep -q "PSTA_NCA_2026" deploy/programmes/national-commissioning-academy/index.html
           grep -q "Try the Commissioning Compass" deploy/index.html
           grep -Rqi "2,490" deploy
           grep -Rqi "Registered Social Enterprise" deploy

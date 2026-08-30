@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import html
 import json
+import re
 import sys
 from pathlib import Path
 from urllib.parse import urlparse
@@ -17,13 +18,13 @@ HOME_PATH = ROOT / "index.html"
 PREFIX = "/PSTA/"
 
 CSS = r"""
-/* Curated PSTA latest panel, adapted from the RedQuadrant home-page pattern. */
+/* One PSTA-native home-page panel for news, social posts, and useful resources. */
 .psta-latest-panel {
-  width: min(1120px, calc(100% - 2rem));
-  margin: 3.5rem auto 2.5rem;
-  padding: 2rem;
-  border-top: 4px solid #7b1f37;
-  background: #f7f4f2;
+  background: var(--wash, #f3f6ff);
+}
+.psta-latest-inner {
+  width: min(calc(100% - 40px), var(--shell, 1180px));
+  margin: auto;
 }
 .psta-latest-panel-heading {
   display: grid;
@@ -34,7 +35,7 @@ CSS = r"""
 }
 .psta-latest-panel .psta-latest-eyebrow {
   margin: 0 0 .35rem;
-  color: #7b1f37;
+  color: var(--blue, #0d19ff);
   font-size: .78rem;
   font-weight: 700;
   letter-spacing: .08em;
@@ -60,12 +61,20 @@ CSS = r"""
   min-height: 15rem;
   flex-direction: column;
   padding: 1.25rem;
-  border: 1px solid rgba(0,0,0,.12);
+  border: 1px solid var(--line, #d9dce6);
+  border-top: .4rem solid var(--blue, #0d19ff);
+  border-radius: 18px;
   background: #fff;
+}
+.psta-latest-grid article:nth-child(2) {
+  border-top-color: var(--light, #33b2ff);
+}
+.psta-latest-grid article:nth-child(3) {
+  border-top-color: var(--gold, #ff8000);
 }
 .psta-latest-source {
   margin: 0 0 .65rem;
-  color: #7b1f37;
+  color: var(--blue, #0d19ff);
   font-size: .76rem;
   font-weight: 700;
   letter-spacing: .06em;
@@ -98,6 +107,11 @@ CSS = r"""
     min-height: 0;
   }
 }
+@media (max-width: 760px) {
+  .psta-latest-inner {
+    width: min(calc(100% - 28px), var(--shell, 1180px));
+  }
+}
 """
 
 
@@ -106,7 +120,7 @@ def load_items() -> list[dict[str, str]]:
     if not isinstance(data, list) or len(data) != 3:
         raise SystemExit("content/latest.json must contain exactly three items")
 
-    required = {"source", "title", "summary", "href"}
+    required = {"source", "title", "summary", "href", "topic"}
     items: list[dict[str, str]] = []
     for index, raw in enumerate(data, start=1):
         if not isinstance(raw, dict) or not required.issubset(raw):
@@ -115,6 +129,12 @@ def load_items() -> list[dict[str, str]]:
         if not all(item.values()):
             raise SystemExit(f"Latest item {index} contains an empty value")
         items.append(item)
+    topics = [str(raw["topic"]).strip().casefold() for raw in data]
+    hrefs = [item["href"].casefold() for item in items]
+    if len(set(topics)) != len(topics):
+        raise SystemExit("Latest items must cover three different topics")
+    if len(set(hrefs)) != len(hrefs):
+        raise SystemExit("Latest items must use three different links")
     return items
 
 
@@ -142,7 +162,7 @@ def render_panel(items: list[dict[str, str]]) -> str:
             f'</article>'
         )
 
-    return f'''\n<section class="psta-latest-panel" aria-labelledby="psta-latest-heading">\n  <div class="psta-latest-panel-heading">\n    <div>\n      <p class="psta-latest-eyebrow">Latest news and social media</p>\n      <h2 id="psta-latest-heading">Three things worth a look</h2>\n    </div>\n    <p>Selected for relevance, not simply whatever was posted last.</p>\n  </div>\n  <div class="psta-latest-grid">\n    {''.join(cards)}\n  </div>\n</section>\n'''
+    return f'''\n<section class="section psta-latest-panel" aria-labelledby="psta-latest-heading">\n  <div class="psta-latest-inner">\n    <div class="psta-latest-panel-heading">\n      <div>\n        <p class="psta-latest-eyebrow">News, social media, and useful things</p>\n        <h2 id="psta-latest-heading">Latest from the PSTA</h2>\n      </div>\n      <p>Three current things selected for relevance, each on a different topic.</p>\n    </div>\n    <div class="psta-latest-grid">\n      {''.join(cards)}\n    </div>\n  </div>\n</section>\n'''
 
 
 def patch_home(items: list[dict[str, str]]) -> None:
@@ -162,7 +182,11 @@ def patch_home(items: list[dict[str, str]]) -> None:
 
     panel = render_panel(items)
     lower = markup.lower()
-    if "</main>" in lower:
+    cta_match = re.search(r'<section\b[^>]*class=["\'][^"\']*\bcta-panel\b', markup, flags=re.I)
+    if cta_match:
+        position = cta_match.start()
+        markup = markup[:position] + panel + markup[position:]
+    elif "</main>" in lower:
         position = lower.rfind("</main>")
         markup = markup[:position] + panel + markup[position:]
     elif "</body>" in lower:

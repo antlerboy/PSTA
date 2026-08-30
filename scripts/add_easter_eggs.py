@@ -28,10 +28,14 @@ RESOURCE_WEIGHTS = {
     "commissioning": 1,
 }
 EXCLUDED_TOP_LEVEL = {
+    "404",
+    "accessibility",
     "about",
     "contact",
     "news",
     "partners",
+    "policies",
+    "privacy",
     "programmes",
     "privacy-policy",
     "iteration-notes-7d4f9c2b81e6a5",

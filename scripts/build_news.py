@@ -333,13 +333,17 @@ def build_queues(repo_root: Path, items: List[NewsItem]) -> None:
     editorial.mkdir(parents=True, exist_ok=True)
     social_rows = []
     for item in items:
+        try:
+            source = item.source.relative_to(repo_root).as_posix()
+        except ValueError:
+            source = item.source.as_posix()
         social_rows.append({
             "date": item.date,
             "title": item.title,
             "url": item.url,
             "post": item.social,
             "channels": item.channels,
-            "source": str(item.source),
+            "source": source,
             "status": "queued",
         })
     (editorial / "social-queue.json").write_text(json.dumps(social_rows, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
@@ -363,7 +367,8 @@ def main() -> None:
     build_index(root, items)
     build_rss(root, items)
     add_news_to_navigation(root)
-    add_latest_to_home(root, items)
+    # The curated home-page panel owns the single public 'latest' section.
+    # News remains available through the panel, the news index, and RSS.
     build_queues(repo_root, items)
     print(f"Built {len(items)} news item(s)")
 

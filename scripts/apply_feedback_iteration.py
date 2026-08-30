@@ -437,7 +437,10 @@ def insert_marked_section(path: Path, marker: str, section: str) -> None:
     text = path.read_text(encoding="utf-8")
     text = re.sub(rf"<!-- {re.escape(marker)}_START -->.*?<!-- {re.escape(marker)}_END -->", "", text, flags=re.S)
     marked = f"<!-- {marker}_START -->\n{section}\n<!-- {marker}_END -->"
-    if "</main>" in text:
+    cta = re.search(r'<section\b[^>]*class=["\'][^"\']*\bcta-panel\b', text, flags=re.I)
+    if cta:
+        text = text[:cta.start()] + marked + "\n" + text[cta.start():]
+    elif "</main>" in text:
         text = text.replace("</main>", marked + "\n</main>", 1)
     else:
         text = text.replace("</body>", marked + "\n</body>", 1)
@@ -445,8 +448,8 @@ def insert_marked_section(path: Path, marker: str, section: str) -> None:
 
 
 def enrich_national_commissioning_academy() -> Optional[Path]:
-    page = find_page(("National Commissioning Academy", "100-day plan", "Cabinet Office"), excluded_parts=("news", "partners"))
-    if not page:
+    page = ROOT / "programmes" / "national-commissioning-academy" / "index.html"
+    if not page.exists():
         print("National Commissioning Academy page not found for enrichment")
         return None
     section = f'''<section class="section section-wash" id="september-2026-cohort">
@@ -458,7 +461,7 @@ def enrich_national_commissioning_academy() -> Optional[Path]:
         <h3>Bring a live challenge and leave with practical action</h3>
         <p>The National Commissioning Academy combines anchor days, webinars and expert sessions, action learning, peer challenge, a national network, and a practical 100-day plan. It is for commissioners, transformation leads, and colleagues whose work shapes services, partnerships, systems, markets, or outcomes.</p>
         <p>The launch webinar is on <strong>Monday 14 September 2026, 10:00–12:30</strong>. The first full anchor day is on <strong>Wednesday 23 September 2026, 10:00–16:30</strong>. The main programme is expected to run to February 2027.</p>
-        <p><a class="button button-gold" href="mailto:david.mason@publicservicetransformation.org?subject=National%20Commissioning%20Academy%20September%202026">Discuss a place with David Mason</a></p>
+        <p><a class="button button-gold" href="mailto:david.mason@publicservicetransformation.org?subject=National%20Commissioning%20Academy%20September%202026">Register interest</a></p>
       </div>
       <div class="feature-meta">
         <h3>How the learning works</h3>

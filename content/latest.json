@@ -1,18 +1,21 @@
 [
   {
-    "source": "PSTA news",
+    "topic": "national-commissioning-academy-2026",
+    "source": "The PSTA news",
     "title": "The National Commissioning Academy returns in September 2026",
     "summary": "The next national cohort brings together commissioners, transformation leads, and system partners for applied learning from September 2026 to February 2027.",
     "href": "/PSTA/news/2026-08-10-national-commissioning-academy-september-2026/"
   },
   {
-    "source": "PSTA on LinkedIn",
-    "title": "National Commissioning Academy: September 2026",
-    "summary": "The flagship cohort is forming now for commissioners and change-makers working on live public-service challenges across whole systems.",
-    "href": "https://www.linkedin.com/posts/the-public-service-transformation-academy_flyer-activity-7467115339848269826-UZ7_"
+    "topic": "local-government-reorganisation",
+    "source": "Benjamin Taylor on LinkedIn",
+    "title": "LGR success depends on what happens after vesting day",
+    "summary": "Simon Higgins on capacity, operating model, culture, and what a new council must be able to do once the immediate reorganisation is complete.",
+    "href": "https://www.linkedin.com/posts/antlerboy_localgovernment-lgr-publicservicetransformation-activity-7485626198312693762-87-P"
   },
   {
-    "source": "PSTA tool",
+    "topic": "commissioning-compass",
+    "source": "The PSTA tool",
     "title": "Try the Commissioning Compass",
     "summary": "A free systems assessment for change, covering whole-system design, relationships, capability, outcomes, information, constraints, the commissioning process, and practical tactics.",
     "href": "https://link.redquadrant.com/commissioningcompass"

@@ -22,7 +22,7 @@ Detailed instructions:
 
 ## Latest news and social media
 
-The home-page `Latest news and social media` panel is editorial rather than simply chronological. Keep exactly three strong current items in `content/latest.json`, drawing from PSTA news, PSTA social media, current programmes, and genuinely useful PSTA tools or resources. Prefer relevance to live PSTA work over raw recency, and replace items when they stop being timely.
+The home-page `Latest from the PSTA` panel is editorial rather than simply chronological. Keep exactly three strong current items in `content/latest.json`, drawing from the PSTA's news and social media, current programmes, and genuinely useful tools or resources. Give every item a distinct `topic`; the build rejects repeated topics and repeated links. Prefer relevance to live PSTA work over raw recency, and replace items when they stop being timely.
 
 ## Build structure
 
