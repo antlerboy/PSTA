@@ -20,9 +20,13 @@ Detailed instructions:
 - `docs/NEWS_AND_SOCIAL_PUBLISHING.md`
 - `content/news/README.md`
 
+## Latest news and social media
+
+The home-page `Latest news and social media` panel is editorial rather than simply chronological. Keep exactly three strong current items in `content/latest.json`, drawing from PSTA news, PSTA social media, current programmes, and genuinely useful PSTA tools or resources. Prefer relevance to live PSTA work over raw recency, and replace items when they stop being timely.
+
 ## Build structure
 
-The Pages workflow reconstructs the complete multi-page site from `site-full-text/`, applies files in `overrides/`, runs the public-copy and partner audit, builds news, checks the result, and publishes the `deploy/` directory.
+The Pages workflow reconstructs the complete multi-page site from `site-full-text/`, applies files in `overrides/`, runs the public-copy and partner audit, builds news, adds the curated latest panel and Easter eggs, checks the result, and publishes the `deploy/` directory.
 
 The build enforces the public naming rules, the corrected partner structure, the official logo, the footer company details, and a minimum complete-site page count. A failure blocks publication rather than silently reverting to a mini site.
 
