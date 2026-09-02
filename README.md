@@ -2,10 +2,10 @@
 
 The complete static website for the Public Service Transformation Academy, published through GitHub Pages.
 
-- Live site: https://antlerboy.github.io/PSTA/
+- Live site: https://www.publicservicetransformation.org/
 - Running website feedback: https://github.com/antlerboy/PSTA/issues/2
-- News index: https://antlerboy.github.io/PSTA/news/
-- RSS feed: https://antlerboy.github.io/PSTA/news/feed.xml
+- News index: https://www.publicservicetransformation.org/news/
+- RSS feed: https://www.publicservicetransformation.org/news/feed.xml
 - Deployment workflow: `.github/workflows/pages.yml`
 
 ## Editing routes
@@ -26,8 +26,8 @@ The home-page `Latest from the PSTA` panel is editorial rather than simply chron
 
 ## Build structure
 
-The Pages workflow reconstructs the complete multi-page site from `site-full-text/`, applies files in `overrides/`, runs the public-copy and partner audit, builds news, adds the curated latest panel and Easter eggs, checks the result, and publishes the `deploy/` directory.
+The Pages workflow reconstructs the complete multi-page site from `site-full-text/`, applies files in `overrides/`, runs the public-copy and partner pass, builds news, adds the curated latest panel and Easter eggs, applies the production-domain launch pass, audits the result, and publishes the `deploy/` directory.
 
-The build enforces the public naming rules, the corrected partner structure, the official logo, the footer company details, and a minimum complete-site page count. A failure blocks publication rather than silently reverting to a mini site.
+The build enforces the public naming rules, partner structure, official logo, footer company details, production paths, search indexing, metadata, accessibility structure, legacy redirects, and internal-link integrity. A failure blocks publication rather than silently reverting to an incomplete or broken site.
 
-Internal links currently use the GitHub project path `/PSTA/`. Rebuild or replace that prefix before moving the same files to a root custom domain.
+Source material can retain the historical GitHub project prefix. The final launch pass converts it to root-domain paths and writes the production `CNAME`, `robots.txt`, and sitemap.

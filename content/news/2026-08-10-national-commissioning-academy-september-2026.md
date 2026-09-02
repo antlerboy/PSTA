@@ -9,7 +9,7 @@ newsletter: yes
 draft: false
 ---
 
-The next National Commissioning Academy launches with an online session on Monday 14 September 2026, followed by the first full anchor day on Wednesday 23 September. The main programme is expected to run through to February 2027.
+The next National Commissioning Academy launches with an online session on Monday 14 September 2026, followed by the first full anchor day on Wednesday 23 September. The main programme runs through to February 2027.
 
 This is not technical procurement training. The National Commissioning Academy is for people who need to shape services, partnerships, systems, markets, and outcomes in difficult conditions. It combines practical commissioning methods with systems thinking, leadership, peer challenge, and action on a live issue from each participant's own organisation or place.
 

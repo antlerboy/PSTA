@@ -2,9 +2,9 @@
 
 ## What this is
 
-This repository contains the rebuilt multi-page website for the Public Service Transformation Academy. It is currently published as a GitHub Pages test site at:
+This repository contains the production multi-page website for the Public Service Transformation Academy. It is published through GitHub Pages at:
 
-https://antlerboy.github.io/PSTA/
+https://www.publicservicetransformation.org/
 
 The intention is to give the PSTA a public site that is easier to maintain, clearer about what we actually offer, and much less dependent on one person manually editing WordPress.
 
@@ -16,17 +16,17 @@ Please review the site as a public website, rather than as an internal strategy 
 
 The highest-priority pages are:
 
-- Home: https://antlerboy.github.io/PSTA/
-- Programmes: https://antlerboy.github.io/PSTA/programmes/
-- The National Commissioning Academy: https://antlerboy.github.io/PSTA/programmes/national-commissioning-academy/
-- The Service Transformation Programme: https://antlerboy.github.io/PSTA/programmes/service-transformation-programme/
-- In-house work: https://antlerboy.github.io/PSTA/in-house/
-- Tools: https://antlerboy.github.io/PSTA/tools/
-- Community: https://antlerboy.github.io/PSTA/community/
-- Partners: https://antlerboy.github.io/PSTA/partners/
-- News: https://antlerboy.github.io/PSTA/news/
-- About: https://antlerboy.github.io/PSTA/about/
-- Contact: https://antlerboy.github.io/PSTA/contact/
+- Home: https://www.publicservicetransformation.org/
+- Programmes: https://www.publicservicetransformation.org/programmes/
+- The National Commissioning Academy: https://www.publicservicetransformation.org/programmes/national-commissioning-academy/
+- The Service Transformation Programme: https://www.publicservicetransformation.org/programmes/service-transformation-programme/
+- In-house work: https://www.publicservicetransformation.org/in-house/
+- Tools: https://www.publicservicetransformation.org/tools/
+- Community: https://www.publicservicetransformation.org/community/
+- Partners: https://www.publicservicetransformation.org/partners/
+- News: https://www.publicservicetransformation.org/news/
+- About: https://www.publicservicetransformation.org/about/
+- Contact: https://www.publicservicetransformation.org/contact/
 
 Please check programme facts, dates, prices, contact routes, partner descriptions, claims and evidence, and anything that sounds like an internal conversation rather than public copy.
 
@@ -53,9 +53,6 @@ Formal partners:
 - E3M
 - Nesta
 - The Social Innovation Partnership (TSIP)
-
-Programme and delivery collaborators:
-
 - RedQuadrant
 - Basis
 
@@ -64,7 +61,7 @@ Informal partner relationships:
 - LocalGov Digital
 - Browne Jacobson
 
-APACE and Fractal Consulting are not to appear as current partners. 'Alliance for Useful Evidence' is not to be used as the name for Nesta. The public page should use logos and distinguish these relationship types rather than presenting every historic relationship as equivalent.
+APACE and Fractal Consulting are not to appear as current partners. 'Alliance for Useful Evidence' is not to be used as the name for Nesta. The public page should identify each organisation clearly and distinguish formal from informal relationships rather than presenting every historic relationship as equivalent.
 
 If any of these statuses are wrong or have changed, add the correction to the feedback thread rather than directly editing the generated partners page.
 
@@ -136,7 +133,7 @@ Our actual newsletter route is SurveyMonkey, so the next integration should be S
 
 Every published news item also enters the RSS feed:
 
-https://antlerboy.github.io/PSTA/news/feed.xml
+https://www.publicservicetransformation.org/news/feed.xml
 
 This gives us a simple machine-readable feed that can be reused by other sites, internal tools, syndication, or future automation without rebuilding the editorial process again.
 
@@ -169,7 +166,7 @@ This keeps review notes, public publishing, and technical changes separate.
 
 ## The National Commissioning Academy
 
-The current page has been expanded using the current September 2026 marketing material. It should show the September 2026 to February 2027 cohort, the launch webinar, the first anchor day, the applied five-cycle design, 100-day plans, participant evidence, a £2,490 individual fee, group/host discounts, and David as the principal contact.
+The current page has been expanded using the current September 2026 marketing material. It should show the September 2026 to February 2027 cohort, the launch webinar, the first anchor day, the applied five-cycle design, 100-day plans, participant evidence, a £2,490 individual fee, group/host discounts, and a clear enquiry route. David is named in context on the contact page.
 
 Please check all of these against what you are actually selling now. If any date or commercial term has changed, say so in issue #2 and we will make the public source canonical rather than allowing several different leaflets to drift apart.
 
@@ -203,9 +200,8 @@ At the time of writing, these are the remaining operational choices rather than 
 2. Connect the `NEWS_DISTRIBUTION_WEBHOOK_URL` to the chosen automation service and map the actual Buffer profiles.
 3. Decide the desired Buffer policy: drafts by default, queued posts by default, or different rules for different accounts.
 4. Connect or define the SurveyMonkey newsletter step. The website queue exists; automatic SurveyMonkey drafting/sending does not.
-5. Decide when this GitHub Pages version is good enough to replace the existing public site.
-6. At cut-over, decide the production domain and rewrite the current `/PSTA/` project-path links for a root custom domain.
-7. Decide whether the old WordPress site becomes an archive, redirects into the new site, or is retired completely.
+
+The production domain, root-path conversion, search-indexing files, and high-value legacy redirects are now part of the tested release build.
 
 ## What David should not need to do
 
@@ -217,7 +213,7 @@ If the operating system starts requiring you to understand the machinery underne
 
 ## Useful links
 
-Live test site: https://antlerboy.github.io/PSTA/
+Live site: https://www.publicservicetransformation.org/
 
 Running feedback: https://github.com/antlerboy/PSTA/issues/2
 

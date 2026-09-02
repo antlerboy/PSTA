@@ -76,7 +76,7 @@ def main() -> None:
             "channels": [part.strip() for part in meta.get("channels", "").split(",") if part.strip()],
             "newsletter": meta.get("newsletter", "yes").lower() in {"yes", "true", "1"},
             "primary_link": meta.get("primary_link", ""),
-            "website_url": f"https://antlerboy.github.io/PSTA/news/{slug}/",
+            "website_url": f"https://www.publicservicetransformation.org/news/{slug}/",
             "social_queue_url": "https://github.com/antlerboy/PSTA/blob/main/editorial/social-queue.json",
             "newsletter_queue_url": "https://github.com/antlerboy/PSTA/blob/main/editorial/newsletter-queue.csv",
         })

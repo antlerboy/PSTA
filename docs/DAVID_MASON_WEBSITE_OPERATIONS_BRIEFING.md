@@ -1,8 +1,8 @@
 # The PSTA website: operations briefing for David Mason
 
-**Status:** working production website and publishing system  
+**Status:** production website and publishing system
 **Prepared:** 10 August 2026  
-**Public site:** https://antlerboy.github.io/PSTA/  
+**Public site:** https://www.publicservicetransformation.org/
 **Repository:** https://github.com/antlerboy/PSTA
 
 This briefing is for David to review the website itself and understand how the operational machinery works: feedback, content changes, news publication, social distribution, newsletter staging, deployment, access, and recovery when something goes wrong.
@@ -33,10 +33,10 @@ For the September 2026 National Commissioning Academy, the current source materi
 
 - launch webinar: **Monday 14 September 2026, 10:00–12:30**;
 - first full anchor day: **Wednesday 23 September 2026, 10:00–16:30**;
-- expected programme period: **September 2026 to February 2027**;
+- programme period: **September 2026 to February 2027**;
 - price: **£2,490 per participant**;
 - discounts: available for bookings of three or more and for organisations willing to host an anchor day; and
-- primary programme contact: **david.mason@publicservicetransformation.org**.
+- public application and question route: **info@publicservicetransformation.org**. David is named in context on the contact page.
 
 Do not invent or infer dates, fees, availability, accreditation, evidence claims, partner status, or contact routes for other programmes. If the source is unclear, flag it.
 
@@ -49,9 +49,6 @@ The partner page is deliberately explicit about different kinds of relationship.
 - E3M
 - Nesta
 - The Social Innovation Partnership
-
-**Programme and delivery collaborators**
-
 - RedQuadrant
 - Basis
 
@@ -62,7 +59,7 @@ The partner page is deliberately explicit about different kinds of relationship.
 
 APACE and Fractal Consulting are not listed as partners. Some programme history may still accurately say that a product or programme was developed with an organisation. That is provenance, not current partner status. If even those historical attributions should be removed, put that decision in the feedback thread rather than silently rewriting the history.
 
-The partner logos are pinned or collected into the site build rather than hot-linked in the published HTML. This reduces the chance of a partner website change breaking the PSTA site.
+The partner page uses self-contained typographic identifiers rather than hot-linked assets. This prevents the production-domain cut-over or a partner website change from breaking the page.
 
 ## The main sections
 
@@ -160,7 +157,7 @@ The queue contains the publication date, title, summary, public URL, author, and
 
 **It does not currently send or construct a SurveyMonkey newsletter automatically.** That is deliberate for now: a website news item and a composed newsletter are different editorial acts. The useful next automation is to turn queued items into a SurveyMonkey draft or an intermediate editorial queue, while leaving final selection, ordering, and sending under human control.
 
-The RSS feed at https://antlerboy.github.io/PSTA/news/feed.xml can also feed downstream tools if useful.
+The RSS feed at https://www.publicservicetransformation.org/news/feed.xml can also feed downstream tools if useful.
 
 ## What actually gets edited
 
@@ -225,7 +222,7 @@ The production workflow is intended to refuse deployment if key conditions are w
 - the homepage must contain the 2,500+ graduate figure;
 - the National Commissioning Academy content must include the current £2,490 fee;
 - company information must say Registered Social Enterprise;
-- the partners page must contain E3M, Nesta, The Social Innovation Partnership, LocalGov Digital, and Browne Jacobson;
+- the partners page must contain E3M, Nesta, The Social Innovation Partnership, RedQuadrant, Basis, LocalGov Digital, and Browne Jacobson;
 - APACE, Fractal Consulting, Alliance for Useful Evidence, and ‘wider partner history’ must not appear on the partner page;
 - APACE and Fractal Consulting partner-profile directories must not exist;
 - ‘Lead partner RedQuadrant’ must not remain in the public site; and
@@ -291,10 +288,10 @@ Do not treat them as primary content; they are rebuilt from the news sources.
 
 ## Current operational links
 
-- Public website: https://antlerboy.github.io/PSTA/
-- Partner page: https://antlerboy.github.io/PSTA/partners/
-- News: https://antlerboy.github.io/PSTA/news/
-- RSS: https://antlerboy.github.io/PSTA/news/feed.xml
+- Public website: https://www.publicservicetransformation.org/
+- Partner page: https://www.publicservicetransformation.org/partners/
+- News: https://www.publicservicetransformation.org/news/
+- RSS: https://www.publicservicetransformation.org/news/feed.xml
 - Repository: https://github.com/antlerboy/PSTA
 - Actions/deployments: https://github.com/antlerboy/PSTA/actions
 - Running feedback: https://github.com/antlerboy/PSTA/issues/2
@@ -347,6 +344,6 @@ The core website, feedback route, news source, RSS, queues, and deployment mecha
 3. map the actual Buffer profiles for RedQuadrant, the PSTA, Quadrant Resourcing, and Benjamin's accounts;
 4. decide whether social items should land as drafts, queued posts, or scheduled posts — drafts/queue are safer initially;
 5. decide how far to automate transfer from `newsletter-queue.csv` into SurveyMonkey while retaining final editorial control; and
-6. after the website is signed off, decide when to move `www.publicservicetransformation.org` to this build.
+6. keep the `www.publicservicetransformation.org` DNS mapping under review and verify it after any hosting change.
 
 There is also a maintainability job worth doing after content and design settle. The website works, but the non-news base currently lives as a reconstructed static archive plus overrides and transformation scripts. That is robust enough for iteration but not the cleanest long-term editing model for David. News is already easy to publish. The next technical tidy-up should turn the ordinary pages into straightforward source files or a small static-site content system, while retaining GitHub Pages, the issue-based publishing route, the feedback thread, and the deployment checks.

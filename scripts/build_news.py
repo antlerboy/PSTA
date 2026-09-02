@@ -15,8 +15,8 @@ from pathlib import Path
 from typing import Dict, Iterable, List
 from urllib.parse import quote
 
-SITE_URL = "https://antlerboy.github.io/PSTA"
-SITE_PREFIX = "/PSTA"
+SITE_URL = "https://www.publicservicetransformation.org"
+SITE_PREFIX = ""
 FEEDBACK_URL = "https://github.com/antlerboy/PSTA/issues/2"
 
 

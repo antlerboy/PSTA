@@ -63,7 +63,7 @@ People comfortable with Markdown may add a file directly to `content/news/`. Use
 
 ## Public routes
 
-- News index: `https://antlerboy.github.io/PSTA/news/`
-- RSS feed: `https://antlerboy.github.io/PSTA/news/feed.xml`
+- News index: `https://www.publicservicetransformation.org/news/`
+- RSS feed: `https://www.publicservicetransformation.org/news/feed.xml`
 - Social queue: `editorial/social-queue.json`
 - Newsletter queue: `editorial/newsletter-queue.csv`
