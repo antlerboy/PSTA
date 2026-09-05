@@ -247,7 +247,7 @@ def main() -> None:
     nca = (ROOT / "programmes/national-commissioning-academy/index.html").read_text(encoding="utf-8", errors="ignore")
     evidence = (ROOT / "commissioning-academy/testimonials/index.html").read_text(encoding="utf-8", errors="ignore")
     for text, label in [
-        ("Applications are open for the September 2026 cohort", "home-page application message"),
+        ("Applications are open for the November 2026 cohort", "home-page application message"),
         ("Read more participant experiences", "home-page proof link"),
         ("2,500+", "graduate evidence"),
     ]:
@@ -256,8 +256,8 @@ def main() -> None:
     for text, label in [
         ("£2,490", "current National Commissioning Academy price"),
         ("Apply or ask a question", "National Commissioning Academy action"),
-        ("14 September 2026", "launch webinar date"),
-        ("23 September 2026", "first anchor-day date"),
+        ("10 November 2026", "launch webinar date"),
+        ("revised anchor-day dates", "anchor-day dates awaiting confirmation"),
     ]:
         if text not in nca:
             failures.append(f"missing {label}")
