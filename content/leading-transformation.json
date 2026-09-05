@@ -1,0 +1,167 @@
+{
+  "title": "Leading Transformation",
+  "modules": [
+    {
+      "number": 1,
+      "group": "Leading transformation",
+      "title": "Introduction and overview",
+      "description": "The five worlds, outcomes, Seven Ways to Save and Improve, and a hundred-day plan."
+    },
+    {
+      "number": 2,
+      "group": "Leading transformation",
+      "title": "Transformation and the possibilities of organisations",
+      "description": "Purpose, hierarchy, distributed leadership, accountability, and the possibilities of organisational life."
+    },
+    {
+      "number": 3,
+      "group": "Leading transformation",
+      "title": "System leadership: purpose and measures",
+      "description": "Shared purpose, technical and adaptive challenges, viable systems, and measures that inform action."
+    },
+    {
+      "number": 4,
+      "group": "Leading transformation",
+      "title": "Leading in complexity: the uses of power",
+      "description": "Power, commitment, contracting, action inquiry, and leading change without complete control."
+    },
+    {
+      "number": 5,
+      "group": "Being a transformation agent",
+      "title": "People in systems",
+      "description": "Relationships, adult development, resilience, and support for the change practitioner."
+    },
+    {
+      "number": 6,
+      "group": "Being a transformation agent",
+      "title": "The limits of methods",
+      "description": "Consulting judgement, assumptions, context, and learning by trying ideas in the real world."
+    },
+    {
+      "number": 7,
+      "group": "Being a transformation agent",
+      "title": "Mapping systems",
+      "description": "Rich pictures, soft systems, system dynamics, archetypes, and the uses and limits of diagrams."
+    },
+    {
+      "number": 8,
+      "group": "Management world",
+      "title": "Understanding organisations",
+      "description": "Service views, organisational maturity, business models, and the Viable System Model."
+    },
+    {
+      "number": 9,
+      "group": "Management world",
+      "title": "Designing organisations",
+      "description": "Service architecture, operating models, delegation, roles, tasks, and decision authority."
+    },
+    {
+      "number": 10,
+      "group": "Management world",
+      "title": "Shaping culture",
+      "description": "Understanding culture and working on the conditions that reproduce it."
+    },
+    {
+      "number": 11,
+      "group": "Citizen world and demand",
+      "title": "Citizen and customer insight",
+      "description": "Purpose, needs, co-design, journey mapping, listening, focus groups, and customer safaris."
+    },
+    {
+      "number": 12,
+      "group": "Citizen world and demand",
+      "title": "Behavioural insight and strengths-based approaches",
+      "description": "Behaviour, community assets, strengths, and Positive Deviance."
+    },
+    {
+      "number": 13,
+      "group": "Citizen world and demand",
+      "title": "Understanding demand",
+      "description": "Demand analysis, provision and supply, and the fit between a need and a service channel."
+    },
+    {
+      "number": 14,
+      "group": "Service world",
+      "title": "Understanding and designing services",
+      "description": "Seven Ways to Save and Improve, activity and process analysis, Resource Optimisation, and service design."
+    },
+    {
+      "number": 15,
+      "group": "Service world",
+      "title": "Cost analysis and building the business case",
+      "description": "Activity-based costing, options, and a business case that connects resources to the work."
+    },
+    {
+      "number": 16,
+      "group": "Service world",
+      "title": "A deep dive into lean",
+      "description": "Purpose, flow, respect for people, A3 thinking, waste, inquiry, and the risks of applying tools mechanically."
+    },
+    {
+      "number": 17,
+      "group": "Change and learning: making progress",
+      "title": "Prototyping",
+      "description": "Principles and practical approaches for testing service changes through rapid prototypes."
+    },
+    {
+      "number": 18,
+      "group": "Change and learning: making progress",
+      "title": "Delivering change",
+      "description": "Readiness, appreciative timelines, Breaking the Shell, project and risk management, and learning loops."
+    },
+    {
+      "number": 19,
+      "group": "Change and learning: making progress",
+      "title": "Communications and stakeholder management",
+      "description": "Listening, vision, objections, stakeholder mapping, and working in a political setting."
+    },
+    {
+      "number": 20,
+      "group": "Change and learning: sustaining the work",
+      "title": "Understanding people",
+      "description": "Responses to threat and reward, and practical ways of engaging people through change."
+    },
+    {
+      "number": 21,
+      "group": "Change and learning: sustaining the work",
+      "title": "Managing change positively",
+      "description": "Appreciative Inquiry, action learning, force-field analysis, and constructive conversations."
+    },
+    {
+      "number": 22,
+      "group": "Change and learning: sustaining the work",
+      "title": "Embedding change",
+      "description": "Ownership, process management, benefits, outcomes, and the distinction between targets and useful measures."
+    },
+    {
+      "number": 23,
+      "group": "Change and learning: sustaining the work",
+      "title": "Strategy and change",
+      "description": "Learning, Patterns of Strategy, scenarios, whole-system processes, commissioning, and delivery arrangements."
+    },
+    {
+      "number": 24,
+      "group": "Pulling the learning together",
+      "title": "Recap and summary",
+      "description": "Review the repertoire, its application, and what the participant will take forward. An immersive simulation can be added to a blended programme."
+    }
+  ],
+  "typical_duration": "24 modules, commonly two per month over twelve months",
+  "public_price": null,
+  "source_versions": [
+    "RedQuadrant Tool Shed overview, 9 June 2025",
+    "Leading Transformation sampler, 1 July 2020",
+    "Leading Transformation module outline, 17 June 2020"
+  ],
+  "tool_shed": {
+    "cohort_size": "Typically four to six practitioners",
+    "sessions": "Typically two 90-minute online co-coaching sessions each month",
+    "duration": "Typically twelve months",
+    "support": [
+      "Leading Transformation core content",
+      "Facilitated peer learning and action learning",
+      "Direct mentoring and shadow consulting by agreement",
+      "Practice resources and community support"
+    ]
+  }
+}

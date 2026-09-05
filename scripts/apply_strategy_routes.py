@@ -1,0 +1,45 @@
+"""Build the canonical academy entrances from the approved web strategy."""
+from pathlib import Path
+import re,html,json,sys
+root=Path(sys.argv[1]);domain='https://www.publicservicetransformation.org'
+template=(root/'programmes/place-based-academies/index.html').read_text()
+def page(slug,title,lead,body):
+ s=re.sub(r'<title>.*?</title>',html.escape(title)+' | PSTA',template, count=0) if False else template
+ s=re.sub(r'<title>.*?</title>','<title>'+html.escape(title)+' | PSTA</title>',s,count=1)
+ s=re.sub(r'<meta name="description" content="[^"]*">','<meta name="description" content="'+html.escape(lead,quote=True)+'">',s,count=1)
+ s=re.sub(r'<link rel="canonical" href="[^"]*">','<link rel="canonical" href="'+domain+'/'+slug+'/">',s,count=1)
+ s=re.sub(r'<meta property="og:(title|description|url)" content="[^"]*">',lambda m:'<meta property="og:'+m[1]+'" content="'+html.escape({'title':title,'description':lead,'url':domain+'/'+slug+'/'}[m[1]],quote=True)+'">',s)
+ s=re.sub(r'<script type="application/ld\+json">.*?</script>','',s,flags=re.S)
+ main='<main id="main-content"><article class="strategy-academy"><p><a href="/programmes/">Programmes</a></p><h1>'+title+'</h1><p class="strategy-lead">'+lead+'</p>'+body+'<section><h2>Discuss a programme</h2><p>Tell us who needs to take part, the live issue they are working on, and your intended timing. We will agree the design, faculty, commitment, and fee before booking.</p><p><a class="button" href="mailto:david.mason@publicservicetransformation.org?subject='+slug+'">Email David Mason</a></p></section></article></main>'
+ s=re.sub(r'<main\b[^>]*>.*?</main>',main,s,count=1,flags=re.S)
+ s=s.replace('</head>','<style>.strategy-academy{max-width:1080px;margin:auto;padding:40px 24px 70px;font-size:18px;line-height:1.65}.strategy-academy h1{font-size:clamp(32px,5vw,48px);line-height:1.12}.strategy-lead{font-size:23px;max-width:850px}.strategy-academy section{margin-top:35px}.strategy-academy h2{font-size:27px}.strategy-academy li{margin:.5em 0}</style></head>')
+ p=root/slug/'index.html';p.parent.mkdir(parents=True,exist_ok=True);p.write_text(s)
+page('systems-leadership-academy','Systems Leadership Academy','Develop your ability to act with others on issues that cross organisational boundaries.','''<section><h2>Who it is for</h2><p>Leaders and practitioners working across a place, partnership, or service system, where progress depends on people who answer to different organisations.</p></section><section><h2>What participants do</h2><ul><li>Work on a real system issue with other participants.</li><li>Examine purpose, power, relationships, and different perspectives.</li><li>Practise convening, inquiry, and intervention, and review the effects of action.</li></ul></section><section><h2>Format and continuation</h2><p>In-house and partnership cohorts are designed around the work, with facilitated sessions, application between sessions, and peer learning. Duration, dates, faculty, and fee are agreed for the cohort. The programme should leave participants with a shared inquiry, practical next actions, and relationships that support continued work.</p></section>''')
+page('transformation-academies','Transformation Academies','Build your own transformation capability through live public-service work.','''<section><h2>Who it is for</h2><p>Organisations, regions, places, and strategic authorities that need people able to lead and deliver sustained improvement.</p></section><section><h2>What the academy connects</h2><ul><li>Understanding demand, service experience, work, and cost.</li><li>Choosing and testing changes through live projects.</li><li>Delivery disciplines, benefits, reflection, and capability transfer.</li></ul></section><section><h2>Choose the right commitment</h2><p>Formats include an academy, intensive programme, individual modules, simulations, shadow consulting, train-the-trainer work, action learning, and sustained cohorts. Agree the mix and duration against the intended capability and available time.</p><p><a href="/programmes/leading-transformation/">Leading Transformation</a> and <a href="/programmes/place-based-academies/">place-based academies</a> provide related routes.</p></section>''')
+page('lgr-academy','Local government reorganisation Academy','Develop the people who must make reorganisation work in practice.','''<section><h2>Work on the transition</h2><p>A tailored development route for leaders and practitioners facing new responsibilities, cross-council working, service continuity, and the design of a future organisation.</p><p>Use live transition questions to work on purpose, governance, relationships, service design, delivery, and learning. Dates, format, and price follow the agreed cohort brief.</p><p>For live consultancy and delivery support, <a href="https://redquadrant.com/lgrhub/">visit RedQuadrant’s LGR Hub</a>.</p></section>''')
+page('devolution-academy','Devolution Academy','Build the capability to work across place, partnership, and new responsibilities.','''<section><h2>Learn through the actual work</h2><p>A tailored cohort can examine shared outcomes, convening, governance, relationships, commissioning, and the practical use of new powers and responsibilities.</p><p>The design starts with the participating organisations and the decisions they face. No open cohort date or fixed fee is currently advertised here; enquire about an in-house or partnership programme.</p></section>''')
+page('accredited-training','Accredited training','Discuss the professional practice and recognition you need.','''<section><h2>Start with the requirement</h2><p>Tell us the capability, qualification, or recognised practice standard you are seeking. We will confirm the available route, awarding or assessment arrangements, entry requirements, and current funding position before enrolment.</p><p>Availability and eligibility depend on the specific programme. An enquiry is the next step; this page does not offer automatic qualification or funding.</p></section>''')
+# A useful immediate chooser at the established programme index.
+p=root/'programmes/index.html';s=p.read_text();chooser='<section class="strategy-chooser" aria-label="Flagship academies"><h2>Three academy routes</h2><ul><li><a href="/commissioning-academy/">Commissioning Academy</a> — commissioning, outcomes, and public value. November 2026–February 2027.</li><li><a href="/systems-leadership-academy/">Systems Leadership Academy</a> — place, partnership, and cross-boundary work.</li><li><a href="/transformation-academies/">Transformation Academies</a> — build the capability to transform services.</li></ul></section>';s=s.replace('<h1>Programmes</h1>','<h1>Programmes</h1>'+chooser);p.write_text(s)
+# Add only new owned routes to the sitemap; preserve the established Academy URL and redirects.
+p=root/'sitemap.xml';s=p.read_text();s=s.replace('</urlset>',''.join('<url><loc>'+domain+'/'+slug+'/</loc></url>' for slug in ['systems-leadership-academy','transformation-academies','lgr-academy','devolution-academy','accredited-training'])+'</urlset>');p.write_text(s)
+print('Added five canonical academy routes and flagship chooser')
+
+# Leading Transformation: complete current public programme account.
+lt_body=(Path(__file__).resolve().parents[1]/"content/leading-transformation-body.html").read_text()
+page("programmes/leading-transformation","Leading Transformation","Develop a broad repertoire and apply it to live transformation work.",lt_body+'<p><a href="https://redquadrant.com/toolshed/">The RedQuadrant Tool Shed practitioner cohort</a> · <a href="https://antlerboy.com/toolshed/">Benjamin’s Tool Shed and mentoring</a></p>')
+# Repair residual historical paths in reconstructed pages.
+for p in root.rglob("*.html"):
+ s=p.read_text().replace('="/PSTA/','="/').replace("http://eepurl.com","https://eepurl.com")
+ if 'href="#main-content"' in s and 'id="main-content"' not in s:
+  s=re.sub(r'<main(?:\s+[^>]*)?>','<main id="main-content">',s,count=1)
+ s=s.replace('/assets/img/favicon.png','/assets/img/psta-logo-white.png').replace('/assets/img/psta-logo-official.jpg','/assets/img/psta-logo-web.jpg').replace('/assets/img/partners/redquadrant-logo.jpg','/assets/partner-logos/redquadrant.svg')
+ if 'href="#main-content"' in s and 'id="main-content"' not in s:
+  s=s.replace('<body>','<body id="main-content">',1)
+ p.write_text(s)
+
+# Retain retired partner URLs as clean redirects with no legacy asset dependencies.
+for slug in ['apace','fractal-consulting']:
+ p=root/'partners'/slug/'index.html'
+ if not p.exists(): continue
+ p.write_text('<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Our partners | PSTA</title><meta name="robots" content="noindex,follow"><link rel="canonical" href="https://www.publicservicetransformation.org/partners/"><meta http-equiv="refresh" content="0;url=/partners/"></head><body><main><h1>Our partners</h1><p><a href="/partners/">Continue to the PSTA partners page</a>.</p></main></body></html>')

@@ -108,6 +108,7 @@ jobs:
           python3 scripts/add_latest_panel.py deploy
           python3 scripts/add_easter_eggs.py deploy
           python3 scripts/apply_launch_review.py deploy
+          python3 scripts/apply_strategy_routes.py deploy
           python3 scripts/apply_november_cohort.py deploy
           python3 scripts/audit_site.py deploy
 
