@@ -1,5 +1,77 @@
 [
   {
+    "date": "2026-09-05",
+    "title": "The debrief is where a simulation becomes learning",
+    "url": "https://www.publicservicetransformation.org/news/simulation-debrief/",
+    "post": "A simulation gives people shared experience. A careful debrief connects that experience with the decisions they face at work.",
+    "channels": [
+      "The PSTA LinkedIn",
+      "RedQuadrant LinkedIn"
+    ],
+    "source": "content/news/2026-09-05-simulation-debrief.md",
+    "status": "queued"
+  },
+  {
+    "date": "2026-09-05",
+    "title": "Make the contract review useful to both sides",
+    "url": "https://www.publicservicetransformation.org/news/contract-review-questions/",
+    "post": "What has changed for people using the service, and what decision follows? Five questions for a more useful contract review.",
+    "channels": [
+      "The PSTA LinkedIn",
+      "RedQuadrant LinkedIn"
+    ],
+    "source": "content/news/2026-09-05-contract-review-questions.md",
+    "status": "queued"
+  },
+  {
+    "date": "2026-09-05",
+    "title": "Give a learning programme a real piece of work",
+    "url": "https://www.publicservicetransformation.org/news/learning-with-a-live-project/",
+    "post": "Choose a bounded piece of work, a sponsor who can act, and a way to review what changes. Making a development programme useful in practice.",
+    "channels": [
+      "The PSTA LinkedIn",
+      "RedQuadrant LinkedIn"
+    ],
+    "source": "content/news/2026-09-05-learning-with-a-live-project.md",
+    "status": "queued"
+  },
+  {
+    "date": "2026-09-05",
+    "title": "Find the decision your partnership cannot currently make",
+    "url": "https://www.publicservicetransformation.org/news/partnership-decisions/",
+    "post": "Which shared decision keeps coming back without resolution? Use it to examine authority, evidence, and relationships across a partnership.",
+    "channels": [
+      "The PSTA LinkedIn",
+      "RedQuadrant LinkedIn"
+    ],
+    "source": "content/news/2026-09-05-partnership-decisions.md",
+    "status": "queued"
+  },
+  {
+    "date": "2026-09-05",
+    "title": "Commissioning starts with a question about purpose",
+    "url": "https://www.publicservicetransformation.org/news/commissioning-starts-with-purpose/",
+    "post": "Before writing the specification, ask what someone should be able to do, experience, or achieve. A PSTA practice note on commissioning and purpose.",
+    "channels": [
+      "The PSTA LinkedIn",
+      "RedQuadrant LinkedIn"
+    ],
+    "source": "content/news/2026-09-05-commissioning-starts-with-purpose.md",
+    "status": "queued"
+  },
+  {
+    "date": "2026-09-05",
+    "title": "Choose a development route around the work ahead",
+    "url": "https://www.publicservicetransformation.org/news/choose-a-development-route/",
+    "post": "An individual learner, an organisational team, and a partnership need different kinds of development. Start by identifying who must learn and act together.",
+    "channels": [
+      "The PSTA LinkedIn",
+      "RedQuadrant LinkedIn"
+    ],
+    "source": "content/news/2026-09-05-choose-a-development-route.md",
+    "status": "queued"
+  },
+  {
     "date": "2026-08-10",
     "title": "The National Commissioning Academy returns in November 2026",
     "url": "https://www.publicservicetransformation.org/news/national-commissioning-academy-september-2026/",
