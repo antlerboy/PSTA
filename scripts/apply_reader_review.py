@@ -14,6 +14,7 @@ for page in root.rglob('*.html'):
  if 'READER_REVIEW_20260906' in text: continue
  text=text.replace('http://eepurl.com','https://eepurl.com')
  text=text.replace('Choose what meets your needs, not by course title','Find a programme for your work')
+ text=text.replace('The PSTA is a not-for-profit social enterprise built around collaboration. We describe formal and informal partner relationships plainly.','The PSTA brings together organisations with experience in public services, social enterprise, innovation, and practical learning.')
  text=text.replace('This is an example of how the academy can support a specialist partner to make a proven learning offer visible, credible and connected to a wider public service network.','Participants build the skills to lead change through practical exercises, simulation, and application to their own work.')
  text=text.replace('Useful and active relationships, without implying a formal corporate partnership.','Organisations with whom we share ideas, experience, and opportunities for public-service improvement.')
  for slug,name in names.items():
