@@ -17,6 +17,15 @@ dot = '<a class="iteration-secret-link" href="https://github.com/antlerboy/PSTA/
 
 for page in root.rglob('*.html'):
     text = page.read_text()
+    # Show the postal address once per footer, in the legal line.
+    def compact_footer(match):
+        footer = match.group(0)
+        address = '167–169 Great Portland Street, 5th Floor, London, W1W 5PF, UK'
+        if footer.count(address) > 1:
+            footer = footer.replace('<p>' + address + '</p>', '', 1)
+        return footer
+    text = re.sub(r'<footer\b.*?</footer>', compact_footer, text, flags=re.S)
+    page.write_text(text)
     if 'WEB_ESTATE_REVIEW_20260906' in text:
         continue
     text = text.replace('an bespoke', 'a bespoke').replace('An bespoke', 'A bespoke')
