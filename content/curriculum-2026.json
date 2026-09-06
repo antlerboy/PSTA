@@ -1,0 +1,170 @@
+[
+  {
+    "number": 1,
+    "title": "Transformation and the five worlds",
+    "world": "L",
+    "worldLabel": "Leadership and political",
+    "focus": "Read a live transformation challenge through leadership, citizens, services, management, and learning."
+  },
+  {
+    "number": 2,
+    "title": "Purpose, outcomes, and useful measures",
+    "world": "L",
+    "worldLabel": "Leadership and political",
+    "focus": "Agree purpose, distinguish outputs from outcomes, and choose measures that help people act."
+  },
+  {
+    "number": 3,
+    "title": "Your practice as a transformation agent",
+    "world": "X",
+    "worldLabel": "Learning and change",
+    "focus": "Contract for useful work, examine your own contribution, and start a live practice challenge."
+  },
+  {
+    "number": 4,
+    "title": "Power, responsibility, and distributed leadership",
+    "world": "L",
+    "worldLabel": "Leadership and political",
+    "focus": "Work with power, accountability, and distributed leadership; introduce the Four Dynamics."
+  },
+  {
+    "number": 5,
+    "title": "Honest, productive conversations",
+    "world": "X",
+    "worldLabel": "Learning and change",
+    "focus": "Practise listening, productive challenge, difficult conversations, and clear agreements."
+  },
+  {
+    "number": 6,
+    "title": "Systems inquiry, mapping, and method choice",
+    "world": "X",
+    "worldLabel": "Learning and change",
+    "focus": "Frame a useful inquiry, map different perspectives, and choose methods for the situation."
+  },
+  {
+    "number": 7,
+    "title": "Citizen insight and behaviour in context",
+    "world": "C",
+    "worldLabel": "Citizen",
+    "focus": "Gather citizen insight and examine behaviour in its social and practical context."
+  },
+  {
+    "number": 8,
+    "title": "Strengths, community, and co-production",
+    "world": "C",
+    "worldLabel": "Citizen",
+    "focus": "Work with strengths, community assets, co-production, and Positive Deviance."
+  },
+  {
+    "number": 9,
+    "title": "Demand, access, and prevention",
+    "world": "S",
+    "worldLabel": "Service",
+    "focus": "Understand demand, access, avoidable work, and opportunities for prevention."
+  },
+  {
+    "number": 10,
+    "title": "Relational public services",
+    "world": "C",
+    "worldLabel": "Citizen",
+    "focus": "Organise around people’s lives, relationships, and needs that cross service boundaries."
+  },
+  {
+    "number": 11,
+    "title": "Designing services and the work behind them",
+    "world": "S",
+    "worldLabel": "Service",
+    "focus": "Connect the citizen’s experience with service design, processes, and the work behind them."
+  },
+  {
+    "number": 12,
+    "title": "Prototyping and learning through action",
+    "world": "X",
+    "worldLabel": "Learning and change",
+    "focus": "Test service ideas through prototypes and small experiments, then use what happens to improve them."
+  },
+  {
+    "number": 13,
+    "title": "Lean, flow, and operational learning",
+    "world": "S",
+    "worldLabel": "Service",
+    "focus": "Apply lean, flow, A3 inquiry, and operational tools with respect for the people doing the work."
+  },
+  {
+    "number": 14,
+    "title": "Resource Optimisation and choices about work",
+    "world": "M",
+    "worldLabel": "Management",
+    "focus": "Make effort and capacity visible, and use Resource Optimisation and Seven Ways to examine choices."
+  },
+  {
+    "number": 15,
+    "title": "Costs, benefits, and business cases",
+    "world": "M",
+    "worldLabel": "Management",
+    "focus": "Connect activity, costs, benefits, and options in a defensible business case."
+  },
+  {
+    "number": 16,
+    "title": "Digital, data, and AI judgement",
+    "world": "S",
+    "worldLabel": "Service",
+    "focus": "Judge digital, data, and AI proposals against service purpose, evidence, and human responsibility."
+  },
+  {
+    "number": 17,
+    "title": "Understanding and designing viable organisations",
+    "world": "M",
+    "worldLabel": "Management",
+    "focus": "Use the Viable System Model to examine autonomy, coordination, and organisational viability."
+  },
+  {
+    "number": 18,
+    "title": "The Four Dynamics, roles, and organisation design",
+    "world": "M",
+    "worldLabel": "Management",
+    "focus": "Apply the Four Dynamics to roles, relationships, authority, and organisation design."
+  },
+  {
+    "number": 19,
+    "title": "Culture, change, and meeting the other",
+    "world": "M",
+    "worldLabel": "Management",
+    "focus": "Work with culture, assumptions, identity, and encounters with people who see things differently."
+  },
+  {
+    "number": 20,
+    "title": "Convening across communities and organisations",
+    "world": "C",
+    "worldLabel": "Citizen",
+    "focus": "Build the relationships and conditions for action across communities and organisations."
+  },
+  {
+    "number": 21,
+    "title": "Strategy, commissioning, and choices about provision",
+    "world": "L",
+    "worldLabel": "Leadership and political",
+    "focus": "Use Patterns of Strategy, commissioning, and provision choices to connect intent with action."
+  },
+  {
+    "number": 22,
+    "title": "Facilitating groups and designing interventions",
+    "world": "X",
+    "worldLabel": "Learning and change",
+    "focus": "Choose and facilitate group processes, and design interventions that fit their setting."
+  },
+  {
+    "number": 23,
+    "title": "Delivering, embedding, and evaluating change",
+    "world": "X",
+    "worldLabel": "Learning and change",
+    "focus": "Plan delivery, use Appreciative Inquiry and Breaking the Shell, and evaluate and embed change."
+  },
+  {
+    "number": 24,
+    "title": "Integration, simulation, and the next hundred days",
+    "world": "X",
+    "worldLabel": "Learning and change",
+    "focus": "Bring the repertoire together through simulation and a substantial hundred-day follow-through."
+  }
+]
