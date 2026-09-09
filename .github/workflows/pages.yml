@@ -142,7 +142,9 @@ jobs:
           ! grep -q "PSTA_NCA_2026" deploy/index.html
           ! grep -q "Discuss a place with David Mason" deploy/index.html
           grep -q "PSTA_NCA_2026" deploy/programmes/national-commissioning-academy/index.html
-          grep -q "Try the Commissioning Compass" deploy/index.html
+          grep -q "One-way only" deploy/index.html
+          grep -q "November 2026 to May 2027" deploy/programmes/national-commissioning-academy/index.html
+          ! grep -Rqi "November 2026 to February 2027" deploy
           grep -Rqi "2,490" deploy
           grep -Rqi "Registered Social Enterprise" deploy
           grep -qi "Formal partners" deploy/partners/index.html
