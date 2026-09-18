@@ -145,6 +145,7 @@ jobs:
           grep -q "One-way only" deploy/index.html
           grep -q "November 2026 to May 2027" deploy/programmes/national-commissioning-academy/index.html
           ! grep -Rqi "November 2026 to February 2027" deploy
+          ! grep -qi "The main programme runs to February 2027" deploy/programmes/national-commissioning-academy/index.html
           grep -Rqi "2,490" deploy
           grep -Rqi "Registered Social Enterprise" deploy
           grep -qi "Formal partners" deploy/partners/index.html

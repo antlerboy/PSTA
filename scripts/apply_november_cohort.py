@@ -10,6 +10,7 @@ for path in root.rglob('*'):
     text = path.read_text(encoding='utf-8')
     text = text.replace('7 Bell Yard', '167–169 Great Portland Street, 5th Floor').replace('WC2A 2JR', 'W1W 5PF')
     text = text.replace('September 2026 to February 2027', 'November 2026 to May 2027')
+    text = text.replace('The main programme runs to February 2027.', 'The main programme runs to May 2027.')
     text = text.replace('November 2026 to February 2027', 'November 2026 to May 2027')
     text = text.replace('November 2026 - February 2027', 'November 2026 - May 2027')
     text = text.replace('September 2026 cohort', 'November 2026 cohort')

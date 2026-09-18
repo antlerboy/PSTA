@@ -236,7 +236,7 @@ def build_item_page(root: Path, item: NewsItem) -> None:
       <p class="eyebrow">News and insight</p>
       <h1>{html.escape(item.title)}</h1>
       <p class="lede">{html.escape(item.summary)}</p>
-      <p><time datetime="{item.date}">{datetime.strptime(item.date, '%Y-%m-%d').strftime('%-d %B %Y')}</time> · {html.escape(item.author)}</p>
+      <p><time datetime="{item.date}">{datetime.strptime(item.date, '%Y-%m-%d').strftime('%d %B %Y').lstrip('0')}</time> · {html.escape(item.author)}</p>
     </div>
   </section>
   <article class="section">
@@ -254,7 +254,7 @@ def build_item_page(root: Path, item: NewsItem) -> None:
 def build_index(root: Path, items: Iterable[NewsItem]) -> None:
     cards = []
     for item in items:
-        display_date = datetime.strptime(item.date, "%Y-%m-%d").strftime("%-d %B %Y")
+        display_date = datetime.strptime(item.date, "%Y-%m-%d").strftime("%d %B %Y").lstrip("0")
         cards.append(f'''<article class="card">
   <div class="card-topline"><time datetime="{item.date}">{display_date}</time><span class="status">News</span></div>
   <h2><a href="{SITE_PREFIX}/news/{item.slug}/">{html.escape(item.title)}</a></h2>
@@ -316,7 +316,7 @@ def add_latest_to_home(root: Path, items: List[NewsItem]) -> None:
     text = re.sub(r"<!-- PSTA_NEWS_START -->.*?<!-- PSTA_NEWS_END -->", "", text, flags=re.S)
     cards = []
     for item in items[:3]:
-        display_date = datetime.strptime(item.date, "%Y-%m-%d").strftime("%-d %B %Y")
+        display_date = datetime.strptime(item.date, "%Y-%m-%d").strftime("%d %B %Y").lstrip("0")
         cards.append(f'''<article class="card"><div class="card-topline"><time datetime="{item.date}">{display_date}</time><span class="status">News</span></div><h3><a href="{SITE_PREFIX}/news/{item.slug}/">{html.escape(item.title)}</a></h3><p>{html.escape(item.summary)}</p><a class="text-link" href="{SITE_PREFIX}/news/{item.slug}/">Read more</a></article>''')
     section = f'''<!-- PSTA_NEWS_START -->
 <section class="section section-wash" aria-labelledby="latest-news-heading"><div class="shell"><div class="section-heading"><div><p class="eyebrow">News and insight</p><h2 id="latest-news-heading">Latest from the PSTA</h2></div><p><a class="text-link" href="{SITE_PREFIX}/news/">See all news</a></p></div><div class="card-grid">{''.join(cards)}</div></div></section>
