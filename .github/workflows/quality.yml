@@ -1,0 +1,37 @@
+name: Check PSTA website changes
+
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Check Python syntax
+        run: python3 -m py_compile scripts/launch_service_change.py scripts/apply_november_cohort.py
+      - name: Run the existing assembly and audit without publishing
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import subprocess
+          import textwrap
+          lines = Path('.github/workflows/pages.yml').read_text().splitlines()
+          start = next(i for i, line in enumerate(lines) if line.strip() == 'run: |') + 1
+          block = []
+          for line in lines[start:]:
+              if line.strip() and not line.startswith('          '):
+                  break
+              block.append(line)
+          script = textwrap.dedent('\n'.join(block))
+          if 'scripts/audit_site.py deploy' not in script:
+              raise SystemExit('Expected full-site audit was not found; update this check')
+          subprocess.run(['bash', '-euo', 'pipefail', '-c', script], check=True)
+          PY
