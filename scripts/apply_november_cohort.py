@@ -23,3 +23,7 @@ for path in root.rglob('*'):
     text = re.sub(r'7 Bell Yard,? London,? (?:WC2A 2JR)(?:,? UK)?', '167–169 Great Portland Street, 5th Floor, London, W1W 5PF', text)
     path.write_text(text, encoding='utf-8')
 print('Applied November cohort: induction 10 November; remaining dates await confirmation')
+
+# Add the approved offer before the existing final copy and internal-link audits.
+from launch_service_change import apply_launch_service_change
+apply_launch_service_change(root)

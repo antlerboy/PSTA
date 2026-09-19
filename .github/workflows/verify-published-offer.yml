@@ -1,0 +1,59 @@
+name: Verify published PSTA learning offer
+
+on:
+  workflow_run:
+    workflows: ["Publish PSTA website"]
+    types: [completed]
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check live learning offer and programme entry points
+        env:
+          RELEASE_SHA: ${{ github.event.workflow_run.head_sha || github.sha }}
+        run: |
+          python3 - <<'PY'
+          import os
+          import time
+          import urllib.request
+          checks = {
+              '/': ['Bring a team and a real change', '/learning-and-capability/'],
+              '/learning-and-capability/': ['Learning and capability partner', 'twelve-week', 'mailto:david.mason@publicservicetransformation.org', 'redquadrant.com/service-change/'],
+              '/programmes/': ['Develop a team through live service change', '/learning-and-capability/'],
+              '/programmes/national-commissioning-academy/': ['November 2026 to May 2027', 'Bring a team and a live commissioning challenge', '/learning-and-capability/'],
+              '/sitemap.xml': ['/learning-and-capability/']
+          }
+          failures = []
+          for path, required in checks.items():
+              url = 'https://www.publicservicetransformation.org' + path
+              for attempt in range(6):
+                  try:
+                      request = urllib.request.Request(url + '?release=' + os.environ['RELEASE_SHA'], headers={'Cache-Control': 'no-cache', 'User-Agent': 'PSTA-release-check'})
+                      with urllib.request.urlopen(request, timeout=20) as response:
+                          text = response.read().decode('utf-8')
+                          if response.status != 200:
+                              raise ValueError('HTTP ' + str(response.status))
+                      missing = [value for value in required if value not in text]
+                      if missing:
+                          raise ValueError('Expected launch content not found: ' + ', '.join(missing))
+                      if path == '/programmes/national-commissioning-academy/' and ('September 2026 cohort' in text or 'November 2026 to February 2027' in text):
+                          raise ValueError('Superseded Academy recruitment dates remain')
+                      print('PASS', url)
+                      break
+                  except Exception as exc:
+                      if attempt == 5:
+                          failures.append(url + ': ' + str(exc))
+                      else:
+                          time.sleep(10)
+          if failures:
+              raise SystemExit('\n'.join(failures))
+          with open(os.environ['GITHUB_STEP_SUMMARY'], 'a') as summary:
+              summary.write('All five live PSTA offer, entry-point, Academy-date, and sitemap checks passed.\n')
+          PY
