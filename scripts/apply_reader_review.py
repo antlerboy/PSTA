@@ -79,4 +79,22 @@ if sitemap.exists():
 # Enforce the user's punctuation preference on the delivered public text.
 for page in list(root.rglob('*.html'))+list(root.rglob('*.js'))+list(root.rglob('*.json')):
  text=page.read_text();text=text.replace('http://eepurl.com','https://eepurl.com');text=text.replace('—',', ').replace('–','-').replace('&mdash;',', ').replace('&ndash;','-').replace('&#8212;',', ').replace('&#8211;','-');page.write_text(text)
+
+# Link the Academy's Twitter account from every full page footer, including
+# news pages whose footer is generated separately from the main site shell.
+(root/'assets/img').mkdir(parents=True,exist_ok=True)
+shutil.copyfile(source/'assets/twitter-bird.svg',root/'assets/img/twitter-bird.svg')
+twitter_link='<a class="footer-twitter-link" href="https://x.com/servicereform" target="_blank" rel="noopener noreferrer" aria-label="Twitter: @servicereform"><img src="/assets/img/twitter-bird.svg" alt="">@servicereform</a>'
+twitter_style='<style>.footer-twitter-link{display:inline-flex!important;align-items:center;gap:.4rem}.footer-twitter-link img{display:block;width:18px!important;height:18px!important;object-fit:contain;flex:none}</style>'
+for page in root.rglob('*.html'):
+ text=page.read_text()
+ footer=re.search(r'<footer class="site-footer">.*?</footer>',text,re.S)
+ if not footer or 'https://x.com/servicereform' in footer.group():continue
+ old=footer.group()
+ if re.search(r'<a[^>]*>LinkedIn</a>',old):
+  new=re.sub(r'(<a[^>]*>LinkedIn</a>)',lambda m:m.group(1)+twitter_link,old,count=1)
+ else:
+  new=re.sub(r'(<div class="footer-brand">.*?)(</div>)',lambda m:m.group(1)+twitter_link+m.group(2),old,count=1,flags=re.S)
+ if new==old:raise RuntimeError(f'Could not add Twitter link to {page}')
+ page.write_text(text.replace(old,new,1).replace('</head>',twitter_style+'</head>',1))
 print('Applied reader corrections, full partner logos, accredited offers, and punctuation.')
