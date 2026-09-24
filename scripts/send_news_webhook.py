@@ -65,6 +65,10 @@ def main() -> None:
         if meta.get("draft", "false").lower() in {"true", "yes", "1"}:
             continue
         slug = slugify(path.name)
+        channels = [part.strip() for part in meta.get("channels", "").split(",") if part.strip()]
+        newsletter = meta.get("newsletter", "yes").lower() in {"yes", "true", "1"}
+        if not channels and not newsletter:
+            continue
         payload_items.append({
             "source_file": str(path),
             "title": meta.get("title", ""),
@@ -73,8 +77,8 @@ def main() -> None:
             "full_story_markdown": body,
             "author": meta.get("author", "The PSTA"),
             "social_post": meta.get("social", meta.get("summary", "")),
-            "channels": [part.strip() for part in meta.get("channels", "").split(",") if part.strip()],
-            "newsletter": meta.get("newsletter", "yes").lower() in {"yes", "true", "1"},
+            "channels": channels,
+            "newsletter": newsletter,
             "primary_link": meta.get("primary_link", ""),
             "website_url": f"https://www.publicservicetransformation.org/news/{slug}/",
             "social_queue_url": "https://github.com/antlerboy/PSTA/blob/main/editorial/social-queue.json",

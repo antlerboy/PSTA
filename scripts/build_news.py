@@ -337,6 +337,8 @@ def build_queues(repo_root: Path, items: List[NewsItem]) -> None:
             source = item.source.relative_to(repo_root).as_posix()
         except ValueError:
             source = item.source.as_posix()
+        if not item.channels:
+            continue
         social_rows.append({
             "date": item.date,
             "title": item.title,
