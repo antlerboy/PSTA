@@ -46,6 +46,9 @@ def apply_launch_service_change(root: Path) -> None:
     destination.write_text(page, encoding='utf-8')
 
     marker = 'PSTA_SERVICE_CHANGE_20260919'
+    home = root / 'index.html'
+    invitation = '''<!-- PSTA_SERVICE_CHANGE_20260919 --><section class="section"><div class="shell"><h2>Bring a team and a real change</h2><p>Develop your team's capability through a twelve-week commissioned programme around a live public-service challenge, with workplace practice, sponsor reviews, and evidence of what changed.</p><p><a class="button button-gold" href="/learning-and-capability/">Explore the learning and capability partnership</a></p></div></section>'''
+    home.write_text(insert_once(home.read_text(encoding='utf-8'), marker, invitation), encoding='utf-8')
     chooser = '''<!-- PSTA_SERVICE_CHANGE_20260919 --><section class="section"><div class="shell"><h2>Develop a team through live service change</h2><p>A twelve-week commissioned programme around one real change, with workplace practice, peer challenge, sponsor reviews, and evidence of what changed. Normally for a team of eight to twelve; design and fee are agreed with the sponsor.</p><p><a class="button" href="/learning-and-capability/">Explore the learning and capability partnership</a></p></div></section>'''
     programmes = root / 'programmes/index.html'
     programmes.write_text(insert_once(programmes.read_text(encoding='utf-8'), marker, chooser), encoding='utf-8')
@@ -64,6 +67,8 @@ def apply_launch_service_change(root: Path) -> None:
 
     # Block publication if the offer or its two entry points are missing.
     assert destination.is_file()
+    assert 'Bring a team and a real change' in home.read_text(encoding='utf-8')
+    assert '/learning-and-capability/' in home.read_text(encoding='utf-8')
     assert 'mailto:david.mason@publicservicetransformation.org' in page
     assert '/learning-and-capability/' in programmes.read_text(encoding='utf-8')
     assert '/learning-and-capability/' in academy.read_text(encoding='utf-8')

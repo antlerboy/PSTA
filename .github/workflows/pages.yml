@@ -116,6 +116,8 @@ jobs:
           python3 scripts/update_contact_number.py deploy
           python3 scripts/audit_site.py deploy
 
+          grep -q "Bring a team and a real change" deploy/index.html
+          grep -q 'href="/learning-and-capability/"' deploy/index.html
           test -f deploy/index.html
           test -f deploy/404.html
           test -f deploy/assets/css/site.css
