@@ -113,6 +113,7 @@ jobs:
           python3 scripts/apply_overnight.py deploy
           python3 scripts/apply_web_estate_review.py deploy
           python3 scripts/apply_reader_review.py deploy
+          python3 scripts/inject-visit-analytics.py deploy
           python3 scripts/update_contact_number.py deploy
           python3 scripts/audit_site.py deploy
 
