@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import re
+import json
 import sys
 from html.parser import HTMLParser
 from pathlib import Path
@@ -272,6 +273,18 @@ def main() -> None:
         failures.append("accessible mobile-navigation state handling is missing")
     if "http://eepurl.com" in all_text:
         failures.append("newsletter links still use insecure HTTP")
+    # Read the editorial selection rather than pinning yesterday's headlines.
+    latest = json.loads((Path(__file__).resolve().parents[1] / 'content/latest.json').read_text(encoding='utf-8'))
+    for item in latest:
+        if item['href'] not in home:
+            failures.append(f"selected latest item missing from homepage: {item['href']}")
+    for stale in ('What moved from the former site', 'It does not collect personal information merely because you visit it', 'more than 1,500 senior decision-makers'):
+        if stale in all_text:
+            failures.append(f"superseded public copy remains: {stale}")
+    # Check the source announcement too: rendered corrections do not fix editorial queues.
+    announcement = Path(__file__).resolve().parents[1] / 'content/news/2026-08-10-national-commissioning-academy-september-2026.md'
+    if 'February 2027' in announcement.read_text(encoding='utf-8'):
+        failures.append('the Academy news source still has the superseded February end date')
     if "</dl><a" in (ROOT / "programmes/commissioning-simulation/index.html").read_text(encoding="utf-8", errors="ignore")[:2000]:
         failures.append("commissioning simulation still contains the truncated page fragment")
 

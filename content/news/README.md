@@ -17,4 +17,9 @@ draft: false
 Full story in Markdown.
 ```
 
+For a website correction that must not trigger the outbound distribution webhook,
+set `distribute: no`. This leaves the item published and preserves its existing
+social/newsletter queue selection. New website-only items should use empty
+`channels` and `newsletter: no`.
+
 The easier route is the repository's ‘Publish a PSTA news item’ issue form. Opening a completed form creates this file automatically, rebuilds the website and RSS feed, adds the item to the social and newsletter queues, and sends it to the optional distribution webhook.

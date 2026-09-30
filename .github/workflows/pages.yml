@@ -115,6 +115,7 @@ jobs:
           python3 scripts/apply_reader_review.py deploy
           python3 scripts/inject-visit-analytics.py deploy
           python3 scripts/update_contact_number.py deploy
+          python3 scripts/apply_september_review.py deploy
           python3 scripts/audit_site.py deploy
 
           grep -q "Bring a team and a real change" deploy/index.html
@@ -146,8 +147,6 @@ jobs:
           ! grep -q "PSTA_NCA_2026" deploy/index.html
           ! grep -q "Discuss a place with David Mason" deploy/index.html
           grep -q "PSTA_NCA_2026" deploy/programmes/national-commissioning-academy/index.html
-          grep -q "Why councils cannot cut their way to prevention" deploy/index.html
-          grep -q "What are your commissioning instincts?" deploy/index.html
           test -f deploy/news/mike-barker-prevention-place/index.html
           test -f deploy/news/commissioning-instincts-quiz/index.html
           grep -q "November 2026 to May 2027" deploy/programmes/national-commissioning-academy/index.html

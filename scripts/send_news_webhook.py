@@ -62,6 +62,9 @@ def main() -> None:
         if not path.exists():
             continue
         meta, body = parse_front_matter(path)
+        # Website corrections must not silently resend an existing campaign.
+        if meta.get("distribute", "yes").lower() in {"no", "false", "0"}:
+            continue
         if meta.get("draft", "false").lower() in {"true", "yes", "1"}:
             continue
         slug = slugify(path.name)

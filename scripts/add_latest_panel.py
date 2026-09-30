@@ -141,7 +141,7 @@ def load_items() -> list[dict[str, str]]:
 def link_attrs(href: str) -> str:
     parsed = urlparse(href)
     if parsed.scheme in {"http", "https"}:
-        return ' target="_blank" rel="noreferrer"'
+        return ' target="_blank" rel="noopener noreferrer"'
     return ""
 
 
@@ -162,7 +162,7 @@ def render_panel(items: list[dict[str, str]]) -> str:
             f'</article>'
         )
 
-    return f'''\n<section class="section psta-latest-panel" aria-labelledby="psta-latest-heading">\n  <div class="psta-latest-inner">\n    <div class="psta-latest-panel-heading">\n      <div>\n        <p class="psta-latest-eyebrow">News, social media, and useful things</p>\n        <h2 id="psta-latest-heading">Latest from the PSTA</h2>\n      </div>\n      <p>Three current things selected for relevance, each on a different topic.</p>\n    </div>\n    <div class="psta-latest-grid">\n      {''.join(cards)}\n    </div>\n  </div>\n</section>\n'''
+    return f'''\n<section class="section psta-latest-panel" aria-labelledby="psta-latest-heading">\n  <div class="psta-latest-inner">\n    <div class="psta-latest-panel-heading">\n      <div>\n        <p class="psta-latest-eyebrow">News, social media, and useful things</p>\n        <h2 id="psta-latest-heading">Latest from the PSTA</h2>\n      </div>\n      <p>Recent reading on public services, places, and communities. <a href="/news/">See all news</a></p>\n    </div>\n    <div class="psta-latest-grid">\n      {''.join(cards)}\n    </div>\n  </div>\n</section>\n'''
 
 
 def patch_home(items: list[dict[str, str]]) -> None:
