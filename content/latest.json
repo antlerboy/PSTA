@@ -1,5 +1,12 @@
 [
   {
+    "topic": "relational-public-services",
+    "source": "Relationships Project · series",
+    "title": "Can the state become more relational?",
+    "summary": "Devolution, public-service reform, and social care as tests of whether trust and relationships can survive contact with the machinery of government.",
+    "href": "/news/relational-reform-burnham-government/"
+  },
+  {
     "topic": "local-government-reform",
     "source": "LGIU · report",
     "title": "Rewiring the state: local government's role",
@@ -7,17 +14,10 @@
     "href": "/news/rewiring-the-state-local-government/"
   },
   {
-    "topic": "neighbourhood-health",
-    "source": "Mike Chitty · story",
-    "title": "The neighbourhood that had no plan",
-    "summary": "What happens when residents' priorities meet a health programme whose outcomes have already been decided?",
-    "href": "/news/neighbourhood-that-had-no-plan/"
-  },
-  {
-    "topic": "associational-life",
-    "source": "Cormac Russell · reflection",
-    "title": "Associations and institutions",
-    "summary": "How institutions can support the relationships, mutual care, and contributions through which communities act.",
-    "href": "/news/associations-and-institutions/"
+    "topic": "civic-learning",
+    "source": "Jon Harvey · stories",
+    "title": "The Mayor’s Bear: hope and local democracy",
+    "summary": "Stories for children about local democracy, civic participation, inclusion, and changing the part of the world around you.",
+    "href": "/news/the-mayors-bear-local-democracy/"
   }
 ]

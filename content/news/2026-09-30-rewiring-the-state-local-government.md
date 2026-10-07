@@ -3,9 +3,9 @@ title: "Rewiring the state: the LGIU on local government's role"
 date: 2026-09-30
 summary: "A new LGIU report examines councils' role in public-service reform, democratic accountability, prevention, and local capability."
 author: "The PSTA"
-social: ""
-channels: ""
-newsletter: no
+social: "If more responsibility moves locally, capability has to move with it. LGIU's 'Rewiring the state' is useful on prevention, democratic accountability, finance, and what councils need if reform is to change more than structures."
+channels: "The PSTA LinkedIn, RedQuadrant LinkedIn, Quadrant Resourcing LinkedIn"
+newsletter: yes
 draft: false
 ---
 

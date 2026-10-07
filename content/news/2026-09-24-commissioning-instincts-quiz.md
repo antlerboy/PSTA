@@ -3,9 +3,9 @@ title: "A commissioning instincts quiz from Ideas Alliance"
 date: 2026-09-24
 summary: "A short external exercise for NHS commissioners to compare the approaches they reach for first."
 author: "The Public Service Transformation Academy"
-social: ""
-channels: ""
-newsletter: no
+social: "Commissioning choices reveal what we reach for first: governance, performance, partnership, or adaptation to complex needs. The Ideas Alliance five-question quiz is useful as a team conversation starter — not as a capability test."
+channels: "The PSTA LinkedIn, RedQuadrant LinkedIn"
+newsletter: yes
 draft: false
 ---
 

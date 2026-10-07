@@ -3,9 +3,9 @@ title: "Associations and institutions: Cormac Russell on how change happens"
 date: 2026-09-30
 summary: "Cormac Russell explores the different contributions of community associations and institutions to social and economic change."
 author: "The PSTA"
-social: ""
-channels: ""
-newsletter: no
+social: "Institutions can provide services consistently at scale. Associations can mobilise relationships, mutual care, and contribution. Cormac Russell's distinction matters because public services can crowd out what people do together while trying to help."
+channels: "The PSTA LinkedIn, RedQuadrant LinkedIn"
+newsletter: yes
 draft: false
 ---
 

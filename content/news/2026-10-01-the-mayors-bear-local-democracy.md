@@ -3,9 +3,9 @@ title: "The Mayor’s Bear: stories of hope and local democracy"
 date: 2026-10-01
 summary: "PSTA facilitator Jon Harvey’s new edition uses magical stories to help children understand local democracy and imagine how they can shape kinder, more inclusive communities."
 author: "The Public Service Transformation Academy"
-social: ""
-channels: ""
-newsletter: no
+social: "Local democracy is usually explained in institutional language. Jon Harvey takes another route: stories for children about playgrounds, refugees, dementia-friendly towns, and the possibility of changing one part of the world around you. Jon is a regular PSTA facilitator."
+channels: "The PSTA LinkedIn, RedQuadrant LinkedIn"
+newsletter: yes
 draft: false
 primary_link: "https://themayorsbear.blogspot.com/2026/09/press-release-21-september-2026.html"
 ---

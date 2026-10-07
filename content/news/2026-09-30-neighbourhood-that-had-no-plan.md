@@ -3,9 +3,9 @@ title: "The neighbourhood that had no plan: a story by Mike Chitty"
 date: 2026-09-30
 summary: "A story about what happens when neighbourhood life is expected to fit the health system's plans."
 author: "The PSTA"
-social: ""
-channels: ""
-newsletter: no
+social: "What happens when residents are invited into a programme after the outcomes have already been decided? Mike Chitty's short story makes a familiar neighbourhood-working problem concrete: the neighbourhood is asked to fit the plan, rather than the plan learning from the neighbourhood."
+channels: "The PSTA LinkedIn, RedQuadrant LinkedIn"
+newsletter: yes
 draft: false
 ---
 
