@@ -6,6 +6,7 @@ author: "The PSTA"
 social: "What happens when residents are invited into a programme after the outcomes have already been decided? Mike Chitty's short story makes a familiar neighbourhood-working problem concrete: the neighbourhood is asked to fit the plan, rather than the plan learning from the neighbourhood."
 channels: "The PSTA LinkedIn, RedQuadrant LinkedIn"
 newsletter: yes
+newsletter_targets: "PSTA, RedQuadrant"
 draft: false
 ---
 

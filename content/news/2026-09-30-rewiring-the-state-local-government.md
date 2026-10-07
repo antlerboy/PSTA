@@ -6,6 +6,7 @@ author: "The PSTA"
 social: "If more responsibility moves locally, capability has to move with it. LGIU's 'Rewiring the state' is useful on prevention, democratic accountability, finance, and what councils need if reform is to change more than structures."
 channels: "The PSTA LinkedIn, RedQuadrant LinkedIn, Quadrant Resourcing LinkedIn"
 newsletter: yes
+newsletter_targets: "PSTA, RedQuadrant"
 draft: false
 ---
 

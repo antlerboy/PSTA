@@ -6,6 +6,7 @@ author: "The Public Service Transformation Academy"
 social: "Commissioning choices reveal what we reach for first: governance, performance, partnership, or adaptation to complex needs. The Ideas Alliance five-question quiz is useful as a team conversation starter — not as a capability test."
 channels: "The PSTA LinkedIn, RedQuadrant LinkedIn"
 newsletter: yes
+newsletter_targets: "PSTA, RedQuadrant"
 draft: false
 ---
 

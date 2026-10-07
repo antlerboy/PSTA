@@ -6,6 +6,7 @@ author: "The PSTA"
 social: "Institutions can provide services consistently at scale. Associations can mobilise relationships, mutual care, and contribution. Cormac Russell's distinction matters because public services can crowd out what people do together while trying to help."
 channels: "The PSTA LinkedIn, RedQuadrant LinkedIn"
 newsletter: yes
+newsletter_targets: "PSTA, RedQuadrant"
 draft: false
 ---
 

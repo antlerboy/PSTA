@@ -6,6 +6,7 @@ author: "The Public Service Transformation Academy"
 social: "Local democracy is usually explained in institutional language. Jon Harvey takes another route: stories for children about playgrounds, refugees, dementia-friendly towns, and the possibility of changing one part of the world around you. Jon is a regular PSTA facilitator."
 channels: "The PSTA LinkedIn, RedQuadrant LinkedIn"
 newsletter: yes
+newsletter_targets: "PSTA, RedQuadrant"
 draft: false
 primary_link: "https://themayorsbear.blogspot.com/2026/09/press-release-21-september-2026.html"
 ---

@@ -142,7 +142,7 @@ def load_items(source_dir: Path) -> List[NewsItem]:
         datetime.strptime(published, "%Y-%m-%d")
         channels = [part.strip() for part in meta.get("channels", "").split(",") if part.strip()]
         newsletter = meta.get("newsletter", "yes").lower() in {"yes", "true", "1"}
-        newsletter_targets = [part.strip() for part in meta.get("newsletter_targets", "PSTA, RedQuadrant").split(",") if part.strip()] if newsletter else []
+        newsletter_targets = [part.strip() for part in meta.get("newsletter_targets", "PSTA").split(",") if part.strip()] if newsletter else []
         items.append(
             NewsItem(
                 source=path,

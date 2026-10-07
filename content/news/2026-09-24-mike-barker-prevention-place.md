@@ -6,6 +6,7 @@ author: "The Public Service Transformation Academy"
 social: "A cut can be a saving in one budget and a cost somewhere else, later. Mike Barker asks what happens when councils protect urgent statutory services while the places and relationships that help people stay well are allowed to erode."
 channels: "The PSTA LinkedIn, RedQuadrant LinkedIn, Quadrant Resourcing LinkedIn"
 newsletter: yes
+newsletter_targets: "PSTA, RedQuadrant"
 draft: false
 ---
 
