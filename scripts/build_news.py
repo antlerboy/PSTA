@@ -30,6 +30,7 @@ class NewsItem:
     social: str
     channels: List[str]
     newsletter: bool
+    newsletter_targets: List[str]
     primary_link: str
     slug: str
     body: str
@@ -140,6 +141,8 @@ def load_items(source_dir: Path) -> List[NewsItem]:
             raise ValueError(f"title, date, and summary are required in {path}")
         datetime.strptime(published, "%Y-%m-%d")
         channels = [part.strip() for part in meta.get("channels", "").split(",") if part.strip()]
+        newsletter = meta.get("newsletter", "yes").lower() in {"yes", "true", "1"}
+        newsletter_targets = [part.strip() for part in meta.get("newsletter_targets", "PSTA, RedQuadrant").split(",") if part.strip()] if newsletter else []
         items.append(
             NewsItem(
                 source=path,
@@ -149,7 +152,8 @@ def load_items(source_dir: Path) -> List[NewsItem]:
                 author=meta.get("author", "The PSTA") or "The PSTA",
                 social=meta.get("social", summary) or summary,
                 channels=channels,
-                newsletter=meta.get("newsletter", "yes").lower() in {"yes", "true", "1"},
+                newsletter=newsletter,
+                newsletter_targets=newsletter_targets,
                 primary_link=meta.get("primary_link", "").strip(),
                 slug=slugify(path.stem),
                 body=body,
@@ -351,11 +355,11 @@ def build_queues(repo_root: Path, items: List[NewsItem]) -> None:
     (editorial / "social-queue.json").write_text(json.dumps(social_rows, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
     with (editorial / "newsletter-queue.csv").open("w", encoding="utf-8", newline="") as handle:
-        writer = csv.DictWriter(handle, fieldnames=["date", "title", "summary", "url", "author", "status"])
+        writer = csv.DictWriter(handle, fieldnames=["date", "title", "summary", "url", "author", "audiences", "status"])
         writer.writeheader()
         for item in items:
             if item.newsletter:
-                writer.writerow({"date": item.date, "title": item.title, "summary": item.summary, "url": item.url, "author": item.author, "status": "queued"})
+                writer.writerow({"date": item.date, "title": item.title, "summary": item.summary, "url": item.url, "author": item.author, "audiences": ", ".join(item.newsletter_targets), "status": "queued"})
 
 
 def main() -> None:

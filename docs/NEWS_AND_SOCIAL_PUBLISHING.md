@@ -53,7 +53,7 @@ Each published item marked for the newsletter is added to:
 
 `editorial/newsletter-queue.csv`
 
-That queue contains the publication date, title, summary, public URL, author, and status. A newsletter editor can import or copy these rows into the existing email platform. The same webhook payload includes a `newsletter` flag, so the automation can also create a draft campaign item in Mailchimp, Brevo, MailerLite, or another connected service.
+That queue contains the publication date, title, summary, public URL, author, target newsletter audience(s), and status. A newsletter editor can import or copy these rows into the existing email platform. The same webhook payload includes a `newsletter` flag, so the automation can also create a draft campaign item in Mailchimp, Brevo, MailerLite, or another connected service.
 
 The recommended control is to create drafts, not to send newsletters automatically. Website publication and outbound email are different acts with different risks.
 
@@ -67,3 +67,7 @@ People comfortable with Markdown may add a file directly to `content/news/`. Use
 - RSS feed: `https://www.publicservicetransformation.org/news/feed.xml`
 - Social queue: `editorial/social-queue.json`
 - Newsletter queue: `editorial/newsletter-queue.csv`
+
+## Newsletter routing
+
+A news item marked `newsletter: yes` is queued for both the PSTA and RedQuadrant newsletters by default. Add `newsletter_targets` in front matter if an item should go to only one audience. Keep these as editorial queues: do not auto-send a newsletter from a website update.

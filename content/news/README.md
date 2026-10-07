@@ -11,6 +11,7 @@ author: "The PSTA"
 social: "Suggested social copy."
 channels: "RedQuadrant LinkedIn, The PSTA LinkedIn"
 newsletter: yes
+newsletter_targets: "PSTA, RedQuadrant"
 draft: false
 ---
 
@@ -23,3 +24,5 @@ social/newsletter queue selection. New website-only items should use empty
 `channels` and `newsletter: no`.
 
 The easier route is the repository's ‘Publish a PSTA news item’ issue form. Opening a completed form creates this file automatically, rebuilds the website and RSS feed, adds the item to the social and newsletter queues, and sends it to the optional distribution webhook.
+
+`newsletter_targets` is optional. If `newsletter: yes` is set without it, the item is queued for both the PSTA and RedQuadrant newsletters.
