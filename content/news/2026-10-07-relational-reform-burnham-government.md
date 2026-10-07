@@ -6,6 +6,7 @@ author: "The Public Service Transformation Academy"
 social: "Can a state built around standardisation, targets, and control become more relational? Rich Bell at the Relationships Project looks at devolution, public-service reform, and social care as practical tests of whether trust, connection, and agency can shape how government works."
 channels: "The PSTA LinkedIn, RedQuadrant LinkedIn, Quadrant Resourcing LinkedIn"
 newsletter: yes
+newsletter_targets: "PSTA, RedQuadrant"
 draft: false
 primary_link: "https://relationshipsproject.org/a-season-for-change-three-hopes-for-the-burnham-government/"
 ---
