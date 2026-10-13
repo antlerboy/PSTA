@@ -116,6 +116,7 @@ jobs:
           python3 scripts/inject-visit-analytics.py deploy
           python3 scripts/update_contact_number.py deploy
           python3 scripts/apply_september_review.py deploy
+          python3 scripts/apply_link_cleanup.py deploy
           python3 scripts/audit_site.py deploy
 
           grep -q "Bring a team and a real change" deploy/index.html
