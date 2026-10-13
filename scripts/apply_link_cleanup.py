@@ -1,6 +1,6 @@
 """Publish current offer routes and honest retirement pages; restore useful legacy paths."""
 from pathlib import Path
-import html,json,re,sys
+import html,json,re,sys,shutil
 from urllib.parse import urlsplit,unquote
 root=Path(sys.argv[1]);domain='https://www.publicservicetransformation.org'
 template=(root/'programmes/place-based-academies/index.html').read_text()
@@ -59,11 +59,9 @@ page('events/goldratt-july-2026','A different look at systems thinking — July 
      'The PSTA webinar with Goldratt UK took place on 2 July 2026. Registration has closed.',
      '<p>This page preserves the route from the original webinar invitation. To ask about a recording or presentation materials, please <a href="mailto:info@publicservicetransformation.org?subject=Goldratt%20webinar%202%20July%202026%20materials">contact the PSTA</a>.</p><h2>Related resources and development</h2><ul><li><a href="/tools/commissioning-compass/">Commissioning Compass: systems assessment for change</a></li><li><a href="/systems-leadership-academy/">Systems Leadership Academy</a></li><li><a href="/assets/documents/commissioning-is-an-approach-to-transformation.pdf">Commissioning is an approach to transformation — the original 2019 paper</a></li><li><a href="/offers/">Current PSTA programmes and tools</a></li></ul>')
 
-# These two legacy partner stubs contain no profile content. Give readers a
-# maintained destination rather than publishing an empty, malformed page.
+# Keep obsolete partner stubs retired, as required by the September review.
 for slug in ['partners/apace','partners/fractal-consulting']:
-    page(slug,'PSTA partners','Find our current partners and ways to work with the PSTA.',
-         '<p>This historical partner address is retained for older links. <a href="/partners/">Browse the current partner information</a>, or <a href="/contact/">contact us about working together</a>.</p>')
+    if (root/slug).is_dir():shutil.rmtree(root/slug)
 
 routes=json.loads((Path(__file__).parents[1]/'content/link-cleanup-routes.json').read_text())
 for old,new in routes['legacy'].items():
@@ -88,6 +86,8 @@ for p in root.rglob('*.html'):
         s=s.replace('<footer', '</main><footer',1)
     p.write_text(s)
 sitemap=root/'sitemap.xml';s=sitemap.read_text()
+for slug in ['partners/apace','partners/fractal-consulting']:
+    s=re.sub(r'<url>\s*<loc>'+re.escape(domain+'/'+slug+'/')+r'</loc>.*?</url>','',s,flags=re.S)
 for slug in published:
     url=domain+'/'+slug+'/'
     if '<loc>'+url+'</loc>' not in s:s=s.replace('</urlset>','<url><loc>'+url+'</loc></url></urlset>')
