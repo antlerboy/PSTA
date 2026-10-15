@@ -30,3 +30,12 @@ apply_launch_service_change(root)
 
 # Apply the sharper system-level National Commissioning Academy positioning.
 import apply_nca_positioning  # noqa: E402,F401
+
+# Preserve the confirmed induction date and honest status of the remaining dates.
+nca_page = root / 'programmes/national-commissioning-academy/index.html'
+nca = nca_page.read_text(encoding='utf-8')
+needle = '<div><dt>Time</dt><dd>November 2026 to May 2027</dd></div>'
+replacement = needle + '<div><dt>Induction</dt><dd>Tuesday 10 November 2026</dd></div><div><dt>Anchor days</dt><dd>The revised anchor-day dates and session times will be confirmed by David Mason.</dd></div>'
+if needle not in nca:
+    raise SystemExit('Could not add the confirmed National Commissioning Academy dates')
+nca_page.write_text(nca.replace(needle, replacement, 1), encoding='utf-8')
