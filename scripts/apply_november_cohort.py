@@ -27,3 +27,6 @@ print('Applied November cohort: induction 10 November; remaining dates await con
 # Add the approved offer before the existing final copy and internal-link audits.
 from launch_service_change import apply_launch_service_change
 apply_launch_service_change(root)
+
+# Apply the sharper system-level National Commissioning Academy positioning.
+import apply_nca_positioning  # noqa: E402,F401
