@@ -1,4 +1,4 @@
-"""Apply the confirmed November cohort after the historical site assembly."""
+"""Apply the January 2027 cohort update after the historical site assembly."""
 from pathlib import Path
 import re
 import sys
@@ -9,20 +9,21 @@ for path in root.rglob('*'):
         continue
     text = path.read_text(encoding='utf-8')
     text = text.replace('7 Bell Yard', '167–169 Great Portland Street, 5th Floor').replace('WC2A 2JR', 'W1W 5PF')
-    text = text.replace('September 2026 to February 2027', 'November 2026 to May 2027')
-    text = text.replace('The main programme runs to February 2027.', 'The main programme runs to May 2027.')
-    text = text.replace('November 2026 to February 2027', 'November 2026 to May 2027')
-    text = text.replace('November 2026 - February 2027', 'November 2026 - May 2027')
-    text = text.replace('September 2026 cohort', 'November 2026 cohort')
-    text = text.replace('returns in September 2026', 'returns in November 2026')
-    text = text.replace('Academy%20September%202026', 'Academy%20November%202026')
-    text = re.sub(r'The launch webinar is on (?:<strong>)?Monday 14 September 2026, 10:00[–-]12:30(?:</strong>)?\. The first full anchor day is on (?:<strong>)?Wednesday 23 September 2026, 10:00[–-]16:30(?:</strong>)?\.', 'The induction webinar is on Tuesday 10 November 2026. The revised anchor-day dates and session times will be confirmed by David Mason.', text)
+    text = text.replace('September 2026 to February 2027', 'Starting January 2027')
+    text = text.replace('The main programme runs to February 2027.', 'Exact dates and the full timetable are to be confirmed.')
+    text = text.replace('November 2026 to February 2027', 'Starting January 2027')
+    text = text.replace('November 2026 - February 2027', 'Starting January 2027')
+    text = text.replace('September 2026 cohort', 'January 2027 cohort')
+    text = text.replace('Applications are open for the January 2027 cohort.', 'Applications are open for the January 2027 cohort. Exact dates and the full timetable are to be confirmed.')
+    text = text.replace('returns in September 2026', 'returns in January 2027')
+    text = text.replace('Academy%20September%202026', 'Academy%20January%202027')
+    text = re.sub(r'The launch webinar is on (?:<strong>)?Monday 14 September 2026, 10:00[–-]12:30(?:</strong>)?\. The first full anchor day is on (?:<strong>)?Wednesday 23 September 2026, 10:00[–-]16:30(?:</strong>)?\.', 'The next cohort starts in January 2027. Exact dates and the full timetable are to be confirmed.', text)
     text = text.replace('£2,490 per participant', '£2,490 excluding VAT per participant')
     text = text.replace('£2,490 excluding VAT per participant.Discounts', '£2,490 excluding VAT per participant. Discounts')
     # The current address is supplied explicitly in the controlling web plan.
     text = re.sub(r'7 Bell Yard,? London,? (?:WC2A 2JR)(?:,? UK)?', '167–169 Great Portland Street, 5th Floor, London, W1W 5PF', text)
     path.write_text(text, encoding='utf-8')
-print('Applied November cohort: induction 10 November; remaining dates await confirmation')
+print('Applied January 2027 cohort: exact dates and full timetable to be confirmed')
 
 # Add the approved offer before the existing final copy and internal-link audits.
 from launch_service_change import apply_launch_service_change
@@ -30,12 +31,3 @@ apply_launch_service_change(root)
 
 # Apply the sharper system-level National Commissioning Academy positioning.
 import apply_nca_positioning  # noqa: E402,F401
-
-# Preserve the confirmed induction date and honest status of the remaining dates.
-nca_page = root / 'programmes/national-commissioning-academy/index.html'
-nca = nca_page.read_text(encoding='utf-8')
-needle = '<div><dt>Time</dt><dd>November 2026 to May 2027</dd></div>'
-replacement = needle + '<div><dt>Induction</dt><dd>Tuesday 10 November 2026</dd></div><div><dt>Anchor days</dt><dd>The revised anchor-day dates and session times will be confirmed by David Mason.</dd></div>'
-if needle not in nca:
-    raise SystemExit('Could not add the confirmed National Commissioning Academy dates')
-nca_page.write_text(nca.replace(needle, replacement, 1), encoding='utf-8')

@@ -11,7 +11,7 @@ body:
     attributes:
       label: Public title
       description: A clear, public-facing headline.
-      placeholder: The next National Commissioning Academy launches in September 2026
+      placeholder: The next National Commissioning Academy starts in January 2027; exact dates and the full timetable are to be confirmed
     validations:
       required: true
   - type: textarea

@@ -29,8 +29,8 @@ for page in root.rglob('*.html'):
     if 'WEB_ESTATE_REVIEW_20260906' in text:
         continue
     text = text.replace('an bespoke', 'a bespoke').replace('An bespoke', 'A bespoke')
-    text = text.replace('starting November 2026', 'November 2026 to May 2027')
-    text = text.replace('Starting November 2026', 'November 2026 to May 2027')
+    text = text.replace('starting November 2026', 'Starting January 2027; exact dates and the full timetable are to be confirmed')
+    text = text.replace('Starting November 2026', 'Starting January 2027; exact dates and the full timetable are to be confirmed')
     if '</body>' not in text:
         continue
     # Existing dot is retained where present; generated pages receive it too.
