@@ -21,7 +21,7 @@ Hosted by the Public Service Transformation Academy, this will be a conversation
 
 It’s for people working in children’s services, commissioning, organisational improvement, and public service reform. You don’t need commissioning in your job title.
 
-We’ll also explain the next [National Commissioning Academy](https://www.publicservicetransformation.org/programmes/national-commissioning-academy/), running from November 2026 to May 2027, and how to explore whether it’s right for you or a team working on a live challenge. The Academy’s induction on 10 November is separate from this webinar.
+We’ll also explain the next [National Commissioning Academy](https://www.publicservicetransformation.org/programmes/national-commissioning-academy/), starting in January 2027, and how to explore whether it’s right for you or a team working on a live challenge. Exact Academy dates and the full timetable are to be confirmed. This webinar is separate from the Academy programme.
 
 ## Register your interest
 

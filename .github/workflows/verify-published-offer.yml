@@ -24,10 +24,14 @@ jobs:
           import time
           import urllib.request
           checks = {
-              '/': ['Bring a team and a real change', '/learning-and-capability/'],
+              '/': ['Bring a team and a real change', '/learning-and-capability/', 'January 2027'],
               '/learning-and-capability/': ['Learning and capability partner', 'twelve-week', 'mailto:david.mason@publicservicetransformation.org', 'redquadrant.com/service-change/'],
-              '/programmes/': ['Develop a team through live service change', '/learning-and-capability/'],
-              '/programmes/national-commissioning-academy/': ['November 2026 to May 2027', 'Bring a team and a live commissioning challenge', '/learning-and-capability/'],
+              '/programmes/': ['Develop a team through live service change', '/learning-and-capability/', 'January 2027'],
+              '/programmes/national-commissioning-academy/': ['January 2027', 'Exact dates and the full timetable are to be confirmed.', 'Bring a team and a live commissioning challenge', '/learning-and-capability/'],
+              '/news/outcomes-commissioning-islington-webinar/': ['Wednesday 4 November 2026, 13:30-14:30 GMT', 'January 2027', 'Exact Academy dates and the full timetable are to be confirmed.'],
+              '/news/national-commissioning-academy-september-2026/': ['Updated 21 October 2026', 'January 2027', 'timetable has now been superseded'],
+              '/news/': ['January 2027'],
+              '/news/feed.xml': ['January 2027'],
               '/sitemap.xml': ['/learning-and-capability/']
           }
           failures = []
@@ -43,7 +47,7 @@ jobs:
                       missing = [value for value in required if value not in text]
                       if missing:
                           raise ValueError('Expected launch content not found: ' + ', '.join(missing))
-                      if path == '/programmes/national-commissioning-academy/' and ('September 2026 cohort' in text or 'November 2026 to February 2027' in text):
+                      if any(stale in text for stale in ('September 2026 cohort', 'November 2026 cohort', 'November 2026 to', 'May 2027', '10 November')):
                           raise ValueError('Superseded Academy recruitment dates remain')
                       print('PASS', url)
                       break
@@ -55,5 +59,5 @@ jobs:
           if failures:
               raise SystemExit('\n'.join(failures))
           with open(os.environ['GITHUB_STEP_SUMMARY'], 'a') as summary:
-              summary.write('All five live PSTA offer, entry-point, Academy-date, and sitemap checks passed.\n')
+              summary.write(f'All {len(checks)} live PSTA offer, entry-point, Academy-date, webinar, news, feed, and sitemap checks passed.\n')
           PY

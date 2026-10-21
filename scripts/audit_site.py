@@ -248,7 +248,7 @@ def main() -> None:
     nca = (ROOT / "programmes/national-commissioning-academy/index.html").read_text(encoding="utf-8", errors="ignore")
     evidence = (ROOT / "commissioning-academy/testimonials/index.html").read_text(encoding="utf-8", errors="ignore")
     for text, label in [
-        ("Applications are open for the November 2026 cohort", "home-page application message"),
+        ("Applications are open for the January 2027 cohort", "home-page application message"),
         ("Read more participant experiences", "home-page proof link"),
         ("2,500+", "graduate evidence"),
     ]:
@@ -257,8 +257,8 @@ def main() -> None:
     for text, label in [
         ("£2,490", "current National Commissioning Academy price"),
         ("Apply or ask a question", "National Commissioning Academy action"),
-        ("10 November 2026", "launch webinar date"),
-        ("revised anchor-day dates", "anchor-day dates awaiting confirmation"),
+        ("January 2027", "current Academy start"),
+        ("Exact dates and the full timetable are to be confirmed.", "Academy timetable awaiting confirmation"),
     ]:
         if text not in nca:
             failures.append(f"missing {label}")
@@ -267,6 +267,16 @@ def main() -> None:
             failures.append(f"participant evidence missing: {name}")
 
     all_text = "\n".join(path.read_text(encoding="utf-8", errors="ignore") for path in ROOT.rglob("*") if path.is_file() and path.suffix.lower() in {".html", ".css", ".js", ".xml", ".txt", ".json"})
+    # Check rendered copy, metadata, feeds, and encoded enquiry subjects together.
+    decoded_text = unquote(all_text)
+    for stale in ('10 November', 'May 2027', 'November 2026 cohort', 'November 2026 to', 'Academy November 2026'):
+        if stale in decoded_text:
+            failures.append(f"superseded Academy recruitment date remains: {stale}")
+    webinar = (ROOT / 'news/outcomes-commissioning-islington-webinar/index.html').read_text(encoding='utf-8')
+    if 'Wednesday 4 November 2026, 13:30-14:30 GMT' not in webinar:
+        failures.append('the Islington webinar public date or time has changed')
+    if 'data-event-start="2026-11-04T13:30:00Z"' not in nca or 'data-event-end="2026-11-04T14:30:00Z"' not in nca:
+        failures.append('the Academy webinar invitation event times have changed')
     if "https://github.com/antlerboy/PSTA/issues/2" not in all_text:
         failures.append("website feedback URL is missing")
     if "PSTA accessible navigation state" not in all_text:
@@ -283,8 +293,8 @@ def main() -> None:
             failures.append(f"superseded public copy remains: {stale}")
     # Check the source announcement too: rendered corrections do not fix editorial queues.
     announcement = Path(__file__).resolve().parents[1] / 'content/news/2026-08-10-national-commissioning-academy-september-2026.md'
-    if 'February 2027' in announcement.read_text(encoding='utf-8'):
-        failures.append('the Academy news source still has the superseded February end date')
+    if any(date in announcement.read_text(encoding='utf-8') for date in ('February 2027', 'May 2027', '10 November')):
+        failures.append('the Academy news source still has a superseded timetable')
     if "</dl><a" in (ROOT / "programmes/commissioning-simulation/index.html").read_text(encoding="utf-8", errors="ignore")[:2000]:
         failures.append("commissioning simulation still contains the truncated page fragment")
 

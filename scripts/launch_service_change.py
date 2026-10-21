@@ -55,8 +55,8 @@ def apply_launch_service_change(root: Path) -> None:
     academy = root / 'programmes/national-commissioning-academy/index.html'
     text = academy.read_text(encoding='utf-8')
     # Correct current recruitment copy only; historical articles and URLs stay intact.
-    text = text.replace('September 2026 cohort', 'November 2026 cohort').replace('returns in September 2026', 'returns in November 2026')
-    text = text.replace('September 2026 to February 2027', 'November 2026 to May 2027').replace('November 2026 to February 2027', 'November 2026 to May 2027')
+    text = text.replace('September 2026 cohort', 'January 2027 cohort').replace('returns in September 2026', 'returns in January 2027')
+    text = text.replace('September 2026 to February 2027', 'Starting January 2027').replace('November 2026 to February 2027', 'Starting January 2027')
     note = '''<!-- PSTA_SERVICE_CHANGE_20260919 --><section class="section"><div class="shell"><h2>Bring a team and a live commissioning challenge</h2><p>Discuss sponsored-team places on the National Commissioning Academy, or an in-house programme, with David Mason. Confirm the timetable, places, fees, and sponsor commitment before booking.</p><p>For a separately commissioned twelve-week programme combining workplace practice and sponsor review, see our <a href="/learning-and-capability/">learning and capability partnership</a>.</p></div></section>'''
     academy.write_text(insert_once(text, marker, note), encoding='utf-8')
     sitemap = root / 'sitemap.xml'
@@ -72,7 +72,7 @@ def apply_launch_service_change(root: Path) -> None:
     assert 'mailto:david.mason@publicservicetransformation.org' in page
     assert '/learning-and-capability/' in programmes.read_text(encoding='utf-8')
     assert '/learning-and-capability/' in academy.read_text(encoding='utf-8')
-    assert 'November 2026 to May 2027' in academy.read_text(encoding='utf-8')
+    assert 'Starting January 2027' in academy.read_text(encoding='utf-8')
     assert len(re.findall(r'<h1(?:\s|>)', page)) == 1
     assert '<link rel="canonical" href="' + canonical + '">' in page
     print('Published service-change offer: page, programme entry, Academy team invitation, and sitemap')

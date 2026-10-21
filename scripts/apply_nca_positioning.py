@@ -25,9 +25,9 @@ main = r'''<main id="main-content" class="site-main">
         <h1>The National Commissioning Academy</h1>
         <p class="lede">For people responsible for outcomes no one organisation can deliver alone.</p>
         <p>When money, authority, information and responsibility sit in different places, a better project plan is not enough. Learn to see the whole system, convene the people who shape it, and make practical progress from where you stand.</p>
-        <p class="hero-note"><strong>November 2026 to May 2027 · £2,490 excluding VAT per participant</strong></p>
+        <p class="hero-note"><strong>Starting January 2027 · £2,490 excluding VAT per participant</strong></p>
         <div class="hero-actions">
-          <a class="button button-gold" href="mailto:info@publicservicetransformation.org?subject=National%20Commissioning%20Academy%20November%202026">Apply or ask a question</a>
+          <a class="button button-gold" href="mailto:info@publicservicetransformation.org?subject=National%20Commissioning%20Academy%20January%202027">Apply or ask a question</a>
         </div>
       </div>
       <span class="status status-large is-open">Applications open</span>
@@ -41,7 +41,7 @@ main = r'''<main id="main-content" class="site-main">
     <p class="eyebrow">Webinar · Wednesday 4 November 2026 · 13:30–14:30 GMT</p>
     <h2 id="islington-webinar-heading">Outcomes commissioning in practice: lessons from Islington</h2>
     <p>Join Chrissie Gregory and Sharon Davidson, improvement consultants working with the London Borough of Islington, in conversation with Benjamin P Taylor. Explore how an outcomes focus can change the conversations and decisions behind children’s services reform, and how learning through the Commissioning Academy helped them sharpen their practice.</p>
-    <p>This one-hour webinar is separate from the Academy’s induction on 10 November. David will confirm registration arrangements and joining details.</p>
+    <p>This one-hour webinar is separate from the Academy cohort starting in January 2027. Exact Academy dates and the full timetable are to be confirmed. David will confirm registration arrangements and joining details.</p>
     <p><a class="button button-gold" href="mailto:david.mason@publicservicetransformation.org?subject=Islington%20webinar%204%20November">Register your interest with David Mason</a></p>
     <p><a class="text-link" href="/news/outcomes-commissioning-islington-webinar/">Read the webinar outline</a></p>
   </div>
@@ -102,10 +102,10 @@ main = r'''<main id="main-content" class="site-main">
       <div><dt>Status</dt><dd>Applications open</dd></div>
       <div><dt>For</dt><dd>People responsible for outcomes that depend on several organisations, professions, providers or communities</dd></div>
       <div><dt>Format</dt><dd>Cross-sector cohort, anchor days, expert sessions, action learning, peer challenge and live challenge work</dd></div>
-      <div><dt>Time</dt><dd>November 2026 to May 2027</dd></div>
+      <div><dt>Start</dt><dd>January 2027</dd></div><div><dt>Timetable</dt><dd>Exact dates and the full timetable are to be confirmed.</dd></div>
       <div><dt>Fee</dt><dd>£2,490 excluding VAT per participant; group and host discounts are available</dd></div>
     </dl>
-    <a class="button button-gold" href="mailto:info@publicservicetransformation.org?subject=National%20Commissioning%20Academy%20November%202026">Apply or ask a question</a>
+    <a class="button button-gold" href="mailto:info@publicservicetransformation.org?subject=National%20Commissioning%20Academy%20January%202027">Apply or ask a question</a>
   </aside>
 </div>
 
@@ -157,7 +157,7 @@ main = r'''<main id="main-content" class="site-main">
     <p>Describe the live challenge, the people or organisations involved, and the change you need to make possible. We will help you test whether the Academy is the right place to do the work.</p>
   </div>
   <div class="cta-actions">
-    <a class="button button-gold" href="mailto:info@publicservicetransformation.org?subject=National%20Commissioning%20Academy%20November%202026">Apply or ask a question</a>
+    <a class="button button-gold" href="mailto:info@publicservicetransformation.org?subject=National%20Commissioning%20Academy%20January%202027">Apply or ask a question</a>
   </div>
 </section>
 <!-- PSTA_NCA_2026_END -->

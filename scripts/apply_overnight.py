@@ -11,7 +11,7 @@ for slug,(price,scope) in prices.items():
  s=s.replace('</main>',section+'</main>');p.write_text(s)
 for p in r.rglob('*.html'):
  s=p.read_text();s=s.replace('In-house','Bespoke').replace('in-house','bespoke').replace('10-step','ten-step')
- s=s.replace('November 2026 to February 2027','starting November 2026').replace('November 2026–February 2027','starting November 2026').replace('The main programme runs through to February 2027.','David will confirm the full programme calendar before booking.')
+ s=s.replace('November 2026 to February 2027','starting January 2027; exact dates and the full timetable are to be confirmed').replace('November 2026–February 2027','starting January 2027; exact dates and the full timetable are to be confirmed').replace('The main programme runs through to February 2027.','Exact dates and the full timetable are to be confirmed.')
  # Restore historical URL paths while changing visible terminology.
  s=s.replace('/bespoke/','/in-house/')
  s=re.sub(r'<section[^>]*>\s*(?:<div[^>]*>\s*)?<h2>What moved from the former site</h2>.*?</section>','',s,flags=re.S)

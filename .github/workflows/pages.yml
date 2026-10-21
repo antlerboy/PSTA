@@ -150,7 +150,9 @@ jobs:
           grep -q "PSTA_NCA_2026" deploy/programmes/national-commissioning-academy/index.html
           test -f deploy/news/mike-barker-prevention-place/index.html
           test -f deploy/news/commissioning-instincts-quiz/index.html
-          grep -q "November 2026 to May 2027" deploy/programmes/national-commissioning-academy/index.html
+          grep -q "January 2027" deploy/programmes/national-commissioning-academy/index.html
+          grep -q "Exact dates and the full timetable are to be confirmed." deploy/programmes/national-commissioning-academy/index.html
+          ! grep -RqiE "10 November|May 2027|November 2026 cohort|November 2026 to" deploy
           ! grep -Rqi "November 2026 to February 2027" deploy
           ! grep -qi "The main programme runs to February 2027" deploy/programmes/national-commissioning-academy/index.html
           grep -Rqi "2,490" deploy
