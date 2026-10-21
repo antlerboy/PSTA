@@ -279,7 +279,11 @@ def update_sales_and_migration_copy() -> None:
             'href="/PSTA/contact/"',
             markup,
         )
-        if path.relative_to(ROOT).as_posix() != "contact/index.html":
+        # Keep the explicit webinar registration address on its event page.
+        if path.relative_to(ROOT).as_posix() not in {
+            "contact/index.html",
+            "news/outcomes-commissioning-islington-webinar/index.html",
+        }:
             markup = re.sub(
                 r'href="mailto:david\.mason@publicservicetransformation\.org[^"]*"',
                 'href="/PSTA/contact/"',
