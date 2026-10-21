@@ -128,6 +128,7 @@ def load_items() -> list[dict[str, str]]:
         item = {key: str(raw[key]).strip() for key in required}
         if not all(item.values()):
             raise SystemExit(f"Latest item {index} contains an empty value")
+        item["link_label"] = str(raw.get("link_label", "Read it")).strip() or "Read it"
         items.append(item)
     topics = [str(raw["topic"]).strip().casefold() for raw in data]
     hrefs = [item["href"].casefold() for item in items]
@@ -153,16 +154,18 @@ def render_panel(items: list[dict[str, str]]) -> str:
         summary = html.escape(item["summary"])
         href = html.escape(item["href"], quote=True)
         attrs = link_attrs(item["href"])
+        label = html.escape(item.get("link_label", "Read it"))
+        arrow = "↗" if attrs else "→"
         cards.append(
             f'<article>\n'
             f'  <p class="psta-latest-source">{source}</p>\n'
             f'  <h3><a href="{href}"{attrs}>{title}</a></h3>\n'
             f'  <p>{summary}</p>\n'
-            f'  <a class="psta-latest-read" href="{href}"{attrs}>Read it <span aria-hidden="true">↗</span></a>\n'
+            f'  <a class="psta-latest-read" href="{href}"{attrs}>{label} <span aria-hidden="true">{arrow}</span></a>\n'
             f'</article>'
         )
 
-    return f'''\n<section class="section psta-latest-panel" aria-labelledby="psta-latest-heading">\n  <div class="psta-latest-inner">\n    <div class="psta-latest-panel-heading">\n      <div>\n        <p class="psta-latest-eyebrow">News, social media, and useful things</p>\n        <h2 id="psta-latest-heading">Latest from the PSTA</h2>\n      </div>\n      <p>Recent reading on public services, places, and communities. <a href="/news/">See all news</a></p>\n    </div>\n    <div class="psta-latest-grid">\n      {''.join(cards)}\n    </div>\n  </div>\n</section>\n'''
+    return f'''\n<section class="section psta-latest-panel" aria-labelledby="psta-latest-heading">\n  <div class="psta-latest-inner">\n    <div class="psta-latest-panel-heading">\n      <div>\n        <p class="psta-latest-eyebrow">News, social media, and useful things</p>\n        <h2 id="psta-latest-heading">Latest from the PSTA</h2>\n      </div>\n      <p>Webinars, programmes, and recent learning for public service practitioners. <a href="/news/">See all news</a></p>\n    </div>\n    <div class="psta-latest-grid">\n      {''.join(cards)}\n    </div>\n  </div>\n</section>\n'''
 
 
 def patch_home(items: list[dict[str, str]]) -> None:

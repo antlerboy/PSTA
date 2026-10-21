@@ -35,6 +35,25 @@ main = r'''<main id="main-content" class="site-main">
   </div>
 </section>
 
+<!-- PSTA_ISLINGTON_WEBINAR_20261104_START -->
+<section id="islington-webinar-invitation" class="section section-tint" aria-labelledby="islington-webinar-heading" data-event-start="2026-11-04T13:30:00Z" data-event-end="2026-11-04T14:30:00Z">
+  <div class="shell">
+    <p class="eyebrow">Webinar · Wednesday 4 November 2026 · 13:30–14:30 GMT</p>
+    <h2 id="islington-webinar-heading">Outcomes commissioning in practice: lessons from Islington</h2>
+    <p>Join Chrissie Gregory and Sharon Davidson, improvement consultants working with the London Borough of Islington, in conversation with Benjamin P Taylor. Explore how an outcomes focus can change the conversations and decisions behind children’s services reform, and how learning through the Commissioning Academy helped them sharpen their practice.</p>
+    <p>This one-hour webinar is separate from the Academy’s induction on 10 November. David will confirm registration arrangements and joining details.</p>
+    <p><a class="button button-gold" href="mailto:david.mason@publicservicetransformation.org?subject=Islington%20webinar%204%20November">Register your interest with David Mason</a></p>
+    <p><a class="text-link" href="/news/outcomes-commissioning-islington-webinar/">Read the webinar outline</a></p>
+  </div>
+</section>
+<script>
+(function () {
+  const invitation = document.getElementById('islington-webinar-invitation');
+  if (invitation && Date.now() >= Date.parse(invitation.dataset.eventEnd)) invitation.hidden = true;
+}());
+</script>
+<!-- PSTA_ISLINGTON_WEBINAR_20261104_END -->
+
 <div class="shell content-with-aside">
   <article class="prose">
     <h2>The outcome belongs to the whole system</h2>

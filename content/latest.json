@@ -1,23 +1,26 @@
 [
   {
-    "topic": "relational-neighbourhood-health",
-    "source": "NHS England · practice",
-    "title": "Relational public service in Doncaster",
-    "summary": "Starting with residents’ lives, connecting support, and making room for learning in neighbourhood health.",
-    "href": "/news/relational-public-service-doncaster/"
+    "topic": "outcomes-commissioning-webinar",
+    "source": "Webinar · 4 November 2026 · 13:30–14:30 GMT",
+    "title": "Outcomes commissioning in practice: lessons from Islington",
+    "summary": "Chrissie Gregory and Sharon Davidson join Benjamin P Taylor to discuss the conversations and decisions behind children’s services reform.",
+    "href": "/news/outcomes-commissioning-islington-webinar/",
+    "link_label": "Explore the webinar"
   },
   {
-    "topic": "place-based-commissioning",
-    "source": "The Good Shift · learnbook",
-    "title": "Confetti or coherence? Commissioning in place",
-    "summary": "Who holds the whole when many separate funding decisions land in one community?",
-    "href": "/news/confetti-or-coherence-commissioning-in-place/"
+    "topic": "national-commissioning-academy",
+    "source": "Applications open · November 2026 to May 2027",
+    "title": "The National Commissioning Academy",
+    "summary": "Bring a live challenge and develop your ability to improve outcomes across organisations, services, and communities. Induction: 10 November.",
+    "href": "/programmes/national-commissioning-academy/",
+    "link_label": "Explore the Academy"
   },
   {
-    "topic": "violence-prevention-system-reform",
-    "source": "RIVA · reform project",
-    "title": "Changing the conditions for preventing harm",
-    "summary": "Infrastructure, investment, and learning in the response to violence against women and girls.",
-    "href": "/news/riva-system-change-violence-against-women-girls/"
+    "topic": "community-led-neighbourhood-health",
+    "source": "NHS Alliance and Local Trust · report",
+    "title": "Community-led organisations as partners in neighbourhood health",
+    "summary": "What funding, decision-making, and learning arrangements help community organisations shape neighbourhood health? Learning from six places.",
+    "href": "/news/community-led-partnerships-neighbourhood-health/",
+    "link_label": "Read the report summary"
   }
 ]
