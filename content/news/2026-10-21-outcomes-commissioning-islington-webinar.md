@@ -21,10 +21,10 @@ Hosted by the Public Service Transformation Academy, this will be a conversation
 
 It’s for people working in children’s services, commissioning, organisational improvement, and public service reform. You don’t need commissioning in your job title.
 
-We’ll also explain the next [National Commissioning Academy](https://www.publicservicetransformation.org/programmes/national-commissioning-academy/), starting in January 2027, and how to explore whether it’s right for you or a team working on a live challenge. Exact Academy dates and the full timetable are to be confirmed. This webinar is separate from the Academy programme.
+We’ll also explain the next [National Commissioning Academy](https://www.publicservicetransformation.org/programmes/national-commissioning-academy/), starting in January 2027, and how to explore whether it’s right for you or a team working on a live challenge. This webinar is separate from the Academy programme.
 
 ## Register your interest
 
-[Register your interest with David Mason](mailto:david.mason@publicservicetransformation.org?subject=Islington%20webinar%204%20November).
+[Register your interest on Zoom](https://us06web.zoom.us/meeting/register/K8AM-rMiSHGRfmltxyYN_w).
 
-David will confirm registration arrangements and joining details. Let him know if you have an access requirement or a question you’d like the speakers to consider.
+Please email [info@publicservicetransformation.org](mailto:info@publicservicetransformation.org) with access requirements, questions, or issues you’d like to raise.

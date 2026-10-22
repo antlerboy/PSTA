@@ -28,9 +28,12 @@ jobs:
               '/learning-and-capability/': ['Learning and capability partner', 'twelve-week', 'mailto:david.mason@publicservicetransformation.org', 'redquadrant.com/service-change/'],
               '/programmes/': ['Develop a team through live service change', '/learning-and-capability/', 'January 2027'],
               '/programmes/national-commissioning-academy/': ['January 2027', 'Exact dates and the full timetable are to be confirmed.', 'Bring a team and a live commissioning challenge', '/learning-and-capability/'],
-              '/news/outcomes-commissioning-islington-webinar/': ['Wednesday 4 November 2026, 13:30-14:30 GMT', 'January 2027', 'Exact Academy dates and the full timetable are to be confirmed.'],
+              '/news/outcomes-commissioning-islington-webinar/': ['Wednesday 4 November 2026, 13:30-14:30 GMT', 'January 2027', 'https://us06web.zoom.us/meeting/register/K8AM-rMiSHGRfmltxyYN_w'],
               '/news/national-commissioning-academy-september-2026/': ['Updated 21 October 2026', 'January 2027', 'timetable has now been superseded'],
-              '/news/': ['January 2027'],
+              '/programmes/contract-management-development/': ['Open to applications', 'Wednesday 11 November 2026', '£1,350 plus VAT', '£8,950 excluding VAT', 'tel:+447701049836'],
+              '/news/beyond-giving-receiving-social-care/': ['Care City', 'Connect'],
+              '/news/common-ground-institute-founding-essay/': ['Social Investment Business', 'Common Ground Institute'],
+              '/news/': ['January 2027', 'Beyond giving and receiving', 'Common Ground Institute'],
               '/news/feed.xml': ['January 2027'],
               '/sitemap.xml': ['/learning-and-capability/']
           }

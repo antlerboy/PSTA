@@ -275,8 +275,16 @@ def main() -> None:
     webinar = (ROOT / 'news/outcomes-commissioning-islington-webinar/index.html').read_text(encoding='utf-8')
     if 'Wednesday 4 November 2026, 13:30-14:30 GMT' not in webinar:
         failures.append('the Islington webinar public date or time has changed')
-    if 'data-event-start="2026-11-04T13:30:00Z"' not in nca or 'data-event-end="2026-11-04T14:30:00Z"' not in nca:
-        failures.append('the Academy webinar invitation event times have changed')
+    if 'islington-webinar-invitation' in nca or 'PSTA_ISLINGTON_WEBINAR' in nca:
+        failures.append('the removed Islington webinar panel has returned to the Academy page')
+    if 'https://us06web.zoom.us/meeting/register/K8AM-rMiSHGRfmltxyYN_w' not in webinar:
+        failures.append('the Islington webinar Zoom registration link is missing')
+    contract = (ROOT / 'programmes/contract-management-development/index.html').read_text(encoding='utf-8')
+    for required in ('Open to applications', 'Wednesday 11 November 2026', '£1,350 plus VAT', '£8,950 excluding VAT', 'tel:+447701049836', 'mailto:sarah.johnston@publicservicetransformation.org'):
+        if required not in contract:
+            failures.append('contract management update missing: ' + required)
+    if 'Next cohort to be announced' in contract:
+        failures.append('the contract management cohort still appears closed')
     if "https://github.com/antlerboy/PSTA/issues/2" not in all_text:
         failures.append("website feedback URL is missing")
     if "PSTA accessible navigation state" not in all_text:
