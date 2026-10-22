@@ -34,7 +34,7 @@ jobs:
               '/news/beyond-giving-receiving-social-care/': ['Care City', 'Connect'],
               '/news/common-ground-institute-founding-essay/': ['Social Investment Business', 'Common Ground Institute'],
               '/news/': ['January 2027', 'Beyond giving and receiving', 'Common Ground Institute'],
-              '/news/feed.xml': ['January 2027'],
+              '/news/feed.xml': ['beyond-giving-receiving-social-care', 'common-ground-institute-founding-essay'],
               '/sitemap.xml': ['/learning-and-capability/']
           }
           failures = []
