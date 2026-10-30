@@ -36,3 +36,13 @@ def update_card(match):
     return card
 text = re.sub(r'<article\b[^>]*>.*?</article>', update_card, text, flags=re.S)
 listing.write_text(text, encoding='utf-8')
+
+# Four long tool descriptions need readable columns even inside the prose shell.
+# Keep one column on small screens and two when each card has adequate width.
+tools = root / 'tools/index.html'
+text = tools.read_text(encoding='utf-8')
+marker = 'TOOLS_READABILITY_20261030'
+if marker not in text:
+    style = '<!-- '+marker+' --><style>.tool-grid{grid-template-columns:repeat(2,minmax(0,1fr));align-items:stretch}.tool-grid .tool-card{min-width:0}.tool-grid .tool-card h3{overflow-wrap:break-word}@media(max-width:700px){.tool-grid{grid-template-columns:1fr}}</style>'
+    text = text.replace('</head>', style+'</head>')
+    tools.write_text(text, encoding='utf-8')
