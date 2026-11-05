@@ -3,16 +3,13 @@
 
 from __future__ import annotations
 
-import html
-import json
 import re
 import sys
 from pathlib import Path
-from urllib.parse import urlparse
+from curated_latest import load_contract, render_cards, runtime_markup, write_assets
 
 ROOT = Path(sys.argv[1] if len(sys.argv) > 1 else "deploy")
 REPO = Path(__file__).resolve().parents[1]
-DATA_PATH = REPO / "content/latest.json"
 CSS_PATH = ROOT / "assets/css/latest-panel.css"
 HOME_PATH = ROOT / "index.html"
 PREFIX = "/PSTA/"
@@ -115,60 +112,13 @@ CSS = r"""
 """
 
 
-def load_items() -> list[dict[str, str]]:
-    data = json.loads(DATA_PATH.read_text(encoding="utf-8"))
-    if not isinstance(data, list) or len(data) != 3:
-        raise SystemExit("content/latest.json must contain exactly three items")
-
-    required = {"source", "title", "summary", "href", "topic"}
-    items: list[dict[str, str]] = []
-    for index, raw in enumerate(data, start=1):
-        if not isinstance(raw, dict) or not required.issubset(raw):
-            raise SystemExit(f"Latest item {index} is missing one of: {', '.join(sorted(required))}")
-        item = {key: str(raw[key]).strip() for key in required}
-        if not all(item.values()):
-            raise SystemExit(f"Latest item {index} contains an empty value")
-        item["link_label"] = str(raw.get("link_label", "Read it")).strip() or "Read it"
-        items.append(item)
-    topics = [str(raw["topic"]).strip().casefold() for raw in data]
-    hrefs = [item["href"].casefold() for item in items]
-    if len(set(topics)) != len(topics):
-        raise SystemExit("Latest items must cover three different topics")
-    if len(set(hrefs)) != len(hrefs):
-        raise SystemExit("Latest items must use three different links")
-    return items
+def render_panel(contract: dict) -> str:
+    cards = render_cards(contract["selected"], "psta-latest", external_tabs=True)
+    runtime = runtime_markup(contract, "psta-latest", external_tabs=True, asset_prefix=PREFIX.rstrip("/"))
+    return f'''\n<section class="section psta-latest-panel" aria-labelledby="psta-latest-heading" data-latest-panel>\n  <div class="psta-latest-inner">\n    <div class="psta-latest-panel-heading">\n      <div>\n        <p class="psta-latest-eyebrow">News, social media, and useful things</p>\n        <h2 id="psta-latest-heading">Latest from the PSTA</h2>\n      </div>\n      <p>Webinars, programmes, and recent learning for public service practitioners. <a href="/news/">See all news</a></p>\n    </div>\n    <div class="psta-latest-grid" data-latest-grid>\n      {cards}\n    </div>\n  </div>\n{runtime}\n</section>\n'''
 
 
-def link_attrs(href: str) -> str:
-    parsed = urlparse(href)
-    if parsed.scheme in {"http", "https"}:
-        return ' target="_blank" rel="noopener noreferrer"'
-    return ""
-
-
-def render_panel(items: list[dict[str, str]]) -> str:
-    cards = []
-    for item in items:
-        source = html.escape(item["source"])
-        title = html.escape(item["title"])
-        summary = html.escape(item["summary"])
-        href = html.escape(item["href"], quote=True)
-        attrs = link_attrs(item["href"])
-        label = html.escape(item.get("link_label", "Read it"))
-        arrow = "↗" if attrs else "→"
-        cards.append(
-            f'<article>\n'
-            f'  <p class="psta-latest-source">{source}</p>\n'
-            f'  <h3><a href="{href}"{attrs}>{title}</a></h3>\n'
-            f'  <p>{summary}</p>\n'
-            f'  <a class="psta-latest-read" href="{href}"{attrs}>{label} <span aria-hidden="true">{arrow}</span></a>\n'
-            f'</article>'
-        )
-
-    return f'''\n<section class="section psta-latest-panel" aria-labelledby="psta-latest-heading">\n  <div class="psta-latest-inner">\n    <div class="psta-latest-panel-heading">\n      <div>\n        <p class="psta-latest-eyebrow">News, social media, and useful things</p>\n        <h2 id="psta-latest-heading">Latest from the PSTA</h2>\n      </div>\n      <p>Webinars, programmes, and recent learning for public service practitioners. <a href="/news/">See all news</a></p>\n    </div>\n    <div class="psta-latest-grid">\n      {''.join(cards)}\n    </div>\n  </div>\n</section>\n'''
-
-
-def patch_home(items: list[dict[str, str]]) -> None:
+def patch_home(contract: dict) -> None:
     if not HOME_PATH.exists():
         raise SystemExit("Built home page is missing")
 
@@ -183,7 +133,7 @@ def patch_home(items: list[dict[str, str]]) -> None:
     position = lower.find("</head>")
     markup = markup[:position] + f'  {stylesheet}\n' + markup[position:]
 
-    panel = render_panel(items)
+    panel = render_panel(contract)
     lower = markup.lower()
     cta_match = re.search(r'<section\b[^>]*class=["\'][^"\']*\bcta-panel\b', markup, flags=re.I)
     if cta_match:
@@ -202,11 +152,14 @@ def patch_home(items: list[dict[str, str]]) -> None:
 
 
 def main() -> None:
-    items = load_items()
+    contract = load_contract(REPO)
     CSS_PATH.parent.mkdir(parents=True, exist_ok=True)
     CSS_PATH.write_text(CSS.strip() + "\n", encoding="utf-8")
-    patch_home(items)
-    print("Added PSTA latest panel with", len(items), "curated items")
+    write_assets(REPO, ROOT, contract)
+    patch_home(contract)
+    print("Added PSTA latest panel:", ", ".join(item["topic"] for item in contract["selected"]))
+    if contract["review_needed"]:
+        print("Editorial review due; inspect assets/data/latest.json")
 
 
 if __name__ == "__main__":

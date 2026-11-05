@@ -26,6 +26,9 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
+      - name: Check three-item selection and expiry behaviour
+        run: python3 -m unittest discover -s tests -p test_curated_latest.py
+
       - name: Assemble the complete PSTA site
         shell: bash
         run: |

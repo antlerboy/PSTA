@@ -1,11 +1,13 @@
 [
   {
-    "topic": "outcomes-commissioning-webinar",
-    "source": "Webinar · 4 November 2026 · 13:30–14:30 GMT",
-    "title": "Outcomes commissioning in practice: lessons from Islington",
-    "summary": "Chrissie Gregory and Sharon Davidson join Benjamin P Taylor to discuss the conversations and decisions behind children’s services reform.",
-    "href": "/news/outcomes-commissioning-islington-webinar/",
-    "link_label": "Explore the webinar"
+    "topic": "asset-based-commissioning",
+    "source": "Resources · 5 November 2026",
+    "title": "Asset-based commissioning: a practical resource hub from TLAP",
+    "summary": "Think Local Act Personal brings together ideas, research, practice stories, and webinars on asset-based commissioning.",
+    "href": "/news/tlap-asset-based-commissioning-hub/",
+    "link_label": "Explore the resources",
+    "reviewed_on": "2026-11-05",
+    "evergreen": true
   },
   {
     "topic": "contract-management",
@@ -13,7 +15,9 @@
     "title": "Contract Management Development Programme",
     "summary": "Refresh your skills, strengthen judgement, and apply learning to live contracts. £1,350 plus VAT per participant, with group booking discounts available.",
     "href": "/programmes/contract-management-development/",
-    "link_label": "Explore dates and fees"
+    "link_label": "Explore dates and fees",
+    "reviewed_on": "2026-11-05",
+    "expires_at": "2026-11-11T00:00:00+00:00"
   },
   {
     "topic": "relational-services-surrey",
@@ -21,6 +25,8 @@
     "title": "Surrey System Conveners: a relational services journey",
     "summary": "Liz Williams shares the team’s experience, followed by an optional community-of-practice conversation from 14:00 to 15:00 GMT.",
     "href": "/news/surrey-system-conveners-relational-services/",
-    "link_label": "Read more and register"
+    "link_label": "Read more and register",
+    "reviewed_on": "2026-11-05",
+    "expires_at": "2026-11-09T15:00:00+00:00"
   }
 ]

@@ -5,6 +5,7 @@ from __future__ import annotations
 import re
 import json
 import sys
+from html import escape
 from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import unquote, urlsplit
@@ -291,10 +292,14 @@ def main() -> None:
         failures.append("accessible mobile-navigation state handling is missing")
     if "http://eepurl.com" in all_text:
         failures.append("newsletter links still use insecure HTTP")
-    # Read the editorial selection rather than pinning yesterday's headlines.
-    latest = json.loads((Path(__file__).resolve().parents[1] / 'content/latest.json').read_text(encoding='utf-8'))
+    # Check the visible selection, which may have replaced expired primary items.
+    latest = json.loads((ROOT / 'assets/data/latest.json').read_text(encoding='utf-8'))['selected']
+    grid = re.search(r'<div class="psta-latest-grid" data-latest-grid>(.*?)</div>', home, re.S)
+    if not grid or len(re.findall(r'<article\b', grid.group(1))) != 3:
+        failures.append('the latest panel must visibly contain exactly three items')
+    visible = grid.group(1) if grid else ''
     for item in latest:
-        if item['href'] not in home:
+        if f'href="{escape(item["href"], quote=True)}"' not in visible:
             failures.append(f"selected latest item missing from homepage: {item['href']}")
     for stale in ('What moved from the former site', 'It does not collect personal information merely because you visit it', 'more than 1,500 senior decision-makers'):
         if stale in all_text:
