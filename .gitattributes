@@ -1,0 +1,2 @@
+# Preserve source bytes across Windows and Linux so recorded SHA-256 values agree.
+content/compass/sources/* text eol=lf
