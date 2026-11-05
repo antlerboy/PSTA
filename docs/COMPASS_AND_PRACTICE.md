@@ -35,7 +35,7 @@ The eight approach lessons are Place-based wellbeing; Leadership of place for wh
 
 ## Programme facts
 
-RedQuadrant owns the shared Leading Transformation record at `https://redquadrant.com/records/leading-transformation.json`. PSTA keeps a checked copy in `content/programmes/leading-transformation.json`, publishes that copy under `/records/`, and labels its version on the programme page. The build fails if its modules differ from `content/curriculum-2026.json`. The programme fee, support, accreditation, and enquiry block is rendered from the record, rather than maintaining a separate copy of those facts.
+RedQuadrant owns the shared Leading Transformation record at `https://redquadrant.com/records/leading-transformation.json`. The PSTA keeps a checked copy in `content/programmes/leading-transformation.json`, publishes that copy under `/records/`, and labels its version on the programme page. The build fails if its modules differ from `content/curriculum-2026.json`. The programme fee, support, accreditation, and enquiry block is rendered from the record, rather than maintaining a separate copy of those facts.
 
 Run `python scripts/check_programme_record.py --upstream <URL-or-file>` to compare with the owning record before refreshing the checked copy. Review programme-specific fees and support as well as the module list.
 

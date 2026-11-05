@@ -1,4 +1,4 @@
-/* PSTA Compass: local inquiry records, with no account or submission endpoint. */
+/* The PSTA Compass: local inquiry records, with no account or submission endpoint. */
 (function (root) {
   'use strict';
   const SCHEMA = 'psta-compass-session';
@@ -55,7 +55,7 @@
   }
 
   function validateRecord(input, tool) {
-    if (!input || input.schema !== SCHEMA || input.schemaVersion !== 1) throw Error('Choose a PSTA Compass JSON record, exported by this tool.');
+    if (!input || input.schema !== SCHEMA || input.schemaVersion !== 1) throw Error('Choose a Compass JSON record exported by this tool from the PSTA.');
     if (input.toolId !== tool.id || input.toolVersion !== tool.version) throw Error('This record belongs to a different Compass edition. Open that edition to import it.');
     if (!Array.isArray(input.reviews) || input.reviews.length > 100) throw Error('The review history could not be read.');
     return {
@@ -79,7 +79,7 @@
   }
 
   function markdown(record, tool) {
-    const lines = ['# ' + (record.title || tool.title), '', tool.title + ' · ' + tool.version, '', '## System of interest', '', record.boundary || '(Not recorded)', '', '## Missing perspectives', '', record.missing || '(Not recorded)', ''];
+    const lines = ['# ' + (record.title || tool.title), '', tool.title + ' · ' + tool.version, '', '## Assessment scope', '', record.boundary || '(Not recorded)', '', '## People and views not included', '', record.missing || '(Not recorded)', ''];
     function answers(participants, sections, level = '##') {
       for (const section of sections) {
         lines.push(level + ' ' + section.title, '');
@@ -98,10 +98,10 @@
       }
     }
     function decisions(items, level = '##') {
-      lines.push(level + ' Decisions and experiments', '');
+      lines.push(level + ' Actions', '');
       if (!items.length) lines.push('(None recorded)', '');
       items.forEach((d, i) => {
-        lines.push('### ' + (i + 1) + '. ' + (d.title || 'Untitled decision'), '', 'Owner: ' + d.owner, '', 'Review date: ' + d.due, '', 'What we expect to change: ' + d.expected, '', 'Evidence that could support or challenge this: ' + d.evidence, '', 'Next move: ' + d.nextMove, '');
+        lines.push('### ' + (i + 1) + '. ' + (d.title || 'Untitled action'), '', 'Owner: ' + d.owner, '', 'Review date: ' + d.due, '', 'What we expect to change: ' + d.expected, '', 'Evidence that could support or challenge this: ' + d.evidence, '', 'Next action: ' + d.nextMove, '');
       });
     }
     answers(record.participants, tool.sections);
@@ -112,12 +112,12 @@
     }
     lines.push('## Review history', '');
     record.reviews.forEach((r, i) => {
-      lines.push('### Review ' + (i + 1) + ' · ' + r.date, '', 'System of interest at this review: ' + r.snapshot.boundary, '');
+      lines.push('### Review ' + (i + 1) + ' · ' + r.date, '', 'Assessment scope at this review: ' + r.snapshot.boundary, '');
       (tool.reviewQuestions || []).forEach((q, n) => lines.push('**' + q + '**', '', r.learning[n] || '(Not recorded)', ''));
       answers(r.snapshot.participants, tool.sections, '####');
       decisions(r.snapshot.decisions, '####');
     });
-    lines.push('## Source and edition', '', tool.source.title, '', tool.source.url, '', tool.source.note || '', '', 'This record contains participants’ judgements and notes. It is not a benchmark or an automated diagnosis.', '');
+    lines.push('## Source and version', '', tool.source.title, '', tool.source.url, '', tool.source.note || '', '', 'This record contains participants’ judgements and notes. It is not a benchmark or an automated diagnosis.', '');
     return lines.join('\n');
   }
 
@@ -163,29 +163,29 @@
   }
 
   function render() {
-    node.innerHTML = '<div class="compass-controls">' + button('save', 'Save on this device') + button('json', 'Download editable record') + button('markdown', 'Download readable notes') + button('print', 'Print / save PDF') + '<label class="compass-file">Open a saved record<input type="file" id="compass-import" accept="application/json,.json"></label>' + button('remove', 'Remove device copy') + button('new', 'Start a new record') + '</div><p id="compass-status" class="compass-status" role="status" aria-live="polite">' + esc(message || 'Your answers stay in this open page until you choose to save or download them.') + '</p>' +
-      (tool.agentPrompt ? '<section><h2>Prepare an AI reflection</h2><p>Download the preserved original PSTA draft prompt with the answers in this record. Check the file, remove anything you should not share, and run it in your authorised AI account. This page does not generate a response, email a result, or send your answers to an AI service.</p>' + button('ai-pack', 'Download the AI handoff pack') + '<p class="compass-hint">' + esc(tool.agentPrompt.note) + '</p></section>' : '') +
-      '<section class="compass-context"><h2>Your inquiry</h2>' +
-      label('Name this inquiry', input('data-record="title" maxlength="200"', record.title)) +
-      label('System of interest: what are you paying attention to, and why?', textarea('data-record="boundary"', record.boundary)) +
-      label('Who is affected but absent? What might your boundary leave out?', textarea('data-record="missing"', record.missing)) +
-      '<h3>Keep different views visible</h3><p>Use a role or short label for each perspective. Compare the reasons behind different accounts before seeking agreement. Add only material that you have permission to record.</p>' +
+    node.innerHTML = '<div class="compass-controls">' + button('save', 'Save on this device') + button('json', 'Download editable record') + button('markdown', 'Download readable notes') + button('print', 'Print / save PDF') + '<label class="compass-file">Open a saved record<input type="file" id="compass-import" accept="application/json,.json"></label>' + button('remove', 'Remove device copy') + button('new', 'Start a new assessment') + '</div><p id="compass-status" class="compass-status" role="status" aria-live="polite">' + esc(message || 'Your answers stay in this open page until you choose to save or download them.') + '</p>' +
+      (tool.agentPrompt ? '<section><h2>Prepare an AI reflection</h2><p>Download the PSTA’s preserved original draft prompt with the answers in this record. Check the file, remove anything you should not share, and run it in your authorised AI account. This page does not generate a response, email a result, or send your answers to an AI service.</p>' + button('ai-pack', 'Download the AI handoff pack') + '<p class="compass-hint">' + esc(tool.agentPrompt.note) + '</p></section>' : '') +
+      '<section class="compass-context"><h2>Assessment details</h2>' +
+      label('Assessment title', input('data-record="title" maxlength="200"', record.title)) +
+      label('What are you assessing, and why?', textarea('data-record="boundary"', record.boundary)) +
+      label('Whose views are missing? What have you left out?', textarea('data-record="missing"', record.missing)) +
+      '<h3>People contributing</h3><p>Give each person’s answers a role or short label. Ask what evidence they have and why their answers differ. Check what they’re willing to have recorded.</p>' +
       record.participants.map((p, i) => '<div class="compass-perspective-label">' + label('Perspective ' + (i + 1), input('data-person="' + i + '" maxlength="100"', p.label)) + (record.participants.length > 1 ? button('remove-person', 'Remove perspective', 'data-index="' + i + '"') : '') + '</div>').join('') +
       button('add-person', 'Add another perspective') + '</section>' +
-      '<section><h2>Explore the Compass</h2><p>Open the lens you need. There is no required order or overall grade. Empty answers remain empty.</p>' + (tool.instructions?.length || tool.scoreBands ? '<details><summary>Original instructions' + (tool.scoreBands ? ' and scoring bands' : '') + '</summary><p>Scores remain the people’s self-assessments.</p>' + (tool.scoreBands ? '<ul>' + tool.scoreBands.map(s => '<li>' + esc(s) + '</li>').join('') + '</ul>' : '') + (tool.instructions || []).filter(p => !(tool.scoreBands || []).includes(p)).map(p => '<p>' + esc(p) + '</p>').join('') + '</details>' : '') + '<div class="compass-lenses">' +
+      '<section><h2>Assessment questions</h2><p>Open an aspect or lens to record answers. The workspace doesn’t calculate an overall score. You can leave questions blank.</p>' + (tool.instructions?.length || tool.scoreBands ? '<details><summary>Original instructions' + (tool.scoreBands ? ' and scoring bands' : '') + '</summary><p>Scores record participants’ judgements.</p>' + (tool.scoreBands ? '<ul>' + tool.scoreBands.map(s => '<li>' + esc(s) + '</li>').join('') + '</ul>' : '') + (tool.instructions || []).filter(p => !(tool.scoreBands || []).includes(p)).map(p => '<p>' + esc(p) + '</p>').join('') + '</details>' : '') + '<div class="compass-lenses">' +
       tool.sections.map((section, si) => '<details class="compass-lens" data-section="' + si + '"><summary>' + esc(section.title) + '</summary>' + (section.description ? '<p>' + esc(section.description) + '</p>' : '') + section.questions.map(q => '<div class="compass-question"><h3>' + esc(q.label || 'Question') + '</h3><p>' + esc(q.prompt) + '</p><div class="compass-views">' + record.participants.map((p, pi) => {
         const a = p.answers[q.id] || {};
         const attrs = 'data-question="' + esc(q.id) + '" data-perspective="' + pi + '"';
-        return '<fieldset><legend data-perspective-label="' + pi + '">' + esc(p.label) + '</legend>' + (q.range ? label((q.finalScore ? 'Initial score' : 'Self-assessment score') + ' /' + q.range.max + ' (optional)', input(attrs + ' data-answer="score" type="number" min="' + q.range.min + '" max="' + q.range.max + '" step="' + q.range.step + '"', a.score || '')) : '') + (q.scale ? label('Indicative score', '<select ' + attrs + ' data-answer="score"><option value="">Not scored</option>' + q.scale.map(s => '<option value="' + esc(s.value) + '"' + (String(s.value) === a.score ? ' selected' : '') + '>' + esc(s.label) + '</option>').join('') + '</select>') : '') + (q.kind === 'factor' ? '<label class="compass-factor-choice"><input type="checkbox" ' + attrs + ' data-answer="constraining"' + (a.constraining ? ' checked' : '') + '> ' + (tool.factorLimit === 3 ? 'One of the three most constraining' : 'Most constraining') + '</label><label class="compass-factor-choice"><input type="checkbox" ' + attrs + ' data-answer="enabling"' + (a.enabling ? ' checked' : '') + '> ' + (tool.factorLimit === 3 ? 'One of the three most enabling' : 'Most enabling') + '</label>' : '') + label('What do you see?', textarea(attrs + ' data-answer="notes"', a.notes || '')) + label('Evidence, uncertainty, or a different interpretation', textarea(attrs + ' data-answer="evidence"', a.evidence || '')) + (q.finalScore ? label('Finalised score after evidence /100 (optional)', input(attrs + ' data-answer="finalScore" type="number" min="0" max="100" step="1"', a.finalScore || '')) : '') + '</fieldset>';
+        return '<fieldset><legend data-perspective-label="' + pi + '">' + esc(p.label) + '</legend>' + (q.range ? label((q.finalScore ? 'Initial score' : 'Self-assessment score') + ' /' + q.range.max + ' (optional)', input(attrs + ' data-answer="score" type="number" min="' + q.range.min + '" max="' + q.range.max + '" step="' + q.range.step + '"', a.score || '')) : '') + (q.scale ? label('Indicative score', '<select ' + attrs + ' data-answer="score"><option value="">Not scored</option>' + q.scale.map(s => '<option value="' + esc(s.value) + '"' + (String(s.value) === a.score ? ' selected' : '') + '>' + esc(s.label) + '</option>').join('') + '</select>') : '') + (q.kind === 'factor' ? '<label class="compass-factor-choice"><input type="checkbox" ' + attrs + ' data-answer="constraining"' + (a.constraining ? ' checked' : '') + '> ' + (tool.factorLimit === 3 ? 'One of the three most constraining' : 'Most constraining') + '</label><label class="compass-factor-choice"><input type="checkbox" ' + attrs + ' data-answer="enabling"' + (a.enabling ? ' checked' : '') + '> ' + (tool.factorLimit === 3 ? 'One of the three most enabling' : 'Most enabling') + '</label>' : '') + label('Your answer', textarea(attrs + ' data-answer="notes"', a.notes || '')) + label('What supports your answer? What remains uncertain?', textarea(attrs + ' data-answer="evidence"', a.evidence || '')) + (q.finalScore ? label('Finalised score after evidence /100 (optional)', input(attrs + ' data-answer="finalScore" type="number" min="0" max="100" step="1"', a.finalScore || '')) : '') + '</fieldset>';
       }).join('') + '</div></div>').join('') + '</details>').join('') + '</div></section>' +
-      '<section><h2>Decisions and experiments</h2><p>Choose a move that could change a real condition. Make the expectation, responsibility, evidence, and review date explicit.</p>' +
-      record.decisions.map((d, i) => '<fieldset class="compass-decision"><legend>Decision ' + (i + 1) + '</legend>' + [
+      '<section><h2>Actions</h2><p>Record what you’ll do, who can do it, what you expect, and when you’ll check the result.</p>' +
+      record.decisions.map((d, i) => '<fieldset class="compass-decision"><legend>Action ' + (i + 1) + '</legend>' + [
         ['title', 'What will you change?', false], ['owner', 'Who can act, and who needs to agree?', false], ['due', 'When will you review it?', false],
-        ['expected', 'What do you expect to change, for whom?', true], ['evidence', 'What would support or challenge that expectation?', true], ['nextMove', 'What is the next practical move?', true],
-      ].map(([f, text, area]) => label(text, area ? textarea('data-decision="' + i + '" data-field="' + f + '"', d[f]) : input('data-decision="' + i + '" data-field="' + f + '"' + (f === 'due' ? ' type="date"' : ''), d[f]))).join('') + button('remove-decision', 'Remove decision', 'data-index="' + i + '"') + '</fieldset>').join('') + button('add-decision', 'Add a decision or experiment') + '</section>' +
-      '<section><h2>Return to what happened</h2><p>A review keeps a dated snapshot of the current answers and decisions. It preserves disagreement and uncertainty; it does not turn the record into a score.</p>' + (tool.reviewSourceNote ? '<p class="compass-hint">' + esc(tool.reviewSourceNote) + '</p>' : '') +
+        ['expected', 'What do you expect to change, for whom?', true], ['evidence', 'What would support or challenge that expectation?', true], ['nextMove', 'What will you do next?', true],
+      ].map(([f, text, area]) => label(text, area ? textarea('data-decision="' + i + '" data-field="' + f + '"', d[f]) : input('data-decision="' + i + '" data-field="' + f + '"' + (f === 'due' ? ' type="date"' : ''), d[f]))).join('') + button('remove-decision', 'Remove action', 'data-index="' + i + '"') + '</fieldset>').join('') + button('add-decision', 'Add an action') + '</section>' +
+      '<section><h2>Review changes</h2><p>Record what happened after you acted. Saving a review keeps a dated copy of the answers and actions, so you can compare them with later changes.</p>' + (tool.reviewSourceNote ? '<p class="compass-hint">' + esc(tool.reviewSourceNote) + '</p>' : '') +
       (tool.reviewQuestions || []).map((q, i) => label(q, textarea('data-learning="' + i + '"', record.reviewDraft[i] || ''))).join('') + button('review', 'Record this review') +
-      '<div class="compass-history">' + record.reviews.map((r, i) => '<details><summary>Review ' + (i + 1) + ' · ' + esc(r.date) + '</summary><p><strong>Boundary at this review:</strong> ' + esc(r.snapshot.boundary) + '</p>' + (tool.reviewQuestions || []).map((q, n) => '<h3>' + esc(q) + '</h3><p class="compass-pre">' + esc(r.learning[n] || 'No answer recorded') + '</p>').join('') + '<p>' + r.snapshot.participants.length + ' perspective(s), ' + r.snapshot.decisions.length + ' decision(s). The full snapshot is included in both downloads.</p></details>').join('') + '</div></section><section><h2>Source and edition</h2><p>' + esc(tool.source.note || '') + '</p><p><a href="' + esc(tool.source.localText || tool.source.url) + '">Read the source</a> · Edition ' + esc(tool.version) + '</p>' + (tool.courseArchive ? '<h3>The original course and resources</h3><p>' + esc(tool.courseArchive.status) + '</p><p><a href="' + esc(tool.courseArchive.url) + '">Continue to the original Teachable course</a></p>' : '') + '</section>';
+      '<div class="compass-history">' + record.reviews.map((r, i) => '<details><summary>Review ' + (i + 1) + ' · ' + esc(r.date) + '</summary><p><strong>Assessment scope at this review:</strong> ' + esc(r.snapshot.boundary) + '</p>' + (tool.reviewQuestions || []).map((q, n) => '<h3>' + esc(q) + '</h3><p class="compass-pre">' + esc(r.learning[n] || 'No answer recorded') + '</p>').join('') + '<p>' + r.snapshot.participants.length + ' perspective(s), ' + r.snapshot.decisions.length + ' action(s). The editable and readable downloads include the answers and actions recorded at this review.</p></details>').join('') + '</div></section><section><h2>Source and version</h2><p>' + esc(tool.source.note || '') + '</p><p><a href="' + esc(tool.source.localText || tool.source.url) + '">Read the source</a> · Edition ' + esc(tool.version) + '</p>' + (tool.courseArchive ? '<h3>The original course and resources</h3><p>' + esc(tool.courseArchive.status) + '</p><p><a href="' + esc(tool.courseArchive.url) + '">Continue to the original Teachable course</a></p>' : '') + '</section>';
     node.querySelectorAll('input,textarea').forEach(control => control.setAttribute('autocomplete', 'off'));
   }
 
@@ -238,7 +238,7 @@
         const response = await fetch(tool.agentPrompt.path, { credentials: 'omit', cache: 'no-store' });
         if (!response.ok) throw Error('The preserved prompt could not be loaded. Your record is unchanged.');
         const original = await response.text();
-        const pack = 'PSTA smartCompass AI handoff pack\n\nOriginal prompt: ' + tool.agentPrompt.version + '\n' + tool.agentPrompt.note + '\n\nCheck this file before sharing it with an authorised AI service. No AI response has been generated by this page.\n\nBEGIN ORIGINAL PROMPT (VERBATIM)\n\n' + original + '\n\nEND ORIGINAL PROMPT\n\nBEGIN RESPONSES FOR THIS RUN\n\nName and email: not supplied in this local reflection edition. Do not invent a name or contact detail.\n\n' + markdown(record, tool) + '\nEND RESPONSES\n';
+        const pack = 'The PSTA smartCompass AI handoff pack\n\nOriginal prompt: ' + tool.agentPrompt.version + '\n' + tool.agentPrompt.note + '\n\nCheck this file before sharing it with an authorised AI service. No AI response has been generated by this page.\n\nBEGIN ORIGINAL PROMPT (VERBATIM)\n\n' + original + '\n\nEND ORIGINAL PROMPT\n\nBEGIN RESPONSES FOR THIS RUN\n\nName and email: not supplied in this local reflection edition. Do not invent a name or contact detail.\n\n' + markdown(record, tool) + '\nEND RESPONSES\n';
         download(fileName() + '-ai-handoff.txt', pack, 'text/plain;charset=utf-8');
         status('The original prompt and your answers have been downloaded. No AI service has been called.');
       } catch (error) { status(error.message || 'The handoff pack could not be prepared.'); }
@@ -252,7 +252,7 @@
       try { localStorage.removeItem(key); saved = false; status('The device copy has been removed. Your open record and downloaded files are unchanged.'); }
       catch (_) { status('This browser could not remove the device copy. Use its site-data settings to clear it.'); }
     }
-    if (action === 'new' && confirm('Start a new record? Download this one first if you need to keep it.')) {
+    if (action === 'new' && confirm('Start a new assessment? Download this one first if you need to keep it.')) {
       try { localStorage.removeItem(key); } catch (_) { /* New page state remains usable. */ }
       record = newRecord(tool); saved = false; message = 'A new record is open.'; render();
     }

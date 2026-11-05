@@ -29,7 +29,7 @@ data = {
     'title': 'Compass v2.0 beta',
     'version': '2026-06-13',
     'status': 'Working beta',
-    'description': 'Work with the eight lenses and five moves in the published beta. Keep different accounts visible, choose a practical intervention, and return to what it teaches you.',
+    'description': 'Use the beta’s forty matrix questions to record different views, choose actions, and review what happened.',
     'introduction': 'Commissioning is the public craft of helping a place form and reform the relationships, capabilities, arrangements and conditions through which people can live well, with the system learning from what happens.',
     'source': {
         'title': 'Compass v2.0 beta: commissioning as collective system learning',

@@ -19,7 +19,7 @@
     const text = draft();
     if (text.length > 5000) { status.textContent = 'This is a long enquiry. Download the text and paste it into an email to ' + form.dataset.recipient + '.'; return; }
     window.location.href = 'mailto:' + form.dataset.recipient + '?subject=' + encodeURIComponent(form.dataset.heading) + '&body=' + encodeURIComponent(text);
-    status.textContent = 'Your email app has been asked to open a draft. Check it and send it when ready. If no draft opens, download the text below.';
+    status.textContent = 'Check for a draft in your email app, and send it when you’re ready. If no draft opens, download the text below.';
   });
   document.getElementById('intake-download').addEventListener('click', () => {
     const url = URL.createObjectURL(new Blob([draft()], { type: 'text/plain;charset=utf-8' }));
