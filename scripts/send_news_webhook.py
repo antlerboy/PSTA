@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
-"""Send newly published PSTA news to an optional Zapier, Make, or n8n webhook.
+"""Send eligible PSTA news to an optional distribution webhook.
 
 The receiving automation can route the payload to Buffer and the newsletter workflow.
 If NEWS_DISTRIBUTION_WEBHOOK_URL is not configured, the website and repository queues
-still build and this script exits successfully.
+still build. Report the skipped delivery explicitly: a successful optional workflow
+does not mean that Buffer posts or newsletter items have been created.
 """
 
 from __future__ import annotations
@@ -14,6 +15,21 @@ import subprocess
 from pathlib import Path
 from typing import Dict, List
 from urllib.request import Request, urlopen
+
+
+def report_distribution(status: str, message: str, count: int = 0) -> None:
+    """Expose the actual delivery outcome in logs and the GitHub Actions summary."""
+    print(message)
+    if status == "skipped_no_webhook" and os.environ.get("GITHUB_ACTIONS") == "true":
+        print(f"::warning title=PSTA social delivery not confirmed::{message}")
+    summary = os.environ.get("GITHUB_STEP_SUMMARY", "").strip()
+    if summary:
+        with Path(summary).open("a", encoding="utf-8") as handle:
+            handle.write(f"### PSTA distribution\n\nStatus: `{status}`. Eligible items: {count}.\n\n{message}\n\n")
+    output = os.environ.get("GITHUB_OUTPUT", "").strip()
+    if output:
+        with Path(output).open("a", encoding="utf-8") as handle:
+            handle.write(f"distribution_status={status}\neligible_items={count}\n")
 
 
 def changed_news_files(before: str, after: str) -> List[Path]:
@@ -54,7 +70,7 @@ def main() -> None:
     after = os.environ.get("AFTER_SHA", "HEAD").strip() or "HEAD"
     files = changed_news_files(before, after)
     if not files:
-        print("No new PSTA news source files to distribute.")
+        report_distribution("no_news_changes", "No changed PSTA news source files to distribute.")
         return
 
     payload_items = []
@@ -89,10 +105,16 @@ def main() -> None:
         })
 
     if not payload_items:
-        print("No publishable PSTA news items to distribute.")
+        report_distribution("nothing_to_distribute", "No eligible PSTA news items: drafts, distribution opt-outs, and items without selected destinations are skipped.")
         return
     if not webhook:
-        print(f"NEWS_DISTRIBUTION_WEBHOOK_URL is not configured; {len(payload_items)} item(s) remain in the repository queues.")
+        report_distribution(
+            "skipped_no_webhook",
+            "NEWS_DISTRIBUTION_WEBHOOK_URL is not configured. No webhook was called and this workflow created no Buffer posts or newsletter deliveries. "
+            "The repository queues remain available to the separate cloud polling task; check its distribution ledger for confirmed Buffer post IDs. "
+            "See docs/NEWS_AND_SOCIAL_PUBLISHING.md.",
+            len(payload_items),
+        )
         return
 
     payload = json.dumps({
@@ -106,7 +128,12 @@ def main() -> None:
         status = getattr(response, "status", 200)
         if status < 200 or status >= 300:
             raise RuntimeError(f"Distribution webhook returned HTTP {status}")
-        print(f"Sent {len(payload_items)} PSTA news item(s) to the distribution webhook (HTTP {status}).")
+        report_distribution(
+            "delivered_to_webhook",
+            f"The distribution webhook accepted {len(payload_items)} PSTA news item(s) (HTTP {status}). "
+            "This confirms receipt by the webhook, not publication or scheduling in Buffer; check the receiver's ledger for post IDs.",
+            len(payload_items),
+        )
 
 
 if __name__ == "__main__":

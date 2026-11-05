@@ -1,4 +1,4 @@
-name: Distribute newly published PSTA news
+name: Optional PSTA news distribution webhook
 
 on:
   push:
@@ -18,7 +18,7 @@ jobs:
         with:
           fetch-depth: 2
 
-      - name: Send to the optional distribution webhook
+      - name: Check the optional webhook and report the delivery outcome
         env:
           NEWS_DISTRIBUTION_WEBHOOK_URL: ${{ secrets.NEWS_DISTRIBUTION_WEBHOOK_URL }}
           BEFORE_SHA: ${{ github.event.before }}

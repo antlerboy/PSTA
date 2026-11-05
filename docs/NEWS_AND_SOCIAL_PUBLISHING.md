@@ -26,9 +26,44 @@ Rough ideas and feedback should still go into the single running website feedbac
 
 ## Buffer and the social channels
 
-GitHub cannot publish directly to every social account without account credentials and platform permissions. The repository therefore sends one clean JSON payload to an automation service, which can then route the item into Buffer.
+The repository produces editorial queues. A queue entry is a request for distribution, not evidence that a social post has been created. The build regenerates these files and sets their status to `queued`; it does not know Buffer's delivery state.
 
-Use Zapier, Make, n8n, Power Automate, or a small internal webhook. The receiving automation should:
+### Cloud polling through the connected Buffer account
+
+The existing daily Buffer management task can read the repository through the GitHub connector and create posts through the authenticated Buffer connector. This route does not require an open browser, the user's computer, a new API key, or a separate paid automation service.
+
+Read `editorial/social-queue.json` from `antlerboy/PSTA` on `main`. The GitHub `fetch_file` operation returns the JSON in `structuredContent.content`. The file is also available at:
+
+`https://github.com/antlerboy/PSTA/blob/main/editorial/social-queue.json`
+
+Each item has `date`, `title`, `url`, `post`, `channels`, `source`, and `status`. For example, the published Glasgow item uses:
+
+```json
+{
+  "date": "2026-10-12",
+  "title": "Understanding family poverty in Glasgow: beyond the numbers",
+  "url": "https://www.publicservicetransformation.org/news/understanding-family-poverty-glasgow/",
+  "post": "Glasgow’s seventh annual family-poverty report does more than count hardship. It combines open data, lived experience, and service expertise to show how poverty moves through family life—and to help councils and partners decide what to do.",
+  "channels": ["The PSTA LinkedIn", "RedQuadrant LinkedIn", "Quadrant Resourcing LinkedIn"],
+  "source": "content/news/2026-10-12-understanding-family-poverty-glasgow.md",
+  "status": "queued"
+}
+```
+
+The consumer must:
+
+1. Read the source file as well as the queue entry. Honour `draft: true`, `distribute: no`, empty channel selections, and expired event dates. An item on the public website or RSS feed is not automatically a request to distribute it.
+2. Resolve each selected channel label against the connected organisation's channel list. Do not silently send a brand item to a personal account or an unselected brand.
+3. Check the durable distribution ledger and Buffer drafts, approvals, scheduled posts, errors, and sent posts before creating anything. Include posts imported from the native network. Compare the canonical source URL and channel ID, and check titles, text, and primary links: an older share may contain a shortened link or an earlier URL.
+4. Use the canonical source URL plus Buffer channel ID as the stable delivery key. Record the source revision, created post ID, actual returned status, queue time, and any publication URL in the external ledger. Do not edit the generated queue's `status` as the only delivery record; the next build will overwrite it.
+5. For approved, current brand content, add a post to an existing queue slot. Stage a draft where the copy, timing, or approval is unresolved. Do not publish immediately or backfill the historical queue as one batch. If a create call returns an uncertain result, reconcile the channel before retrying.
+6. Record source coverage and any skipped or failed items. Browser-only comment work must not prevent the API-based queue work from completing.
+
+The latest successful task run and its returned Buffer post IDs establish whether this route is operating. A green website build or webhook workflow alone does not.
+
+### Optional push webhook
+
+The webhook is an alternative trigger for a receiving service such as Zapier, Make, n8n, Power Automate, or an internal endpoint. It is not required by the cloud polling route. The receiving automation should:
 
 1. receive the `psta_news_published` payload;
 2. loop through `items`;
@@ -45,7 +80,7 @@ The secret is added at:
 
 `Settings` → `Secrets and variables` → `Actions` → `New repository secret`
 
-Without this secret, website publishing still works. The social and newsletter queues remain available in the repository for manual use.
+Without this secret, website publishing still works. The optional webhook step reports `skipped_no_webhook`, adds a visible Actions warning and summary, and makes no external delivery. The queues remain available for cloud polling or manual editorial use. A webhook HTTP success confirms receipt by that endpoint; the receiver must still record the actual Buffer post IDs and statuses. If both routes are used, they must share the same delivery ledger to avoid duplicates.
 
 ## Newsletter workflow
 
