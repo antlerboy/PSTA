@@ -1,0 +1,1770 @@
+{
+  "id": "commissioning-compass",
+  "title": "Commissioning Compass: original assessment",
+  "version": "2026-03-24",
+  "status": "Original Compass · March 2026 sheets",
+  "description": "Use all eight aspects, 79 original assessment questions, and 89 constraints and enablers. Keep initial and revised scores, evidence, perspectives, and decisions together.",
+  "introduction": "The system assessment is structured around the eight aspects of commissioning. Use each as a lens, compare what different people can see, and move from assessment to action.",
+  "source": {
+    "title": "Scoring sheet for your Commissioning Compass: system assessment for change",
+    "date": "2026-03-24",
+    "url": "https://public-service-transformation-academy.teachable.com/l/pdp/commissioning-compass",
+    "localText": "/assets/compass/sources/commissioning-compass-2026-03-24-master.txt",
+    "sha256": "80b486b12aba52708a75b97effb92b4a3a425bac0719d6d8f95532793dafd66f",
+    "note": "The original assessment is transcribed from the unfilled 24 March 2026 scoring-sheet master: eight aspect descriptors, 79 assessment questions, 89 constraints and enablers, initial and revised aspect scores, and initial and final question scores /100. The source score bands and wording are preserved; layout whitespace is normalised. The online edition adds perspective comparison, saving, decisions, and reviews. The Teachable course has further teaching, approaches, cases, and resources beyond the scoring sheet."
+  },
+  "scoreBands": [
+    "0 – 24 Poor (significant risk)",
+    "25 – 49 Fair (lesser/lower risk, improvement required)",
+    "50 – 74 Good (opportunities identified/issues need to be addressed)",
+    "75 – 100 Excellent (no action required)"
+  ],
+  "instructions": [
+    "Scoring sheet for your Commissioning Compass: system assessment for change",
+    "System Assessment using the Eight aspects of commissioning",
+    "For your system assessment, you need to score your system on how it is performing on each of the eight aspects of commissioning. First, we will carry out an initial overall score, and then we will do an in depth assessment on each of the eight aspects of commissioning.",
+    "Give your system an initial score",
+    "Give your place an instinctive score on how you are doing in terms of each of the 'eight aspects'. Do this quickly. It is just your first pass, your gut reaction.",
+    "We will encourage you to revisit this after working through the questions for the aspects.",
+    "Scores are categorised as below. Note that scores of 70 and above have been rare in system-assessments so far.",
+    "0 – 24 Poor (significant risk)",
+    "25 – 49 Fair (lesser/lower risk, improvement required)",
+    "50 – 74 Good (opportunities identified/issues need to be addressed)",
+    "75 – 100 Excellent (no action required)",
+    "Now carry out your full system assessment",
+    "Next, work through the full system assessment. For each of the eight aspects, you have two scoring sheets below.",
+    "System Assessment questions",
+    "Factors that constrain and enable",
+    "The system assessment questions: These encourage you to take a deeper look at your system and develop more curiosity. Score your 'system' on each question using the scoring system:",
+    "0 – 24 Poor (significant risk)",
+    "25 – 49 Fair (lesser/lower risk, improvement required)",
+    "50 – 74 Good (opportunities identified/issues need to be addressed)",
+    "75 – 100 Excellent (no action required)",
+    "If you are doing this as a team and each person scored individually, do not simply average your results – look at the overall pattern of highs and lows, open up the conversation about what people are seeing in the system to give that score.",
+    "In a workshop, this can be a great way to use appreciative or action enquiry. It will help you to be curious about how stakeholders experience each aspect and what the knock-on impact of that is. This will help too with the next step.",
+    "At the end, we’ll compare your initial gut reactions to your actual score. Again, we ask you to be curious about where there are differences or alignment. What is that telling you?",
+    "Factors that constrain and enable: For each aspect, you are provided with a list of 'factors in place that constrain and enable'. These are important influences on your commissioning, some of which may be blockers (constraints) and others of which may provide opportunities or advantages (enablers). Which hold you/ the system back? Which supports you most to achieve change and outcomes?",
+    "Your key question is: Select the three greatest enablers and the three greatest constraints.",
+    "Be curious about the depth of your awareness or understanding of each of the factors. You may wish to explore the factors further before you score them, but this is not essential at this stage. You can pick that up in your action plan later.",
+    "Once you have discussed each of the factors that constrain and enable, select the three most important enablers and the three most important constraints for each of the eight aspects.",
+    "If undertaking this assessment with stakeholders, it is likely that there will be very different perspectives in the system. In your workshops, think about how you can explore these perspectives to give you a deeper understanding of your system relationships. There are not right and wrong answers here. This is to provide you with insight and intelligence to identify where to intervene for the most effective change."
+  ],
+  "sections": [
+    {
+      "id": "aspect-1",
+      "title": "Whole system design",
+      "description": "Work as one place to support and enable wellbeing, sustainability and mutual support.",
+      "questions": [
+        {
+          "id": "a1-initial",
+          "label": "Initial aspect score",
+          "prompt": "Work as one place to support and enable wellbeing, sustainability and mutual support.",
+          "range": {
+            "min": 0,
+            "max": 100,
+            "step": 1
+          }
+        },
+        {
+          "id": "a1-q1",
+          "label": "Question 1",
+          "prompt": "Are we making a place that helps everyone live life well?",
+          "range": {
+            "min": 0,
+            "max": 100,
+            "step": 1
+          },
+          "finalScore": true
+        },
+        {
+          "id": "a1-q2",
+          "label": "Question 2",
+          "prompt": "How are we working as a whole, place-based system?",
+          "range": {
+            "min": 0,
+            "max": 100,
+            "step": 1
+          },
+          "finalScore": true
+        },
+        {
+          "id": "a1-q3",
+          "label": "Question 3",
+          "prompt": "Do we understand need and capacity as a whole?",
+          "range": {
+            "min": 0,
+            "max": 100,
+            "step": 1
+          },
+          "finalScore": true
+        },
+        {
+          "id": "a1-q4",
+          "label": "Question 4",
+          "prompt": "Is the whole system coherent? Do we have a plan as a whole system?",
+          "range": {
+            "min": 0,
+            "max": 100,
+            "step": 1
+          },
+          "finalScore": true
+        },
+        {
+          "id": "a1-q5",
+          "label": "Question 5",
+          "prompt": "Are we putting social and environmental justice at the heart of the system?",
+          "range": {
+            "min": 0,
+            "max": 100,
+            "step": 1
+          },
+          "finalScore": true
+        },
+        {
+          "id": "a1-q6",
+          "label": "Question 6",
+          "prompt": "Can we shift the dial to building on strengths? Developing an enabling, technology-supported self-help system, achieving prevention and early intervention?",
+          "range": {
+            "min": 0,
+            "max": 100,
+            "step": 1
+          },
+          "finalScore": true
+        },
+        {
+          "id": "a1-q7",
+          "label": "Question 7",
+          "prompt": "Are we learning as a whole system?",
+          "range": {
+            "min": 0,
+            "max": 100,
+            "step": 1
+          },
+          "finalScore": true
+        },
+        {
+          "id": "a1-q8",
+          "label": "Question 8",
+          "prompt": "Can we work systematically at a strategic, place, community and individual level?",
+          "range": {
+            "min": 0,
+            "max": 100,
+            "step": 1
+          },
+          "finalScore": true
+        },
+        {
+          "id": "a1-revised",
+          "label": "Revised aspect score",
+          "prompt": "Work as one place to support and enable wellbeing, sustainability and mutual support.",
+          "range": {
+            "min": 0,
+            "max": 100,
+            "step": 1
+          }
+        },
+        {
+          "id": "a1-f1",
+          "label": "Factor 1",
+          "prompt": "Population needs assessment, including levels of health, wellbeing and age distribution of the population",
+          "kind": "factor",
+          "factorGroup": "aspect-1"
+        },
+        {
+          "id": "a1-f2",
+          "label": "Factor 2",
+          "prompt": "Wage rates and employment market, relative and absolute poverty",
+          "kind": "factor",
+          "factorGroup": "aspect-1"
+        },
+        {
+          "id": "a1-f3",
+          "label": "Factor 3",
+          "prompt": "Levels of community safety and crime.",
+          "kind": "factor",
+          "factorGroup": "aspect-1"
+        },
+        {
+          "id": "a1-f4",
+          "label": "Factor 4",
+          "prompt": "Other geo-demographics of your place – characteristics, location, and density of population",
+          "kind": "factor",
+          "factorGroup": "aspect-1"
+        },
+        {
+          "id": "a1-f5",
+          "label": "Factor 5",
+          "prompt": "Understanding the underlying need and what is actually shaping behaviour or demand",
+          "kind": "factor",
+          "factorGroup": "aspect-1"
+        },
+        {
+          "id": "a1-f6",
+          "label": "Factor 6",
+          "prompt": "What matters to people and communities – local views about wellbeing and care",
+          "kind": "factor",
+          "factorGroup": "aspect-1"
+        },
+        {
+          "id": "a1-f7",
+          "label": "Factor 7",
+          "prompt": "Geographical marginality and isolation",
+          "kind": "factor",
+          "factorGroup": "aspect-1"
+        },
+        {
+          "id": "a1-f8",
+          "label": "Factor 8",
+          "prompt": "Transport ease and accessibility",
+          "kind": "factor",
+          "factorGroup": "aspect-1"
+        },
+        {
+          "id": "a1-f9",
+          "label": "Factor 9",
+          "prompt": "Levels of deprivation",
+          "kind": "factor",
+          "factorGroup": "aspect-1"
+        },
+        {
+          "id": "a1-f10",
+          "label": "Factor 10",
+          "prompt": "Population changes",
+          "kind": "factor",
+          "factorGroup": "aspect-1"
+        },
+        {
+          "id": "a1-f11",
+          "label": "Factor 11",
+          "prompt": "Amount, quality, and accessibility of green spaces",
+          "kind": "factor",
+          "factorGroup": "aspect-1"
+        },
+        {
+          "id": "a1-f12",
+          "label": "Factor 12",
+          "prompt": "Urban design",
+          "kind": "factor",
+          "factorGroup": "aspect-1"
+        },
+        {
+          "id": "a1-f13",
+          "label": "Factor 13",
+          "prompt": "Funding and structures of the council and partners (and how they link together, or don’t)",
+          "kind": "factor",
+          "factorGroup": "aspect-1"
+        },
+        {
+          "id": "a1-f14",
+          "label": "Factor 14",
+          "prompt": "Degree of health and care integration, and at what spatial level",
+          "kind": "factor",
+          "factorGroup": "aspect-1"
+        },
+        {
+          "id": "a1-f15",
+          "label": "Factor 15",
+          "prompt": "Land value and planning issues",
+          "kind": "factor",
+          "factorGroup": "aspect-1"
+        },
+        {
+          "id": "a1-f16",
+          "label": "Factor 16",
+          "prompt": "Workforce and workforce planning",
+          "kind": "factor",
+          "factorGroup": "aspect-1"
+        },
+        {
+          "id": "a1-f17",
+          "label": "Factor 17",
+          "prompt": "Pressure to provide standardised services (discussion of ‘postcode lotteries’, etc)",
+          "kind": "factor",
+          "factorGroup": "aspect-1"
+        },
+        {
+          "id": "a1-f18",
+          "label": "Factor 18",
+          "prompt": "National funding and payment funnelled through individual organisations or providers, not place.",
+          "kind": "factor",
+          "factorGroup": "aspect-1"
+        }
+      ]
+    },
+    {
+      "id": "aspect-2",
+      "title": "Relationships and organisation across the system",
+      "description": "Everyone focused on achieving shared goals with aligned incentives and funding",
+      "questions": [
+        {
+          "id": "a2-initial",
+          "label": "Initial aspect score",
+          "prompt": "Everyone focused on achieving shared goals with aligned incentives and funding",
+          "range": {
+            "min": 0,
+            "max": 100,
+            "step": 1
+          }
+        },
+        {
+          "id": "a2-q1",
+          "label": "Question 1",
+          "prompt": "Is everyone working together coherently across our place?",
+          "range": {
+            "min": 0,
+            "max": 100,
+            "step": 1
+          },
+          "finalScore": true
+        },
+        {
+          "id": "a2-q2",
+          "label": "Question 2",
+          "prompt": "Do we have effective governance?",
+          "range": {
+            "min": 0,
+            "max": 100,
+            "step": 1
+          },
+          "finalScore": true
+        },
+        {
+          "id": "a2-q3",
+          "label": "Question 3",
+          "prompt": "Are we learning from the past?",
+          "range": {
+            "min": 0,
+            "max": 100,
+            "step": 1
+          },
+          "finalScore": true
+        },
+        {
+          "id": "a2-q4",
+          "label": "Question 4",
+          "prompt": "Can we look at the knock-on effects of our setup and our decisions?",
+          "range": {
+            "min": 0,
+            "max": 100,
+            "step": 1
+          },
+          "finalScore": true
+        },
+        {
+          "id": "a2-q5",
+          "label": "Question 5",
+          "prompt": "Do we have effective collaboration, partnership, and challenge across all key groups: commissioners, providers, politicians, communities, etc?",
+          "range": {
+            "min": 0,
+            "max": 100,
+            "step": 1
+          },
+          "finalScore": true
+        },
+        {
+          "id": "a2-q6",
+          "label": "Question 6",
+          "prompt": "Are all stakeholders engaged with open communication?",
+          "range": {
+            "min": 0,
+            "max": 100,
+            "step": 1
+          },
+          "finalScore": true
+        },
+        {
+          "id": "a2-q7",
+          "label": "Question 7",
+          "prompt": "Are we learning about and working on our relationships?",
+          "range": {
+            "min": 0,
+            "max": 100,
+            "step": 1
+          },
+          "finalScore": true
+        },
+        {
+          "id": "a2-q8",
+          "label": "Question 8",
+          "prompt": "Are we optimising our results by responding appropriately to the maturity level of our relationships?",
+          "range": {
+            "min": 0,
+            "max": 100,
+            "step": 1
+          },
+          "finalScore": true
+        },
+        {
+          "id": "a2-revised",
+          "label": "Revised aspect score",
+          "prompt": "Everyone focused on achieving shared goals with aligned incentives and funding",
+          "range": {
+            "min": 0,
+            "max": 100,
+            "step": 1
+          }
+        },
+        {
+          "id": "a2-f1",
+          "label": "Factor 1",
+          "prompt": "Politician/partner politics",
+          "kind": "factor",
+          "factorGroup": "aspect-2"
+        },
+        {
+          "id": "a2-f2",
+          "label": "Factor 2",
+          "prompt": "Governance",
+          "kind": "factor",
+          "factorGroup": "aspect-2"
+        },
+        {
+          "id": "a2-f3",
+          "label": "Factor 3",
+          "prompt": "Formal partnerships",
+          "kind": "factor",
+          "factorGroup": "aspect-2"
+        },
+        {
+          "id": "a2-f4",
+          "label": "Factor 4",
+          "prompt": "Existing and historic relationships",
+          "kind": "factor",
+          "factorGroup": "aspect-2"
+        },
+        {
+          "id": "a2-f5",
+          "label": "Factor 5",
+          "prompt": "Different values that organisations and places put on commissioning",
+          "kind": "factor",
+          "factorGroup": "aspect-2"
+        },
+        {
+          "id": "a2-f6",
+          "label": "Factor 6",
+          "prompt": "Ethics and values of the organisation itself and the people in it: culture.",
+          "kind": "factor",
+          "factorGroup": "aspect-2"
+        },
+        {
+          "id": "a2-f7",
+          "label": "Factor 7",
+          "prompt": "Level of trust and involvement (not just engagement) of citizens/community",
+          "kind": "factor",
+          "factorGroup": "aspect-2"
+        },
+        {
+          "id": "a2-f8",
+          "label": "Factor 8",
+          "prompt": "Culture/behaviour development",
+          "kind": "factor",
+          "factorGroup": "aspect-2"
+        },
+        {
+          "id": "a2-f9",
+          "label": "Factor 9",
+          "prompt": "Incentives driven by funding streams",
+          "kind": "factor",
+          "factorGroup": "aspect-2"
+        },
+        {
+          "id": "a2-f10",
+          "label": "Factor 10",
+          "prompt": "Trust/relationships/culture – open and honest vs judgemental and punitive or avoidant",
+          "kind": "factor",
+          "factorGroup": "aspect-2"
+        }
+      ]
+    },
+    {
+      "id": "aspect-3",
+      "title": "Capacity, capability, and confidence",
+      "description": "Shape markets, provision, and delivery of all those (place, assets, VCFSE, employees, families, friends, carers, neighbours, community, etc) who enable people can live their lives wel",
+      "questions": [
+        {
+          "id": "a3-initial",
+          "label": "Initial aspect score",
+          "prompt": "Shape markets, provision, and delivery of all those (place, assets, VCFSE, employees, families, friends, carers, neighbours, community, etc) who enable people can live their lives wel",
+          "range": {
+            "min": 0,
+            "max": 100,
+            "step": 1
+          }
+        },
+        {
+          "id": "a3-q1",
+          "label": "Question 1",
+          "prompt": "Are we building the ability to meet or prevent needs across all sectors?",
+          "range": {
+            "min": 0,
+            "max": 100,
+            "step": 1
+          },
+          "finalScore": true
+        },
+        {
+          "id": "a3-q2",
+          "label": "Question 2",
+          "prompt": "How effective are we at building the capability of people to support themselves or their place?",
+          "range": {
+            "min": 0,
+            "max": 100,
+            "step": 1
+          },
+          "finalScore": true
+        },
+        {
+          "id": "a3-q3",
+          "label": "Question 3",
+          "prompt": "How effective are we at supporting people to help support each other? Such as families, neighbours, communities, neighbourhoods, and place.",
+          "range": {
+            "min": 0,
+            "max": 100,
+            "step": 1
+          },
+          "finalScore": true
+        },
+        {
+          "id": "a3-q4",
+          "label": "Question 4",
+          "prompt": "How effective are we at building capacity and capability in providers from all sectors and sources (voluntary, community, faith-based, social enterprise, private, and public)?",
+          "range": {
+            "min": 0,
+            "max": 100,
+            "step": 1
+          },
+          "finalScore": true
+        },
+        {
+          "id": "a3-q5",
+          "label": "Question 5",
+          "prompt": "How consistently are we taking an enabling, strengths-based approach?",
+          "range": {
+            "min": 0,
+            "max": 100,
+            "step": 1
+          },
+          "finalScore": true
+        },
+        {
+          "id": "a3-q6",
+          "label": "Question 6",
+          "prompt": "Do we engage with internal and external providers, suppliers as partners and collaborate with them?",
+          "range": {
+            "min": 0,
+            "max": 100,
+            "step": 1
+          },
+          "finalScore": true
+        },
+        {
+          "id": "a3-q7",
+          "label": "Question 7",
+          "prompt": "Effective balance of collaboration and contestability",
+          "range": {
+            "min": 0,
+            "max": 100,
+            "step": 1
+          },
+          "finalScore": true
+        },
+        {
+          "id": "a3-q8",
+          "label": "Question 8",
+          "prompt": "Do we take an effective co-commissioning approach with others to develop capacity in current and potential providers, build markets and unlock potential?",
+          "range": {
+            "min": 0,
+            "max": 100,
+            "step": 1
+          },
+          "finalScore": true
+        },
+        {
+          "id": "a3-q9",
+          "label": "Question 9",
+          "prompt": "Are we taking an asset-based commissioning approach?",
+          "range": {
+            "min": 0,
+            "max": 100,
+            "step": 1
+          },
+          "finalScore": true
+        },
+        {
+          "id": "a3-q10",
+          "label": "Question 10",
+          "prompt": "Do we have strong insight into our system of interventions and delivery, including our current and potential markets?",
+          "range": {
+            "min": 0,
+            "max": 100,
+            "step": 1
+          },
+          "finalScore": true
+        },
+        {
+          "id": "a3-q11",
+          "label": "Question 11",
+          "prompt": "Do we have good capability to develop all provision and supply, including where needed, market making and market management capability?",
+          "range": {
+            "min": 0,
+            "max": 100,
+            "step": 1
+          },
+          "finalScore": true
+        },
+        {
+          "id": "a3-q12",
+          "label": "Question 12",
+          "prompt": "Do we have a good understanding of all current delivery models and quality?",
+          "range": {
+            "min": 0,
+            "max": 100,
+            "step": 1
+          },
+          "finalScore": true
+        },
+        {
+          "id": "a3-q13",
+          "label": "Question 13",
+          "prompt": "Are we providing funding and support that takes a long-term view and looks at impacts, including environmental and social justice?",
+          "range": {
+            "min": 0,
+            "max": 100,
+            "step": 1
+          },
+          "finalScore": true
+        },
+        {
+          "id": "a3-q14",
+          "label": "Question 14",
+          "prompt": "Are we taking into account the local economic impact of our spending?",
+          "range": {
+            "min": 0,
+            "max": 100,
+            "step": 1
+          },
+          "finalScore": true
+        },
+        {
+          "id": "a3-q15",
+          "label": "Question 15",
+          "prompt": "Are we actively supporting workforce development?",
+          "range": {
+            "min": 0,
+            "max": 100,
+            "step": 1
+          },
+          "finalScore": true
+        },
+        {
+          "id": "a3-revised",
+          "label": "Revised aspect score",
+          "prompt": "Shape markets, provision, and delivery of all those (place, assets, VCFSE, employees, families, friends, carers, neighbours, community, etc) who enable people can live their lives wel",
+          "range": {
+            "min": 0,
+            "max": 100,
+            "step": 1
+          }
+        },
+        {
+          "id": "a3-f1",
+          "label": "Factor 1",
+          "prompt": "Asset and provision mapping",
+          "kind": "factor",
+          "factorGroup": "aspect-3"
+        },
+        {
+          "id": "a3-f2",
+          "label": "Factor 2",
+          "prompt": "Potential for funding models to better support capacity and capability",
+          "kind": "factor",
+          "factorGroup": "aspect-3"
+        },
+        {
+          "id": "a3-f3",
+          "label": "Factor 3",
+          "prompt": "Major costs and pressures",
+          "kind": "factor",
+          "factorGroup": "aspect-3"
+        },
+        {
+          "id": "a3-f4",
+          "label": "Factor 4",
+          "prompt": "Local provision strengths/weaknesses",
+          "kind": "factor",
+          "factorGroup": "aspect-3"
+        },
+        {
+          "id": "a3-f5",
+          "label": "Factor 5",
+          "prompt": "Cost and quality of provision, interventions and delivery.",
+          "kind": "factor",
+          "factorGroup": "aspect-3"
+        },
+        {
+          "id": "a3-f6",
+          "label": "Factor 6",
+          "prompt": "State and current role of the community and voluntary sector",
+          "kind": "factor",
+          "factorGroup": "aspect-3"
+        },
+        {
+          "id": "a3-f7",
+          "label": "Factor 7",
+          "prompt": "State of supply, from all providers and the wider market",
+          "kind": "factor",
+          "factorGroup": "aspect-3"
+        },
+        {
+          "id": "a3-f8",
+          "label": "Factor 8",
+          "prompt": "Levels of citizen satisfaction",
+          "kind": "factor",
+          "factorGroup": "aspect-3"
+        },
+        {
+          "id": "a3-f9",
+          "label": "Factor 9",
+          "prompt": "Understanding the current configuration of interventions",
+          "kind": "factor",
+          "factorGroup": "aspect-3"
+        },
+        {
+          "id": "a3-f10",
+          "label": "Factor 10",
+          "prompt": "Workforce development",
+          "kind": "factor",
+          "factorGroup": "aspect-3"
+        }
+      ]
+    },
+    {
+      "id": "aspect-4",
+      "title": "Citizen, place, and outcome centred",
+      "description": "Citizens in charge of their own outcomes, with success measured by people’s views on whether and to what extent they can live their lives well",
+      "questions": [
+        {
+          "id": "a4-initial",
+          "label": "Initial aspect score",
+          "prompt": "Citizens in charge of their own outcomes, with success measured by people’s views on whether and to what extent they can live their lives well",
+          "range": {
+            "min": 0,
+            "max": 100,
+            "step": 1
+          }
+        },
+        {
+          "id": "a4-q1",
+          "label": "Question 1",
+          "prompt": "Is the work led by the people or place who need it, and measured according to the outcomes they get?",
+          "range": {
+            "min": 0,
+            "max": 100,
+            "step": 1
+          },
+          "finalScore": true
+        },
+        {
+          "id": "a4-q2",
+          "label": "Question 2",
+          "prompt": "Are we commissioning and working together in a way that drives real change on the ground, as measured by real impact and reported by citizens and communities?",
+          "range": {
+            "min": 0,
+            "max": 100,
+            "step": 1
+          },
+          "finalScore": true
+        },
+        {
+          "id": "a4-q3",
+          "label": "Question 3",
+          "prompt": "Are we taking outcomes-led approaches, learning from real change on the ground, tracking and learning from impact, and reports from citizens and communities?",
+          "range": {
+            "min": 0,
+            "max": 100,
+            "step": 1
+          },
+          "finalScore": true
+        },
+        {
+          "id": "a4-q4",
+          "label": "Question 4",
+          "prompt": "Do we have real engagement with and understanding of actual needs, demand as different from need, including active identification of unmet needs or unmet demand? For economy, infrastructure, citizens and community, seeking to identify real needs rather than our belief about what is needed?",
+          "range": {
+            "min": 0,
+            "max": 100,
+            "step": 1
+          },
+          "finalScore": true
+        },
+        {
+          "id": "a4-q5",
+          "label": "Question 5",
+          "prompt": "Are equity and sustainability at the heart of our commissioning approach?",
+          "range": {
+            "min": 0,
+            "max": 100,
+            "step": 1
+          },
+          "finalScore": true
+        },
+        {
+          "id": "a4-q6",
+          "label": "Question 6",
+          "prompt": "Do we have co-production, co-design, or engagement at all stages of the commissioning cycle? Do we know when to use each type?",
+          "range": {
+            "min": 0,
+            "max": 100,
+            "step": 1
+          },
+          "finalScore": true
+        },
+        {
+          "id": "a4-q7",
+          "label": "Question 7",
+          "prompt": "Do we have a commitment to co-producing analysis, design, decision-making, delivery, and governance with all citizens, stakeholders, promoting inclusion and equality, especially from underrepresented groups?",
+          "range": {
+            "min": 0,
+            "max": 100,
+            "step": 1
+          },
+          "finalScore": true
+        },
+        {
+          "id": "a4-q8",
+          "label": "Question 8",
+          "prompt": "Do we look at the whole experience of from the citizen community side, as opposed to a narrow organisational, structural, service, or process silo?",
+          "range": {
+            "min": 0,
+            "max": 100,
+            "step": 1
+          },
+          "finalScore": true
+        },
+        {
+          "id": "a4-q9",
+          "label": "Question 9",
+          "prompt": "Are we making access to interventions, support and infrastructure clear and accessible to all? Including those who wish to pay?",
+          "range": {
+            "min": 0,
+            "max": 100,
+            "step": 1
+          },
+          "finalScore": true
+        },
+        {
+          "id": "a4-q10",
+          "label": "Question 10",
+          "prompt": "Are we influencing the approach of the whole organisation and partners in a way consistent with citizen, community, and outcome-centred working?",
+          "range": {
+            "min": 0,
+            "max": 100,
+            "step": 1
+          },
+          "finalScore": true
+        },
+        {
+          "id": "a4-revised",
+          "label": "Revised aspect score",
+          "prompt": "Citizens in charge of their own outcomes, with success measured by people’s views on whether and to what extent they can live their lives well",
+          "range": {
+            "min": 0,
+            "max": 100,
+            "step": 1
+          }
+        },
+        {
+          "id": "a4-f1",
+          "label": "Factor 1",
+          "prompt": "How success is defined in your place – supporting citizens, ticking the right boxes, keeping costs down etc",
+          "kind": "factor",
+          "factorGroup": "aspect-4"
+        },
+        {
+          "id": "a4-f2",
+          "label": "Factor 2",
+          "prompt": "Leadership and bravery of local system leaders",
+          "kind": "factor",
+          "factorGroup": "aspect-4"
+        },
+        {
+          "id": "a4-f3",
+          "label": "Factor 3",
+          "prompt": "The aspirations of your local leaders, including political leaders at a local, sub-regional or National level.",
+          "kind": "factor",
+          "factorGroup": "aspect-4"
+        },
+        {
+          "id": "a4-f4",
+          "label": "Factor 4",
+          "prompt": "Political ideology or vision (and interaction between local, regional, national or wider scale ideologies)",
+          "kind": "factor",
+          "factorGroup": "aspect-4"
+        },
+        {
+          "id": "a4-f5",
+          "label": "Factor 5",
+          "prompt": "How goals and targets are set for interventions, developments or improvements.",
+          "kind": "factor",
+          "factorGroup": "aspect-4"
+        },
+        {
+          "id": "a4-f6",
+          "label": "Factor 6",
+          "prompt": "Outcome-focused vs time-and-task approaches",
+          "kind": "factor",
+          "factorGroup": "aspect-4"
+        },
+        {
+          "id": "a4-f7",
+          "label": "Factor 7",
+          "prompt": "Use of technology to support delivery of outcomes",
+          "kind": "factor",
+          "factorGroup": "aspect-4"
+        },
+        {
+          "id": "a4-f8",
+          "label": "Factor 8",
+          "prompt": "Levels of coproduction – feasible and aspirational",
+          "kind": "factor",
+          "factorGroup": "aspect-4"
+        },
+        {
+          "id": "a4-f9",
+          "label": "Factor 9",
+          "prompt": "Level of education of community about areas to change, such as inclusion, sustainability, environmental, population, and health improvement.",
+          "kind": "factor",
+          "factorGroup": "aspect-4"
+        },
+        {
+          "id": "a4-f10",
+          "label": "Factor 10",
+          "prompt": "Focus on supporting wider enabling outcomes, e.g. creating environmental and population health through urban design to improve fitness and healthy weight",
+          "kind": "factor",
+          "factorGroup": "aspect-4"
+        },
+        {
+          "id": "a4-f11",
+          "label": "Factor 11",
+          "prompt": "How funding is connected to outcomes",
+          "kind": "factor",
+          "factorGroup": "aspect-4"
+        }
+      ]
+    },
+    {
+      "id": "aspect-5",
+      "title": "Information, insight, and innovation",
+      "description": "Commissioning that focuses on innovation and creativity and based on robust information / insight",
+      "questions": [
+        {
+          "id": "a5-initial",
+          "label": "Initial aspect score",
+          "prompt": "Commissioning that focuses on innovation and creativity and based on robust information / insight",
+          "range": {
+            "min": 0,
+            "max": 100,
+            "step": 1
+          }
+        },
+        {
+          "id": "a5-q1",
+          "label": "Question 1",
+          "prompt": "Do we really understand all the needs in our place, including the unmet need?",
+          "range": {
+            "min": 0,
+            "max": 100,
+            "step": 1
+          },
+          "finalScore": true
+        },
+        {
+          "id": "a5-q2",
+          "label": "Question 2",
+          "prompt": "Do we have an ambitious and clear adaptive route map for change?",
+          "range": {
+            "min": 0,
+            "max": 100,
+            "step": 1
+          },
+          "finalScore": true
+        },
+        {
+          "id": "a5-q3",
+          "label": "Question 3",
+          "prompt": "Do we practice active learning and insight development?",
+          "range": {
+            "min": 0,
+            "max": 100,
+            "step": 1
+          },
+          "finalScore": true
+        },
+        {
+          "id": "a5-q4",
+          "label": "Question 4",
+          "prompt": "Do we have a culture of innovation, experiment, and learning from failure (and success)?",
+          "range": {
+            "min": 0,
+            "max": 100,
+            "step": 1
+          },
+          "finalScore": true
+        },
+        {
+          "id": "a5-q5",
+          "label": "Question 5",
+          "prompt": "Do we commission from a values-driven position, taking responsibility for outcomes while avoiding the ‘heroic’ mode of ‘fixing everything’ in favour of an enabling approach where people feel involved and part of designing and implementing things that matter to them? And we involve the workforce in design.",
+          "range": {
+            "min": 0,
+            "max": 100,
+            "step": 1
+          },
+          "finalScore": true
+        },
+        {
+          "id": "a5-q6",
+          "label": "Question 6",
+          "prompt": "Are we using approaches that harness complexity and an appreciation of whole systems?",
+          "range": {
+            "min": 0,
+            "max": 100,
+            "step": 1
+          },
+          "finalScore": true
+        },
+        {
+          "id": "a5-q7",
+          "label": "Question 7",
+          "prompt": "Do we work across different paradigms as appropriate, based on multiple perspectives?",
+          "range": {
+            "min": 0,
+            "max": 100,
+            "step": 1
+          },
+          "finalScore": true
+        },
+        {
+          "id": "a5-q8",
+          "label": "Question 8",
+          "prompt": "Do we have an understanding of great leadership of transformational change?",
+          "range": {
+            "min": 0,
+            "max": 100,
+            "step": 1
+          },
+          "finalScore": true
+        },
+        {
+          "id": "a5-q9",
+          "label": "Question 9",
+          "prompt": "Are we able to connect small-scale tests of change with larger strategic bets?",
+          "range": {
+            "min": 0,
+            "max": 100,
+            "step": 1
+          },
+          "finalScore": true
+        },
+        {
+          "id": "a5-q10",
+          "label": "Question 10",
+          "prompt": "Are quality, social value, and value for money evaluated proportionately and based on evidence?",
+          "range": {
+            "min": 0,
+            "max": 100,
+            "step": 1
+          },
+          "finalScore": true
+        },
+        {
+          "id": "a5-q11",
+          "label": "Question 11",
+          "prompt": "Do we have and share data from across the whole system, including identifying gaps and unmet needs that will result in demand?",
+          "range": {
+            "min": 0,
+            "max": 100,
+            "step": 1
+          },
+          "finalScore": true
+        },
+        {
+          "id": "a5-q12",
+          "label": "Question 12",
+          "prompt": "Do we seek external challenge, peer review, coaching, development, and reflective practice?",
+          "range": {
+            "min": 0,
+            "max": 100,
+            "step": 1
+          },
+          "finalScore": true
+        },
+        {
+          "id": "a5-q13",
+          "label": "Question 13",
+          "prompt": "Are we powerfully advocating for commissioning and leading by example?",
+          "range": {
+            "min": 0,
+            "max": 100,
+            "step": 1
+          },
+          "finalScore": true
+        },
+        {
+          "id": "a5-revised",
+          "label": "Revised aspect score",
+          "prompt": "Commissioning that focuses on innovation and creativity and based on robust information / insight",
+          "range": {
+            "min": 0,
+            "max": 100,
+            "step": 1
+          }
+        },
+        {
+          "id": "a5-f1",
+          "label": "Factor 1",
+          "prompt": "Skills bases, experience and confidence of commissioners and key stakeholders/decision-makers",
+          "kind": "factor",
+          "factorGroup": "aspect-5"
+        },
+        {
+          "id": "a5-f2",
+          "label": "Factor 2",
+          "prompt": "Ability to innovate",
+          "kind": "factor",
+          "factorGroup": "aspect-5"
+        },
+        {
+          "id": "a5-f3",
+          "label": "Factor 3",
+          "prompt": "Quality of data analytics",
+          "kind": "factor",
+          "factorGroup": "aspect-5"
+        },
+        {
+          "id": "a5-f4",
+          "label": "Factor 4",
+          "prompt": "Communications, advocacy and influencing",
+          "kind": "factor",
+          "factorGroup": "aspect-5"
+        },
+        {
+          "id": "a5-f5",
+          "label": "Factor 5",
+          "prompt": "Capacity and resources in the spaces above",
+          "kind": "factor",
+          "factorGroup": "aspect-5"
+        },
+        {
+          "id": "a5-f6",
+          "label": "Factor 6",
+          "prompt": "Reputation of commissioners and commissioning",
+          "kind": "factor",
+          "factorGroup": "aspect-5"
+        },
+        {
+          "id": "a5-f7",
+          "label": "Factor 7",
+          "prompt": "Position of commissioners in formal and informal hierarchies",
+          "kind": "factor",
+          "factorGroup": "aspect-5"
+        },
+        {
+          "id": "a5-f8",
+          "label": "Factor 8",
+          "prompt": "Clarity about what ‘commissioning’ means to us",
+          "kind": "factor",
+          "factorGroup": "aspect-5"
+        },
+        {
+          "id": "a5-f9",
+          "label": "Factor 9",
+          "prompt": "Opportunity or not to design commissioning loops from information gathering through decision making, to commissioning and learning from outcomes",
+          "kind": "factor",
+          "factorGroup": "aspect-5"
+        },
+        {
+          "id": "a5-f10",
+          "label": "Factor 10",
+          "prompt": "Level of understanding of markets, providers, supply and delivery",
+          "kind": "factor",
+          "factorGroup": "aspect-5"
+        },
+        {
+          "id": "a5-f11",
+          "label": "Factor 11",
+          "prompt": "Understanding of place",
+          "kind": "factor",
+          "factorGroup": "aspect-5"
+        },
+        {
+          "id": "a5-f12",
+          "label": "Factor 12",
+          "prompt": "Understanding of unmet requirements and need compared to gaps in the system",
+          "kind": "factor",
+          "factorGroup": "aspect-5"
+        },
+        {
+          "id": "a5-f13",
+          "label": "Factor 13",
+          "prompt": "Understanding of provision and outcomes",
+          "kind": "factor",
+          "factorGroup": "aspect-5"
+        },
+        {
+          "id": "a5-f14",
+          "label": "Factor 14",
+          "prompt": "History of the market/supplier or delivery – levels of change and engagement",
+          "kind": "factor",
+          "factorGroup": "aspect-5"
+        },
+        {
+          "id": "a5-f15",
+          "label": "Factor 15",
+          "prompt": "Longer-term view of changes in the environment, citizen, provider, supplier, markets, or delivery",
+          "kind": "factor",
+          "factorGroup": "aspect-5"
+        },
+        {
+          "id": "a5-f16",
+          "label": "Factor 16",
+          "prompt": "Understanding of different funding streams, spending conditions, and incentives",
+          "kind": "factor",
+          "factorGroup": "aspect-5"
+        }
+      ]
+    },
+    {
+      "id": "aspect-6",
+      "title": "Making room to make a difference",
+      "description": "Meeting, interpreting, and actively shaping the policy and legal requirements that we have to work within",
+      "questions": [
+        {
+          "id": "a6-initial",
+          "label": "Initial aspect score",
+          "prompt": "Meeting, interpreting, and actively shaping the policy and legal requirements that we have to work within",
+          "range": {
+            "min": 0,
+            "max": 100,
+            "step": 1
+          }
+        },
+        {
+          "id": "a6-q1",
+          "label": "Question 1",
+          "prompt": "Do we understand and shape the law and policy we are working with?",
+          "range": {
+            "min": 0,
+            "max": 100,
+            "step": 1
+          },
+          "finalScore": true
+        },
+        {
+          "id": "a6-q2",
+          "label": "Question 2",
+          "prompt": "Are we understanding and complying with the core constraints and enablers of commissioning through active engagement with existing and current legislative, regulatory, and quality assurance requirements?",
+          "range": {
+            "min": 0,
+            "max": 100,
+            "step": 1
+          },
+          "finalScore": true
+        },
+        {
+          "id": "a6-q3",
+          "label": "Question 3",
+          "prompt": "Do we have strong analysis and performance management, business intelligence, presented honestly and effectively, informing decision making?",
+          "range": {
+            "min": 0,
+            "max": 100,
+            "step": 1
+          },
+          "finalScore": true
+        },
+        {
+          "id": "a6-q4",
+          "label": "Question 4",
+          "prompt": "Do we understand how to manage compliance and get permission to extend capabilities – explain why we might get better outcomes if we do things differently, jointly focus on why things should be done, not ticking boxes, etc.?",
+          "range": {
+            "min": 0,
+            "max": 100,
+            "step": 1
+          },
+          "finalScore": true
+        },
+        {
+          "id": "a6-q5",
+          "label": "Question 5",
+          "prompt": "Do we have a proactive and dynamic risk appetite approach?",
+          "range": {
+            "min": 0,
+            "max": 100,
+            "step": 1
+          },
+          "finalScore": true
+        },
+        {
+          "id": "a6-q6",
+          "label": "Question 6",
+          "prompt": "Are we creating effective, good practice policy and guidance?",
+          "range": {
+            "min": 0,
+            "max": 100,
+            "step": 1
+          },
+          "finalScore": true
+        },
+        {
+          "id": "a6-q7",
+          "label": "Question 7",
+          "prompt": "Are we playing an active role in shaping organisation, place, and national policy?",
+          "range": {
+            "min": 0,
+            "max": 100,
+            "step": 1
+          },
+          "finalScore": true
+        },
+        {
+          "id": "a6-revised",
+          "label": "Revised aspect score",
+          "prompt": "Meeting, interpreting, and actively shaping the policy and legal requirements that we have to work within",
+          "range": {
+            "min": 0,
+            "max": 100,
+            "step": 1
+          }
+        },
+        {
+          "id": "a6-f1",
+          "label": "Factor 1",
+          "prompt": "Interpretation of key legislation and up and coming policy changes and other statutory requirements",
+          "kind": "factor",
+          "factorGroup": "aspect-6"
+        },
+        {
+          "id": "a6-f2",
+          "label": "Factor 2",
+          "prompt": "Understanding of funding levels and drivers of cost",
+          "kind": "factor",
+          "factorGroup": "aspect-6"
+        },
+        {
+          "id": "a6-f3",
+          "label": "Factor 3",
+          "prompt": "Implications of medium-term financial planning/ long-term financial situation",
+          "kind": "factor",
+          "factorGroup": "aspect-6"
+        },
+        {
+          "id": "a6-f4",
+          "label": "Factor 4",
+          "prompt": "Approach to market sustainability?",
+          "kind": "factor",
+          "factorGroup": "aspect-6"
+        },
+        {
+          "id": "a6-f5",
+          "label": "Factor 5",
+          "prompt": "Clear equalities policy for commissioning and use of Equality Impact Assessments",
+          "kind": "factor",
+          "factorGroup": "aspect-6"
+        },
+        {
+          "id": "a6-f6",
+          "label": "Factor 6",
+          "prompt": "Strong understanding and strong use of the Social Value Act and Sustainability Act",
+          "kind": "factor",
+          "factorGroup": "aspect-6"
+        },
+        {
+          "id": "a6-f7",
+          "label": "Factor 7",
+          "prompt": "Implications of regulatory/ inspection or quality assurance regime",
+          "kind": "factor",
+          "factorGroup": "aspect-6"
+        },
+        {
+          "id": "a6-f8",
+          "label": "Factor 8",
+          "prompt": "Understanding of other relevant legislation",
+          "kind": "factor",
+          "factorGroup": "aspect-6"
+        },
+        {
+          "id": "a6-f9",
+          "label": "Factor 9",
+          "prompt": "Clear local commissioning strategy and policy",
+          "kind": "factor",
+          "factorGroup": "aspect-6"
+        },
+        {
+          "id": "a6-f10",
+          "label": "Factor 10",
+          "prompt": "Shared approach across the organisation",
+          "kind": "factor",
+          "factorGroup": "aspect-6"
+        },
+        {
+          "id": "a6-f11",
+          "label": "Factor 11",
+          "prompt": "Shared approach across places",
+          "kind": "factor",
+          "factorGroup": "aspect-6"
+        }
+      ]
+    },
+    {
+      "id": "aspect-7",
+      "title": "Commissioning process",
+      "description": "Technically excellent, clear, and robust arrangements",
+      "questions": [
+        {
+          "id": "a7-initial",
+          "label": "Initial aspect score",
+          "prompt": "Technically excellent, clear, and robust arrangements",
+          "range": {
+            "min": 0,
+            "max": 100,
+            "step": 1
+          }
+        },
+        {
+          "id": "a7-q1",
+          "label": "Question 1",
+          "prompt": "Do we have a strong, effective process?",
+          "range": {
+            "min": 0,
+            "max": 100,
+            "step": 1
+          },
+          "finalScore": true
+        },
+        {
+          "id": "a7-q2",
+          "label": "Question 2",
+          "prompt": "Are you balancing meeting urgent financial and other priority requirements with thinking about long-term impacts?",
+          "range": {
+            "min": 0,
+            "max": 100,
+            "step": 1
+          },
+          "finalScore": true
+        },
+        {
+          "id": "a7-q3",
+          "label": "Question 3",
+          "prompt": "Does your commissioning process support good collaboration, market development and co-operation, competition for improvement, value for money and commercials, and clarity of types of contracting improvement?",
+          "range": {
+            "min": 0,
+            "max": 100,
+            "step": 1
+          },
+          "finalScore": true
+        },
+        {
+          "id": "a7-q4",
+          "label": "Question 4",
+          "prompt": "How do you relate your timeliness of engagement in your strategic commissioning process? Do you balance time on co-production, design, market/ provider co-design, specification development, contract management, learning, etc?",
+          "range": {
+            "min": 0,
+            "max": 100,
+            "step": 1
+          },
+          "finalScore": true
+        },
+        {
+          "id": "a7-q5",
+          "label": "Question 5",
+          "prompt": "Do you have a positive approach to types and design of procurement and commissioning that focuses on proportionality and matches design and the outcomes sought?",
+          "range": {
+            "min": 0,
+            "max": 100,
+            "step": 1
+          },
+          "finalScore": true
+        },
+        {
+          "id": "a7-q6",
+          "label": "Question 6",
+          "prompt": "Are you using a broad range of evidence to inform decision making and commissioning and contributing your own insight through reflection and evaluation?",
+          "range": {
+            "min": 0,
+            "max": 100,
+            "step": 1
+          },
+          "finalScore": true
+        },
+        {
+          "id": "a7-q7",
+          "label": "Question 7",
+          "prompt": "Does your process have a strong focus on Nolan Principles, social value, sustainability, equity, ethics, and openness?",
+          "range": {
+            "min": 0,
+            "max": 100,
+            "step": 1
+          },
+          "finalScore": true
+        },
+        {
+          "id": "a7-q8",
+          "label": "Question 8",
+          "prompt": "Are you able to maintain a strong commissioning process even in joint and share commissioning and shared arrangements?",
+          "range": {
+            "min": 0,
+            "max": 100,
+            "step": 1
+          },
+          "finalScore": true
+        },
+        {
+          "id": "a7-revised",
+          "label": "Revised aspect score",
+          "prompt": "Technically excellent, clear, and robust arrangements",
+          "range": {
+            "min": 0,
+            "max": 100,
+            "step": 1
+          }
+        },
+        {
+          "id": "a7-f1",
+          "label": "Factor 1",
+          "prompt": "Risk appetite",
+          "kind": "factor",
+          "factorGroup": "aspect-7"
+        },
+        {
+          "id": "a7-f2",
+          "label": "Factor 2",
+          "prompt": "Flexibility or alignment in terms of different commissioning teams in the same ‘place’ following the same approach",
+          "kind": "factor",
+          "factorGroup": "aspect-7"
+        },
+        {
+          "id": "a7-f3",
+          "label": "Factor 3",
+          "prompt": "Flexibility of procurement and commissioning approach – enabler, or fixed constraint?",
+          "kind": "factor",
+          "factorGroup": "aspect-7"
+        },
+        {
+          "id": "a7-f4",
+          "label": "Factor 4",
+          "prompt": "Ability to de-commission to free up resources for innovation or alternative delivery",
+          "kind": "factor",
+          "factorGroup": "aspect-7"
+        },
+        {
+          "id": "a7-f5",
+          "label": "Factor 5",
+          "prompt": "‘Permission’ to be innovative/use different approaches",
+          "kind": "factor",
+          "factorGroup": "aspect-7"
+        }
+      ]
+    },
+    {
+      "id": "aspect-8",
+      "title": "Models and tactics",
+      "description": "Design of delivery and intervention models that are fit for purpose, effective, and innovative, based on real attention to how intervention and infrastructure is structured and delivered",
+      "questions": [
+        {
+          "id": "a8-initial",
+          "label": "Initial aspect score",
+          "prompt": "Design of delivery and intervention models that are fit for purpose, effective, and innovative, based on real attention to how intervention and infrastructure is structured and delivered",
+          "range": {
+            "min": 0,
+            "max": 100,
+            "step": 1
+          }
+        },
+        {
+          "id": "a8-q1",
+          "label": "Question 1",
+          "prompt": "Do we understand what makes a difference on the ground?",
+          "range": {
+            "min": 0,
+            "max": 100,
+            "step": 1
+          },
+          "finalScore": true
+        },
+        {
+          "id": "a8-q2",
+          "label": "Question 2",
+          "prompt": "Are we investigating innovative delivery and funding and financing models that deliver demand reduction, reduced costs and increased impact, used appropriately?",
+          "range": {
+            "min": 0,
+            "max": 100,
+            "step": 1
+          },
+          "finalScore": true
+        },
+        {
+          "id": "a8-q3",
+          "label": "Question 3",
+          "prompt": "Are we engaging effectively with disruptive technology?",
+          "range": {
+            "min": 0,
+            "max": 100,
+            "step": 1
+          },
+          "finalScore": true
+        },
+        {
+          "id": "a8-q4",
+          "label": "Question 4",
+          "prompt": "Are we taking and encouraging a partnership approach to workforce challenges?",
+          "range": {
+            "min": 0,
+            "max": 100,
+            "step": 1
+          },
+          "finalScore": true
+        },
+        {
+          "id": "a8-q5",
+          "label": "Question 5",
+          "prompt": "Are we undertaking measurable supply chain optimisation?",
+          "range": {
+            "min": 0,
+            "max": 100,
+            "step": 1
+          },
+          "finalScore": true
+        },
+        {
+          "id": "a8-q6",
+          "label": "Question 6",
+          "prompt": "Do we have a strong focus on Social Value?",
+          "range": {
+            "min": 0,
+            "max": 100,
+            "step": 1
+          },
+          "finalScore": true
+        },
+        {
+          "id": "a8-q7",
+          "label": "Question 7",
+          "prompt": "Do we have a proactive approach to cost, with genuinely proportionate costs?  Including reducing demand for high-cost low low-volume delivery?",
+          "range": {
+            "min": 0,
+            "max": 100,
+            "step": 1
+          },
+          "finalScore": true
+        },
+        {
+          "id": "a8-q8",
+          "label": "Question 8",
+          "prompt": "Do we have supplier/ provider/ direct delivery relationships not focused on costs but on quality, improvement, and outcomes?",
+          "range": {
+            "min": 0,
+            "max": 100,
+            "step": 1
+          },
+          "finalScore": true
+        },
+        {
+          "id": "a8-q9",
+          "label": "Question 9",
+          "prompt": "Is there appropriate aggregation and joining up between models?",
+          "range": {
+            "min": 0,
+            "max": 100,
+            "step": 1
+          },
+          "finalScore": true
+        },
+        {
+          "id": "a8-q10",
+          "label": "Question 10",
+          "prompt": "Are we reducing waste and customer journey failures?",
+          "range": {
+            "min": 0,
+            "max": 100,
+            "step": 1
+          },
+          "finalScore": true
+        },
+        {
+          "id": "a8-revised",
+          "label": "Revised aspect score",
+          "prompt": "Design of delivery and intervention models that are fit for purpose, effective, and innovative, based on real attention to how intervention and infrastructure is structured and delivered",
+          "range": {
+            "min": 0,
+            "max": 100,
+            "step": 1
+          }
+        },
+        {
+          "id": "a8-f1",
+          "label": "Factor 1",
+          "prompt": "Current funding and financing models",
+          "kind": "factor",
+          "factorGroup": "aspect-8"
+        },
+        {
+          "id": "a8-f2",
+          "label": "Factor 2",
+          "prompt": "Workforce issues",
+          "kind": "factor",
+          "factorGroup": "aspect-8"
+        },
+        {
+          "id": "a8-f3",
+          "label": "Factor 3",
+          "prompt": "Supply chain management",
+          "kind": "factor",
+          "factorGroup": "aspect-8"
+        },
+        {
+          "id": "a8-f4",
+          "label": "Factor 4",
+          "prompt": "Waste in delivery models",
+          "kind": "factor",
+          "factorGroup": "aspect-8"
+        },
+        {
+          "id": "a8-f5",
+          "label": "Factor 5",
+          "prompt": "Joining up between delivery models",
+          "kind": "factor",
+          "factorGroup": "aspect-8"
+        },
+        {
+          "id": "a8-f6",
+          "label": "Factor 6",
+          "prompt": "Potential for (dis)aggregation",
+          "kind": "factor",
+          "factorGroup": "aspect-8"
+        },
+        {
+          "id": "a8-f7",
+          "label": "Factor 7",
+          "prompt": "Digital and technical capability",
+          "kind": "factor",
+          "factorGroup": "aspect-8"
+        },
+        {
+          "id": "a8-f8",
+          "label": "Factor 8",
+          "prompt": "Opportunity to bring in different funding streams",
+          "kind": "factor",
+          "factorGroup": "aspect-8"
+        }
+      ]
+    }
+  ],
+  "reviewQuestions": [
+    "What changed in people’s lived experience?",
+    "What did we learn about how the system behaves?",
+    "What did we learn about our arrangements, rules, measures, relationships and forms of help?",
+    "What did this reveal about who we think we are, what we think we are here for, and whose purposes count?"
+  ],
+  "reviewSourceNote": "The four review questions are from Compass v2.0 beta, 13 June 2026; they are an additional follow-through feature in this edition.",
+  "factorLimit": 3
+}

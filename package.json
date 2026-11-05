@@ -2,7 +2,11 @@
   "name": "psta-website",
   "private": true,
   "scripts": {
-    "dev": "vite"
+    "dev": "vite",
+    "build": "python scripts/build_site.py",
+    "test:compass": "node --test scripts/test_compass.cjs",
+    "test:compass:browser": "node scripts/test_compass_browser.cjs",
+    "check:programme": "python scripts/check_programme_record.py"
   },
   "devDependencies": {
     "vite": "^7.1.3"

@@ -1,0 +1,174 @@
+{
+  "id": "smart-compass-local",
+  "title": "smartCompass: local reflection edition",
+  "version": "2026-07-16",
+  "status": "Local reflection edition",
+  "description": "Use the original sixteen smartCompass questions, compare perspectives, and keep an editable record of your decisions and learning.",
+  "introduction": "Start with a system of interest and the people, organisations, relationships, rules, and activity trying to improve it.",
+  "source": {
+    "title": "smartCompass: AI for community-powered outcomes through commissioning from the edge",
+    "date": "2026-07-16",
+    "url": "https://forms.cloud.microsoft/e/WtmguTuWX9",
+    "localText": "/assets/compass/sources/smart-compass-2026-07-16.json",
+    "sha256": "f32be23f0bcde50852a9064ac67234dbf7633777cf359334879b8dc85a0724e2",
+    "note": "The two context prompts and sixteen reflective questions are reproduced from the published smartCompass form, in the original order. This local edition keeps your notes on your device and does not generate an AI response or send email. Contact fields and the consent to be contacted are omitted. The original AI-supported email service remains a separate option."
+  },
+  "sections": [
+    {
+      "id": "context",
+      "title": "Set the context",
+      "questions": [
+        {
+          "id": "context-1",
+          "label": "Context 1",
+          "prompt": "What is your system of interest? the place, issue, population, outcome, or pattern of life you are trying to understand and improve. e.g. older people’s wellbeing, young disabled people in education, serious violent crime across the country, young people not in education, employment or training, reducing CO2 emissions in an industry, etc."
+        },
+        {
+          "id": "context-2",
+          "label": "Context 2",
+          "prompt": "What is your intervening system? The organisations, people, institutions, relationships, voluntary effort, funding, rules, habits, and activity trying to bring out better outcomes in that system of interest."
+        }
+      ]
+    },
+    {
+      "id": "pair-1",
+      "title": "Questions 1 and 2",
+      "questions": [
+        {
+          "id": "question-1",
+          "label": "Question 1",
+          "prompt": "What conditions in the system of interest are shaping people’s lives before any service response begins?"
+        },
+        {
+          "id": "question-2",
+          "label": "Question 2",
+          "prompt": "Where is the intervening system helping people move towards stability, capability, and connection – and where is it mainly managing pressure?"
+        }
+      ]
+    },
+    {
+      "id": "pair-2",
+      "title": "Questions 3 and 4",
+      "questions": [
+        {
+          "id": "question-3",
+          "label": "Question 3",
+          "prompt": "Which relationships most affect outcomes in the system of interest, and how well are they supported?"
+        },
+        {
+          "id": "question-4",
+          "label": "Question 4",
+          "prompt": "Where does the intervening system organise around people’s real situations, and where does it organise around its own boundaries?"
+        }
+      ]
+    },
+    {
+      "id": "pair-3",
+      "title": "Questions 5 and 6",
+      "questions": [
+        {
+          "id": "question-5",
+          "label": "Question 5",
+          "prompt": "What capabilities are most needed to respond well to complexity in this system of interest?"
+        },
+        {
+          "id": "question-6",
+          "label": "Question 6",
+          "prompt": "Where do people in the intervening system have the confidence and permission to use judgment, and where are they forced back into process?"
+        }
+      ]
+    },
+    {
+      "id": "pair-4",
+      "title": "Questions 7 and 8",
+      "questions": [
+        {
+          "id": "question-7",
+          "label": "Question 7",
+          "prompt": "What do citizens, communities, or people affected by this issue say matters most, in their own words?"
+        },
+        {
+          "id": "question-8",
+          "label": "Question 8",
+          "prompt": "How well do the outcomes being pursued reflect lived reality in the system of interest, rather than the categories of the intervening system?"
+        }
+      ]
+    },
+    {
+      "id": "pair-5",
+      "title": "Questions 9 and 10",
+      "questions": [
+        {
+          "id": "question-9",
+          "label": "Question 9",
+          "prompt": "What does the intervening system know from direct contact, lived experience, and local intelligence – not just formal data?"
+        },
+        {
+          "id": "question-10",
+          "label": "Question 10",
+          "prompt": "How quickly does new insight change what people do, decide, fund, or stop doing?"
+        }
+      ]
+    },
+    {
+      "id": "pair-6",
+      "title": "Questions 11 and 12",
+      "questions": [
+        {
+          "id": "question-11",
+          "label": "Question 11",
+          "prompt": "Who can convene the right people around the real work, without having to control it?"
+        },
+        {
+          "id": "question-12",
+          "label": "Question 12",
+          "prompt": "What conditions make it safe enough for the intervening system to test, learn, adapt, and share authority?"
+        }
+      ]
+    },
+    {
+      "id": "pair-7",
+      "title": "Questions 13 and 14",
+      "questions": [
+        {
+          "id": "question-13",
+          "label": "Question 13",
+          "prompt": "How does ‘commissioning’ (or the management of the system of interest) shape the relationships, behaviours, and possibilities in the system of interest?"
+        },
+        {
+          "id": "question-14",
+          "label": "Question 14",
+          "prompt": "Where does commissioning create room for relational judgement, adaptation, and learning – and where does it lock the system into transactions?"
+        }
+      ]
+    },
+    {
+      "id": "pair-8",
+      "title": "Questions 15 and 16",
+      "questions": [
+        {
+          "id": "question-15",
+          "label": "Question 15",
+          "prompt": "What practical models or tactics on the ground are already helping the intervening system respond well to complexity?"
+        },
+        {
+          "id": "question-16",
+          "label": "Question 16",
+          "prompt": "How are useful patterns spread: by copying a model, or by changing the conditions that made it work?"
+        }
+      ]
+    }
+  ],
+  "reviewQuestions": [
+    "What changed in people’s lived experience?",
+    "What did we learn about how the system behaves?",
+    "What did we learn about our arrangements, rules, measures, relationships and forms of help?",
+    "What did this reveal about who we think we are, what we think we are here for, and whose purposes count?"
+  ],
+  "agentPrompt": {
+    "path": "/assets/compass/sources/smartcompass-agent-prompt-v3.txt",
+    "version": "Draft prompt v3BT",
+    "note": "The original draft prompt is preserved verbatim from the PSTA smartCompass instructions summary. It was used by the existing AI agent. It includes historical links, output instructions, and prototype wording; review these before running it. This download reproduces the prompt rather than claiming the existing automation has been migrated."
+  },
+  "reviewSourceNote": "The four review questions are from Compass v2.0 beta, 13 June 2026; they are an additional follow-through feature in this edition."
+}

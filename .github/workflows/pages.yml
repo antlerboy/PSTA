@@ -28,6 +28,13 @@ jobs:
 
       - name: Check three-item selection and expiry behaviour
         run: python3 -m unittest discover -s tests -p test_curated_latest.py
+      - name: Use Node for Compass source and record checks
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      - name: Check Compass source fidelity and editable records
+        run: node --test scripts/test_compass.cjs
 
       - name: Assemble the complete PSTA site
         shell: bash
@@ -121,6 +128,7 @@ jobs:
           python3 scripts/apply_september_review.py deploy
           python3 scripts/apply_link_cleanup.py deploy
           python3 scripts/apply_october_updates.py deploy
+          python3 scripts/apply_useful_practice.py deploy
           python3 scripts/audit_site.py deploy
 
           grep -q "Bring a team and a real change" deploy/index.html

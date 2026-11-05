@@ -19,6 +19,7 @@ Detailed instructions:
 - `docs/EDITING_AND_ACCESS.md`
 - `docs/NEWS_AND_SOCIAL_PUBLISHING.md`
 - `content/news/README.md`
+- `docs/COMPASS_AND_PRACTICE.md`
 
 ## Latest news and social media
 

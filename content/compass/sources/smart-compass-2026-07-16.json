@@ -1,0 +1,101 @@
+{
+  "title": "smartCompass: AI for community-powered outcomes through commissioning from the edge",
+  "description": "Welcome to the smartCompass - a tool to help commissioners, leaders, partners, and people working in public services see how their system is really working — and where to act next.\nAnswer sixteen questions about a system you care about, and receive a personalised, AI-supported response by email. It helps you see strengths, blockers, patterns, and possible next moves. Use Smart-Compass when you want to: get a quick sense of what is happening in your system; start a conversation with colleagues or partners; reflect on a place, issue, population, outcome, or pattern of life; Get a quick introduction to the principles of the PSTA's Commissioning Compass, but in a faster, easier-to-use way! This is an early alpha prototype version that processes answers using AI, specifically OpenAI/ChatGPT services, and returns an output to you via email. This is a provisional process which may produce variable results. By filling in this form, you consent to sharing your answers with the PSTA and OpenAI/ChatGPT. If you have any feedback on the process, please contact david.mason@publicservicetransformation. \n\nThe smartCompass is a faster, smarter, more streamlined version of the 'Commissioning Compass: systems assessment for change', developed by the Public Service Transformation Academy. The full version asks you a series of questions to assess your system and guides you towards potential approaches to improve your commissioning - this is available for free as a 'course' on teachable (https://link.redquadrant.com/commissioningcompass).  \nHave in mind two bits of jargon when you answer these 16 questions:  Your ‘system of interest’ – the place, issue, population, outcome, or pattern of life you are trying to understand and improve.  \ne.g. older people’s wellbeing, young disabled people in education, serious violent crime across the country, young people not in education, employment or training, reducing CO2 emissions in an industry etc.Your ‘intervening system’ – the organisations, people, institutions, relationships, voluntary effort, funding, rules, habits, and activity trying to bring out better outcomes in that system of interest. ",
+  "modifiedDate": "2026-07-16T08:46:19.06Z",
+  "source": "https://forms.cloud.microsoft/e/WtmguTuWX9",
+  "note": "Public question definition only. No respondent information, response data, owner identifiers, or tracking information is included. Contact collection and the contact-consent field are omitted from the local reflection edition.",
+  "context": [
+    {
+      "id": "r515311b2ab9a425380277e469e982f15",
+      "order": 3000500.0,
+      "prompt": "What is your system of interest? the place, issue, population, outcome, or pattern of life you are trying to understand and improve. e.g. older people’s wellbeing, young disabled people in education, serious violent crime across the country, young people not in education, employment or training, reducing CO2 emissions in an industry, etc."
+    },
+    {
+      "id": "ra5b721e3e0414dcf9c697f9136d8df2a",
+      "order": 4000500.0,
+      "prompt": "What is your intervening system? The organisations, people, institutions, relationships, voluntary effort, funding, rules, habits, and activity trying to bring out better outcomes in that system of interest."
+    }
+  ],
+  "questions": [
+    {
+      "id": "r17829a1702eb46d8bdab3058d26a176b",
+      "order": 6000500.0,
+      "prompt": "What conditions in the system of interest are shaping people’s lives before any service response begins?"
+    },
+    {
+      "id": "r211f607fd298420e8d370ba85c024368",
+      "order": 7000500.0,
+      "prompt": "Where is the intervening system helping people move towards stability, capability, and connection – and where is it mainly managing pressure?"
+    },
+    {
+      "id": "re21bfc2d82cf42e9b3a2de53cf6164d2",
+      "order": 9000500.0,
+      "prompt": "Which relationships most affect outcomes in the system of interest, and how well are they supported?"
+    },
+    {
+      "id": "rbc804355c3fc43d98b12169d4b284653",
+      "order": 10000500.0,
+      "prompt": "Where does the intervening system organise around people’s real situations, and where does it organise around its own boundaries?"
+    },
+    {
+      "id": "ra8576c3daa5f4f46941094feaa9a885f",
+      "order": 12000500.0,
+      "prompt": "What capabilities are most needed to respond well to complexity in this system of interest?"
+    },
+    {
+      "id": "r9c29093057a8493ea4eaa42df6292bcc",
+      "order": 13000500.0,
+      "prompt": "Where do people in the intervening system have the confidence and permission to use judgment, and where are they forced back into process?"
+    },
+    {
+      "id": "r379d882989c142cbad4032b88be1d5cb",
+      "order": 15000500.0,
+      "prompt": "What do citizens, communities, or people affected by this issue say matters most, in their own words?"
+    },
+    {
+      "id": "r985f7c8d0c0546dcbf42f277a52920ae",
+      "order": 16000500.0,
+      "prompt": "How well do the outcomes being pursued reflect lived reality in the system of interest, rather than the categories of the intervening system?"
+    },
+    {
+      "id": "rc0b9178e51644bed9ab7244be4a7ed78",
+      "order": 18000500.0,
+      "prompt": "What does the intervening system know from direct contact, lived experience, and local intelligence – not just formal data?"
+    },
+    {
+      "id": "r8dc9852e92da4be19d4ca0895c11e4f7",
+      "order": 19000500.0,
+      "prompt": "How quickly does new insight change what people do, decide, fund, or stop doing?"
+    },
+    {
+      "id": "r275ec3f3c3e343c78118334d55f3ac6e",
+      "order": 21000500.0,
+      "prompt": "Who can convene the right people around the real work, without having to control it?"
+    },
+    {
+      "id": "rbaa47ba83c5a4b7db523967084c04abe",
+      "order": 22000500.0,
+      "prompt": "What conditions make it safe enough for the intervening system to test, learn, adapt, and share authority?"
+    },
+    {
+      "id": "raee67be428f94326a96988cbcc19b02d",
+      "order": 24000500.0,
+      "prompt": "How does ‘commissioning’ (or the management of the system of interest) shape the relationships, behaviours, and possibilities in the system of interest?"
+    },
+    {
+      "id": "r52d4978048ba47e8a10eec138a63daea",
+      "order": 25000500.0,
+      "prompt": "Where does commissioning create room for relational judgement, adaptation, and learning – and where does it lock the system into transactions?"
+    },
+    {
+      "id": "r996695a16eec4759a8cc34bc9e267151",
+      "order": 27000500.0,
+      "prompt": "What practical models or tactics on the ground are already helping the intervening system respond well to complexity?"
+    },
+    {
+      "id": "r34d572b1a0a4428cba54a00fc8417a3b",
+      "order": 28000500.0,
+      "prompt": "How are useful patterns spread: by copying a model, or by changing the conditions that made it work?"
+    }
+  ]
+}

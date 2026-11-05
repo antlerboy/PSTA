@@ -1,0 +1,280 @@
+{
+  "title": "The Commissioning Compass: systems assessment for change — scoring sheet",
+  "publicationDate": null,
+  "transcribed": "2026-11-05",
+  "sourceUrl": "https://public-service-transformation-academy.teachable.com/l/pdp/commissioning-compass",
+  "transcription": "Generic descriptors, instructions, questions, and factors only. Layout whitespace is normalised. Every participant answer, score, observation, and selected factor is excluded. The original file is not included.",
+  "scoreBands": [
+    "0 – 24 Poor (significant risk)",
+    "25 – 49 Fair (lesser/lower risk, improvement required)",
+    "50 – 74 Good (opportunities identified/issues need to be addressed)",
+    "75 – 100 Excellent (no action required)"
+  ],
+  "instructions": [
+    "System assessment for change",
+    "The system assessment is structured around the eight aspects of commissioning.",
+    "The system assessment is structured around the eight 'aspects' of commissioning. An aspect is a part or feature of the total complexity of strategic commissioning. Each aspect looks through a different lens, capturing a wider perspective than traditionally captured in commissioning cycles or definitions.",
+    "Step one: familiarise yourself with the eight aspects of commissioning and give yourself an initial gut score",
+    "Spend a bit of time familiarising yourself with the 'eight aspects of commissioning in the table below.",
+    "Understand how the top four are outcomes-focused, and systems-based and the bottom four are the foundational pillars.",
+    "You need to have solid scores on the foundational pillar 'aspects' to be able to effectively move to be aspirational in the top four 'aspects'",
+    "Give your place an instinctive score on how you are doing in terms of each of the 'eight aspects'. Do this quickly. It is just your first pass, your gut reaction.",
+    "We will encourage you to revisit this after working through the questions for the aspects.",
+    "Scores are categorised as below. Note that scores of 70 and above have been rare in system-assessments so far.",
+    "0 – 24 Poor (significant risk)",
+    "25 – 49 Fair (lesser/lower risk, improvement required)",
+    "50 – 74 Good (opportunities identified/issues need to be addressed)",
+    "75 – 100 Excellent (no action required)",
+    "Step Two - self-assessment questions",
+    "Next, work through the assessment questions. These are encouraging you to take a deeper look at your system and develop more curiosity. Score your 'system' on each question.",
+    "If you are doing this as a team and each person scored individually, do not simply average your results – look at the overall pattern of highs and lows, open up the conversation about what people are seeing in the system to give that score.",
+    "At the end, we’ll compare your initial gut reactions to your actual score. Again, we ask you to be curious about where there are differences or alignment. What is that telling you?",
+    "Step Three - Factors that constrain and enable",
+    "For each aspect, you are provided with a list of 'factors in place that constrain and enable'. These are important influences on your commissioning, some of which may be blockers (constraints) and others of which may provide opportunities or advantages (enablers). Which hold you/ the system back? Which supports you most to achieve change and outcomes?",
+    "Be curious about the depth of your awareness or understanding of each of the factors. You may wish to explore the factors further before you score them, but this is not essential at this stage. You can pick that up in your action plan later.",
+    "Once you have discussed each of the factors that constrain and enable, select the three most important enablers and the three most important constraints for each of the eight aspects.",
+    "If undertaking this assessment with stakeholders, it is likely that there will be very different perspectives in the system. In your workshops, think about how you can explore these perspectives to give you a deeper understanding of your system relationships. There are not right and wrong answers here. This is to provide you with insight and intelligence to identify where to intervene for the most effective change."
+  ],
+  "aspects": [
+    {
+      "number": 1,
+      "title": "Whole system design",
+      "description": "Work as one place to support and enable wellbeing, sustainability, and mutual support.",
+      "questions": [
+        "Are we making a place that helps everyone live life well?",
+        "How are we working as a whole, place-based system?",
+        "Do we understand need and capacity as a whole?",
+        "Is the whole system coherent? Do we have a plan as a whole system?",
+        "Are we putting social and environmental justice at the heart of the system?",
+        "Can we shift the dial to building on strengths? Developing an enabling, technology-supported self-help system, achieving prevention and early intervention?",
+        "Are we learning as a whole system?",
+        "Can we work systematically at a strategic, place, community and individual level?"
+      ],
+      "factors": [
+        "Population needs assessment, including levels of health, wellbeing and age distribution of the population",
+        "Wage rates and employment market, relative and absolute poverty",
+        "Levels of community safety and crime",
+        "Other geo-demographics of your place – characteristics, location, and density of population",
+        "Understanding the underlying need and what is actually shaping behaviour or demand",
+        "What matters to people and communities – local views about wellbeing and care",
+        "Geographical marginality and isolation",
+        "Transport ease and accessibility",
+        "Levels of deprivation",
+        "Population changes",
+        "Amount, quality, and accessibility of green spaces",
+        "Urban design",
+        "Funding and structures of the council and partners (and how they link together, or don’t)",
+        "Degree of health and care integration, and at what spatial level",
+        "Land value and planning issues",
+        "Workforce and workforce planning",
+        "Pressure to provide standardised services (discussion of ‘postcode lotteries’, etc)",
+        "National funding and payment funnelled through individual organisations or providers, not place."
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Relationships and organisation across the system",
+      "description": "Everyone focused on achieving shared goals with aligned incentives and funding",
+      "questions": [
+        "Is everyone working together coherently across our place?",
+        "Do we have effective governance?",
+        "Are we learning from the past?",
+        "Can we look at the knock-on effects of our setup and our decisions?",
+        "Do we have effective collaboration, partnership, and challenge across all key groups: commissioners, providers, politicians, communities, etc?",
+        "Are all stakeholders engaged with open communication?",
+        "Are we learning about and working on our relationships?",
+        "Are we optimising our results by responding appropriately to the maturity level of our relationships?"
+      ],
+      "factors": [
+        "Politician/partner politics",
+        "Governance",
+        "Formal partnerships",
+        "Existing and historic relationships",
+        "Different values that organisations and places put on commissioning",
+        "Ethics and values of the organisation itself and the people in it: culture.",
+        "Level of trust and involvement (not just engagement) of citizens/community",
+        "Culture/behaviour development",
+        "Incentives driven by funding streams",
+        "Trust/relationships/culture – open and honest vs judgemental and punitive or avoidant"
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Capacity, capability, and confidence",
+      "description": "Shape markets, provision, and delivery of all those (place, assets, VCFSE, employees, families, friends, carers, neighbours, community, etc) who enable people can live their lives well",
+      "questions": [
+        "Are we building the ability to meet or prevent needs across all sectors?",
+        "How effective are we at building the capability of people to support themselves or their place?",
+        "How effective are we at supporting people to help support each other? Such as families, neighbours, communities, neighbourhoods, and place.",
+        "How effective are we at building capacity and capability in providers from all sectors and sources (voluntary, community, faith-based, social enterprise, private, and public)?",
+        "How consistently are we taking an enabling, strengths-based approach?",
+        "Do we engage with internal and external providers, suppliers as partners and collaborate with them?",
+        "Effective balance of collaboration and contestability",
+        "Do we take an effective co-commissioning approach with others to develop capacity in current and potential providers, build markets and unlock potential?",
+        "Are we taking an asset-based commissioning approach?",
+        "Do we have strong insight into our system of interventions and delivery, including our current and potential markets?",
+        "Do we have good capability to develop all provision and supply, including where needed, market making and market management capability?",
+        "Do we have a good understanding of all current delivery models and quality?",
+        "Are we providing funding and support that takes a long-term view and looks at impacts, including environmental and social justice?",
+        "Are we taking into account the local economic impact of our spending?",
+        "Are we actively supporting workforce development?"
+      ],
+      "factors": [
+        "Asset and provision mapping",
+        "Potential for funding models to better support capacity and capability",
+        "Major costs and pressures",
+        "Local provision strengths/weaknesses",
+        "Cost and quality of provision, interventions and delivery.",
+        "State and current role of the community and voluntary sector",
+        "State of supply, from all providers and the wider market",
+        "Levels of citizen satisfaction",
+        "Understanding the current configuration of interventions",
+        "Workforce development"
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Citizen, place and outcome centred",
+      "description": "Citizens in charge of their own outcomes, with success measured by people’s view on whether and to what extent they can live their lives well",
+      "questions": [
+        "Is the work led by the people or place who need it, and measured according to the outcomes they get?",
+        "Are we commissioning and working together in a way that drives real change on the ground, as measured by real impact and reported by citizens and communities?",
+        "Are we taking outcomes-led approaches, learning from real change on the ground, tracking and learning from impact, and reports from citizens and communities?",
+        "Do we have real engagement with and understanding of actual needs, demand as different from need, including active identification of unmet needs or unmet demand? For economy, infrastructure, citizens and community, seeking to identify real needs rather than our belief about what is needed?",
+        "Are equity and sustainability at the heart of our commissioning approach?",
+        "Do we have co-production, co-design, or engagement at all stages of the commissioning cycle? Do we know when to use each type?",
+        "Do we have a commitment to co-producing analysis, design, decision-making, delivery, and governance with all citizens, stakeholders, promoting inclusion and equality, especially from underrepresented groups?",
+        "Do we look at the whole experience of from the citizen community side, as opposed to a narrow organisational, structural, service, or process silo?",
+        "Are we making access to interventions, support and infrastructure clear and accessible to all? Including those who wish to pay?",
+        "Are we influencing the approach of the whole organisation and partners in a way consistent with citizen, community, and outcome-centred working?"
+      ],
+      "factors": [
+        "How success is defined in your place – supporting citizens, ticking the right boxes, keeping costs down etc",
+        "Leadership and bravery of local system leaders",
+        "The aspirations of your local leaders, including political leaders at a local, sub-regional or National level.",
+        "Political ideology or vision (and interaction between local, regional, national or wider scale ideologies)",
+        "How goals and targets are set for interventions, developments or improvements.",
+        "Outcome-focused vs time-and-task approaches",
+        "Use of technology to support delivery of outcomes",
+        "Levels of coproduction – feasible and aspirational",
+        "Level of education of community about areas to change, such as inclusion, sustainability, environmental, population, and health improvement.",
+        "Focus on supporting wider enabling outcomes, e.g. creating environmental and population health through urban design to improve fitness and healthy weight",
+        "How funding is connected to outcomes"
+      ]
+    },
+    {
+      "number": 5,
+      "title": "Information, insight, and innovation",
+      "description": "Commissioning that focuses on innovation and creativity and is based on robust information/insight",
+      "questions": [
+        "Do we really understand all the needs in our place, including the unmet need?",
+        "Do we have an ambitious and clear adaptive route map for change?",
+        "Do we practice active learning and insight development?",
+        "Do we have a culture of innovation, experiment, and learning from failure (and success)?",
+        "Do we commission from a values-driven position, taking responsibility for outcomes while avoiding the ‘heroic’ mode of ‘fixing everything’ in favour of an enabling approach where people feel involved and part of designing and implementing things that matter to them? And we involve the workforce in design.",
+        "Are we using approaches that harness complexity and an appreciation of whole systems?",
+        "Do we work across different paradigms as appropriate, based on multiple perspectives?",
+        "Do we have an understanding of great leadership of transformational change?",
+        "Are we able to connect small-scale tests of change with larger strategic bets?",
+        "Are quality, social value, and value for money evaluated proportionately and based on evidence?",
+        "Do we have and share data from across the whole system, including identifying gaps and unmet needs that will result in demand?",
+        "Do we seek external challenge, peer review, coaching, development, and reflective practice?",
+        "Are we powerfully advocating for commissioning and leading by example?"
+      ],
+      "factors": [
+        "Skills bases, experience and confidence of commissioners and key stakeholders/decision-makers",
+        "Ability to innovate",
+        "Quality of data analytics",
+        "Communications, advocacy and influencing",
+        "Capacity and resources in the spaces above",
+        "Reputation of commissioners and commissioning",
+        "Position of commissioners in formal and informal hierarchies",
+        "Clarity about what ‘commissioning’ means to us",
+        "Opportunity or not to design commissioning loops from information gathering through decision making, to commissioning and learning from outcomes",
+        "Level of understanding of markets, providers, supply and delivery",
+        "Understanding of place",
+        "Understanding of unmet requirements and need compared to gaps in the system",
+        "Understanding of provision and outcomes",
+        "History of the market/supplier or delivery – levels of change and engagement",
+        "Longer-term view of changes in the environment, citizen, provider, supplier, markets, or delivery",
+        "Understanding of different funding streams, spending conditions, and incentives"
+      ]
+    },
+    {
+      "number": 6,
+      "title": "Managing the policy and compliance landscape",
+      "description": "Meeting, interpreting, and actively shaping the policy and legal requirements that we have to work within",
+      "questions": [
+        "Do we understand and shape the law and policy we are working with?",
+        "Are we understanding and complying with the core constraints and enablers of commissioning through active engagement with existing and current legislative regulatory and quality assurance requirements?",
+        "Do we have strong analysis and performance management, business intelligence, presented honestly and effectively, informing decision making?",
+        "Do we understand how to manage compliance and get permission to extend capabilities – explain why we might get better outcomes if we do things differently, jointly focus on why things should be done, not ticking boxes etc?",
+        "Do we have a proactive and dynamic risk appetite approach?",
+        "Are we creating effective, good practice policy and guidance?",
+        "Are we playing an active role in shaping organisation, place, and national policy?"
+      ],
+      "factors": [
+        "Interpretation of key legislation and up and coming policy changes and other statutory requirements",
+        "Understanding of funding levels and drivers of cost",
+        "Implications of medium-term financial planning/ long-term financial situation",
+        "Approach to market sustainability",
+        "Clear equalities policy for commissioning and use of Equality Impact Assessments",
+        "Strong understanding and strong use of the Social Value Act and Sustainability Act",
+        "Implications of regulatory/ inspection or quality assurance regime",
+        "Understanding of other relevant legislation",
+        "Clear local commissioning strategy and policy",
+        "Shared approach across the organisation",
+        "Shared approach across places"
+      ]
+    },
+    {
+      "number": 7,
+      "title": "Commissioning process",
+      "description": "Technically excellent, clear and robust arrangements",
+      "questions": [
+        "Do we have a strong, effective process?",
+        "Are you balancing meeting urgent financial and other priority requirements with thinking about long-term impacts?",
+        "Does your commissioning process support good collaboration, market development and co-operation, competition for improvement, value for money and commercials, and clarity of types of contracting improvement?",
+        "How do you relate your timeliness of engagement in your strategic commissioning process? Do you balance time on co-production, design, market/ provider co-design, specification development, contract management, learning, etc?",
+        "Do you have a positive approach to types and design of procurement and commissioning that focuses on proportionality and matches design and the outcomes sought?",
+        "Are you using a broad range of evidence to inform decision making and commissioning and contributing your own insight through reflection and evaluation?",
+        "Does your process have a strong focus on Nolan Principles, social value, sustainability, equity, ethics, and openness?",
+        "Are you able to maintain a strong commissioning process even in joint and share commissioning and shared arrangements?"
+      ],
+      "factors": [
+        "Risk appetite",
+        "Flexibility or alignment in terms of different commissioning teams in the same ‘place’ following the same approach",
+        "Flexibility of procurement and commissioning approach – enabler, or fixed constraint?",
+        "Ability to de-commission to free up resources for innovation or alternative delivery",
+        "‘Permission’ to be innovative/use different approaches"
+      ]
+    },
+    {
+      "number": 8,
+      "title": "Models and tactics",
+      "description": "Design of delivery and intervention models that are fit for purpose, effective, and innovative, based on real attention to how intervention and infrastructure is structured and delivered",
+      "questions": [
+        "Do we understand what makes a difference on the ground?",
+        "Are we investigating innovative delivery and funding and financing models that deliver demand reduction, reduced costs and increased impact, used appropriately?",
+        "Are we engaging effectively with disruptive technology?",
+        "Are we taking and encouraging a partnership approach to workforce challenges?",
+        "Are we undertaking measurable supply chain optimisation?",
+        "Do we have a strong focus on Social Value?",
+        "Do we have a proactive approach to cost, with genuinely proportionate costs? Including reducing demand for high-cost low low-volume delivery?",
+        "Do we have supplier/ provider/ direct delivery relationships not focused on costs but on quality, improvement, and outcomes?",
+        "Is there appropriate aggregation and joining up between models?",
+        "Are we reducing waste and customer journey failures?"
+      ],
+      "factors": [
+        "Current funding and financing models",
+        "Workforce issues",
+        "Supply chain management",
+        "Waste in delivery models",
+        "Joining up between delivery models",
+        "Potential for (dis)aggregation",
+        "Digital and technical capability",
+        "Opportunity to bring in different funding streams"
+      ]
+    }
+  ]
+}
