@@ -23,7 +23,7 @@
   });
   document.getElementById('intake-download').addEventListener('click', () => {
     const url = URL.createObjectURL(new Blob([draft()], { type: 'text/plain;charset=utf-8' }));
-    const a = document.createElement('a'); a.href = url; a.download = 'psta-enquiry.txt'; a.click();
+    const a = document.createElement('a'); a.href = url; a.download = 'enquiry.txt'; a.click();
     setTimeout(() => URL.revokeObjectURL(url), 2000);
     status.textContent = 'The enquiry text has been downloaded. It has not been sent.';
   });

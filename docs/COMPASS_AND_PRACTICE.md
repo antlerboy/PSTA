@@ -8,7 +8,7 @@ The AI download combines the original prompt and the current answers. The user c
 
 The learning guide covers 49 topics. It uses teaching text from the June 2025 template, the eight approach sections and all eight case/equality sections from the June 2023 adult social care pre-reading, and the original toolkit guide. Its introduction and contact guidance describe current use of the Compass and current public routes. Source dates, references, and acknowledgements are retained. One source diagram retains its visible credit. The 2017 asset-based commissioning article retains its original publication date and text.
 
-The case-clinic resources provide a host guide, participant brief, and case record. Enquiry preparation opens a draft in the visitor’s email app and never sends it automatically.
+The PSTA offers one-off case clinics or a short series on request, with a concrete 90-minute agenda. The request captures the case, team, preferred format, dates, and requirements. Scope, facilitator, dates, format, and fee are agreed before booking. A host guide, participant brief, and case record are also available. Enquiry preparation opens a draft in the visitor’s email app and never sends it automatically.
 
 RedQuadrant owns the shared Leading Transformation record. The PSTA publishes a checked copy, with modules, fees, support, and accreditation drawn from it. The build checks the curriculum against the shared record.
 
