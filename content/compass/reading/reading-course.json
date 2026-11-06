@@ -2,11 +2,6 @@
   "version": "2026-11-06",
   "title": "Commissioning Compass reading",
   "sourceTeachingVersion": "June 2025 template and June 2023 approaches pre-reading",
-  "expectedTeachableLessons": 49,
-  "sourceTopicsAvailable": 38,
-  "teachableBodiesCompared": 0,
-  "mediaAndDownloadCounts": "Not established from the course",
-  "status": "Reading edition from the original teaching documents. The full Teachable course has not yet been exported and compared.",
   "chapters": [
     {
       "id": "what-is-the-compass",
@@ -442,86 +437,18 @@
       "preReadingApproach": 8
     }
   ],
-  "remainingCatalogueLessons": [
-    {
-      "title": "The Commissioning Compass is still developing",
-      "section": "Introduction",
-      "catalogueLessonUrl": "https://public-service-transformation-academy.teachable.com/courses/2797583/lectures/62145824",
-      "status": "Teachable source comparison and media recovery pending"
-    },
-    {
-      "title": "Case studies and Equality and equity considerations",
-      "section": "Aspect of Commissioning 1: Whole system design",
-      "catalogueLessonUrl": "https://public-service-transformation-academy.teachable.com/courses/2797583/lectures/65255915",
-      "status": "Teachable source comparison and media recovery pending"
-    },
-    {
-      "title": "Case studies and Equality and equity considerations",
-      "section": "Aspect of Commissioning 2: Relationships and organisation across the system",
-      "catalogueLessonUrl": "https://public-service-transformation-academy.teachable.com/courses/2797583/lectures/65255920",
-      "status": "Teachable source comparison and media recovery pending"
-    },
-    {
-      "title": "Case studies and Equality and equity considerations",
-      "section": "Aspect of Commissioning 3: Capacity, capability, and confidence",
-      "catalogueLessonUrl": "https://public-service-transformation-academy.teachable.com/courses/2797583/lectures/65255929",
-      "status": "Teachable source comparison and media recovery pending"
-    },
-    {
-      "title": "Case studies and Equality and equity considerations",
-      "section": "Aspect of Commissioning 4: citizen, place, and outcome centred",
-      "catalogueLessonUrl": "https://public-service-transformation-academy.teachable.com/courses/2797583/lectures/65255931",
-      "status": "Teachable source comparison and media recovery pending"
-    },
-    {
-      "title": "Case studies and Equality and equity considerations",
-      "section": "Aspect of Commissioning 5: Information, insight, and innovation",
-      "catalogueLessonUrl": "https://public-service-transformation-academy.teachable.com/courses/2797583/lectures/65255932",
-      "status": "Teachable source comparison and media recovery pending"
-    },
-    {
-      "title": "Case studies and Equality and equity considerations",
-      "section": "Aspect of Commissioning 6: Making room to make a difference",
-      "catalogueLessonUrl": "https://public-service-transformation-academy.teachable.com/courses/2797583/lectures/65255933",
-      "status": "Teachable source comparison and media recovery pending"
-    },
-    {
-      "title": "Case studies and Equality and equity considerations",
-      "section": "Aspect of Commissioning 7: Commissioning process",
-      "catalogueLessonUrl": "https://public-service-transformation-academy.teachable.com/courses/2797583/lectures/65255934",
-      "status": "Teachable source comparison and media recovery pending"
-    },
-    {
-      "title": "Case studies and Equality and equity considerations",
-      "section": "Aspect of Commissioning 8: Models and tactics",
-      "catalogueLessonUrl": "https://public-service-transformation-academy.teachable.com/courses/2797583/lectures/65255935",
-      "status": "Teachable source comparison and media recovery pending"
-    },
-    {
-      "title": "Get in touch and keep up to date",
-      "section": "Resources and acknowledgements",
-      "catalogueLessonUrl": "https://public-service-transformation-academy.teachable.com/courses/2797583/lectures/62028058",
-      "status": "Teachable source comparison and media recovery pending"
-    },
-    {
-      "title": "The original commissioning compass: the Local Government Association's 'Strategic commissioning options appraisal tool'",
-      "section": "Resources and acknowledgements",
-      "catalogueLessonUrl": "https://public-service-transformation-academy.teachable.com/courses/2797583/lectures/62028056",
-      "status": "Teachable source comparison and media recovery pending"
-    }
-  ],
   "sourceFiles": [
     {
       "file": "teaching-deck-2025-06.json",
-      "sha256": "e564295a8c1bfdf36a2b2c866a4facef108469b2078e5c20d52977397615b906"
+      "sha256": "01cb713da514de806a038e1ff9cc6577539594b377066bedaf5cb4b243da8b42"
     },
     {
       "file": "approaches-pre-reading-2023-06.json",
-      "sha256": "5fefb1ee192b95cccdde7c9b5cedccb9997ce7edb866d126ae3ff4ccb1c4028d"
+      "sha256": "fbba54a887919067bc85d5519eefae2b55ae16332f59734eb532ca73d7f51fea"
     },
     {
       "file": "related-article-2017-10.json",
-      "sha256": "96c417c0c1d28ec3d7d95ed3c847c8321dc79d332236f0d6f026a6de5d40042a"
+      "sha256": "a77cfa0c9965cb7f8717daba50ff7d54f372d1e5f329de8b3da98f56d6ae43f4"
     }
   ]
 }

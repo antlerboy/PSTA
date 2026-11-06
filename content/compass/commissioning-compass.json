@@ -1768,10 +1768,7 @@
   "reviewSourceNote": "The four review questions are from Compass v2.0 beta, 13 June 2026; they are an additional follow-through feature in this edition.",
   "factorLimit": 3,
   "courseArchive": {
-    "url": "https://public-service-transformation-academy.teachable.com/l/pdp/commissioning-compass",
-    "catalogueChecked": "2026-11-05",
-    "sections": 10,
-    "lessons": 49,
-    "status": "The assessment is self-hosted. The original course still holds the teaching chapters, cases, eight approaches, and course resources. Its 49 lesson bodies, embedded media, and attached downloads have not yet been exported and compared with this website."
+    "title": "Commissioning Compass course",
+    "url": "https://public-service-transformation-academy.teachable.com/l/pdp/commissioning-compass"
   }
 }

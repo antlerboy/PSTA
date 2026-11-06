@@ -11,7 +11,7 @@
     "url": "https://forms.cloud.microsoft/e/WtmguTuWX9",
     "localText": "/assets/compass/sources/smart-compass-2026-07-16.json",
     "sha256": "259e7aa64189d38f06ba818a81311af94e68fb0a8e68edd7dc0e048b342780ef",
-    "note": "The two context prompts and sixteen reflective questions are reproduced from the published smartCompass form, in the original order. This local edition keeps your notes on your device and does not generate an AI response or send email. Contact fields and the consent to be contacted are omitted. The original AI-supported email service remains a separate option."
+    "note": "The two context prompts and sixteen reflective questions are reproduced from the published smartCompass form, in the original order. This local edition keeps your notes on your device and does not generate an AI response or send email. Contact fields are not included."
   },
   "sections": [
     {
@@ -168,7 +168,7 @@
   "agentPrompt": {
     "path": "/assets/compass/sources/smartcompass-agent-prompt-v3.txt",
     "version": "Draft prompt v3BT",
-    "note": "The original draft prompt is preserved verbatim from the PSTA smartCompass instructions summary. It was used by the existing AI agent. It includes historical links, output instructions, and prototype wording; review these before running it. This download reproduces the prompt rather than claiming the existing automation has been migrated."
+    "note": "The PSTA’s original draft prompt, Draft prompt v3BT. Check its instructions and remove confidential details before using it in an authorised AI account."
   },
   "reviewSourceNote": "The four review questions are from Compass v2.0 beta, 13 June 2026; they are an additional follow-through feature in this edition."
 }
