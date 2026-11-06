@@ -34,7 +34,7 @@ jobs:
           node-version: '24'
 
       - name: Check Compass source fidelity and editable records
-        run: node --test scripts/test_compass.cjs
+        run: node --test scripts/test_compass.cjs scripts/test_compass_reading.cjs
 
       - name: Assemble the complete PSTA site
         shell: bash
@@ -129,6 +129,7 @@ jobs:
           python3 scripts/apply_link_cleanup.py deploy
           python3 scripts/apply_october_updates.py deploy
           python3 scripts/apply_useful_practice.py deploy
+          python3 scripts/apply_compass_reading.py deploy
           python3 scripts/audit_site.py deploy
 
           grep -q "Bring a team and a real change" deploy/index.html

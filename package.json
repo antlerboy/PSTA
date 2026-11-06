@@ -4,7 +4,7 @@
   "scripts": {
     "dev": "vite",
     "build": "python scripts/build_site.py",
-    "test:compass": "node --test scripts/test_compass.cjs",
+    "test:compass": "node --test scripts/test_compass.cjs scripts/test_compass_reading.cjs",
     "test:compass:browser": "node scripts/test_compass_browser.cjs",
     "check:programme": "python scripts/check_programme_record.py"
   },

@@ -49,3 +49,17 @@ The host guide, case-holder brief, and evidence-conscious case record are in `as
 - `node --test scripts/test_compass.cjs` checks preserved source hashes, original question wording, edition distinctions, numerical ranges, review snapshots, and record import/export.
 - `node scripts/test_compass_browser.cjs` checks the rendered application. It requires Playwright; `PLAYWRIGHT_MODULE` can point to an installed module, and `BROWSER_EXECUTABLE` can select an installed Chromium browser. Screenshots and test downloads go beside the checkout in `psta-qa/`.
 - The browser checks cover local saving/removal, zero and finalised scores, factor limits, multiple perspectives, review drafts, immutable review snapshots, JSON round trips, wrong-edition rejection, the source-exact AI handoff, print, mobile width, local enquiry preparation, and third-party-request absence on input pages.
+
+## Reading material recovered on 6 November 2026
+
+The reading pages reproduce teaching text for 38 of the original course's 49 catalogue topics: six introductory topics, plus definitions, question sets, factor sets, and approaches for all eight aspects. They use selected text from the June 2025 teaching template. The eight approach pages also include the full June 2023 adult social care pre-reading, including its examples and references. Each page identifies its source date. The March 2026 assessment remains a separate edition.
+
+The reading extracts retain source wording and hyperlinks. The complete source deck is not published: internal template instructions, speaker notes, contact details, blank slides, and draft appendices are excluded. One inspected diagram is retained with its original visible credit. Approved extracts and the diagram have recorded hashes checked by `scripts/test_compass_reading.cjs`.
+
+No Teachable lesson body has yet been compared in full. Eleven catalogue lessons lack an equivalent local source chapter: the developing-tool introduction, eight case-study/equality lessons, and two final resource lessons. The earlier examples in the approach pre-reading do not establish the contents of the later case-study/equality lessons. The course's media/download counts are still unknown. The sources/status page states this and retains the original course links. There are no empty lesson pages.
+
+The shared programme record also now matches the canonical record's organisation naming. Its modules, fees, and programme facts are unchanged.
+
+The original smartCompass form is retained as a separate route. Its present processing and email delivery have not been verified; the landing page states this. The local workspace only prepares the original prompt and answers for an authorised AI account.
+
+One internal reference in the 2023 pre-reading led to a missing 2017 article. Its 15 published paragraphs were recovered from the February 2026 WordPress content archive and restored at the original path, with the original date stated. No draft post, unrelated export content, comments, or private metadata is published.

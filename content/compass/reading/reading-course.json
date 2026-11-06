@@ -1,0 +1,527 @@
+{
+  "version": "2026-11-06",
+  "title": "Commissioning Compass reading",
+  "sourceTeachingVersion": "June 2025 template and June 2023 approaches pre-reading",
+  "expectedTeachableLessons": 49,
+  "sourceTopicsAvailable": 38,
+  "teachableBodiesCompared": 0,
+  "mediaAndDownloadCounts": "Not established from the course",
+  "status": "Reading edition from the original teaching documents. The full Teachable course has not yet been exported and compared.",
+  "chapters": [
+    {
+      "id": "what-is-the-compass",
+      "route": "tools/commissioning-compass/reading/what-is-the-compass",
+      "title": "What is the commissioning compass?",
+      "section": "Introduction",
+      "catalogueLessonUrl": "https://public-service-transformation-academy.teachable.com/courses/2797583/lectures/61966250",
+      "slides": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    },
+    {
+      "id": "about-the-psta",
+      "route": "tools/commissioning-compass/reading/about-the-psta",
+      "title": "Who are we? The PSTA and our offers",
+      "section": "Introduction",
+      "catalogueLessonUrl": "https://public-service-transformation-academy.teachable.com/courses/2797583/lectures/61938185",
+      "slides": [
+        10
+      ]
+    },
+    {
+      "id": "eight-aspects",
+      "route": "tools/commissioning-compass/reading/eight-aspects",
+      "title": "Introducing the eight aspects of commissioning",
+      "section": "Introduction",
+      "catalogueLessonUrl": "https://public-service-transformation-academy.teachable.com/courses/2797583/lectures/61938004",
+      "slides": [
+        12,
+        21,
+        22,
+        28
+      ]
+    },
+    {
+      "id": "assessment-instructions",
+      "route": "tools/commissioning-compass/reading/assessment-instructions",
+      "title": "Instructions for the system assessment",
+      "section": "Introduction",
+      "catalogueLessonUrl": "https://public-service-transformation-academy.teachable.com/courses/2797583/lectures/61938002",
+      "slides": [
+        11,
+        13,
+        14,
+        15,
+        16,
+        26,
+        27,
+        30,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87
+      ]
+    },
+    {
+      "id": "eight-approaches",
+      "route": "tools/commissioning-compass/reading/eight-approaches",
+      "title": "Introducing the eight approaches for commissioning",
+      "section": "Introduction",
+      "catalogueLessonUrl": "https://public-service-transformation-academy.teachable.com/courses/2797583/lectures/61938010",
+      "slides": [
+        17,
+        18,
+        20,
+        23,
+        24
+      ]
+    },
+    {
+      "id": "aspects-and-approaches",
+      "route": "tools/commissioning-compass/reading/aspects-and-approaches",
+      "title": "How are the eight aspects of commissioning connected to the eight approaches to commissioning?",
+      "section": "Introduction",
+      "catalogueLessonUrl": "https://public-service-transformation-academy.teachable.com/courses/2797583/lectures/61967619",
+      "slides": [
+        19,
+        25
+      ]
+    },
+    {
+      "id": "aspect-1-definition",
+      "route": "tools/commissioning-compass/reading/aspect-1/definition",
+      "title": "Definition: whole system design",
+      "section": "Aspect of Commissioning 1: Whole system design",
+      "catalogueLessonUrl": "https://public-service-transformation-academy.teachable.com/courses/2797583/lectures/61938033",
+      "slides": [
+        31
+      ]
+    },
+    {
+      "id": "aspect-1-questions",
+      "route": "tools/commissioning-compass/reading/aspect-1/questions",
+      "title": "Key questions",
+      "section": "Aspect of Commissioning 1: Whole system design",
+      "catalogueLessonUrl": "https://public-service-transformation-academy.teachable.com/courses/2797583/lectures/61938034",
+      "slides": [
+        32
+      ]
+    },
+    {
+      "id": "aspect-1-factors",
+      "route": "tools/commissioning-compass/reading/aspect-1/factors",
+      "title": "Factors that constrain and enable",
+      "section": "Aspect of Commissioning 1: Whole system design",
+      "catalogueLessonUrl": "https://public-service-transformation-academy.teachable.com/courses/2797583/lectures/61938036",
+      "slides": [
+        33,
+        34
+      ]
+    },
+    {
+      "id": "aspect-1-approach",
+      "route": "tools/commissioning-compass/reading/aspect-1/approach",
+      "title": "Approach 1: Place-based wellbeing",
+      "section": "Aspect of Commissioning 1: Whole system design",
+      "catalogueLessonUrl": "https://public-service-transformation-academy.teachable.com/courses/2797583/lectures/61967935",
+      "slides": [
+        35,
+        36
+      ],
+      "preReadingApproach": 1
+    },
+    {
+      "id": "aspect-2-definition",
+      "route": "tools/commissioning-compass/reading/aspect-2/definition",
+      "title": "Definition: Relationships and organisation across the system",
+      "section": "Aspect of Commissioning 2: Relationships and organisation across the system",
+      "catalogueLessonUrl": "https://public-service-transformation-academy.teachable.com/courses/2797583/lectures/61938096",
+      "slides": [
+        37
+      ]
+    },
+    {
+      "id": "aspect-2-questions",
+      "route": "tools/commissioning-compass/reading/aspect-2/questions",
+      "title": "Key questions",
+      "section": "Aspect of Commissioning 2: Relationships and organisation across the system",
+      "catalogueLessonUrl": "https://public-service-transformation-academy.teachable.com/courses/2797583/lectures/61938097",
+      "slides": [
+        38
+      ]
+    },
+    {
+      "id": "aspect-2-factors",
+      "route": "tools/commissioning-compass/reading/aspect-2/factors",
+      "title": "Factors that constrain and enable",
+      "section": "Aspect of Commissioning 2: Relationships and organisation across the system",
+      "catalogueLessonUrl": "https://public-service-transformation-academy.teachable.com/courses/2797583/lectures/61938098",
+      "slides": [
+        39
+      ]
+    },
+    {
+      "id": "aspect-2-approach",
+      "route": "tools/commissioning-compass/reading/aspect-2/approach",
+      "title": "Approach 2: Leadership of place for whole system change",
+      "section": "Aspect of Commissioning 2: Relationships and organisation across the system",
+      "catalogueLessonUrl": "https://public-service-transformation-academy.teachable.com/courses/2797583/lectures/61967936",
+      "slides": [
+        40,
+        41
+      ],
+      "preReadingApproach": 2
+    },
+    {
+      "id": "aspect-3-definition",
+      "route": "tools/commissioning-compass/reading/aspect-3/definition",
+      "title": "Definition: Capacity, capability, and confidence",
+      "section": "Aspect of Commissioning 3: Capacity, capability, and confidence",
+      "catalogueLessonUrl": "https://public-service-transformation-academy.teachable.com/courses/2797583/lectures/61938101",
+      "slides": [
+        42
+      ]
+    },
+    {
+      "id": "aspect-3-questions",
+      "route": "tools/commissioning-compass/reading/aspect-3/questions",
+      "title": "Key questions",
+      "section": "Aspect of Commissioning 3: Capacity, capability, and confidence",
+      "catalogueLessonUrl": "https://public-service-transformation-academy.teachable.com/courses/2797583/lectures/61938102",
+      "slides": [
+        43,
+        44
+      ]
+    },
+    {
+      "id": "aspect-3-factors",
+      "route": "tools/commissioning-compass/reading/aspect-3/factors",
+      "title": "Factors that constrain and enable",
+      "section": "Aspect of Commissioning 3: Capacity, capability, and confidence",
+      "catalogueLessonUrl": "https://public-service-transformation-academy.teachable.com/courses/2797583/lectures/61938103",
+      "slides": [
+        45
+      ]
+    },
+    {
+      "id": "aspect-3-approach",
+      "route": "tools/commissioning-compass/reading/aspect-3/approach",
+      "title": "Approach 3: Unlocking potential",
+      "section": "Aspect of Commissioning 3: Capacity, capability, and confidence",
+      "catalogueLessonUrl": "https://public-service-transformation-academy.teachable.com/courses/2797583/lectures/61967937",
+      "slides": [
+        46,
+        47
+      ],
+      "preReadingApproach": 3
+    },
+    {
+      "id": "aspect-4-definition",
+      "route": "tools/commissioning-compass/reading/aspect-4/definition",
+      "title": "Definition: citizen, place, and outcome centred",
+      "section": "Aspect of Commissioning 4: citizen, place, and outcome centred",
+      "catalogueLessonUrl": "https://public-service-transformation-academy.teachable.com/courses/2797583/lectures/61938126",
+      "slides": [
+        48
+      ]
+    },
+    {
+      "id": "aspect-4-questions",
+      "route": "tools/commissioning-compass/reading/aspect-4/questions",
+      "title": "Key questions",
+      "section": "Aspect of Commissioning 4: citizen, place, and outcome centred",
+      "catalogueLessonUrl": "https://public-service-transformation-academy.teachable.com/courses/2797583/lectures/61938127",
+      "slides": [
+        49,
+        50
+      ]
+    },
+    {
+      "id": "aspect-4-factors",
+      "route": "tools/commissioning-compass/reading/aspect-4/factors",
+      "title": "Factors that constrain and enable",
+      "section": "Aspect of Commissioning 4: citizen, place, and outcome centred",
+      "catalogueLessonUrl": "https://public-service-transformation-academy.teachable.com/courses/2797583/lectures/61938128",
+      "slides": [
+        51,
+        52
+      ]
+    },
+    {
+      "id": "aspect-4-approach",
+      "route": "tools/commissioning-compass/reading/aspect-4/approach",
+      "title": "Approach 4: Citizen-centred commissioning",
+      "section": "Aspect of Commissioning 4: citizen, place, and outcome centred",
+      "catalogueLessonUrl": "https://public-service-transformation-academy.teachable.com/courses/2797583/lectures/61967938",
+      "slides": [
+        53,
+        54
+      ],
+      "preReadingApproach": 4
+    },
+    {
+      "id": "aspect-5-definition",
+      "route": "tools/commissioning-compass/reading/aspect-5/definition",
+      "title": "Definition: Information, insight, and innovation",
+      "section": "Aspect of Commissioning 5: Information, insight, and innovation",
+      "catalogueLessonUrl": "https://public-service-transformation-academy.teachable.com/courses/2797583/lectures/61938152",
+      "slides": [
+        55
+      ]
+    },
+    {
+      "id": "aspect-5-questions",
+      "route": "tools/commissioning-compass/reading/aspect-5/questions",
+      "title": "Key questions",
+      "section": "Aspect of Commissioning 5: Information, insight, and innovation",
+      "catalogueLessonUrl": "https://public-service-transformation-academy.teachable.com/courses/2797583/lectures/61938153",
+      "slides": [
+        56,
+        57
+      ]
+    },
+    {
+      "id": "aspect-5-factors",
+      "route": "tools/commissioning-compass/reading/aspect-5/factors",
+      "title": "Factors that constrain and enable",
+      "section": "Aspect of Commissioning 5: Information, insight, and innovation",
+      "catalogueLessonUrl": "https://public-service-transformation-academy.teachable.com/courses/2797583/lectures/61938154",
+      "slides": [
+        58,
+        59
+      ]
+    },
+    {
+      "id": "aspect-5-approach",
+      "route": "tools/commissioning-compass/reading/aspect-5/approach",
+      "title": "Approach 5: Values-based/disruptive commissioning",
+      "section": "Aspect of Commissioning 5: Information, insight, and innovation",
+      "catalogueLessonUrl": "https://public-service-transformation-academy.teachable.com/courses/2797583/lectures/61967940",
+      "slides": [
+        60,
+        61
+      ],
+      "preReadingApproach": 5
+    },
+    {
+      "id": "aspect-6-definition",
+      "route": "tools/commissioning-compass/reading/aspect-6/definition",
+      "title": "Definition: making room to make a difference",
+      "section": "Aspect of Commissioning 6: Making room to make a difference",
+      "catalogueLessonUrl": "https://public-service-transformation-academy.teachable.com/courses/2797583/lectures/61938158",
+      "slides": [
+        62
+      ]
+    },
+    {
+      "id": "aspect-6-questions",
+      "route": "tools/commissioning-compass/reading/aspect-6/questions",
+      "title": "Key questions",
+      "section": "Aspect of Commissioning 6: Making room to make a difference",
+      "catalogueLessonUrl": "https://public-service-transformation-academy.teachable.com/courses/2797583/lectures/61938159",
+      "slides": [
+        63,
+        64
+      ]
+    },
+    {
+      "id": "aspect-6-factors",
+      "route": "tools/commissioning-compass/reading/aspect-6/factors",
+      "title": "Factors that constrain and enable",
+      "section": "Aspect of Commissioning 6: Making room to make a difference",
+      "catalogueLessonUrl": "https://public-service-transformation-academy.teachable.com/courses/2797583/lectures/61938160",
+      "slides": [
+        65,
+        66
+      ]
+    },
+    {
+      "id": "aspect-6-approach",
+      "route": "tools/commissioning-compass/reading/aspect-6/approach",
+      "title": "Approach 6: Strategic procurement of services against needs",
+      "section": "Aspect of Commissioning 6: Making room to make a difference",
+      "catalogueLessonUrl": "https://public-service-transformation-academy.teachable.com/courses/2797583/lectures/61967942",
+      "slides": [
+        67,
+        68
+      ],
+      "preReadingApproach": 6
+    },
+    {
+      "id": "aspect-7-definition",
+      "route": "tools/commissioning-compass/reading/aspect-7/definition",
+      "title": "Definition: commissioning process",
+      "section": "Aspect of Commissioning 7: Commissioning process",
+      "catalogueLessonUrl": "https://public-service-transformation-academy.teachable.com/courses/2797583/lectures/61938168",
+      "slides": [
+        69
+      ]
+    },
+    {
+      "id": "aspect-7-questions",
+      "route": "tools/commissioning-compass/reading/aspect-7/questions",
+      "title": "Key questions",
+      "section": "Aspect of Commissioning 7: Commissioning process",
+      "catalogueLessonUrl": "https://public-service-transformation-academy.teachable.com/courses/2797583/lectures/61938169",
+      "slides": [
+        70,
+        71
+      ]
+    },
+    {
+      "id": "aspect-7-factors",
+      "route": "tools/commissioning-compass/reading/aspect-7/factors",
+      "title": "Factors that constrain and enable",
+      "section": "Aspect of Commissioning 7: Commissioning process",
+      "catalogueLessonUrl": "https://public-service-transformation-academy.teachable.com/courses/2797583/lectures/61938170",
+      "slides": [
+        72
+      ]
+    },
+    {
+      "id": "aspect-7-approach",
+      "route": "tools/commissioning-compass/reading/aspect-7/approach",
+      "title": "Approach 7: Contestability and Market management",
+      "section": "Aspect of Commissioning 7: Commissioning process",
+      "catalogueLessonUrl": "https://public-service-transformation-academy.teachable.com/courses/2797583/lectures/61967945",
+      "slides": [
+        73,
+        74
+      ],
+      "preReadingApproach": 7
+    },
+    {
+      "id": "aspect-8-definition",
+      "route": "tools/commissioning-compass/reading/aspect-8/definition",
+      "title": "Definition: models and tactics",
+      "section": "Aspect of Commissioning 8: Models and tactics",
+      "catalogueLessonUrl": "https://public-service-transformation-academy.teachable.com/courses/2797583/lectures/61938164",
+      "slides": [
+        75
+      ]
+    },
+    {
+      "id": "aspect-8-questions",
+      "route": "tools/commissioning-compass/reading/aspect-8/questions",
+      "title": "Key questions",
+      "section": "Aspect of Commissioning 8: Models and tactics",
+      "catalogueLessonUrl": "https://public-service-transformation-academy.teachable.com/courses/2797583/lectures/61938165",
+      "slides": [
+        76,
+        77
+      ]
+    },
+    {
+      "id": "aspect-8-factors",
+      "route": "tools/commissioning-compass/reading/aspect-8/factors",
+      "title": "Factors that constrain and enable",
+      "section": "Aspect of Commissioning 8: Models and tactics",
+      "catalogueLessonUrl": "https://public-service-transformation-academy.teachable.com/courses/2797583/lectures/61938166",
+      "slides": [
+        78
+      ]
+    },
+    {
+      "id": "aspect-8-approach",
+      "route": "tools/commissioning-compass/reading/aspect-8/approach",
+      "title": "Approach 8: Delivery model design",
+      "section": "Aspect of Commissioning 8: Models and tactics",
+      "catalogueLessonUrl": "https://public-service-transformation-academy.teachable.com/courses/2797583/lectures/61967946",
+      "slides": [
+        79,
+        80
+      ],
+      "preReadingApproach": 8
+    }
+  ],
+  "remainingCatalogueLessons": [
+    {
+      "title": "The Commissioning Compass is still developing",
+      "section": "Introduction",
+      "catalogueLessonUrl": "https://public-service-transformation-academy.teachable.com/courses/2797583/lectures/62145824",
+      "status": "Teachable source comparison and media recovery pending"
+    },
+    {
+      "title": "Case studies and Equality and equity considerations",
+      "section": "Aspect of Commissioning 1: Whole system design",
+      "catalogueLessonUrl": "https://public-service-transformation-academy.teachable.com/courses/2797583/lectures/65255915",
+      "status": "Teachable source comparison and media recovery pending"
+    },
+    {
+      "title": "Case studies and Equality and equity considerations",
+      "section": "Aspect of Commissioning 2: Relationships and organisation across the system",
+      "catalogueLessonUrl": "https://public-service-transformation-academy.teachable.com/courses/2797583/lectures/65255920",
+      "status": "Teachable source comparison and media recovery pending"
+    },
+    {
+      "title": "Case studies and Equality and equity considerations",
+      "section": "Aspect of Commissioning 3: Capacity, capability, and confidence",
+      "catalogueLessonUrl": "https://public-service-transformation-academy.teachable.com/courses/2797583/lectures/65255929",
+      "status": "Teachable source comparison and media recovery pending"
+    },
+    {
+      "title": "Case studies and Equality and equity considerations",
+      "section": "Aspect of Commissioning 4: citizen, place, and outcome centred",
+      "catalogueLessonUrl": "https://public-service-transformation-academy.teachable.com/courses/2797583/lectures/65255931",
+      "status": "Teachable source comparison and media recovery pending"
+    },
+    {
+      "title": "Case studies and Equality and equity considerations",
+      "section": "Aspect of Commissioning 5: Information, insight, and innovation",
+      "catalogueLessonUrl": "https://public-service-transformation-academy.teachable.com/courses/2797583/lectures/65255932",
+      "status": "Teachable source comparison and media recovery pending"
+    },
+    {
+      "title": "Case studies and Equality and equity considerations",
+      "section": "Aspect of Commissioning 6: Making room to make a difference",
+      "catalogueLessonUrl": "https://public-service-transformation-academy.teachable.com/courses/2797583/lectures/65255933",
+      "status": "Teachable source comparison and media recovery pending"
+    },
+    {
+      "title": "Case studies and Equality and equity considerations",
+      "section": "Aspect of Commissioning 7: Commissioning process",
+      "catalogueLessonUrl": "https://public-service-transformation-academy.teachable.com/courses/2797583/lectures/65255934",
+      "status": "Teachable source comparison and media recovery pending"
+    },
+    {
+      "title": "Case studies and Equality and equity considerations",
+      "section": "Aspect of Commissioning 8: Models and tactics",
+      "catalogueLessonUrl": "https://public-service-transformation-academy.teachable.com/courses/2797583/lectures/65255935",
+      "status": "Teachable source comparison and media recovery pending"
+    },
+    {
+      "title": "Get in touch and keep up to date",
+      "section": "Resources and acknowledgements",
+      "catalogueLessonUrl": "https://public-service-transformation-academy.teachable.com/courses/2797583/lectures/62028058",
+      "status": "Teachable source comparison and media recovery pending"
+    },
+    {
+      "title": "The original commissioning compass: the Local Government Association's 'Strategic commissioning options appraisal tool'",
+      "section": "Resources and acknowledgements",
+      "catalogueLessonUrl": "https://public-service-transformation-academy.teachable.com/courses/2797583/lectures/62028056",
+      "status": "Teachable source comparison and media recovery pending"
+    }
+  ],
+  "sourceFiles": [
+    {
+      "file": "teaching-deck-2025-06.json",
+      "sha256": "e564295a8c1bfdf36a2b2c866a4facef108469b2078e5c20d52977397615b906"
+    },
+    {
+      "file": "approaches-pre-reading-2023-06.json",
+      "sha256": "5fefb1ee192b95cccdde7c9b5cedccb9997ce7edb866d126ae3ff4ccb1c4028d"
+    },
+    {
+      "file": "related-article-2017-10.json",
+      "sha256": "96c417c0c1d28ec3d7d95ed3c847c8321dc79d332236f0d6f026a6de5d40042a"
+    }
+  ]
+}
