@@ -3,7 +3,7 @@ const assert = require('node:assert/strict');
 const test = require('node:test');
 const fs = require('node:fs');
 const path = require('node:path');
-const { newRecord, validateRecord, markdown } = require('../assets/compass/compass.js');
+const { newRecord, validateRecord, markdown, reflectionMarkdown, selectedPerspectiveIndex } = require('../assets/compass/compass.js');
 const read = name => JSON.parse(fs.readFileSync(path.join(__dirname, '../content/compass', name), 'utf8'));
 const original = read('commissioning-compass.json');
 const beta = read('compass-v2-beta.json');
@@ -94,4 +94,44 @@ test('the SCOA archive preserves its own scoring fields without importing later 
   const record = newRecord(adult);
   for (let i = 1; i <= 4; i++) record.participants[0].answers['a1-f' + i] = { enabling: true, score: '50' };
   assert.doesNotThrow(() => validateRecord(record, adult));
+});
+
+test('the public reflection pack starts with the current task and contains only the selected current perspective', () => {
+  const prompt = fs.readFileSync(path.join(__dirname, '../content/compass/sources/smartcompass-public-reflection-2026-11-06.md'), 'utf8');
+  const record = newRecord(smart);
+  record.title = 'Synthetic assessment';
+  record.participants[0].answers['context-1'] = { notes: 'OTHER PERSPECTIVE MARKER' };
+  record.participants.push({ id: 'second', label: 'Selected view', answers: { 'context-1': { notes: 'CURRENT CASE MARKER', evidence: 'A dated observation' } } });
+  record.decisions.push({ title: 'EXCLUDED ACTION MARKER' });
+  record.reviewDraft = ['EXCLUDED DRAFT MARKER'];
+  record.reviews.push({ date: '2025-01-01', learning: ['EXCLUDED HISTORY MARKER'], snapshot: { title: '', boundary: '', missing: '', participants: [record.participants[0]], decisions: [] } });
+  const pack = reflectionMarkdown(record, smart, prompt, '# Versioned source excerpts\n\nSYNTHETIC REFERENCE', 1);
+  assert.ok(pack.startsWith(prompt.trim()));
+  assert.ok(pack.indexOf('SYNTHETIC REFERENCE') < pack.indexOf('CURRENT CASE MARKER'));
+  assert.ok(pack.includes('Selected perspective:\n\n> Selected view'));
+  assert.ok(pack.includes('> CURRENT CASE MARKER') && pack.includes('> A dated observation'));
+  for (const marker of ['OTHER PERSPECTIVE MARKER', 'EXCLUDED ACTION MARKER', 'EXCLUDED DRAFT MARKER', 'EXCLUDED HISTORY MARKER', 'BEGIN ORIGINAL PROMPT']) assert.equal(pack.includes(marker), false);
+  let position = pack.indexOf('## Current assessment answers');
+  for (const q of smart.sections.flatMap(s => s.questions)) { const next = pack.indexOf(q.prompt, position); assert.ok(next > position); position = next; }
+  assert.ok(pack.includes('> (Not recorded)'));
+  assert.ok(markdown(record, smart).includes('EXCLUDED HISTORY MARKER'));
+});
+
+test('reflection packs require an explicit valid perspective and both supplied source files', () => {
+  const record = newRecord(smart);
+  assert.throws(() => reflectionMarkdown(record, smart, 'Task', 'Reference', 2), /Choose one perspective/);
+  assert.throws(() => reflectionMarkdown(record, smart, '', 'Reference', 0), /both be available/);
+  assert.throws(() => reflectionMarkdown(record, smart, 'Task', '', 0), /both be available/);
+});
+
+test('reflection selection follows a participant identity across removal and requires a choice after selected removal', () => {
+  const record = newRecord(smart);
+  record.participants = ['A', 'B', 'C'].map(id => ({ id, label: id, answers: {} }));
+  assert.equal(selectedPerspectiveIndex(record, 'B'), 1);
+  record.participants.splice(0, 1);
+  assert.equal(selectedPerspectiveIndex(record, 'B'), 0);
+  assert.equal(record.participants[selectedPerspectiveIndex(record, 'B')].label, 'B');
+  record.participants.splice(0, 1);
+  assert.throws(() => selectedPerspectiveIndex(record, 'B'), /Choose one perspective/);
+  assert.throws(() => selectedPerspectiveIndex(record, ''), /Choose one perspective/);
 });

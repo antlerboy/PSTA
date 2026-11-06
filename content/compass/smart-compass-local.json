@@ -168,7 +168,18 @@
   "agentPrompt": {
     "path": "/assets/compass/sources/smartcompass-agent-prompt-v3.txt",
     "version": "Draft prompt v3BT",
-    "note": "The PSTA’s original draft prompt, Draft prompt v3BT. Check its instructions and remove confidential details before using it in an authorised AI account."
+    "note": "The preserved Draft prompt v3BT belongs to the earlier automated email workflow. It contains email and formatting instructions and is available separately as a historical reference."
   },
-  "reviewSourceNote": "The four review questions are from Compass v2.0 beta, 13 June 2026; they are an additional follow-through feature in this edition."
+  "reviewSourceNote": "The four review questions are from Compass v2.0 beta, 13 June 2026; they are an additional follow-through feature in this edition.",
+  "reflectionPrompt": {
+    "path": "/assets/compass/sources/smartcompass-public-reflection-2026-11-06.md",
+    "version": "Public reflection task, 6 November 2026",
+    "note": "A chat response in your chosen AI system. The file includes the selected perspective and the published eight-aspect reference excerpts; it does not include the historical email-automation prompt."
+  },
+  "reflectionReference": {
+    "path": "/assets/compass/sources/smartcompass-eight-aspects-2025-06.md",
+    "version": "June 2025 teaching template, eight aspect descriptions",
+    "readingUrl": "https://www.publicservicetransformation.org/tools/commissioning-compass/reading/",
+    "sourceUrl": "https://www.publicservicetransformation.org/tools/commissioning-compass/reading/sources/"
+  }
 }

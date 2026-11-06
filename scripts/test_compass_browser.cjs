@@ -92,12 +92,31 @@ const server = http.createServer(async (req, res) => {
 
     await page.goto(origin + '/tools/smart-compass/workspace/');
     await page.locator('[data-record="title"]').fill('AI handoff test');
-    const pack = await download('ai-pack', 'ai-handoff.txt');
+    await page.locator('[data-action="add-person"]').click();
+    await page.locator('[data-person="1"]').fill('Selected reflection view');
+    await page.locator('[data-action="add-person"]').click();
+    await page.locator('[data-person="2"]').fill('Third view');
+    await page.locator('details[data-section="0"]>summary').click();
+    await page.locator('[data-question="context-1"][data-perspective="0"][data-answer="notes"]').fill('EXCLUDED OTHER VIEW');
+    await page.locator('[data-question="context-1"][data-perspective="1"][data-answer="notes"]').fill('CURRENT SELECTED VIEW');
+    await page.locator('#compass-ai-perspective').selectOption({ label: 'Selected reflection view' });
+    await page.locator('[data-action="remove-person"][data-index="0"]').click();
+    assert.equal(await page.locator('#compass-ai-perspective option:checked').textContent(), 'Selected reflection view');
+    const pack = await download('ai-pack', 'smartcompass-reflection.md');
+    const publicPrompt = await fs.readFile(path.resolve(__dirname, '../content/compass/sources/smartcompass-public-reflection-2026-11-06.md'), 'utf8');
     const originalPrompt = await fs.readFile(path.resolve(__dirname, '../content/compass/sources/smartcompass-agent-prompt-v3.txt'), 'utf8');
     const handoff = await fs.readFile(pack, 'utf8');
-    assert.ok(handoff.includes(originalPrompt));
-    assert.ok(handoff.includes('No AI response has been generated'));
-    assert.ok(handoff.includes('AI handoff test'));
+    assert.ok(handoff.startsWith(publicPrompt.trim()));
+    assert.equal(handoff.includes(originalPrompt), false);
+    assert.equal(handoff.includes('EXCLUDED OTHER VIEW'), false);
+    assert.ok(handoff.includes('CURRENT SELECTED VIEW') && handoff.includes('Selected perspective:\n\n> Selected reflection view'));
+    assert.ok(handoff.includes('AI handoff test') && handoff.includes('Original teaching source SHA-256:'));
+    assert.ok((await page.locator('#compass-status').innerText()).startsWith('Download started.'));
+    await page.locator('[data-action="remove-person"][data-index="0"]').click();
+    assert.equal(await page.locator('#compass-ai-perspective').inputValue(), '');
+    assert.equal(await page.locator('[data-action="ai-pack"]').isDisabled(), true);
+    await page.locator('#compass-ai-perspective').selectOption({ label: 'Third view' });
+    assert.equal(await page.locator('[data-action="ai-pack"]').isDisabled(), false);
 
     await page.goto(origin + '/tools/compass-v2-beta/workspace/');
     assert.equal(await page.locator('.compass-lens').count(), 8);
@@ -142,7 +161,7 @@ const server = http.createServer(async (req, res) => {
     assert.deepEqual(errors, []);
     const foreign = requests.filter(r => /\/workspace\/|\/enquire\/|\/bring-a-case\//.test(r.frame) && !r.url.startsWith(origin));
     assert.deepEqual(foreign, [], 'Workspace/enquiry pages must make no third-party requests');
-    console.log('Browser checks passed: local persistence/removal, zero scores, factor limits, two perspectives, immutable review snapshot, JSON round-trip, wrong-edition protection, source-exact AI handoff, print, mobile width, local enquiry preparation, and the clinic request preview/download.');
+    console.log('Browser checks passed: local persistence/removal, zero scores, factor limits, two perspectives, immutable review snapshot, JSON round-trip, wrong-edition protection, selected-perspective public reflection file with source excerpts, print, mobile width, local enquiry preparation, and the clinic request preview/download.');
     console.log('QA artefacts: ' + qa);
   } finally {
     await browser.close();
