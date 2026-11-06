@@ -1,7 +1,7 @@
 {
   "version": "2026-11-06",
   "title": "Commissioning Compass reading",
-  "sourceTeachingVersion": "June 2025 teaching material, June 2023 commissioning pre-reading, and current guidance from the PSTA",
+  "sourceTeachingVersion": "Course teaching, with June 2023 and June 2025 supporting material",
   "chapters": [
     {
       "id": "using-and-improving",
@@ -24,7 +24,8 @@
         7,
         8,
         9
-      ]
+      ],
+      "courseLesson": "61966250"
     },
     {
       "id": "about-the-psta",
@@ -34,7 +35,8 @@
       "catalogueLessonUrl": "https://public-service-transformation-academy.teachable.com/courses/2797583/lectures/61938185",
       "slides": [
         10
-      ]
+      ],
+      "courseLesson": "61938185"
     },
     {
       "id": "eight-aspects",
@@ -47,7 +49,8 @@
         21,
         22,
         28
-      ]
+      ],
+      "courseLesson": "61938004"
     },
     {
       "id": "assessment-instructions",
@@ -71,7 +74,8 @@
         85,
         86,
         87
-      ]
+      ],
+      "courseLesson": "61938002"
     },
     {
       "id": "eight-approaches",
@@ -85,7 +89,8 @@
         20,
         23,
         24
-      ]
+      ],
+      "courseLesson": "61938010"
     },
     {
       "id": "aspects-and-approaches",
@@ -96,7 +101,8 @@
       "slides": [
         19,
         25
-      ]
+      ],
+      "courseLesson": "61967619"
     },
     {
       "id": "aspect-1-definition",
@@ -106,7 +112,8 @@
       "catalogueLessonUrl": "https://public-service-transformation-academy.teachable.com/courses/2797583/lectures/61938033",
       "slides": [
         31
-      ]
+      ],
+      "courseLesson": "61938033"
     },
     {
       "id": "aspect-1-cases",
@@ -114,7 +121,8 @@
       "title": "Case studies and equality and equity considerations",
       "section": "Aspect of Commissioning 1: Whole system design",
       "catalogueLessonUrl": "https://public-service-transformation-academy.teachable.com/courses/2797583/lectures/65255915",
-      "caseStudyAspect": 1
+      "caseStudyAspect": 1,
+      "courseLesson": "65255915"
     },
     {
       "id": "aspect-1-questions",
@@ -124,7 +132,8 @@
       "catalogueLessonUrl": "https://public-service-transformation-academy.teachable.com/courses/2797583/lectures/61938034",
       "slides": [
         32
-      ]
+      ],
+      "courseLesson": "61938034"
     },
     {
       "id": "aspect-1-factors",
@@ -135,7 +144,8 @@
       "slides": [
         33,
         34
-      ]
+      ],
+      "courseLesson": "61938036"
     },
     {
       "id": "aspect-1-approach",
@@ -147,7 +157,8 @@
         35,
         36
       ],
-      "preReadingApproach": 1
+      "preReadingApproach": 1,
+      "courseLesson": "61967935"
     },
     {
       "id": "aspect-2-definition",
@@ -157,7 +168,8 @@
       "catalogueLessonUrl": "https://public-service-transformation-academy.teachable.com/courses/2797583/lectures/61938096",
       "slides": [
         37
-      ]
+      ],
+      "courseLesson": "61938096"
     },
     {
       "id": "aspect-2-cases",
@@ -165,7 +177,8 @@
       "title": "Case studies and equality and equity considerations",
       "section": "Aspect of Commissioning 2: Relationships and organisation across the system",
       "catalogueLessonUrl": "https://public-service-transformation-academy.teachable.com/courses/2797583/lectures/65255920",
-      "caseStudyAspect": 2
+      "caseStudyAspect": 2,
+      "courseLesson": "65255920"
     },
     {
       "id": "aspect-2-questions",
@@ -175,7 +188,8 @@
       "catalogueLessonUrl": "https://public-service-transformation-academy.teachable.com/courses/2797583/lectures/61938097",
       "slides": [
         38
-      ]
+      ],
+      "courseLesson": "61938097"
     },
     {
       "id": "aspect-2-factors",
@@ -185,7 +199,8 @@
       "catalogueLessonUrl": "https://public-service-transformation-academy.teachable.com/courses/2797583/lectures/61938098",
       "slides": [
         39
-      ]
+      ],
+      "courseLesson": "61938098"
     },
     {
       "id": "aspect-2-approach",
@@ -197,7 +212,8 @@
         40,
         41
       ],
-      "preReadingApproach": 2
+      "preReadingApproach": 2,
+      "courseLesson": "61967936"
     },
     {
       "id": "aspect-3-definition",
@@ -207,7 +223,8 @@
       "catalogueLessonUrl": "https://public-service-transformation-academy.teachable.com/courses/2797583/lectures/61938101",
       "slides": [
         42
-      ]
+      ],
+      "courseLesson": "61938101"
     },
     {
       "id": "aspect-3-cases",
@@ -215,7 +232,8 @@
       "title": "Case studies and equality and equity considerations",
       "section": "Aspect of Commissioning 3: Capacity, capability, and confidence",
       "catalogueLessonUrl": "https://public-service-transformation-academy.teachable.com/courses/2797583/lectures/65255929",
-      "caseStudyAspect": 3
+      "caseStudyAspect": 3,
+      "courseLesson": "65255929"
     },
     {
       "id": "aspect-3-questions",
@@ -226,7 +244,8 @@
       "slides": [
         43,
         44
-      ]
+      ],
+      "courseLesson": "61938102"
     },
     {
       "id": "aspect-3-factors",
@@ -236,7 +255,8 @@
       "catalogueLessonUrl": "https://public-service-transformation-academy.teachable.com/courses/2797583/lectures/61938103",
       "slides": [
         45
-      ]
+      ],
+      "courseLesson": "61938103"
     },
     {
       "id": "aspect-3-approach",
@@ -248,7 +268,8 @@
         46,
         47
       ],
-      "preReadingApproach": 3
+      "preReadingApproach": 3,
+      "courseLesson": "61967937"
     },
     {
       "id": "aspect-4-definition",
@@ -258,7 +279,8 @@
       "catalogueLessonUrl": "https://public-service-transformation-academy.teachable.com/courses/2797583/lectures/61938126",
       "slides": [
         48
-      ]
+      ],
+      "courseLesson": "61938126"
     },
     {
       "id": "aspect-4-cases",
@@ -266,7 +288,8 @@
       "title": "Case studies and equality and equity considerations",
       "section": "Aspect of Commissioning 4: citizen, place, and outcome centred",
       "catalogueLessonUrl": "https://public-service-transformation-academy.teachable.com/courses/2797583/lectures/65255931",
-      "caseStudyAspect": 4
+      "caseStudyAspect": 4,
+      "courseLesson": "65255931"
     },
     {
       "id": "aspect-4-questions",
@@ -277,7 +300,8 @@
       "slides": [
         49,
         50
-      ]
+      ],
+      "courseLesson": "61938127"
     },
     {
       "id": "aspect-4-factors",
@@ -288,7 +312,8 @@
       "slides": [
         51,
         52
-      ]
+      ],
+      "courseLesson": "61938128"
     },
     {
       "id": "aspect-4-approach",
@@ -300,7 +325,8 @@
         53,
         54
       ],
-      "preReadingApproach": 4
+      "preReadingApproach": 4,
+      "courseLesson": "61967938"
     },
     {
       "id": "aspect-5-definition",
@@ -310,7 +336,8 @@
       "catalogueLessonUrl": "https://public-service-transformation-academy.teachable.com/courses/2797583/lectures/61938152",
       "slides": [
         55
-      ]
+      ],
+      "courseLesson": "61938152"
     },
     {
       "id": "aspect-5-cases",
@@ -318,7 +345,8 @@
       "title": "Case studies and equality and equity considerations",
       "section": "Aspect of Commissioning 5: Information, insight, and innovation",
       "catalogueLessonUrl": "https://public-service-transformation-academy.teachable.com/courses/2797583/lectures/65255932",
-      "caseStudyAspect": 5
+      "caseStudyAspect": 5,
+      "courseLesson": "65255932"
     },
     {
       "id": "aspect-5-questions",
@@ -329,7 +357,8 @@
       "slides": [
         56,
         57
-      ]
+      ],
+      "courseLesson": "61938153"
     },
     {
       "id": "aspect-5-factors",
@@ -340,7 +369,8 @@
       "slides": [
         58,
         59
-      ]
+      ],
+      "courseLesson": "61938154"
     },
     {
       "id": "aspect-5-approach",
@@ -352,7 +382,8 @@
         60,
         61
       ],
-      "preReadingApproach": 5
+      "preReadingApproach": 5,
+      "courseLesson": "61967940"
     },
     {
       "id": "aspect-6-definition",
@@ -362,7 +393,8 @@
       "catalogueLessonUrl": "https://public-service-transformation-academy.teachable.com/courses/2797583/lectures/61938158",
       "slides": [
         62
-      ]
+      ],
+      "courseLesson": "61938158"
     },
     {
       "id": "aspect-6-cases",
@@ -370,7 +402,8 @@
       "title": "Case studies and equality and equity considerations",
       "section": "Aspect of Commissioning 6: Making room to make a difference",
       "catalogueLessonUrl": "https://public-service-transformation-academy.teachable.com/courses/2797583/lectures/65255933",
-      "caseStudyAspect": 6
+      "caseStudyAspect": 6,
+      "courseLesson": "65255933"
     },
     {
       "id": "aspect-6-questions",
@@ -381,7 +414,8 @@
       "slides": [
         63,
         64
-      ]
+      ],
+      "courseLesson": "61938159"
     },
     {
       "id": "aspect-6-factors",
@@ -392,7 +426,8 @@
       "slides": [
         65,
         66
-      ]
+      ],
+      "courseLesson": "61938160"
     },
     {
       "id": "aspect-6-approach",
@@ -404,7 +439,8 @@
         67,
         68
       ],
-      "preReadingApproach": 6
+      "preReadingApproach": 6,
+      "courseLesson": "61967942"
     },
     {
       "id": "aspect-7-definition",
@@ -414,7 +450,8 @@
       "catalogueLessonUrl": "https://public-service-transformation-academy.teachable.com/courses/2797583/lectures/61938168",
       "slides": [
         69
-      ]
+      ],
+      "courseLesson": "61938168"
     },
     {
       "id": "aspect-7-cases",
@@ -422,7 +459,8 @@
       "title": "Case studies and equality and equity considerations",
       "section": "Aspect of Commissioning 7: Commissioning process",
       "catalogueLessonUrl": "https://public-service-transformation-academy.teachable.com/courses/2797583/lectures/65255934",
-      "caseStudyAspect": 7
+      "caseStudyAspect": 7,
+      "courseLesson": "65255934"
     },
     {
       "id": "aspect-7-questions",
@@ -433,7 +471,8 @@
       "slides": [
         70,
         71
-      ]
+      ],
+      "courseLesson": "61938169"
     },
     {
       "id": "aspect-7-factors",
@@ -443,7 +482,8 @@
       "catalogueLessonUrl": "https://public-service-transformation-academy.teachable.com/courses/2797583/lectures/61938170",
       "slides": [
         72
-      ]
+      ],
+      "courseLesson": "61938170"
     },
     {
       "id": "aspect-7-approach",
@@ -455,7 +495,8 @@
         73,
         74
       ],
-      "preReadingApproach": 7
+      "preReadingApproach": 7,
+      "courseLesson": "61967945"
     },
     {
       "id": "aspect-8-definition",
@@ -465,7 +506,8 @@
       "catalogueLessonUrl": "https://public-service-transformation-academy.teachable.com/courses/2797583/lectures/61938164",
       "slides": [
         75
-      ]
+      ],
+      "courseLesson": "61938164"
     },
     {
       "id": "aspect-8-cases",
@@ -473,7 +515,8 @@
       "title": "Case studies and equality and equity considerations",
       "section": "Aspect of Commissioning 8: Models and tactics",
       "catalogueLessonUrl": "https://public-service-transformation-academy.teachable.com/courses/2797583/lectures/65255935",
-      "caseStudyAspect": 8
+      "caseStudyAspect": 8,
+      "courseLesson": "65255935"
     },
     {
       "id": "aspect-8-questions",
@@ -484,7 +527,8 @@
       "slides": [
         76,
         77
-      ]
+      ],
+      "courseLesson": "61938165"
     },
     {
       "id": "aspect-8-factors",
@@ -494,7 +538,8 @@
       "catalogueLessonUrl": "https://public-service-transformation-academy.teachable.com/courses/2797583/lectures/61938166",
       "slides": [
         78
-      ]
+      ],
+      "courseLesson": "61938166"
     },
     {
       "id": "aspect-8-approach",
@@ -506,7 +551,8 @@
         79,
         80
       ],
-      "preReadingApproach": 8
+      "preReadingApproach": 8,
+      "courseLesson": "61967946"
     },
     {
       "id": "contact-and-updates",
@@ -522,7 +568,8 @@
       "title": "The original strategic commissioning options appraisal toolkit",
       "section": "Resources and acknowledgements",
       "catalogueLessonUrl": "https://public-service-transformation-academy.teachable.com/courses/2797583/lectures/62028056",
-      "resourceLesson": "original-toolkit"
+      "resourceLesson": "original-toolkit",
+      "courseLesson": "62028056"
     }
   ],
   "sourceFiles": [
@@ -545,6 +592,10 @@
     {
       "file": "toolkit-origins-2023-06.json",
       "sha256": "5d34334becf6a059ab03589af1365bc3e1684d702cc8395ca4e1e1598f15063b"
+    },
+    {
+      "file": "course-teaching-2026-11.json",
+      "sha256": "ed579a74858e933b8b4c19d1e68c613c91246fb22ed5dd2bc8ae514250e53f52"
     }
   ]
 }

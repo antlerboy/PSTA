@@ -18,6 +18,8 @@ pre_reading = json.loads((source_root / 'approaches-pre-reading-2023-06.json').r
 related_article = json.loads((source_root / 'related-article-2017-10.json').read_text(encoding='utf-8'))
 case_source = json.loads((source_root / 'aspects-cases-equity-2023-06.json').read_text(encoding='utf-8'))
 origin_source = json.loads((source_root / 'toolkit-origins-2023-06.json').read_text(encoding='utf-8'))
+course_teaching = json.loads((source_root / 'course-teaching-2026-11.json').read_text(encoding='utf-8'))
+course_lessons = {lesson['id']: lesson for lesson in course_teaching['lessons']}
 cases = {lesson['aspect']: lesson for lesson in case_source['lessons']}
 slides = {slide['number']: slide for slide in deck['slides']}
 approaches = {approach['number']: approach for approach in pre_reading['approaches']}
@@ -140,10 +142,27 @@ groups = OrderedDict()
 for chapter in course['chapters']:
     groups.setdefault(chapter['section'], []).append(chapter)
 toc = ''.join('<section><h2>' + e(section) + '</h2><ul>' + ''.join('<li><a href="/' + chapter['route'] + '/">' + e(chapter['title']) + '</a></li>' for chapter in chapters) + '</ul></section>' for section, chapters in groups.items())
-page(base, 'Commissioning Compass learning guide', 'Read the definitions, instructions, questions, factors, and eight approaches from the PSTA’s source material.', '<p>The Public Service Transformation Academy’s original teaching sources are available here without an account. Choose a chapter below, or use the assessment workspace to record your own answers, evidence, and actions.</p>' + source_notice + toc + '<p><a href="/' + base + '/sources/">Sources and acknowledgements</a> · <a href="https://public-service-transformation-academy.teachable.com/l/pdp/commissioning-compass">The original Teachable course</a></p>')
+page(base, 'Commissioning Compass learning guide', 'Read the Commissioning Compass instructions, definitions, questions, factors, worked examples, and eight approaches.', '<p>Read the Public Service Transformation Academy’s Commissioning Compass course without an account. The chapters include the original diagrams, worksheets, and supporting documents. Use the assessment workspace to record your own answers, evidence, and actions.</p>' + source_notice + toc + '<p><a href="/' + base + '/sources/">Sources and acknowledgements</a> · <a href="https://public-service-transformation-academy.teachable.com/l/pdp/commissioning-compass">The original Teachable course</a></p>')
 
 for index, chapter in enumerate(course['chapters']):
-    if chapter.get('caseStudyAspect'):
+    if chapter.get('courseLesson'):
+        lesson = course_lessons[chapter['courseLesson']]
+        content = re.sub(r'<h3>(<img[^>]+>)</h3>', r'<figure>\1</figure>', lesson['html'])
+        content = re.sub(r'<img[^>]+src="([^"]+)"[^>]*>', lambda match: '<a href="' + e(match[1], quote=True) + '">' + match[0] + '</a>', content)
+        content = content.replace('<th>', '<th scope="col">')
+        content = re.sub(r'(<table>.*?</table>)', r'<div class="reading-table">\1</div>', content, flags=re.S)
+        body = '<article class="source-extract course-teaching">' + content + '</article>'
+        if chapter.get('caseStudyAspect'):
+            body = '<p>These fictionalised examples draw on real councils and places, and show different stages of development in adult social care commissioning.</p>' + body
+        if chapter['courseLesson'] == '61966250':
+            body += '<section class="source-extract">' + re.search(r'<figure>.*?</figure>', render_slide(4), re.S)[0] + '</section>'
+        if '/definition' in chapter['route']:
+            body += '<h2>Description from the teaching template</h2>' + ''.join(render_slide(number) for number in chapter['slides'])
+        if chapter.get('preReadingApproach'):
+            body += '<h2>Applying this approach</h2>' + render_pre_reading(chapter['preReadingApproach'])
+        if chapter.get('resourceLesson'):
+            body += '<p>The Excel workbook is the original 2023 work-in-progress version. This blank copy retains the formulas and working sheets. Enter all relevant scores before interpreting its calculated results. <a href="/tools/commissioning-compass/workspace/">Use the current assessment workspace</a> to record a new assessment.</p><h2>About the original toolkit</h2>' + render_sections(origin_source['sections'])
+    elif chapter.get('caseStudyAspect'):
         case = cases[chapter['caseStudyAspect']]
         body = '<p>These fictionalised examples draw on real councils and places, and show different stages of development in adult social care commissioning.</p><h2>' + e(case['sourceAspectHeading']) + '</h2>' + render_sections(case['sections'])
     elif chapter.get('currentLesson'):
@@ -165,9 +184,11 @@ for index, chapter in enumerate(course['chapters']):
     body += '<p><a href="/' + base + '/">All chapters</a> · <a href="/tools/commissioning-compass/workspace/">Record your assessment</a> · <a href="/' + base + '/sources/">Sources and acknowledgements</a></p></nav>'
     page(chapter['route'], chapter['title'], chapter['section'] + '. Commissioning Compass learning and practice.', body)
 
-download_name = '2026-11-06 the PSTA Commissioning Compass reading sources v0.03 BT.txt'
+download_name = '2026-11-06 the PSTA Commissioning Compass reading sources v0.04 BT.txt'
 # The download contains source text and plain version notes, with no HTML markup.
-lines = ['The PSTA Commissioning Compass reading sources', '', 'Reading edition from the original teaching documents, prepared 6 November 2026.', 'June 2025 teaching text and June 2023 adult social care approaches pre-reading.', '', deck['title'], deck['scope'], '']
+lines = ['The PSTA Commissioning Compass reading sources', '', 'Course teaching and supporting source text, prepared 6 November 2026.', 'June 2025 teaching text and June 2023 adult social care approaches pre-reading.', '', deck['title'], deck['scope'], '']
+for lesson in course_teaching['lessons']:
+    lines += [lesson['title'], lesson['text'], '']
 for slide in deck['slides']:
     lines += ['Slide ' + str(slide['number']), *slide['paragraphs'], '']
 lines += [pre_reading['title'], pre_reading['scope'], '']
@@ -185,14 +206,16 @@ for section in origin_source['sections']:
 previous_download = public_source / '2026-11-06 the PSTA Commissioning Compass reading sources v0.01 BT.txt'
 previous_download.unlink(missing_ok=True)
 (public_source / '2026-11-06 the PSTA Commissioning Compass reading sources v0.02 BT.txt').unlink(missing_ok=True)
-source_body = '<h2>Sources and versions</h2><dl><dt>' + e(deck['title']) + '</dt><dd>Source last modified 25 June 2025. ' + e(deck['scope']) + '</dd><dt>' + e(pre_reading['title']) + '</dt><dd>Dated 5 June 2023. ' + e(pre_reading['scope']) + '</dd></dl><p>The Local Government Association’s <a href="' + pre_reading['publicReferenceUrl'] + '">strengths-based commissioning toolkit</a> contains the earlier pre-reading and supporting material.</p><p><a href="/assets/compass/reading/source/' + quote(download_name) + '" download="' + e(download_name, quote=True) + '">' + e(download_name) + '</a></p><h2>Case studies and equality</h2><p>' + e(case_source['sourceTitle']) + ', June 2023, in <em>' + e(case_source['sourceSeries']) + '</em>. The fictionalised higher/lower examples draw on descriptions of real councils and places, and illustrate different stages of development.</p><h2>Origins and current guidance</h2><p><em>About applying a strengths-based methodology to your strategic commissioning</em>, June 2023, supplies the account of the original toolkit. The introduction and contact guidance reflect current use of the Compass and the PSTA’s public contact routes.</p><h2>Acknowledgements</h2>' + render_slide(99) + '<p><a href="/' + base + '/">Read the chapters</a> · <a href="/tools/commissioning-compass/workspace/">Use the assessment</a></p>'
+(public_source / '2026-11-06 the PSTA Commissioning Compass reading sources v0.03 BT.txt').unlink(missing_ok=True)
+source_body = '<h2>Course teaching</h2><p>The original Commissioning Compass course text, tables, diagrams, and downloadable files were accessed on 6 November 2026. Contact details and introductory guidance use the PSTA’s current routes. The approach pages also include the June 2023 pre-reading.</p><h2>Sources and versions</h2><dl><dt>' + e(deck['title']) + '</dt><dd>Source last modified 25 June 2025. ' + e(deck['scope']) + '</dd><dt>' + e(pre_reading['title']) + '</dt><dd>Dated 5 June 2023. ' + e(pre_reading['scope']) + '</dd></dl><p>The Local Government Association’s <a href="' + pre_reading['publicReferenceUrl'] + '">strengths-based commissioning toolkit</a> contains the earlier pre-reading and supporting material.</p><p><a href="/assets/compass/reading/source/' + quote(download_name) + '" download="' + e(download_name, quote=True) + '">' + e(download_name) + '</a></p><h2>Case studies and equality</h2><p>' + e(case_source['sourceTitle']) + ', June 2023, in <em>' + e(case_source['sourceSeries']) + '</em>. The fictionalised higher/lower examples draw on descriptions of real councils and places, and illustrate different stages of development.</p><h2>Origins and current guidance</h2><p><em>About applying a strengths-based methodology to your strategic commissioning</em>, June 2023, supplies the account of the original toolkit. The introduction and contact guidance reflect current use of the Compass and the PSTA’s public contact routes.</p><h2>Acknowledgements</h2>' + render_slide(99) + '<p><a href="/' + base + '/">Read the chapters</a> · <a href="/tools/commissioning-compass/workspace/">Use the assessment</a></p>'
+source_body += '<h2>Course downloads</h2><ul>' + ''.join('<li><a href="' + e(asset['path'], quote=True) + '" download="' + e(asset['name'], quote=True) + '">' + e(asset['name']) + '</a> (' + asset['type'].upper() + ', ' + str(round(asset['bytes'] / 1024)) + ' KB)</li>' for asset in course_teaching['assets'] if asset['type'] not in ['jpg', 'png']) + '</ul>'
 page(base + '/sources', 'Sources and acknowledgements', 'Source documents and versions for the Commissioning Compass reading material.', source_body)
 
 for relative in ['tools/commissioning-compass/index.html', 'tools/compass/index.html']:
     path = root / relative
     text = path.read_text(encoding='utf-8')
     marker = 'PSTA_COMPASS_READING_20261105'
-    addition = '<!-- ' + marker + ' --><section class="section"><div class="shell"><h2>Read the original teaching sources</h2><p>Read the instructions, eight aspects, and eight approaches from the June 2025 teaching template. The approach pages include the full June 2023 pre-reading, with examples. Each chapter identifies its source version.</p><p><a class="button button-gold" href="/' + base + '/">Read the Commissioning Compass material</a> <a href="/' + base + '/sources/">Sources and acknowledgements</a></p></div></section><!-- /' + marker + ' -->'
+    addition = '<!-- ' + marker + ' --><section class="section"><div class="shell"><h2>Read the Commissioning Compass course</h2><p>Read the instructions, eight aspects, worked examples, and eight approaches. The original diagrams and worksheets are included. The approach pages also contain the full June 2023 pre-reading.</p><p><a class="button button-gold" href="/' + base + '/">Read the Commissioning Compass material</a> <a href="/' + base + '/sources/">Sources and acknowledgements</a></p></div></section><!-- /' + marker + ' -->'
     text = re.sub(r'<!-- ' + marker + r' -->.*?<!-- /' + marker + r' -->', '', text, flags=re.S)
     text = text.replace('</main>', addition + '</main>', 1)
     path.write_text(text, encoding='utf-8')
