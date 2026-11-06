@@ -4,7 +4,7 @@ The PSTA website provides the March 2026 Commissioning Compass assessment, the s
 
 The workspaces support separate perspectives, evidence, actions, review dates, device saving, editable JSON, readable notes, and print/PDF. Answers are not submitted to the PSTA or an AI service. Saving on a device is optional. Input pages do not load analytics or third-party scripts.
 
-The AI download combines the original prompt and the current answers. The user checks the file and runs it in an authorised AI account. The website does not generate AI analysis or send email.
+The public smartCompass reflection download begins with a chat task and includes the published June 2025 descriptions of the eight Compass aspects, with source hashes and public links, followed by one selected perspective’s current answers and evidence. It excludes other perspectives, actions, and review history. The user checks the file, then uploads it or pastes its text into an authorised AI service. The historical automation prompt is a separate reference, not part of the primary file. The website does not generate AI analysis, connect an email account, or send email.
 
 The learning guide covers 49 topics. It includes the original course teaching, both worked tables, all 17 original images, nine Word worksheets, three PDFs, and a blank copy of the 2023 Excel workbook. Contact details and introductory guidance use current public routes. The approach chapters also include the full June 2023 pre-reading. Definitions include accessible text from the June 2025 teaching template. Source dates, references, and acknowledgements are retained. The 2017 asset-based commissioning article retains its original publication date and text.
 
