@@ -6,7 +6,7 @@ The workspaces support separate perspectives, evidence, actions, review dates, d
 
 The AI download combines the original prompt and the current answers. The user checks the file and runs it in an authorised AI account. The website does not generate AI analysis or send email.
 
-The reading pages use teaching text from the June 2025 template and the eight approach sections from the June 2023 adult social care pre-reading. Source dates, references, and acknowledgements are retained. One source diagram retains its visible credit. The 2017 asset-based commissioning article retains its original publication date and text.
+The learning guide covers 49 topics. It uses teaching text from the June 2025 template, the eight approach sections and all eight case/equality sections from the June 2023 adult social care pre-reading, and the original toolkit guide. Its introduction and contact guidance describe current use of the Compass and current public routes. Source dates, references, and acknowledgements are retained. One source diagram retains its visible credit. The 2017 asset-based commissioning article retains its original publication date and text.
 
 The case-clinic resources provide a host guide, participant brief, and case record. Enquiry preparation opens a draft in the visitor’s email app and never sends it automatically.
 

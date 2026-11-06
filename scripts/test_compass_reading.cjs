@@ -9,26 +9,39 @@ const read = name => JSON.parse(fs.readFileSync(path.join(root, 'content/compass
 const course = read('reading-course.json');
 const deck = read('teaching-deck-2025-06.json');
 const preReading = read('approaches-pre-reading-2023-06.json');
+const caseSource = read('aspects-cases-equity-2023-06.json');
+const origins = read('toolkit-origins-2023-06.json');
 const catalogue = JSON.parse(fs.readFileSync(path.join(root, 'content/compass/archive/teachable-course-inventory-2026-11-05.json'), 'utf8'));
 
 test('reading chapters identify genuine catalogue sources without publishing task tracking fields', () => {
   const all = catalogue.sections.flatMap(section => section.lessons.map(lesson => lesson.url));
   const mapped = course.chapters.map(chapter => chapter.catalogueLessonUrl);
-  assert.equal(mapped.length, 38);
-  assert.equal(new Set(mapped).size, 38);
-  assert.ok(mapped.every(url => all.includes(url)));
+  assert.equal(mapped.length, 49);
+  assert.equal(new Set(mapped).size, 49);
+  assert.deepEqual(mapped.slice().sort(), all.slice().sort());
   assert.equal(all.length, 49);
   for (const field of ['remainingCatalogueLessons', 'teachableBodiesCompared', 'expectedTeachableLessons', 'sourceTopicsAvailable', 'mediaAndDownloadCounts', 'status']) assert.equal(course[field], undefined);
 });
 
 test('every local chapter has substantive source material and an identified version', () => {
   const slides = new Map(deck.slides.map(slide => [slide.number, slide]));
-  assert.equal(new Set(course.chapters.map(chapter => chapter.route)).size, 38);
+  assert.equal(new Set(course.chapters.map(chapter => chapter.route)).size, 49);
   for (const chapter of course.chapters) {
-    assert.ok(chapter.slides.length);
-    assert.ok(chapter.slides.every(number => slides.has(number)));
-    const words = chapter.slides.flatMap(number => slides.get(number).paragraphs).join(' ');
-    assert.ok(words.length > 80, chapter.title);
+    if (chapter.caseStudyAspect) {
+      const lesson = caseSource.lessons.find(row => row.aspect === chapter.caseStudyAspect);
+      assert.ok(lesson && lesson.sections.length === 3);
+      assert.ok(lesson.sections.every(section => section.paragraphs.length));
+    } else if (chapter.currentLesson) {
+      assert.ok(['using-and-improving', 'contact-and-updates'].includes(chapter.currentLesson));
+    } else if (chapter.resourceLesson) {
+      assert.equal(chapter.resourceLesson, 'original-toolkit');
+      assert.ok(origins.sections.flatMap(section => section.paragraphs).length > 10);
+    } else {
+      assert.ok(chapter.slides.length);
+      assert.ok(chapter.slides.every(number => slides.has(number)));
+      const words = chapter.slides.flatMap(number => slides.get(number).paragraphs).join(' ');
+      assert.ok(words.length > 80, chapter.title);
+    }
     if (chapter.preReadingApproach) assert.ok(preReading.approaches.find(approach => approach.number === chapter.preReadingApproach).paragraphs.length > 10);
   }
   assert.equal(deck.lastModified, '2025-06-25');
@@ -48,7 +61,7 @@ test('approved source extracts and the credited diagram retain their recorded ha
 
 test('source publication excludes template instructions, speaker notes, private URLs, and draft appendices', () => {
   assert.ok(deck.slides.every(slide => (slide.number >= 4 && slide.number <= 87) || slide.number === 99));
-  const text = JSON.stringify([deck, preReading]);
+  const text = JSON.stringify([deck, preReading, caseSource, origins]);
   assert.doesNotMatch(text, /sharepoint\.com|guestaccesstoken|graph\.microsoft\.com|C:\\\\Users|BEGIN PRIVATE|BENJAMIN\\n25/i);
   assert.equal(preReading.approaches.length, 8);
   for (const approach of preReading.approaches) {
@@ -68,6 +81,17 @@ test('the original article reference retains its publication date and source tex
 });
 
 test('public source metadata contains source facts and no internal migration progress', () => {
-  const text = JSON.stringify([course, deck, preReading, read('related-article-2017-10.json')]);
+  const text = JSON.stringify([course, deck, preReading, caseSource, origins, read('related-article-2017-10.json')]);
   assert.doesNotMatch(text, /Teachable material still to compare|migration status|course status|haven’t been compared|have not been compared|not yet been exported|course comparison is still|media recovery pending/i);
+});
+
+test('all eight aspects retain the higher/lower cases and equality text from the original source', () => {
+  assert.equal(caseSource.lessons.length, 8);
+  assert.equal(new Set(caseSource.lessons.map(lesson => lesson.aspect)).size, 8);
+  const paragraphs = caseSource.lessons.flatMap(lesson => lesson.sections.flatMap(section => section.paragraphs));
+  assert.equal(paragraphs.length, 47);
+  assert.ok(paragraphs.every(paragraph => paragraph.text.length && Number.isInteger(paragraph.sourceParagraph)));
+  assert.ok(caseSource.lessons.every(lesson => lesson.sections[2].heading.includes('Equality and equity')));
+  assert.equal(caseSource.sourceDate, 'June 2023');
+  assert.equal(caseSource.sourceFileSha256, '3f578f6b96c4784e70dcdd200173d463ea0e69d1dc2bc9b9b525107b4ce5dd76');
 });

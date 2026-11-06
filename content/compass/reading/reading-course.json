@@ -1,8 +1,16 @@
 {
   "version": "2026-11-06",
   "title": "Commissioning Compass reading",
-  "sourceTeachingVersion": "June 2025 template and June 2023 approaches pre-reading",
+  "sourceTeachingVersion": "June 2025 teaching material, June 2023 commissioning pre-reading, and current guidance from the PSTA",
   "chapters": [
+    {
+      "id": "using-and-improving",
+      "route": "tools/commissioning-compass/reading/using-and-improving",
+      "title": "Using and improving the Compass",
+      "section": "Introduction",
+      "catalogueLessonUrl": "https://public-service-transformation-academy.teachable.com/courses/2797583/lectures/62145824",
+      "currentLesson": "using-and-improving"
+    },
     {
       "id": "what-is-the-compass",
       "route": "tools/commissioning-compass/reading/what-is-the-compass",
@@ -101,6 +109,14 @@
       ]
     },
     {
+      "id": "aspect-1-cases",
+      "route": "tools/commissioning-compass/reading/aspect-1/cases-and-equity",
+      "title": "Case studies and equality and equity considerations",
+      "section": "Aspect of Commissioning 1: Whole system design",
+      "catalogueLessonUrl": "https://public-service-transformation-academy.teachable.com/courses/2797583/lectures/65255915",
+      "caseStudyAspect": 1
+    },
+    {
       "id": "aspect-1-questions",
       "route": "tools/commissioning-compass/reading/aspect-1/questions",
       "title": "Key questions",
@@ -142,6 +158,14 @@
       "slides": [
         37
       ]
+    },
+    {
+      "id": "aspect-2-cases",
+      "route": "tools/commissioning-compass/reading/aspect-2/cases-and-equity",
+      "title": "Case studies and equality and equity considerations",
+      "section": "Aspect of Commissioning 2: Relationships and organisation across the system",
+      "catalogueLessonUrl": "https://public-service-transformation-academy.teachable.com/courses/2797583/lectures/65255920",
+      "caseStudyAspect": 2
     },
     {
       "id": "aspect-2-questions",
@@ -186,6 +210,14 @@
       ]
     },
     {
+      "id": "aspect-3-cases",
+      "route": "tools/commissioning-compass/reading/aspect-3/cases-and-equity",
+      "title": "Case studies and equality and equity considerations",
+      "section": "Aspect of Commissioning 3: Capacity, capability, and confidence",
+      "catalogueLessonUrl": "https://public-service-transformation-academy.teachable.com/courses/2797583/lectures/65255929",
+      "caseStudyAspect": 3
+    },
+    {
       "id": "aspect-3-questions",
       "route": "tools/commissioning-compass/reading/aspect-3/questions",
       "title": "Key questions",
@@ -227,6 +259,14 @@
       "slides": [
         48
       ]
+    },
+    {
+      "id": "aspect-4-cases",
+      "route": "tools/commissioning-compass/reading/aspect-4/cases-and-equity",
+      "title": "Case studies and equality and equity considerations",
+      "section": "Aspect of Commissioning 4: citizen, place, and outcome centred",
+      "catalogueLessonUrl": "https://public-service-transformation-academy.teachable.com/courses/2797583/lectures/65255931",
+      "caseStudyAspect": 4
     },
     {
       "id": "aspect-4-questions",
@@ -273,6 +313,14 @@
       ]
     },
     {
+      "id": "aspect-5-cases",
+      "route": "tools/commissioning-compass/reading/aspect-5/cases-and-equity",
+      "title": "Case studies and equality and equity considerations",
+      "section": "Aspect of Commissioning 5: Information, insight, and innovation",
+      "catalogueLessonUrl": "https://public-service-transformation-academy.teachable.com/courses/2797583/lectures/65255932",
+      "caseStudyAspect": 5
+    },
+    {
       "id": "aspect-5-questions",
       "route": "tools/commissioning-compass/reading/aspect-5/questions",
       "title": "Key questions",
@@ -315,6 +363,14 @@
       "slides": [
         62
       ]
+    },
+    {
+      "id": "aspect-6-cases",
+      "route": "tools/commissioning-compass/reading/aspect-6/cases-and-equity",
+      "title": "Case studies and equality and equity considerations",
+      "section": "Aspect of Commissioning 6: Making room to make a difference",
+      "catalogueLessonUrl": "https://public-service-transformation-academy.teachable.com/courses/2797583/lectures/65255933",
+      "caseStudyAspect": 6
     },
     {
       "id": "aspect-6-questions",
@@ -361,6 +417,14 @@
       ]
     },
     {
+      "id": "aspect-7-cases",
+      "route": "tools/commissioning-compass/reading/aspect-7/cases-and-equity",
+      "title": "Case studies and equality and equity considerations",
+      "section": "Aspect of Commissioning 7: Commissioning process",
+      "catalogueLessonUrl": "https://public-service-transformation-academy.teachable.com/courses/2797583/lectures/65255934",
+      "caseStudyAspect": 7
+    },
+    {
       "id": "aspect-7-questions",
       "route": "tools/commissioning-compass/reading/aspect-7/questions",
       "title": "Key questions",
@@ -404,6 +468,14 @@
       ]
     },
     {
+      "id": "aspect-8-cases",
+      "route": "tools/commissioning-compass/reading/aspect-8/cases-and-equity",
+      "title": "Case studies and equality and equity considerations",
+      "section": "Aspect of Commissioning 8: Models and tactics",
+      "catalogueLessonUrl": "https://public-service-transformation-academy.teachable.com/courses/2797583/lectures/65255935",
+      "caseStudyAspect": 8
+    },
+    {
       "id": "aspect-8-questions",
       "route": "tools/commissioning-compass/reading/aspect-8/questions",
       "title": "Key questions",
@@ -435,6 +507,22 @@
         80
       ],
       "preReadingApproach": 8
+    },
+    {
+      "id": "contact-and-updates",
+      "route": "tools/commissioning-compass/reading/contact-and-updates",
+      "title": "Get in touch and keep up to date",
+      "section": "Resources and acknowledgements",
+      "catalogueLessonUrl": "https://public-service-transformation-academy.teachable.com/courses/2797583/lectures/62028058",
+      "currentLesson": "contact-and-updates"
+    },
+    {
+      "id": "original-toolkit",
+      "route": "tools/commissioning-compass/reading/original-toolkit",
+      "title": "The original strategic commissioning options appraisal toolkit",
+      "section": "Resources and acknowledgements",
+      "catalogueLessonUrl": "https://public-service-transformation-academy.teachable.com/courses/2797583/lectures/62028056",
+      "resourceLesson": "original-toolkit"
     }
   ],
   "sourceFiles": [
@@ -449,6 +537,14 @@
     {
       "file": "related-article-2017-10.json",
       "sha256": "a77cfa0c9965cb7f8717daba50ff7d54f372d1e5f329de8b3da98f56d6ae43f4"
+    },
+    {
+      "file": "aspects-cases-equity-2023-06.json",
+      "sha256": "bedd87f10cd36efa2c80aafada47b649a96be13bdab41f6bf003195501e589f2"
+    },
+    {
+      "file": "toolkit-origins-2023-06.json",
+      "sha256": "5d34334becf6a059ab03589af1365bc3e1684d702cc8395ca4e1e1598f15063b"
     }
   ]
 }
