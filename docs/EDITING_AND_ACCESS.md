@@ -12,6 +12,14 @@ The small white square at the bottom-right of the homepage opens this thread. `A
 
 ## Publishing approved news
 
+### Owner-submitted material
+
+When Benjamin submits a public source for publication, including a link in the running feedback issue, that instruction authorises preparing and publishing a routine, attributed news or practice item. It does not need a second editorial approval or a wait for the weekly upkeep review.
+
+Read the original source, check dates and attribution, avoid duplicates and unsupported claims, and preserve explicit holds, rights, private information, and current programme details. Raise a concrete problem when one prevents publication; do not turn these checks into an extra approval stage. Submissions from other people retain their existing review requirements.
+
+Use the existing build and deployment workflow, then verify the rendered item, news listing, RSS entry, and source links live. Record the submission as published only after that verification. Website publication does not imply a social post or newsletter has been sent.
+
 The structured **Publish a PSTA news item** issue form requires repository write access because submission automatically creates public website content. The automation checks the submitter's permission before it writes anything.
 
 David and Natasa can therefore use two different levels of access:
