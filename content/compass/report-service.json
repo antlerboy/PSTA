@@ -1,10 +1,10 @@
 {
-  "enabled": true,
+  "enabled": false,
   "endpoint": "https://psta-smartcompass-service-recovery.redquadrant-0856.chatgpt.site",
   "consentVersion": "psta-smartcompass-consent-2026-11-06-v0.01",
   "privacyPath": "/privacy/#smartcompass-report-requests",
   "contact": "info@publicservicetransformation.org",
-  "backendLiveChecksPassed": true,
-  "publicIngressVerified": true,
-  "processingTriggerVerified": true
+  "backendLiveChecksPassed": false,
+  "publicIngressVerified": false,
+  "processingTriggerVerified": false
 }
