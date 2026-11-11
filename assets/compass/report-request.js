@@ -47,6 +47,7 @@
     return { id: value.id, state: value.state, statusToken: value.statusToken, statusPath: value.statusPath };
   }
   function statusText(value) {
+    if (value.state === 'send_uncertain') return 'Your report may already have been sent. Check this request again after the next processing run. Don\'t create another request. If the status is unchanged, contact the PSTA with the reference below.';
     if (value.reviewRequired || ['quarantined', 'send_uncertain'].includes(value.state)) return 'The request needs checking by the PSTA and may already have been sent. Don\'t create another request. Contact us with the reference below.';
     if (value.archiveComplete && value.emailConfirmed) return 'The service has confirmed the email was sent and its record was archived. Check your inbox and junk folder. This does not confirm receipt or reading.';
     if (value.emailConfirmed) return 'The service has confirmed the email was sent. Its archive is still pending. Don\'t request another copy; check your inbox and junk folder.';
