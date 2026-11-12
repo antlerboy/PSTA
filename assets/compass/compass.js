@@ -155,6 +155,9 @@
   if (!node || !payload) return;
   const tool = JSON.parse(payload.textContent);
   const reportRequestAvailable = !!document.getElementById('compass-report-config');
+  const displayedSourceNote = reportRequestAvailable && tool.id === 'smart-compass-local'
+    ? (tool.source.note || '').split('. ')[0] + '. The assessment stays on your device. The optional report request below sends only the perspective you choose and the contact details you enter.'
+    : tool.source.note || '';
   const key = 'psta-compass:' + tool.id + ':' + tool.version;
   let record = newRecord(tool);
   let saved = false;
@@ -217,7 +220,7 @@
       ].map(([f, text, area]) => label(text, area ? textarea('data-decision="' + i + '" data-field="' + f + '"', d[f]) : input('data-decision="' + i + '" data-field="' + f + '"' + (f === 'due' ? ' type="date"' : ''), d[f]))).join('') + button('remove-decision', 'Remove action', 'data-index="' + i + '"') + '</fieldset>').join('') + button('add-decision', 'Add an action') + '</section>' +
       '<section><h2>Review changes</h2><p>Record what happened after you acted. Saving a review keeps a dated copy of the answers and actions, so you can compare them with later changes.</p>' + (tool.reviewSourceNote ? '<p class="compass-hint">' + esc(tool.reviewSourceNote) + '</p>' : '') +
       (tool.reviewQuestions || []).map((q, i) => label(q, textarea('data-learning="' + i + '"', record.reviewDraft[i] || ''))).join('') + button('review', 'Record this review') +
-      '<div class="compass-history">' + record.reviews.map((r, i) => '<details><summary>Review ' + (i + 1) + ' · ' + esc(r.date) + '</summary><p><strong>Assessment scope at this review:</strong> ' + esc(r.snapshot.boundary) + '</p>' + (tool.reviewQuestions || []).map((q, n) => '<h3>' + esc(q) + '</h3><p class="compass-pre">' + esc(r.learning[n] || 'No answer recorded') + '</p>').join('') + '<p>' + r.snapshot.participants.length + ' perspective(s), ' + r.snapshot.decisions.length + ' action(s). The editable and readable downloads include the answers and actions recorded at this review.</p></details>').join('') + '</div></section><section><h2>Source and version</h2><p>' + esc(tool.source.note || '') + '</p><p><a href="' + esc(tool.source.localText || tool.source.url) + '">Read the source</a> · Edition ' + esc(tool.version) + '</p>' + (tool.courseArchive ? '<h3>Reading and resources</h3><p><a href="/tools/commissioning-compass/reading/">Read the teaching material</a> · <a href="' + esc(tool.courseArchive.url) + '">Original course</a></p>' : '') + '</section>';
+      '<div class="compass-history">' + record.reviews.map((r, i) => '<details><summary>Review ' + (i + 1) + ' · ' + esc(r.date) + '</summary><p><strong>Assessment scope at this review:</strong> ' + esc(r.snapshot.boundary) + '</p>' + (tool.reviewQuestions || []).map((q, n) => '<h3>' + esc(q) + '</h3><p class="compass-pre">' + esc(r.learning[n] || 'No answer recorded') + '</p>').join('') + '<p>' + r.snapshot.participants.length + ' perspective(s), ' + r.snapshot.decisions.length + ' action(s). The editable and readable downloads include the answers and actions recorded at this review.</p></details>').join('') + '</div></section><section><h2>Source and version</h2><p>' + esc(displayedSourceNote) + '</p><p><a href="' + esc(tool.source.localText || tool.source.url) + '">Read the source</a> · Edition ' + esc(tool.version) + '</p>' + (tool.courseArchive ? '<h3>Reading and resources</h3><p><a href="/tools/commissioning-compass/reading/">Read the teaching material</a> · <a href="' + esc(tool.courseArchive.url) + '">Original course</a></p>' : '') + '</section>';
     node.querySelectorAll('input,textarea').forEach(control => control.setAttribute('autocomplete', 'off'));
     notifyReportClient();
   }
