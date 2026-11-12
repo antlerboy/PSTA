@@ -1,0 +1,61 @@
+/* The working paper has its own reading layout; workspace styles stay separate. */
+.compass-paper-page{--paper-purple:#4400d9;--paper-ink:#222032;--paper-muted:#625d72;--paper-line:#ded9e9;--paper-wash:#f6f3fc;color:var(--paper-ink);background:#fff}
+.compass-paper-page *{box-sizing:border-box}
+.compass-paper-page .paper-shell{width:min(100% - 3rem,1180px);margin-inline:auto}
+.compass-paper-page a{color:var(--paper-purple);text-decoration-thickness:1px;text-underline-offset:.2em}
+.compass-paper-page a:hover{color:#260080;text-decoration-thickness:2px}
+.compass-paper-page :focus-visible{outline:3px solid #f88b1a;outline-offset:5px}
+.compass-paper-page [id]{scroll-margin-top:8rem}
+.compass-paper-page .paper-hero{padding:2rem 0 2.8rem;border-bottom:1px solid var(--paper-line);background:linear-gradient(115deg,#f5f1ff 0%,#fbfaff 70%,#fff7ed 100%)}
+.compass-paper-page .paper-breadcrumbs{display:flex;flex-wrap:wrap;gap:.65rem;align-items:center;font-size:.85rem;margin-bottom:1.6rem}
+.compass-paper-page .paper-kicker{display:flex;flex-wrap:wrap;align-items:center;gap:.7rem;font-size:.8rem;color:var(--paper-muted);margin-bottom:1.1rem}
+.compass-paper-page .paper-kicker span:first-child{background:#e9e1fa;color:#40138c;border-radius:2rem;padding:.25rem .7rem;font-weight:650}
+.compass-paper-page .paper-edition{font-size:1.05rem;letter-spacing:.02em;font-weight:650;color:var(--paper-purple);margin:0 0 .45rem}
+.compass-paper-page .paper-hero h1{font-size:clamp(2rem,3.8vw,3.35rem);line-height:1.12;letter-spacing:-.035em;color:var(--paper-ink);max-width:22ch;margin:0}
+.compass-paper-page .paper-byline{margin:1.1rem 0 1.4rem;color:var(--paper-muted);font-size:1rem}
+.compass-paper-page .paper-hero-actions{display:flex;flex-wrap:wrap;gap:1.25rem;align-items:center}
+.compass-paper-page a.paper-button{display:inline-flex;align-items:center;gap:1rem;background:var(--paper-purple);color:#fff;padding:.75rem 1.05rem;border-radius:5px;text-decoration:none;font-size:.95rem;font-weight:650;min-height:44px}
+.compass-paper-page a.paper-button:hover{background:#2f0097;color:#fff}
+.compass-paper-page .paper-jump{font-size:.95rem;font-weight:600}
+.compass-paper-page .paper-reading-layout{display:grid;grid-template-columns:220px minmax(0,1fr);gap:clamp(2rem,5vw,5rem);align-items:start;padding-top:2.75rem;padding-bottom:3rem}
+.compass-paper-page .paper-sidebar{position:sticky;top:8rem;padding-right:1.3rem;font-size:.88rem}
+.compass-paper-page .paper-sidebar-title{font-weight:700;color:var(--paper-ink);font-size:.95rem;margin:0 0 .75rem}
+.compass-paper-page .paper-sidebar ol{list-style:none;padding:0;margin:0;border-left:2px solid var(--paper-line)}
+.compass-paper-page .paper-sidebar li{margin:0;padding:0}
+.compass-paper-page .paper-sidebar li a{display:block;padding:.35rem 0 .35rem 1rem;line-height:1.4;text-decoration:none;color:var(--paper-muted)}
+.compass-paper-page .paper-sidebar li a:hover{color:var(--paper-purple);background:var(--paper-wash)}
+.compass-paper-page .paper-sidebar li a.paper-matrix-link{color:var(--paper-purple);font-weight:700;margin-top:.3rem}
+.compass-paper-page .paper-sidebar-footer{border-top:1px solid var(--paper-line);padding-top:1rem;margin-top:1.5rem;line-height:1.5;color:var(--paper-muted)}
+.compass-paper-page .paper-sidebar-footer p{margin:0 0 .5rem;font-size:.84rem}
+.compass-paper-page .paper-prose{max-width:70ch;min-width:0;font-size:1.08rem;line-height:1.75}
+.compass-paper-page .paper-prose p{margin:0 0 1.15rem}
+.compass-paper-page .paper-share{font-size:.82rem;color:var(--paper-muted);margin-bottom:1.5rem!important}
+.compass-paper-page .paper-prose a{overflow-wrap:anywhere}
+.compass-paper-page .paper-opening{font-size:1.3rem;line-height:1.6;font-weight:500;margin:0 0 2.5rem;padding:1rem 0 1rem 1.5rem;border-left:4px solid #f88b1a;color:#34274b}
+.compass-paper-page .paper-section{margin:0 0 2.75rem}
+.compass-paper-page .paper-prose h2{font-size:1.6rem;line-height:1.3;letter-spacing:-.02em;color:var(--paper-purple);margin:2.75rem 0 1.25rem;padding-top:1.3rem;border-top:1px solid var(--paper-line)}
+.compass-paper-page .paper-prose h3{font-size:1.17rem;line-height:1.4;color:var(--paper-ink);margin:1.9rem 0 .7rem;font-weight:700}
+.compass-paper-page .paper-prose ul{padding-left:1.4rem;margin:0 0 1.5rem}
+.compass-paper-page .paper-prose li{margin-bottom:.6rem;padding-left:.2rem}
+.compass-paper-page .paper-prose li::marker{color:var(--paper-purple)}
+.compass-paper-page .paper-matrix-section{margin:0 0 3rem;padding-top:2.5rem;border-top:3px solid var(--paper-purple)}
+.compass-paper-page .paper-matrix-intro{display:grid;grid-template-columns:1fr auto;column-gap:2rem;align-items:center}
+.compass-paper-page .paper-matrix-intro h2{font-size:2rem;line-height:1.2;color:var(--paper-purple);margin:0 0 .8rem}
+.compass-paper-page .paper-matrix-intro p{font-size:1rem;max-width:65ch;margin:0;grid-column:1;line-height:1.6}
+.compass-paper-page .paper-matrix-intro .paper-button{grid-column:2;grid-row:1/3}
+.compass-paper-page .paper-matrix-hint{font-size:.84rem;color:var(--paper-muted);margin:1.4rem 0 .8rem}
+.compass-paper-page .paper-matrix-scroll{overflow:auto;border:1px solid var(--paper-line);border-radius:6px;max-width:100%;background:#fff}
+.compass-paper-page .paper-matrix-table{border-collapse:separate;border-spacing:0;min-width:1380px;width:100%;font-size:.88rem;line-height:1.55;text-align:left}
+.compass-paper-page .paper-matrix-table caption{text-align:left;padding:1rem 1.1rem;background:var(--paper-wash);font-size:.85rem;color:var(--paper-muted)}
+.compass-paper-page .paper-matrix-table th,.compass-paper-page .paper-matrix-table td{padding:1.1rem;vertical-align:top;border-right:1px solid var(--paper-line);border-bottom:1px solid var(--paper-line);width:18%}
+.compass-paper-page .paper-matrix-table thead th{background:#4400d9;color:#fff;font-weight:650;font-size:.9rem}
+.compass-paper-page .paper-matrix-table tbody th{color:var(--paper-purple);font-weight:650;background:#f8f6fc;position:sticky;left:0;width:15%;min-width:170px;border-right:2px solid var(--paper-line)}
+.compass-paper-page .paper-matrix-table tr:last-child th,.compass-paper-page .paper-matrix-table tr:last-child td{border-bottom:0}
+.compass-paper-page .paper-matrix-table tr th:last-child,.compass-paper-page .paper-matrix-table tr td:last-child{border-right:0}
+.compass-paper-page .paper-matrix-cards{display:none}
+.compass-paper-page .paper-endnote{display:flex;justify-content:space-between;gap:1rem;border-top:1px solid var(--paper-line);padding:1.5rem 0 2.5rem;font-size:.85rem;color:var(--paper-muted)}
+.compass-paper-page .paper-endnote p{margin:0}
+@media(max-width:900px){.compass-paper-page .paper-reading-layout{grid-template-columns:175px minmax(0,1fr);gap:2rem}.compass-paper-page .paper-sidebar{font-size:.82rem;padding-right:0}.compass-paper-page .paper-prose{font-size:1rem}.compass-paper-page .paper-opening{font-size:1.15rem}.compass-paper-page .paper-hero h1{max-width:24ch}.compass-paper-page .paper-matrix-intro{display:block}.compass-paper-page .paper-matrix-intro .paper-button{margin-top:1rem}}
+@media(max-width:700px){.compass-paper-page .paper-shell{width:calc(100% - 2rem)}.compass-paper-page .paper-hero{padding:1.2rem 0 2rem}.compass-paper-page .paper-breadcrumbs{margin-bottom:1.25rem}.compass-paper-page .paper-hero h1{font-size:2.1rem;line-height:1.15}.compass-paper-page .paper-reading-layout{display:block;padding-top:1.5rem}.compass-paper-page .paper-sidebar{position:static;margin-bottom:2rem;padding:1rem;background:var(--paper-wash);border-radius:6px}.compass-paper-page .paper-sidebar ol{columns:2;column-gap:1rem;border-left:0}.compass-paper-page .paper-sidebar li{break-inside:avoid}.compass-paper-page .paper-sidebar li a{padding:.4rem 0;min-height:36px}.compass-paper-page .paper-sidebar-footer{display:none}.compass-paper-page .paper-opening{padding-left:1rem}.compass-paper-page .paper-prose h2{font-size:1.45rem}.compass-paper-page .paper-matrix-hint,.compass-paper-page .paper-matrix-scroll{display:none}.compass-paper-page .paper-matrix-cards{display:grid;gap:1.3rem;margin-top:1.5rem}.compass-paper-page .paper-matrix-card{border:1px solid var(--paper-line);border-radius:6px;overflow:hidden}.compass-paper-page .paper-matrix-card h3{display:flex;gap:.8rem;align-items:start;background:var(--paper-wash);color:var(--paper-purple);font-size:1.1rem;line-height:1.4;padding:1rem;margin:0}.compass-paper-page .paper-lens-number{font-size:.8rem;line-height:1.9;color:var(--paper-muted)}.compass-paper-page .paper-matrix-card dl{margin:0;padding:0 1rem}.compass-paper-page .paper-matrix-card dl>div{padding:1rem 0;border-bottom:1px solid var(--paper-line)}.compass-paper-page .paper-matrix-card dl>div:last-child{border:0}.compass-paper-page .paper-matrix-card dt{color:var(--paper-purple);font-weight:650;font-size:.87rem;margin:0 0 .35rem}.compass-paper-page .paper-matrix-card dd{margin:0;font-size:.95rem;line-height:1.6}.compass-paper-page .paper-endnote{display:block}.compass-paper-page .paper-endnote p{margin-bottom:.7rem}}
+@media(prefers-reduced-motion:no-preference){.compass-paper-page .paper-button{transition:background .15s ease}}
+@media print{.site-header,.announcement,.site-footer,.back-to-top{display:none!important}.compass-paper-page{color:#111;background:#fff}.compass-paper-page .paper-shell{width:100%;max-width:none}.compass-paper-page .paper-hero{padding:0 0 1.5rem;background:none}.compass-paper-page .paper-hero h1{font-size:25pt;max-width:none}.compass-paper-page .paper-kicker{margin:0 0 .6rem}.compass-paper-page .paper-breadcrumbs,.compass-paper-page .paper-hero-actions,.compass-paper-page .paper-sidebar,.compass-paper-page .paper-share,.compass-paper-page .paper-endnote,.compass-paper-page .paper-matrix-intro .paper-button,.compass-paper-page .paper-matrix-hint{display:none}.compass-paper-page .paper-reading-layout{display:block;padding:1rem 0}.compass-paper-page .paper-prose{max-width:none;font-size:11pt;line-height:1.5}.compass-paper-page .paper-opening{font-size:13pt}.compass-paper-page .paper-prose h2{font-size:16pt;break-after:avoid;margin-top:1.5rem}.compass-paper-page .paper-prose h3{font-size:12pt;break-after:avoid}.compass-paper-page .paper-matrix-scroll{display:none}.compass-paper-page .paper-matrix-cards{display:block}.compass-paper-page .paper-matrix-card{margin-bottom:1.5rem;break-inside:avoid}.compass-paper-page .paper-matrix-card h3{font-size:13pt;margin:0 0 .7rem}.compass-paper-page .paper-lens-number{margin-right:.5rem}.compass-paper-page .paper-matrix-card dl{font-size:10pt;margin:0}.compass-paper-page .paper-matrix-card dt{font-weight:bold;margin:.6rem 0 .15rem}.compass-paper-page .paper-matrix-card dd{margin:0;line-height:1.45}.compass-paper-page a{color:inherit;text-decoration:none}}

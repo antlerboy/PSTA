@@ -3,7 +3,7 @@ const assert = require('node:assert/strict');
 const test = require('node:test');
 const fs = require('node:fs');
 const path = require('node:path');
-const { newRecord, validateRecord, markdown, reflectionMarkdown, selectedPerspectiveIndex } = require('../assets/compass/compass.js');
+const { newRecord, validateRecord, markdown, reportBlocks, reportHtml, wordDocument, hasRecordContent, editableSize, MAX_IMPORT, reflectionMarkdown, selectedPerspectiveIndex } = require('../assets/compass/compass.js');
 const read = name => JSON.parse(fs.readFileSync(path.join(__dirname, '../content/compass', name), 'utf8'));
 const original = read('commissioning-compass.json');
 const beta = read('compass-v2-beta.json');
@@ -134,4 +134,110 @@ test('reflection selection follows a participant identity across removal and req
   record.participants.splice(0, 1);
   assert.throws(() => selectedPerspectiveIndex(record, 'B'), /Choose one perspective/);
   assert.throws(() => selectedPerspectiveIndex(record, ''), /Choose one perspective/);
+});
+
+function exportFixture() {
+  const record = newRecord(beta);
+  record.title = 'Novi Sad — shared purpose & learning';
+  record.boundary = 'A fictional place\nTwo lines, with <boundaries> & different views.';
+  record.missing = 'Residents who could not attend.';
+  record.participants[0].label = 'Practitioner — Željka';
+  record.participants[0].answers['lens-1-move-1'] = { notes: 'Earlier interpretation 🧭', evidence: 'A dated observation' };
+  record.decisions.push({ title: 'Try a change', owner: 'Team & residents', due: '2026-12-01', expected: 'Less avoidable work', evidence: 'Look for counterexamples', nextMove: 'Listen again' });
+  const snapshot = JSON.parse(JSON.stringify({ title: record.title, boundary: record.boundary, missing: record.missing, participants: record.participants, decisions: record.decisions }));
+  record.reviews.push({ date: '2026-11-12T10:00:00Z', learning: ['Earlier learning'], snapshot });
+  record.participants[0].answers['lens-1-move-1'].notes = '<img src=x onerror=alert(1)> New interpretation';
+  record.reviewDraft[0] = 'Unfinished learning';
+  return record;
+}
+
+test('print notes use semantic headings, escaped answers, and complete dated snapshots', () => {
+  const record = exportFixture();
+  const html = reportHtml(record, beta);
+  assert.ok(html.startsWith('<h1>Novi Sad — shared purpose &amp; learning</h1>'));
+  assert.ok(html.includes('<h2>Current answers</h2>'));
+  assert.ok(html.includes('<h3>Whole system conditions</h3>'));
+  assert.ok(html.includes('&lt;img src=x onerror=alert(1)&gt; New interpretation'));
+  assert.equal(html.includes('<img'), false);
+  assert.ok(html.includes('Earlier interpretation 🧭') && html.includes('A dated observation'));
+  assert.ok(html.includes('Earlier learning') && html.includes('Unfinished learning'));
+  assert.ok(html.includes('People and views not included') && html.includes('Residents who could not attend.'));
+  assert.ok(html.includes('Record retained at this review') && html.includes('Team &amp; residents'));
+  assert.equal(html.includes(beta.source.url), false);
+  assert.equal(html.includes('## '), false);
+  assert.equal(reportBlocks(record, beta).filter(b => b.kind === 'prompt').length, 80);
+});
+
+test('Word notes are a valid OOXML ZIP with Unicode, styles, safe text, and no external relationships', () => {
+  const { spawnSync } = require('node:child_process');
+  const bytes = wordDocument(exportFixture(), beta);
+  assert.ok(bytes instanceof Uint8Array);
+  assert.equal(Buffer.from(bytes).subarray(0, 4).toString('hex'), '504b0304');
+  const check = spawnSync('python3', ['-c', `
+import io, json, sys, zipfile, xml.etree.ElementTree as ET
+with zipfile.ZipFile(io.BytesIO(sys.stdin.buffer.read())) as archive:
+    assert archive.testzip() is None
+    names = archive.namelist()
+    assert '[Content_Types].xml' in names and 'word/document.xml' in names
+    for name in names:
+        ET.fromstring(archive.read(name))
+    ns = {'w': 'http://schemas.openxmlformats.org/wordprocessingml/2006/main'}
+    doc = ET.fromstring(archive.read('word/document.xml'))
+    text = '\\n'.join(e.text or '' for e in doc.findall('.//w:t', ns))
+    assert 'Practitioner — Željka' in text and 'Earlier interpretation 🧭' in text
+    assert '<img src=x onerror=alert(1)> New interpretation' in text
+    assert 'A dated observation' in text and 'Team & residents' in text
+    assert 'Unfinished learning' in text and 'Earlier learning' in text
+    assert 'Residents who could not attend.' in text
+    assert 'docs.google.com' not in text
+    styles = {e.attrib.get('{'+ns['w']+'}val') for e in doc.findall('.//w:pStyle', ns)}
+    assert {'Title', 'Heading1', 'Heading2', 'Heading3', 'Heading4', 'Normal'} <= styles
+    for name in names:
+        if name.endswith('.rels'):
+            for relationship in ET.fromstring(archive.read(name)):
+                assert relationship.attrib.get('TargetMode') != 'External'
+    print(json.dumps({'entries': len(names), 'paragraphs': len(doc.findall('.//w:p', ns))}))
+`], { input: Buffer.from(bytes), encoding: 'utf8' });
+  assert.equal(check.status, 0, check.stderr);
+  assert.ok(JSON.parse(check.stdout).paragraphs > 100);
+});
+
+test('Word output removes XML control characters and repairs unpaired surrogates', () => {
+  const { spawnSync } = require('node:child_process');
+  const record = newRecord(beta);
+  record.title = 'A\u0001B\ud800C';
+  const check = spawnSync('python3', ['-c', `import io, sys, zipfile, xml.etree.ElementTree as E
+with zipfile.ZipFile(io.BytesIO(sys.stdin.buffer.read())) as z:
+    data = z.read('word/document.xml')
+    E.fromstring(data)
+    assert 'AB�C' in data.decode('utf8')`], { input: Buffer.from(wordDocument(record, beta)), encoding: 'utf8' });
+  assert.equal(check.status, 0, check.stderr);
+});
+
+test('unsaved-work detection includes evidence, zero scores, review drafts, and role labels', () => {
+  const empty = newRecord(beta);
+  assert.equal(hasRecordContent(empty), false);
+  empty.participants[0].answers['lens-1-move-1'] = { notes: '', evidence: 'Evidence only' };
+  assert.equal(hasRecordContent(empty), true);
+  empty.participants[0].answers = {};
+  empty.reviewDraft[0] = 'Unfinished thought';
+  assert.equal(hasRecordContent(empty), true);
+  empty.reviewDraft[0] = '';
+  empty.participants[0].label = 'Resident';
+  assert.equal(hasRecordContent(empty), true);
+  const scored = newRecord(original);
+  scored.participants[0].answers['a1-q1'] = { score: '0' };
+  assert.equal(hasRecordContent(scored), true);
+});
+
+test('substantial review history remains within the reopening limit and round-trips intact', () => {
+  const record = newRecord(beta);
+  for (const q of beta.sections.flatMap(s => s.questions)) record.participants[0].answers[q.id] = { notes: 'A'.repeat(19000), evidence: 'Observed' };
+  const snapshot = JSON.parse(JSON.stringify({ title: record.title, boundary: record.boundary, missing: record.missing, participants: record.participants, decisions: record.decisions }));
+  record.reviews = [0, 1, 2].map(i => ({ date: '2026-11-' + (10 + i), learning: ['Review ' + i], snapshot }));
+  assert.ok(editableSize(record) > 1500000);
+  assert.ok(editableSize(record) < MAX_IMPORT);
+  const reopened = validateRecord(JSON.parse(JSON.stringify(record)), beta);
+  assert.equal(reopened.reviews.length, 3);
+  assert.equal(reopened.reviews[2].snapshot.participants[0].answers['lens-8-move-5'].notes.length, 19000);
 });
