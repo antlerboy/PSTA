@@ -33,7 +33,7 @@
 .compass-paper-page .paper-prose a{overflow-wrap:anywhere}
 .compass-paper-page .paper-opening{font-size:1.3rem;line-height:1.6;font-weight:500;margin:0 0 2.5rem;padding:1rem 0 1rem 1.5rem;border-left:4px solid #f88b1a;color:#34274b}
 .compass-paper-page .paper-section{margin:0 0 2.75rem}
-.compass-paper-page .paper-prose h2{font-size:1.6rem;line-height:1.3;letter-spacing:-.02em;color:var(--paper-purple);margin:2.75rem 0 1.25rem;padding-top:1.3rem;border-top:1px solid var(--paper-line)}
+.compass-paper-page .paper-prose h2{font-size:1.6rem;max-width:none;line-height:1.3;letter-spacing:-.02em;color:var(--paper-purple);margin:2.75rem 0 1.25rem;padding-top:1.3rem;border-top:1px solid var(--paper-line)}
 .compass-paper-page .paper-prose h3{font-size:1.17rem;line-height:1.4;color:var(--paper-ink);margin:1.9rem 0 .7rem;font-weight:700}
 .compass-paper-page .paper-prose ul{padding-left:1.4rem;margin:0 0 1.5rem}
 .compass-paper-page .paper-prose li{margin-bottom:.6rem;padding-left:.2rem}
