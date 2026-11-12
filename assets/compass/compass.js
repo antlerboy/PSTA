@@ -154,6 +154,7 @@
   const payload = document.getElementById('compass-tool-data');
   if (!node || !payload) return;
   const tool = JSON.parse(payload.textContent);
+  const reportRequestAvailable = !!document.getElementById('compass-report-config');
   const key = 'psta-compass:' + tool.id + ':' + tool.version;
   let record = newRecord(tool);
   let saved = false;
@@ -181,6 +182,10 @@
       try { localStorage.setItem(key, JSON.stringify(record)); status('Saved on this device at ' + new Date().toLocaleTimeString('en-GB') + '. Download a copy to keep or share it.'); }
       catch (_) { saved = false; status('This device could not save the latest changes. Download a JSON copy now.'); }
     } else status('Changes are in this open page. Save on this device or download a copy before leaving.');
+    notifyReportClient();
+  }
+  function notifyReportClient(resetSelection = false) {
+    if (tool.id === 'smart-compass-local') document.dispatchEvent(new CustomEvent('psta-compass-record-changed', { detail: { resetSelection } }));
   }
   function download(name, content, mime) {
     const url = URL.createObjectURL(new Blob([content], { type: mime }));
@@ -191,7 +196,7 @@
   function render() {
     if (aiPerspectiveId === null) aiPerspectiveId = record.participants[0].id;
     node.innerHTML = '<div class="compass-controls">' + button('save', 'Save on this device') + button('json', 'Download editable record') + button('markdown', 'Download readable notes') + button('print', 'Print / save PDF') + '<label class="compass-file">Open a saved record<input type="file" id="compass-import" accept="application/json,.json"></label>' + button('remove', 'Remove device copy') + button('new', 'Start a new assessment') + '</div><p id="compass-status" class="compass-status" role="status" aria-live="polite">' + esc(message || 'Your answers stay in this open page until you choose to save or download them.') + '</p>' +
-      (tool.reflectionPrompt ? '<section id="compass-ai-reflection"><h2>Use your answers for an AI reflection</h2><p>This workspace prepares a file for you to use in your chosen AI service. It doesn’t run an AI model or operate the separate automated email service.</p><ol><li>Choose one perspective below and download the reflection file. Open it and check the answers and evidence before sharing it. Remove confidential information and identifying details about other people.</li><li>Start a new chat in the AI service you’re authorised to use. If it accepts file uploads, attach the Markdown file. Otherwise open the file, select all its text, and paste it into the chat as plain text.</li><li>Ask the AI system to follow the reflection task in the file and answer in the chat. You don’t need to connect an email account. Check the response against your answers and correct anything it has misread.</li></ol>' + label('Perspective to include', '<select id="compass-ai-perspective"><option value=""' + (!aiPerspectiveId ? ' selected' : '') + '>Choose a perspective</option>' + record.participants.map(p => '<option value="' + esc(p.id) + '"' + (p.id === aiPerspectiveId ? ' selected' : '') + '>' + esc(p.label) + '</option>').join('') + '</select>', 'The file includes this perspective’s current answers and evidence, plus the assessment scope and missing views. Other perspectives, actions, and review history stay out of it. Check you have permission to share what you include.') + button('ai-pack', 'Download the reflection file (Markdown)', aiPerspectiveId ? '' : 'disabled') + '<p>The file begins with the public reflection task, followed by the published descriptions of the eight Commissioning Compass aspects and your selected answers.</p><p><a href="' + esc(tool.reflectionReference.readingUrl) + '">Read the full Commissioning Compass guide</a> · <a href="' + esc(tool.reflectionReference.path) + '">Read the eight-aspect excerpts in the file</a> · <a href="/offers/">The PSTA programmes and support</a></p><p class="compass-hint">Reflection task: ' + esc(tool.reflectionPrompt.version) + '. Reference: ' + esc(tool.reflectionReference.version) + '. AI output can misread incomplete or conflicting answers; use it for reflection and conversation.</p><details><summary>Historical automation prompt</summary><p>' + esc(tool.agentPrompt.note) + '</p><p><a href="' + esc(tool.agentPrompt.path) + '">Read the preserved original automation prompt</a>. It is separate from the reflection file above.</p></details></section>' : '') +
+      (tool.reflectionPrompt ? '<section id="compass-ai-reflection"><h2>Use your answers for an AI reflection</h2><p>This workspace prepares a file for you to use in your chosen AI service. ' + (reportRequestAvailable ? 'The reflection download doesn’t run an AI model or email a report. The separate request below lets you ask the PSTA to process one perspective.' : 'It doesn’t run an AI model or operate the separate automated email service.') + '</p><ol><li>Choose one perspective below and download the reflection file. Open it and check the answers and evidence before sharing it. Remove confidential information and identifying details about other people.</li><li>Start a new chat in the AI service you’re authorised to use. If it accepts file uploads, attach the Markdown file. Otherwise open the file, select all its text, and paste it into the chat as plain text.</li><li>Ask the AI system to follow the reflection task in the file and answer in the chat. You don’t need to connect an email account. Check the response against your answers and correct anything it has misread.</li></ol>' + label('Perspective to include', '<select id="compass-ai-perspective"><option value=""' + (!aiPerspectiveId ? ' selected' : '') + '>Choose a perspective</option>' + record.participants.map(p => '<option value="' + esc(p.id) + '"' + (p.id === aiPerspectiveId ? ' selected' : '') + '>' + esc(p.label) + '</option>').join('') + '</select>', 'The file includes this perspective’s current answers and evidence, plus the assessment scope and missing views. Other perspectives, actions, and review history stay out of it. Check you have permission to share what you include.') + button('ai-pack', 'Download the reflection file (Markdown)', aiPerspectiveId ? '' : 'disabled') + '<p>The file begins with the public reflection task, followed by the published descriptions of the eight Commissioning Compass aspects and your selected answers.</p><p><a href="' + esc(tool.reflectionReference.readingUrl) + '">Read the full Commissioning Compass guide</a> · <a href="' + esc(tool.reflectionReference.path) + '">Read the eight-aspect excerpts in the file</a> · <a href="/offers/">The PSTA programmes and support</a></p><p class="compass-hint">Reflection task: ' + esc(tool.reflectionPrompt.version) + '. Reference: ' + esc(tool.reflectionReference.version) + '. AI output can misread incomplete or conflicting answers; use it for reflection and conversation.</p><details><summary>Historical automation prompt</summary><p>' + esc(tool.agentPrompt.note) + '</p><p><a href="' + esc(tool.agentPrompt.path) + '">Read the preserved original automation prompt</a>. It is separate from the reflection file above.</p></details></section>' : '') +
       '<section class="compass-context"><h2>Assessment details</h2>' +
       label('Assessment title', input('data-record="title" maxlength="200"', record.title)) +
       label('What are you assessing, and why?', textarea('data-record="boundary"', record.boundary)) +
@@ -214,6 +219,7 @@
       (tool.reviewQuestions || []).map((q, i) => label(q, textarea('data-learning="' + i + '"', record.reviewDraft[i] || ''))).join('') + button('review', 'Record this review') +
       '<div class="compass-history">' + record.reviews.map((r, i) => '<details><summary>Review ' + (i + 1) + ' · ' + esc(r.date) + '</summary><p><strong>Assessment scope at this review:</strong> ' + esc(r.snapshot.boundary) + '</p>' + (tool.reviewQuestions || []).map((q, n) => '<h3>' + esc(q) + '</h3><p class="compass-pre">' + esc(r.learning[n] || 'No answer recorded') + '</p>').join('') + '<p>' + r.snapshot.participants.length + ' perspective(s), ' + r.snapshot.decisions.length + ' action(s). The editable and readable downloads include the answers and actions recorded at this review.</p></details>').join('') + '</div></section><section><h2>Source and version</h2><p>' + esc(tool.source.note || '') + '</p><p><a href="' + esc(tool.source.localText || tool.source.url) + '">Read the source</a> · Edition ' + esc(tool.version) + '</p>' + (tool.courseArchive ? '<h3>Reading and resources</h3><p><a href="/tools/commissioning-compass/reading/">Read the teaching material</a> · <a href="' + esc(tool.courseArchive.url) + '">Original course</a></p>' : '') + '</section>';
     node.querySelectorAll('input,textarea').forEach(control => control.setAttribute('autocomplete', 'off'));
+    notifyReportClient();
   }
 
   node.addEventListener('input', event => {
@@ -253,6 +259,7 @@
       const imported = validateRecord(JSON.parse(await file.text()), tool);
       if (!confirm('Replace the record in this open page? Download the current record first if you need to keep it.')) return;
       record = imported; aiPerspectiveId = null; changed(); render(); status('The record has been opened. ' + (saved ? 'It is also saved on this device.' : 'Choose Save on this device if you want it restored next time.'));
+      notifyReportClient(true);
     } catch (error) { status(error.message || 'The file could not be read.'); }
   });
 
@@ -287,6 +294,7 @@
     if (action === 'new' && confirm('Start a new assessment? Download this one first if you need to keep it.')) {
       try { localStorage.removeItem(key); } catch (_) { /* New page state remains usable. */ }
       record = newRecord(tool); aiPerspectiveId = null; saved = false; message = 'A new record is open.'; render();
+      notifyReportClient(true);
     }
     if (action === 'add-person') {
       if (record.participants.length >= 20) return status('This record already has twenty perspectives.');
@@ -312,5 +320,6 @@
       changed(); render(); status('Review recorded with a snapshot of the current perspectives and decisions.');
     }
   });
+  if (tool.id === 'smart-compass-local') root.PSTACompassWorkspace = Object.freeze({ read: () => JSON.parse(JSON.stringify(record)) });
   render();
 })(typeof window === 'undefined' ? globalThis : window);
