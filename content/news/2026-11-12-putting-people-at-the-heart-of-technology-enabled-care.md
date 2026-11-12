@@ -10,7 +10,7 @@ draft: false
 primary_link: 'https://www.health.org.uk/features-and-opinion/blogs/putting-people-at-the-heart-of-technology-enabled-care'
 ---
 
-Jo Scott, Stephanie Guest, and Ross Goldstone of Ipsos draw lessons from the Health Foundation’s **Tech for Better Care** programme in a blog published on **29 October 2026**.
+Jo Scott, Stephanie Guest, and Ross Goldstone draw lessons from the Health Foundation’s **Tech for Better Care** programme in a blog published on **29 October 2026**.
 
 Ten health and care teams developed ideas, with three funded to prototype and pilot services. These explored medication support combining technology with personal contact, facilitated peer groups, and approaches to falls prevention and information sharing.
 
