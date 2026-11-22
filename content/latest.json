@@ -1,32 +1,32 @@
 [
   {
+    "topic": "formal-relational-contracting",
+    "source": "Practice resource · Government Outcomes Lab and Public Digital",
+    "title": "Contracts that leave room to learn",
+    "summary": "An evolving playbook on legal responsibilities, relationships, governance, and changing a service when the evidence changes.",
+    "href": "/news/formal-relational-contracting-playbook/",
+    "link_label": "Explore the playbook",
+    "reviewed_on": "2026-11-22",
+    "evergreen": true
+  },
+  {
+    "topic": "social-impact-bonds",
+    "source": "Reading · 16 November 2026",
+    "title": "What survived the social impact bond experiment?",
+    "summary": "Two people who helped develop social impact bonds explain why bespoke deals were hard to sustain and what might still be useful for commissioning.",
+    "href": "/news/social-impact-bonds-what-survived/",
+    "link_label": "Read the analysis",
+    "reviewed_on": "2026-11-22",
+    "evergreen": true
+  },
+  {
     "topic": "systems-change-for-young-people",
     "source": "Free learning resource · Benjamin P Taylor",
     "title": "Making things change: a guide for young people",
-    "summary": "An illustrated introduction to systems change for young people, educators, and people supporting participation. The revised draft connects purpose, power, organisation, action, and learning.",
+    "summary": "Two illustrated working drafts exploring purpose, power, organisation, action, and learning, for young people and those supporting participation.",
     "href": "https://antlerboy.com/library/making-things-change/",
     "link_label": "Read both editions",
-    "reviewed_on": "2026-11-11",
-    "evergreen": true
-  },
-  {
-    "topic": "asset-based-commissioning",
-    "source": "Resources · 5 November 2026",
-    "title": "Asset-based commissioning: a practical resource hub from TLAP",
-    "summary": "Think Local Act Personal brings together ideas, research, practice stories, and webinars on asset-based commissioning.",
-    "href": "/news/tlap-asset-based-commissioning-hub/",
-    "link_label": "Explore the resources",
-    "reviewed_on": "2026-11-05",
-    "evergreen": true
-  },
-  {
-    "topic": "local-area-coordination",
-    "source": "Reading · 4 November 2026",
-    "title": "What would Local Area Coordination in every neighbourhood make possible?",
-    "summary": "A Local Area Coordination Network reading explores accessible, continuing support rooted in neighbourhood relationships, before people reach a crisis.",
-    "href": "/news/local-area-coordination-future/",
-    "link_label": "Read more",
-    "reviewed_on": "2026-11-10",
+    "reviewed_on": "2026-11-22",
     "evergreen": true
   }
 ]
