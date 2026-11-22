@@ -157,7 +157,7 @@ for index, chapter in enumerate(course['chapters']):
         if chapter['courseLesson'] == '61966250':
             body += '<section class="source-extract">' + re.search(r'<figure>.*?</figure>', render_slide(4), re.S)[0] + '</section>'
         if '/definition' in chapter['route']:
-            body += '<h2>Description from the teaching template</h2>' + ''.join(render_slide(number) for number in chapter['slides'])
+            body += '<h2>From the Academy teaching slides</h2>' + ''.join(render_slide(number) for number in chapter['slides'])
         if chapter.get('preReadingApproach'):
             body += '<h2>Applying this approach</h2>' + render_pre_reading(chapter['preReadingApproach'])
         if chapter.get('resourceLesson'):
@@ -182,7 +182,12 @@ for index, chapter in enumerate(course['chapters']):
         following = course['chapters'][index + 1]
         body += '<p>Next chapter: <a href="/' + following['route'] + '/">' + e(following['title']) + '</a></p>'
     body += '<p><a href="/' + base + '/">All chapters</a> · <a href="/tools/commissioning-compass/workspace/">Record your assessment</a> · <a href="/' + base + '/sources/">Sources and acknowledgements</a></p></nav>'
-    page(chapter['route'], chapter['title'], chapter['section'] + '. Commissioning Compass learning and practice.', body)
+    if chapter['section'].startswith('Aspect of Commissioning '):
+        aspect = chapter['section'].split(': ', 1)[1]
+        lead = f'This chapter covers {aspect[0].lower() + aspect[1:]} in the Public Service Transformation Academy’s Commissioning Compass.'
+    else:
+        lead = 'Part of the Public Service Transformation Academy’s guide to assessing how public services are commissioned.'
+    page(chapter['route'], chapter['title'], lead, body)
 
 download_name = '2026-11-06 the PSTA Commissioning Compass reading sources v0.04 BT.txt'
 # The download contains source text and plain version notes, with no HTML markup.

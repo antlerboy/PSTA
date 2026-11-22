@@ -249,9 +249,9 @@ def main() -> None:
     nca = (ROOT / "programmes/national-commissioning-academy/index.html").read_text(encoding="utf-8", errors="ignore")
     evidence = (ROOT / "commissioning-academy/testimonials/index.html").read_text(encoding="utf-8", errors="ignore")
     for text, label in [
-        ("Applications are open for the January 2027 cohort", "home-page application message"),
-        ("Read more participant experiences", "home-page proof link"),
-        ("2,500+", "graduate evidence"),
+        ("Applications are open for January 2027", "home-page application message"),
+        ("Read participants’ accounts", "home-page proof link"),
+        ("more than 2,500", "graduate evidence"),
     ]:
         if text not in home:
             failures.append(f"missing {label}")
@@ -281,11 +281,11 @@ def main() -> None:
     if 'https://us06web.zoom.us/meeting/register/K8AM-rMiSHGRfmltxyYN_w' not in webinar:
         failures.append('the Islington webinar Zoom registration link is missing')
     contract = (ROOT / 'programmes/contract-management-development/index.html').read_text(encoding='utf-8')
-    for required in ('Open to applications', 'Wednesday 11 November 2026', '£1,350 plus VAT', '£8,950 excluding VAT', 'tel:+447701049836', 'mailto:sarah.johnston@publicservicetransformation.org'):
+    for required in ('Enquire about availability', 'Wednesday 11 November 2026', '£1,350 plus VAT', '£8,950 excluding VAT', 'tel:+447701049836', 'mailto:sarah.johnston@publicservicetransformation.org'):
         if required not in contract:
             failures.append('contract management update missing: ' + required)
-    if 'Next cohort to be announced' in contract:
-        failures.append('the contract management cohort still appears closed')
+    if 'Applications are open. The programme launches on' in contract:
+        failures.append('the past contract management intake is still advertised as forthcoming')
     if "https://github.com/antlerboy/PSTA/issues/2" not in all_text:
         failures.append("website feedback URL is missing")
     if "PSTA accessible navigation state" not in all_text:

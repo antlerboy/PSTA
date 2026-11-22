@@ -130,9 +130,10 @@ jobs:
           python3 scripts/apply_october_updates.py deploy
           python3 scripts/apply_useful_practice.py deploy
           python3 scripts/apply_compass_reading.py deploy
+          python3 scripts/apply_visitor_edition.py deploy
           python3 scripts/audit_site.py deploy
 
-          grep -q "Bring a team and a real change" deploy/index.html
+          grep -q "A twelve-week programme for your team" deploy/index.html
           grep -q 'href="/learning-and-capability/"' deploy/index.html
           test -f deploy/index.html
           test -f deploy/404.html
@@ -153,8 +154,8 @@ jobs:
           grep -q "www.publicservicetransformation.org" deploy/sitemap.xml
           grep -qi "public service" deploy/assets/img/psta-logo-official.svg
           test "$(find deploy -name index.html | wc -l)" -ge 30
-          grep -qi "2,500+" deploy/index.html
-          grep -q "News, social media, and useful things" deploy/index.html
+          grep -qi "more than 2,500" deploy/index.html
+          grep -q "Children’s services in Islington" deploy/index.html
           grep -q "Latest from the PSTA" deploy/index.html
           test "$(grep -c '<section class="section psta-latest-panel"' deploy/index.html)" -eq 1
           ! grep -q "PSTA_NEWS_START" deploy/index.html

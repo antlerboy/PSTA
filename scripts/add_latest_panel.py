@@ -115,7 +115,7 @@ CSS = r"""
 def render_panel(contract: dict) -> str:
     cards = render_cards(contract["selected"], "psta-latest", external_tabs=True)
     runtime = runtime_markup(contract, "psta-latest", external_tabs=True, asset_prefix=PREFIX.rstrip("/"))
-    return f'''\n<section class="section psta-latest-panel" aria-labelledby="psta-latest-heading" data-latest-panel>\n  <div class="psta-latest-inner">\n    <div class="psta-latest-panel-heading">\n      <div>\n        <p class="psta-latest-eyebrow">News, social media, and useful things</p>\n        <h2 id="psta-latest-heading">Latest from the PSTA</h2>\n      </div>\n      <p>Webinars, programmes, and recent learning for public service practitioners. <a href="/news/">See all news</a></p>\n    </div>\n    <div class="psta-latest-grid" data-latest-grid>\n      {cards}\n    </div>\n  </div>\n{runtime}\n</section>\n'''
+    return f'''\n<section class="section psta-latest-panel" aria-labelledby="psta-latest-heading" data-latest-panel>\n  <div class="psta-latest-inner">\n    <div class="psta-latest-panel-heading">\n      <div>\n        \n        <h2 id="psta-latest-heading">Latest from the PSTA</h2>\n      </div>\n      <p><a href="/news/">See all news</a></p>\n    </div>\n    <div class="psta-latest-grid" data-latest-grid>\n      {cards}\n    </div>\n  </div>\n{runtime}\n</section>\n'''
 
 
 def patch_home(contract: dict) -> None:
