@@ -9,8 +9,10 @@ import sys
 
 root = Path(sys.argv[1])
 content = Path(__file__).resolve().parents[1] / 'content/visitor-pages'
+academy_name = 'The Public Service Transformation Academy'
+
 pages = {
-    '': ('home', 'Public Service Transformation Academy', 'Training for people who commission, run, and change public services. Find Academy programmes, course fees, practitioner accounts, and free commissioning tools.'),
+    '': ('home', academy_name, 'Training for people who commission, run, and change public services. Find Academy programmes, course fees, practitioner accounts, and free commissioning tools.'),
     'programmes': ('programmes', 'Academy programmes', 'Compare commissioning, leadership, and service change programmes for individuals, teams, and local public service partners.'),
     'programmes/national-commissioning-academy': ('national', 'National Commissioning Academy', 'Join the January 2027 National Commissioning Academy as an individual or with colleagues. See the course, fees, group discounts, and how to apply.'),
     'learning-and-capability': ('team', 'A twelve-week programme for your team', 'An Academy programme for eight to twelve people working on one service change with support from a senior sponsor.'),
@@ -29,7 +31,8 @@ if any(len(row) != 2 for row in copy_edits):
 def update_metadata(source, title, description):
     title = html.escape(title, quote=True)
     desc = html.escape(description, quote=True)
-    source = re.sub(r'<title>[^<]+</title>', lambda _: f'<title>{title} | Public Service Transformation Academy</title>' if title != 'Public Service Transformation Academy' else f'<title>{title}</title>', source, count=1)
+    page_title = title if title == academy_name else f'{title} | {academy_name}'
+    source = re.sub(r'<title>[^<]+</title>', lambda _: f'<title>{page_title}</title>', source, count=1)
     for key, value in [('name="description"', desc), ('property="og:description"', desc), ('property="og:title"', title)]:
         source = re.sub(r'(<meta ' + key + r' content=")[^"]*', lambda m: m[1] + value, source)
     return source

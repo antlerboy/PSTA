@@ -97,7 +97,7 @@
   /* Ordinary paper and landing pages must remain printable. */
   body.compass-printing > * { display: none !important; }
   body.compass-printing > #compass-print {
-    display: block !important; white-space: normal; font: 11pt/1.5 Georgia, serif;
+    display: block !important; white-space: normal; font: 11pt/1.5 Arial, Helvetica, sans-serif;
     color: #161616; background: #fff; margin: 0; max-width: 100%; overflow-wrap: anywhere;
   }
   #compass-print h1 { font-size: 24pt; line-height: 1.2; color: #321174; margin: 0 0 6mm; }

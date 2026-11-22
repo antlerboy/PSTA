@@ -246,6 +246,16 @@ def main() -> None:
             failures.append(f"sitemap.xml is invalid XML: {exc}")
 
     home = (ROOT / "index.html").read_text(encoding="utf-8", errors="ignore")
+    formal_name = "The Public Service Transformation Academy"
+    for tag in ("h1", "title"):
+        match = re.search(fr"<{tag}\b[^>]*>(.*?)</{tag}>", home, re.S)
+        if not match or match[1].strip() != formal_name:
+            failures.append(f"Home {tag} must use the full Academy name, including The")
+    visitor_styles = (ROOT / "assets/css/visitor-edition.css").read_text(encoding="utf-8")
+    if re.search(r"(?<![-\w])serif\b|Georgia|Times New Roman", visitor_styles, re.I):
+        failures.append("Use the Academy sans-serif typeface in the public prospectus")
+    if re.search(r"#[0-9a-f]{3,8}\b", visitor_styles, re.I):
+        failures.append("Use the Academy colour variables in the public prospectus")
     nca = (ROOT / "programmes/national-commissioning-academy/index.html").read_text(encoding="utf-8", errors="ignore")
     evidence = (ROOT / "commissioning-academy/testimonials/index.html").read_text(encoding="utf-8", errors="ignore")
     for text, label in [
