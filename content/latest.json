@@ -1,5 +1,15 @@
 [
   {
+    "topic": "public-service-talent-exchange",
+    "source": "Benjamin Taylor · The MJ · 8 September 2026",
+    "title": "One-way only won't work",
+    "summary": "Civil service secondments should become a reciprocal public service talent exchange, taking council expertise into Whitehall as well as national policy experience into places.",
+    "href": "https://antlerboy.com/library/one-way-only-wont-work/",
+    "link_label": "Read the author's version",
+    "reviewed_on": "2026-11-26",
+    "evergreen": true
+  },
+  {
     "topic": "formal-relational-contracting",
     "source": "Practice resource · Government Outcomes Lab and Public Digital",
     "title": "Contracts that leave room to learn",
@@ -16,16 +26,6 @@
     "summary": "Two people who helped develop social impact bonds explain why bespoke deals were hard to sustain and what might still be useful for commissioning.",
     "href": "/news/social-impact-bonds-what-survived/",
     "link_label": "Read the analysis",
-    "reviewed_on": "2026-11-22",
-    "evergreen": true
-  },
-  {
-    "topic": "systems-change-for-young-people",
-    "source": "Free learning resource · Benjamin P Taylor",
-    "title": "Making things change: a guide for young people",
-    "summary": "Two illustrated working drafts exploring purpose, power, organisation, action, and learning, for young people and those supporting participation.",
-    "href": "https://antlerboy.com/library/making-things-change/",
-    "link_label": "Read both editions",
     "reviewed_on": "2026-11-22",
     "evergreen": true
   }
