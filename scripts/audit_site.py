@@ -246,6 +246,17 @@ def main() -> None:
             failures.append(f"sitemap.xml is invalid XML: {exc}")
 
     home = (ROOT / "index.html").read_text(encoding="utf-8", errors="ignore")
+    positioning = 'Capability building for people trying to achieve better outcomes in complex systems – commissioning, leading, and systems change for citizens and communities.'
+    if f'<p class="academy-standfirst">{positioning}</p>' not in home:
+        failures.append('the owner-approved capability-building positioning is missing from the homepage')
+    if 'Training for people who commission, run, and change public services.' in home:
+        failures.append('the superseded training-only positioning has returned')
+    if 'href="/in-house/">Bespoke</a>' not in home:
+        failures.append('the bespoke programme navigation label has regressed')
+    for route in ('index.html', 'in-house/index.html', 'programmes/index.html'):
+        page_copy = (ROOT / route).read_text(encoding='utf-8')
+        if re.search(r'>[^<]*\bin-house\b', page_copy, re.I):
+            failures.append(f'{route}: use bespoke for the public programme wording')
     formal_name = "The Public Service Transformation Academy"
     for tag in ("h1", "title"):
         match = re.search(fr"<{tag}\b[^>]*>(.*?)</{tag}>", home, re.S)

@@ -12,14 +12,14 @@ content = Path(__file__).resolve().parents[1] / 'content/visitor-pages'
 academy_name = 'The Public Service Transformation Academy'
 
 pages = {
-    '': ('home', academy_name, 'Training for people who commission, run, and change public services. Find Academy programmes, course fees, practitioner accounts, and free commissioning tools.'),
-    'programmes': ('programmes', 'Academy programmes', 'Compare commissioning, leadership, and service change programmes for individuals, teams, and local public service partners.'),
-    'programmes/national-commissioning-academy': ('national', 'National Commissioning Academy', 'Join the January 2027 National Commissioning Academy as an individual or with colleagues. See the course, fees, group discounts, and how to apply.'),
-    'learning-and-capability': ('team', 'A twelve-week programme for your team', 'An Academy programme for eight to twelve people working on one service change with support from a senior sponsor.'),
-    'about': ('about', 'About the Academy', 'The Public Service Transformation Academy teaches people who commission and run public services. Meet the team and read about the organisation.'),
-    'contact': ('contact', 'Contact the Academy', 'Contact David Mason for Academy programmes, Sarah Johnston for contract management, or Benjamin P Taylor for strategic partnerships.'),
-    'community': ('community', 'Events and peer learning', 'Public events, facilitated case clinics, and contributions from Academy participants and practitioners.'),
-    'in-house': ('in-house', 'In-house and local partnership programmes', 'Commission an Academy programme for staff in your organisation or people working together across local public services.'),
+    '': ('home', academy_name, 'Capability building for people trying to achieve better outcomes in complex systems – commissioning, leading, and systems change for citizens and communities.'),
+    'programmes': ('programmes', 'Programmes from the PSTA', 'Compare commissioning, leadership, and systems change programmes for individuals, teams, and local public service partners.'),
+    'programmes/national-commissioning-academy': ('national', 'The National Commissioning Academy', 'Join the National Commissioning Academy in January 2027 as an individual or with colleagues. See the course, fees, group discounts, and how to apply.'),
+    'learning-and-capability': ('team', 'A twelve-week programme for your team', 'A programme from the PSTA for eight to twelve people working on one service change with support from a senior sponsor.'),
+    'about': ('about', 'About the PSTA', 'The Public Service Transformation Academy builds capability for better outcomes in complex systems. Meet the team and read about the organisation.'),
+    'contact': ('contact', 'Contact the PSTA', 'Contact David Mason for programmes from the PSTA, Sarah Johnston for contract management, or Benjamin P Taylor for strategic partnerships.'),
+    'community': ('community', 'Events and peer learning', 'Public events, facilitated case clinics, and contributions from participants and practitioners working with the PSTA.'),
+    'in-house': ('in-house', 'Bespoke and local partnership programmes', 'Commission a programme from the PSTA for staff in your organisation or people working together across local public services.'),
     'tools': ('tools', 'Commissioning tools', 'Choose a free commissioning self-assessment, compare colleagues’ perspectives, or find the original adult social care question sheet.'),
 }
 with (content / 'copy.tsv').open(encoding='utf-8') as stream:
@@ -71,8 +71,8 @@ for path in root.rglob('index.html'):
         continue
     # Shared navigation also appears around independently authored articles.
     source = source.replace('National Commissioning Academy applications are open: Starting January 2027', 'National Commissioning Academy · January 2027 intake')
-    source = source.replace('Practical development for people changing public services from inside the work.', 'Courses and tools for people who commission and run public services.')
-    source = source.replace('href="/in-house/">Bespoke</a>', 'href="/in-house/">In-house</a>').replace('href="/contact/">Talk to us</a>', 'href="/contact/">Contact</a>')
+    source = source.replace('Practical development for people changing public services from inside the work.', 'Capability building for better outcomes in complex systems.')
+    source = source.replace('href="/in-house/">In-house</a>', 'href="/in-house/">Bespoke</a>').replace('href="/contact/">Talk to us</a>', 'href="/contact/">Contact</a>')
     if not publication(route) and not route.startswith(('wp-', 'wordpress')):
         if route in pages:
             source = assemble(source, route)
@@ -92,4 +92,11 @@ for path in root.rglob('index.html'):
             source = source.replace('Applications are open. The programme launches on', 'The published start date for this group was')
             source = source.replace('To secure your place or find out more, contact', 'For current availability or future dates, contact')
             source = source.replace('>Launch</dt>', '>Published start date</dt>')
+    if route in pages:
+        # Keep the latest visitor edition consistent with the owner's standing
+        # terminology, after all page-specific copy substitutions have run.
+        source = source.replace('In-house', 'Bespoke').replace('in-house', 'bespoke')
+        source = source.replace('/bespoke/', '/in-house/')
+        source = re.sub(r'\bThe Academy\b', 'The PSTA', source)
+        source = re.sub(r'\bthe Academy\b', 'the PSTA', source)
     path.write_text(source, encoding='utf-8')
