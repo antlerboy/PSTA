@@ -1,4 +1,4 @@
-# Public Service Transformation Academy website
+# The Public Service Transformation Academy website
 
 The complete static website for the Public Service Transformation Academy, published through GitHub Pages.
 
@@ -11,6 +11,12 @@ The complete static website for the Public Service Transformation Academy, publi
 ## Editing routes
 
 Use the single running feedback issue for rough observations and changes for a later iteration.
+
+Every website update must read the issue and every comment in the running feedback thread before choosing its changes. Recheck the complete thread before reporting completion. Record each instruction against the source and the published result; earlier completion comments are leads, not proof.
+
+Resolve each instruction, or store its exact scope, reason it remains unfinished, evidence, and next action in the update's durable maintenance record. Carry unfinished entries into the next update. A build passing, a commit merging, or another site's queue being checked does not establish that this queue is resolved. Verify the deployed pages before marking an item complete, and report remaining items explicitly.
+
+Keep the public positioning grounded in the PSTA's core thinking and documents: capability building for people trying to achieve better outcomes in complex systems – commissioning, leading, and systems change for citizens and communities. Use ‘bespoke’ for tailored organisational programmes, preserving established URLs.
 
 Use the **Publish a PSTA news item** issue form for approved news. A permitted submission creates the website item, updates RSS, refreshes the social and newsletter queues, and invokes the optional Buffer/newsletter webhook.
 
